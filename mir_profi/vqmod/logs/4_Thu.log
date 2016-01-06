@@ -1,0 +1,30 @@
+---------- Date: 2015-07-30 19:57:23 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /mir_profi/
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\mir_profi\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 19:57:35 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /mir_profi/
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\mir_profi\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+

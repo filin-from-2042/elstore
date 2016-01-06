@@ -1,0 +1,206 @@
+a {
+	outline:none;
+}
+.selected td {
+	background:#E4EEF7 !important;
+}
+/**/
+.list td thead td {
+	background-color: #EFEFEF !important;
+	padding: 0px 5px;
+}
+.list td thead td a, .list td thead td {
+	text-decoration: none;
+	color: #222222;
+	font-weight: bold;
+}
+#product tbody .image_edit {
+	margin-bottom:-2px;
+}
+#product tbody .image_edit a {
+	display:inline-block;
+}
+#product tbody .image_edit img {
+	border:1px solid #DDD;
+	float:left;
+	margin:-2px;
+}
+#product tbody .image_edit div.image_remove {
+	width:16px;
+	height:16px;
+	background: url(../image/delete.png) no-repeat left top;
+	position: relative;
+	top:-7px;
+	left:-7px;
+	float:left;
+	margin-bottom:-16px;
+}
+#product tbody .image_edit div.image_path {
+	width:16px;
+	height:16px;
+	background: url(../image/delete.png) no-repeat left top;
+	position:relative;
+	top:-7px;
+	right:-7px;
+	float:right;
+	margin-bottom:-16px;
+}
+#product tbody .image_edit img:hover, #product tbody .image_edit div:hover {
+	cursor:pointer;
+}
+#product tbody span {
+	cursor:pointer;
+	width:100%;
+	float:left;
+	min-height:12px;
+}
+#product tbody span:hover {
+	border:1px solid #999;
+	margin:-5px;
+	padding:4px;
+	-webkit-box-shadow:0px 0px 3px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	-khtml-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	-o-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+#product tbody .nowrap select {
+	margin:0px;
+}
+#product tbody input[type=text], #product tbody textarea, #product tbody select {
+	width:100%;
+	margin:-4px;
+	float:left;
+}
+#product tbody tr.hover td {
+	background:#E4EEF7;
+}
+#product tbody tr td #form_list input {
+	width:auto !important;
+	float:none !important;
+}
+#product tbody tr td #form_list .image img {
+	float:left;
+	margin:0px;
+}
+#product .product_name span {
+	font-weight:bold;
+}
+
+#product .product_name div {
+	margin-top:8px;
+	float:left;
+	font-size:11px;
+}
+
+#attribute select, #attribute_list select {
+	width:100%;
+}
+.dd_menu {
+}
+.dd_menu_title {
+	background:url(../image/arrow_down.png) #FFFFFF 100% 50% no-repeat;
+	border:1px solid #CCC;
+	cursor:pointer;
+	display:block;
+	line-height:22px;
+	min-height:22px;
+	padding-left:5px;
+	padding-right:20px;
+}
+.dd_menu_shadow {
+	-webkit-box-shadow:0px 0px 3px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	-khtml-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	-o-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+.dd_menu_container {
+	display:none;
+	position:absolute;
+	background:#FFFFFF;
+	border:1px solid #CCC;
+	max-height:400px !important;
+	min-width:200px;
+	margin-top:-1px;
+	overflow-y:scroll;
+	padding:3px;
+	z-index:1000;
+}
+.dd_menu_container table {
+	min-width:500px;
+}
+.dd_menu_container table.last {
+	margin:0px;
+}
+.dd_menu_container div {
+	padding:2px;
+}
+.dd_menu_container div.even {
+	background: #FFFFFF;
+}
+.dd_menu_container div.odd {
+	background: #E4EEF7;
+}
+td.enabled {
+	background: #EAF7D9 !important;
+}
+td.disabled {
+	background: #FFD1D1 !important;
+}
+td.attention {
+	background: #FFC !important;
+}
+td.quantity span {
+	color:green;
+}
+td.quantity_0 span {
+	color:red;
+}
+#message {
+	position:fixed;
+	width:400px;
+	line-height:40px;
+	margin-top:-25px;
+	margin-left:-200px;
+	left:50%;
+	top:50%;
+	padding-left:30px;
+	display:none;
+	text-align:center;
+	z-index:10000;
+}
+#overlay {
+	display:none;
+	z-index:10000;
+}
+.ui-widget-overlay {
+	width:100% !important;
+	height:100% !important;
+	position:fixed !important;
+}
+.form-hidden {
+	display:none;
+}
+.go_up {
+	background:url(../image/go_up.png) left top no-repeat;
+	position:fixed;
+	top:50%;
+	left:0%;
+	width:32px;
+	height:32px;
+	cursor:pointer;
+}
+.link, .related, .edit {
+	width:16px;
+	height:16px;
+	margin:-3px;
+	float:left;
+}
+.link {
+	background:url(../image/link.png) left top no-repeat;
+}
+.related {
+	background:url(../image/related.png) left top no-repeat;
+}
+.edit {
+	background:url(../image/edit.png) left top no-repeat;
+}

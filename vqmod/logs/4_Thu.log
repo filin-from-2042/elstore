@@ -1,0 +1,426 @@
+---------- Date: 2015-07-30 18:58:47 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 18:59:24 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 18:59:33 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=affiliate/account
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 19:02:57 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=affiliate/account
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 19:55:56 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 19:56:45 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 19:58:15 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:02:41 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=63_401_407
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/vqmod.xml
+   id        : OpenCart Product filter v3.0
+   version   : 1.1
+   vqmver    : 
+   author    : Product filter - SOOR, vQmod - DieZ
+
+File Name    : catalog/view/theme/*/template/product/category.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <div class="description"><?php echo $product['description']; ?></div>
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:03:34 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=63_401_407&amp;page=2
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/vqmod.xml
+   id        : OpenCart Product filter v3.0
+   version   : 1.1
+   vqmver    : 
+   author    : Product filter - SOOR, vQmod - DieZ
+
+File Name    : catalog/view/theme/*/template/product/category.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <div class="description"><?php echo $product['description']; ?></div>
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:03:42 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/product&amp;path=63_401_407&amp;product_id=1276
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:03:49 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:03:56 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=checkout/cart
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:04:32 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=checkout/cart
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:04:37 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=63
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/vqmod.xml
+   id        : OpenCart Product filter v3.0
+   version   : 1.1
+   vqmver    : 
+   author    : Product filter - SOOR, vQmod - DieZ
+
+File Name    : catalog/view/theme/*/template/product/category.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <div class="description"><?php echo $product['description']; ?></div>
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:04:46 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=63
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/vqmod.xml
+   id        : OpenCart Product filter v3.0
+   version   : 1.1
+   vqmver    : 
+   author    : Product filter - SOOR, vQmod - DieZ
+
+File Name    : catalog/view/theme/*/template/product/category.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <div class="description"><?php echo $product['description']; ?></div>
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:06:13 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=63
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/vqmod.xml
+   id        : OpenCart Product filter v3.0
+   version   : 1.1
+   vqmver    : 
+   author    : Product filter - SOOR, vQmod - DieZ
+
+File Name    : catalog/controller/product/category.php(5)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): 'name' => $result['name'],
+
+File Name    : catalog/view/theme/*/template/product/category.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <div class="description"><?php echo $product['description']; ?></div>
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:10:44 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=63_72_125
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/vqmod.xml
+   id        : OpenCart Product filter v3.0
+   version   : 1.1
+   vqmver    : 
+   author    : Product filter - SOOR, vQmod - DieZ
+
+File Name    : catalog/view/theme/*/template/product/category.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <div class="description"><?php echo $product['description']; ?></div>
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:11:33 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=63
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/vqmod.xml
+   id        : OpenCart Product filter v3.0
+   version   : 1.1
+   vqmver    : 
+   author    : Product filter - SOOR, vQmod - DieZ
+
+File Name    : catalog/view/theme/*/template/product/category.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (SKIPPED): <div class="description"><?php echo $product['description']; ?></div>
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:11:58 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:14:50 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:23:29 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:23:55 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:24:13 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2015-07-30 20:28:46 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /index.php?route=common/home
+MOD DETAILS:
+   modFile   : H:\open2\OpenServer\domains\elstore\vqmod/xml/supermenu.xml
+   id        : Supermenu Integration Vqmod
+   version   : 1.0
+   vqmver    : Latest
+   author    : Flo - shopencart.com
+
+File Name    : catalog/view/theme/*/template/common/header.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php if ($categories) { ?>
+
+----------------------------------------------------------------------
+
+

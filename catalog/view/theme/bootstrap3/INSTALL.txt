@@ -1,0 +1,107 @@
+ШАБЛОН BOOTSTRAP 3
+
+Шаблон на основе Bootstrap v3.0.0. для ocStore v1.5.5.1.1.
+Стартовый шаблон для дальнейшей кастомизации.
+
+
+----------
+Установка:
+----------
+
+Не затрагивает файлы движка.
+
+1.  Копировать содержимое upload_theme в корень сайта.
+2.  Выбрать шаблон в панели администратора -> Система -> Настройки -> Изменить настройки магазина -> Витрина -> Шаблон магазина -> bootstrap3.
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+КЛАСС PAGINATION
+
+Библиотечный класс Pagination для ocStore v1.5.5.1.1.
+Библиотечный класс Pagination совместимый с шаблоном BOOTSTRAP 3.
+
+
+---------------------
+Установка. Вариант 1:
+---------------------
+
+Затрагивает файлы:
+    /system/library/pagination.php        - класс Pagination,
+    /admin/view/stylesheet/stylesheet.css - исправляет пагинацию в панели администратора.
+
+1.  Копировать содержимое upload_pagination в корень сайта.
+
+
+---------------------
+Установка. Вариант 2:
+---------------------
+
+Затрагивает файл:
+    /system/library/pagination.php.
+
+1.  Копировать файл upload_pagination/system/library/pagination.php в корень сайта.
+2.  (опционально) Добавить в /admin/view/stylesheet/stylesheet.css
+        ul.pagination {
+            display: inline-block;
+            float: left;
+            padding: 0;
+        }
+        ul.pagination li {
+            display: inline-block;
+            float: left;
+            padding: 6px;
+        }
+        ul.pagination li.active a {
+            text-decoration: none;
+        }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+3. МОДУЛИ BT3_BESTSELLER, BT3_FEATURED, BT3_LATEST, BT3_SPECIAL
+
+Модули для ocStore v1.5.5.1.1.
+Работают аналогично стандартным модулям ocStore: Bestseller (Хиты продаж), Featured (Рекомендуемые), Latest (Последние), Special (Акции), добавляя возможность индивидуальной настройки классов bootstrap 3, отвечающих за отображение карточки товара.
+
+----------
+Установка:
+----------
+
+Не затрагивает файлы движка.
+
+1.  Копировать содержимое upload_modules в корень сайта.
+2.  Установить и настроить модули в панели администратора -> Дополнения -> Модули.
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+4. ШАБЛОНЫ ДЛЯ МОДУЛЕЙ CART, CATEGORY, CURRENCY, LANGUAGE, SLIDESHOW
+
+Шаблоны для модулей ocStore v1.5.5.1.1.
+
+cart.dropdown.tpl        - шаблон cart на основе плагина BT Dropdown.
+cart.modal.tpl           - шаблон cart на основе плагина BT Modal.
+category.1.tpl           - шаблон category v1.
+category.2.tpl           - шаблон category v2.
+currency.1.tpl           - шаблон currency v1.
+currency.2.tpl           - шаблон currency v2.
+language.1.tpl           - шаблон language v1.
+language.2.tpl           - шаблон language v2.
+slideshow.carousel.tpl   - шаблон slideshow на основе плагина BT Сarousel.
+slideshow.nivoslider.tpl - шаблон slideshow на основе плагина Nivoslider.
+
+----------
+Установка:
+----------
+
+Не затрагивает файлы движка.
+
+1.  Файл шаблона в module_tpl переименовать в соответствующий шаблон (к примеру, cart.modal.tpl переименовать cart.tpl).
+2   Переименованный файл копировать в /catalog/view/theme/bootstrap3/template/module.

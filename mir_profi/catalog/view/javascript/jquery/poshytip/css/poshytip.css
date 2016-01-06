@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+.tooltip {
+	filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	opacity: 0.8;
+	z-index:1000;
+	text-align:left;
+	padding:8px 8px;
+	max-width:200px;
+	color:#FFF;
+	background-color:#000;
+}
+.tooltip .tip-inner {
+	font:bold 11px/14px 'Lucida Grande', sans-serif;
+}
+.tooltip .tip-arrow-top {
+	margin-top:-5px;
+	margin-left:-5px;
+	top:0;
+	left:50%;
+	width:9px;
+	height:5px;
+	background:url(../images/tooltip.gif) no-repeat;
+}
+.tooltip .tip-arrow-right {
+	margin-top:-4px;
+	margin-left:0;
+	top:50%;
+	left:100%;
+	width:5px;
+	height:9px;
+	background:url(../images/tooltip.gif) no-repeat -9px 0;
+}
+.tooltip .tip-arrow-bottom {
+	margin-top:0;
+	margin-left:-5px;
+	top:100%;
+	left:50%;
+	width:9px;
+	height:5px;
+	background:url(../images/tooltip.gif) no-repeat -18px 0;
+}
+.tooltip .tip-arrow-left {
+	margin-top:-4px;
+	margin-left:-5px;
+	top:50%;
+	left:0;
+	width:5px;
+	height:9px;
+	background:url(../images/tooltip.gif) no-repeat -27px 0;
+}
