@@ -20,20 +20,21 @@ require_once ('IXR_Library.php');
 // Configuration
 if (file_exists('../admin/config.php')) {
 	require_once('../admin/config.php');
-} 
+}
 
-require_once(DIR_SYSTEM . 'engine/model.php');
+//require_once(DIR_SYSTEM . 'engine/model.php');
+require_once('../system/engine/model.php');
 require_once('../admin/model/catalog/product.php');
 
 
 // Startup
-require_once(DIR_SYSTEM . 'startup.php');
+require_once('../system/startup.php');
 
 // Application Classes
-require_once(DIR_SYSTEM . 'library/currency.php');
-require_once(DIR_SYSTEM . 'library/user.php');
-require_once(DIR_SYSTEM . 'library/weight.php');
-require_once(DIR_SYSTEM . 'library/length.php');
+require_once('../system/library/currency.php');
+require_once('../system/library/user.php');
+require_once('../system/library/weight.php');
+require_once('../system/library/length.php');
 
 
 // Registry

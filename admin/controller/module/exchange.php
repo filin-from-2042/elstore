@@ -189,11 +189,29 @@ class ControllerModuleExchange extends Controller {
                         ) ENGINE = MYISAM DEFAULT CHARSET=utf8");
     }
 
-    function xmlRpc($login, $password, $action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c) {
+    function xmlRpc($login, $password, $action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $is_deleted=false, $fckingmess=array(1,1,2,1)) {
 
 
         //------------
-        
+
+        $file = 'E:/OpenServer/domains/elstore/admin/controller/module/debug.txt';
+
+        $fp = fopen ($file, "w");
+        if (is_array($fckingmess))
+            foreach ($fckingmess as $output)
+            {
+                fwrite($fp, $output.",  ");
+            }
+
+        else   fwrite($fp, $fckingmess.",  ");
+
+        fwrite($fp, " hoooooooo  ");
+
+        fclose($fp);
+//        file_put_contents($fp, 'жопа1');
+//        file_put_contents($fp, $fckingmess);
+
+
         if (!$this->registry->get('user')->isLogged()) {
           //  $this->log->write("незалогинены,логинимся");
 
@@ -214,25 +232,25 @@ class ControllerModuleExchange extends Controller {
             case 'addCategory':
                 if ($is_group_1c){
                     $this->load->model('tool/exchange');
-                    $this->model_tool_exchange->addCategory($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_own_1c, $lang);
+                    $this->model_tool_exchange->addCategory($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_own_1c, $lang, $is_deleted);
                 }
                 break;
             case 'addProduct':
                 if (!$is_group_1c){               
                     $this->load->model('tool/exchange');
-                    $this->model_tool_exchange->addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $lang);
+                    $this->model_tool_exchange->addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $lang,$is_deleted);
                 }
                 break;
             case 'getProduct':
                 if (!$is_group_1c){
                     $this->load->model('tool/exchange');
-                    $this->model_tool_exchange->getProduct($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_own_1c);
+                    $this->model_tool_exchange->getProduct($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_own_1c,$is_deleted);
                 }
                 break;
             case 'refreshProduct':
                 
                     $this->load->model('tool/exchange');
-                    $this->model_tool_exchange->refreshProduct($kod_1c, $name_1c, $ostatok_1c, $cost_1c);
+                    $this->model_tool_exchange->refreshProduct($kod_1c, $name_1c, $ostatok_1c, $cost_1c,$is_deleted);
                 
                 break;
             case 'deleteDouble':

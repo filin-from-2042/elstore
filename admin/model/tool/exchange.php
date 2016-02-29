@@ -223,7 +223,7 @@ class ModelToolExchange extends Model {
     }
 
     //--------------------------------------------Продукт----------------------------------------------------------------------------------------------       
-    public function addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0') {
+    public function addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0',$is_deleted = false) {
 
         $data = array();
         $product = array();
@@ -232,6 +232,7 @@ class ModelToolExchange extends Model {
         $product['model'] = !empty($article_1c) ? $article_1c :'-';
         $product['quantity'] = $ostatok_1c;
         $product['keyword'] = htmlentities($this->mb_transliterate($name_1c), ENT_QUOTES, 'UTF-8');
+        $product['status'] = ( $is_deleted?0:1);
         //$product['option'] = $edizm_1c;
 
         $option_id = $this->checkOptions($lang);
@@ -327,7 +328,7 @@ class ModelToolExchange extends Model {
             , 'stock_status_id' => $this->config->get('config_stock_status_id')
             , 'price' => isset($product['cost']) ? $product['cost'] : 0
             , 'cost' => isset($product['cost']) ? $product['cost'] : 0 //-----------
-            , 'status' => 1
+            , 'status' => $product['status']
             , 'tax_class_id' => 0
             , 'weight' => 0
             , 'weight_class_id' => 1
@@ -392,7 +393,7 @@ class ModelToolExchange extends Model {
     }
 
     public function addProductToOc($data) {
-        $this->db->query("INSERT INTO " . DB_PREFIX . "product SET model = '" . $this->db->escape($data['model']) . "', sku = '" . $this->db->escape($data['sku']) . "', upc = '" . $this->db->escape($data['upc']) . "', ean = '" . $this->db->escape($data['ean']) . "', jan = '" . $this->db->escape($data['jan']) . "', isbn = '" . $this->db->escape($data['isbn']) . "', mpn = '" . $this->db->escape($data['mpn']) . "', location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int) $data['quantity'] . "', minimum = '" . (int) $data['minimum'] . "', subtract = '" . (int) $data['subtract'] . "', stock_status_id = '" . (int) $data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int) $data['manufacturer_id'] . "', shipping = '" . (int) $data['shipping'] . "', price = '" . (float) $data['price'] . "', points = '" . (int) $data['points'] . "', weight = '" . (float) $data['weight'] . "', weight_class_id = '" . (int) $data['weight_class_id'] . "', length = '" . (float) $data['length'] . "', width = '" . (float) $data['width'] . "', height = '" . (float) $data['height'] . "', length_class_id = '" . (int) $data['length_class_id'] . "', status = '" . (int) $data['status'] . "', tax_class_id = '" . $this->db->escape($data['tax_class_id']) . "', sort_order = '" . (int) $data['sort_order'] . "', date_added = NOW()");
+        $this->db->query("INSERT INTO " . DB_PREFIX . "product SET model = '" . $this->db->escape($data['model']) . "', sku = '" . $this->db->escape($data['sku']) . "', upc = '" . $this->db->escape($data['upc']) . "', ean = '" . $this->db->escape($data['ean']) . "', jan = '" . $this->db->escape($data['jan']) . "', isbn = '" . $this->db->escape($data['isbn']) . "', mpn = '" . $this->db->escape($data['mpn']) . "', location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int) $data['quantity'] . "', minimum = '" . (int) $data['minimum'] . "', subtract = '" . (int) $data['subtract'] . "', stock_status_id = '" . (int) $data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int) $data['manufacturer_id'] . "', shipping = '" . (int) $data['shipping'] . "', price = '" . (float) $data['price'] . "', points = '" . (int) $data['points'] . "', weight = '" . (float) $data['weight'] . "', weight_class_id = '" . (int) $data['weight_class_id'] . "', length = '" . (float) $data['length'] . "', width = '" . (float) $data['width'] . "', height = '" . (float) $data['height'] . "', length_class_id = '" . (int) $data['length_class_id'] . "', status = '" .  $data['status'] . "', tax_class_id = '" . $this->db->escape($data['tax_class_id']) . "', sort_order = '" . (int) $data['sort_order'] . "', date_added = NOW()");
 
         $product_id = $this->db->getLastId();
 
