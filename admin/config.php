@@ -1,28 +1,28 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://elstore/admin/');
-define('HTTP_CATALOG', 'http://elstore/');
+define('HTTP_SERVER', 'http://'.$_SERVER["HTTP_HOST"].'/admin/');
+define('HTTP_CATALOG', 'http://'.$_SERVER["HTTP_HOST"].'/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://elstore/admin/');
-define('HTTPS_CATALOG', 'http://elstore/');
-
+define('HTTPS_SERVER', 'http://'.$_SERVER["HTTP_HOST"].'/admin/');
+define('HTTPS_CATALOG', 'http://'.$_SERVER["HTTP_HOST"].'/');
+$rootDir = $_SERVER["DOCUMENT_ROOT"];
 // DIR
-define('DIR_APPLICATION', 'H:\open2\OpenServer\domains\elstore\admin/');
-define('DIR_SYSTEM', 'H:\open2\OpenServer\domains\elstore\system/');
-define('DIR_DATABASE', 'H:\open2\OpenServer\domains\elstore\system/database/');
-define('DIR_LANGUAGE', 'H:\open2\OpenServer\domains\elstore\admin/language/');
-define('DIR_TEMPLATE', 'H:\open2\OpenServer\domains\elstore\admin/view/template/');
-define('DIR_CONFIG', 'H:\open2\OpenServer\domains\elstore\system/config/');
-define('DIR_IMAGE', 'H:\open2\OpenServer\domains\elstore\image/');
-define('DIR_CACHE', 'H:\open2\OpenServer\domains\elstore\system/cache/');
-define('DIR_DOWNLOAD', 'H:\open2\OpenServer\domains\elstore\download/');
-define('DIR_LOGS', 'H:\open2\OpenServer\domains\elstore\system/logs/');
-define('DIR_CATALOG', 'H:\open2\OpenServer\domains\elstore\catalog/');
+define('DIR_APPLICATION', $rootDir.'\admin/');
+define('DIR_SYSTEM', $rootDir.'\system/');
+define('DIR_DATABASE', $rootDir.'\system/database/');
+define('DIR_LANGUAGE', $rootDir.'\admin/language/');
+define('DIR_TEMPLATE', $rootDir.'\admin/view/template/');
+define('DIR_CONFIG', $rootDir.'\system/config/');
+define('DIR_IMAGE', $rootDir.'\image/');
+define('DIR_CACHE', $rootDir.'\system/cache/');
+define('DIR_DOWNLOAD', $rootDir.'\download/');
+define('DIR_LOGS', $rootDir.'\system/logs/');
+define('DIR_CATALOG', $rootDir.'\catalog/');
 
 // DB
 define('DB_DRIVER', 'mysql');
-define('DB_HOSTNAME', 'localhost');
+define('DB_HOSTNAME', '192.168.1.37');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'elstore');
