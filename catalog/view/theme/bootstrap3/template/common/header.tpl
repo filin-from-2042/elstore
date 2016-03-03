@@ -1,4 +1,4 @@
-<?php require_once('/../../config.php'); ?>
+<?php require_once(DIR_APPLICATION .'view/theme/bootstrap3/config.php');?>
 
 <!DOCTYPE html>
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
@@ -6,7 +6,7 @@
 <!-- meta -->
 <meta charset="UTF-8" />
 <title><?php echo $title; ?></title>
-<base href="<?php echo $base; ?>" />
+<base href="<?php echo $base='http://www.elektrik-1.nichost.ru/'; ?>" />
 <?php if ($description) { ?>
     <meta name="description" content="<?php echo $description; ?>" />
 <?php } ?>
@@ -67,7 +67,10 @@
 <?php } ?>
 <!-- code -->
 <?php echo $google_analytics; ?>
-<?php echo $supermenu_settings; ?>
+<?php
+//!!! supermenu
+//echo $supermenu_settings;
+?>
 </head>
 <body>
 <!-- toolbar -->
@@ -124,9 +127,7 @@
                     <a class="pull-left" href="<?php echo $home; ?>" role="banner">
                         <img id="logo" class="img-responsive" src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
                     </a>
-                <a class="pull-right" href="<?php echo $home_inst; ?>" role="banner">
-                    <img id="logo" class="img-responsive" src="<?php echo $logo_inst; ?>" title="<?php echo $name_inst; ?>" alt="<?php echo $name_inst; ?>" />
-                </a>
+
                 <?php } ?>
             </div>
         </div>
@@ -154,5 +155,5 @@
 <br />
 <!-- menu -->
 <div id="menu" class="container-fluid hidden-print">
-    <?php include('/../module/menu.tpl'); ?>
+    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/menu.tpl'); ?>
 </div>

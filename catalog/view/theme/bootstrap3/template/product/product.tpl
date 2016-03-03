@@ -2,7 +2,7 @@
 <?php echo $header; ?>
 <!-- notification -->
 <div id="notification" class="container hidden-print">
-    <?php include('/../module/notification.tpl'); ?>
+    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
@@ -15,7 +15,7 @@
                 <div id="top" class="row"><div class="<?php echo $bootstrap->top; ?>"><?php echo $content_top; ?></div></div>
             <?php } ?>
             <!-- breadcrumbs -->
-            <?php include('/../module/breadcrumbs.tpl'); ?>
+            <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
             <!-- content -->
             <div id="content" class="row">
                 <div class="<?php echo $bootstrap->content; ?>" role="main">
@@ -212,7 +212,7 @@
                                 </div>
                             <?php if ($review_status) { ?>
                                 <div class="pull-left">
-                                    <?php include('/../module/add_this.tpl'); ?>
+                                    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/add_this.tpl'); ?>
                                 </div>
                             <?php } ?>
                         </div>
@@ -278,7 +278,7 @@
                             <div id="tab-related" class="tab-pane hidden-print">
                                 <!-- products thumbnail -->
                                 <?php $bt3 = 'col-xs-6 col-sm-4 col-md-4 col-lg-4'; ?>
-                                <?php include('/../module/products_thumbnail.tpl'); ?>
+                                <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/products_thumbnail.tpl'); ?>
                             </div>
                         <?php } ?>
                     </div>

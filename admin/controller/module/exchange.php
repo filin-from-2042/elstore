@@ -189,27 +189,10 @@ class ControllerModuleExchange extends Controller {
                         ) ENGINE = MYISAM DEFAULT CHARSET=utf8");
     }
 
-    function xmlRpc($login, $password, $action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $is_deleted=false, $fckingmess=array(1,1,2,1)) {
+    function xmlRpc($login, $password, $action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $is_deleted=false) {
 
 
         //------------
-
-        $file = 'E:/OpenServer/domains/elstore/admin/controller/module/debug.txt';
-
-        $fp = fopen ($file, "w");
-        if (is_array($fckingmess))
-            foreach ($fckingmess as $output)
-            {
-                fwrite($fp, $output.",  ");
-            }
-
-        else   fwrite($fp, $fckingmess.",  ");
-
-        fwrite($fp, " hoooooooo  ");
-
-        fclose($fp);
-//        file_put_contents($fp, 'жопа1');
-//        file_put_contents($fp, $fckingmess);
 
 
         if (!$this->registry->get('user')->isLogged()) {

@@ -1,4 +1,4 @@
-<?php require_once('/../../config.php'); ?>
+<?php require_once(DIR . THEME .'/config.php'); ?>
 <?php $bootstrap = new Bootstrap(); ?>
 <form class="form-horizontal" name="login">
     <fieldset>

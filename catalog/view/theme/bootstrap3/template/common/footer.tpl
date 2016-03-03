@@ -49,4 +49,4 @@
     </div>
 </div>
 <!-- modal -->
-<?php include('/../module/modal.tpl'); ?>
+<?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/modal.tpl'); ?>

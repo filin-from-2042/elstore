@@ -2,7 +2,7 @@
 <?php echo $header; ?>
 <!-- notification -->
 <div id="notification" class="container hidden-print">
-    <?php include('/../module/notification.tpl'); ?>
+    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap(); ?>

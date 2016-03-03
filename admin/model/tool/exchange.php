@@ -23,11 +23,12 @@ class ModelToolExchange extends Model {
     }
 
     //--------------------------------------------Категории--------------------------------------------------------------------------------------------  
-    public function addCategory($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0') {
+    public function addCategory($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0', $is_deleted=false) {
 
         $data = array();
         $data['name'] = htmlentities($name_1c, ENT_QUOTES, 'UTF-8');
         $data['keyword'] = htmlentities($this->mb_transliterate($name_1c), ENT_QUOTES, 'UTF-8');
+        $data['status'] = ( $is_deleted?0:1);
 
         $tmp = $this->isOcIdCat($kod_1c);
         $category_id = $tmp['oc_cat_id'];
@@ -48,8 +49,10 @@ class ModelToolExchange extends Model {
         if (!empty($category_id) && $this->model_catalog_category->getCategory($category_id)) {
             //обновим, если приоритет за 1с
             if ($this->priority){
-            $catdata = $this->prepareCat("", $lang, $data);
-            $this->model_catalog_category->editCategory($category_id, $catdata);
+            //$catdata = $this->prepareCat("", $lang, $data);
+            //$this->model_catalog_category->editCategory($category_id, $catdata);
+                $this->db->query("UPDATE  " . DB_PREFIX . "category_description SET name='$name_1c' WHERE category_id='$category_id'");
+                $this->db->query("UPDATE  " . DB_PREFIX . "category SET parent_id='".$tmp['parent_id']."', status='".$data['status'] ."' WHERE category_id='$category_id'");
             }
             
         } else {
@@ -144,7 +147,7 @@ class ModelToolExchange extends Model {
 
         $result = array(
             'status' => isset($data['status']) ? $data['status'] : 1
-            , 'top' => isset($data['top']) ? $data['top'] : 1
+            , 'top' => isset($data['top']) ? $data['top'] : 0
             , 'parent_id' => $parent
             , 'category_store' => isset($data['category_store']) ? $data['category_store'] : array(0)
             , 'keyword' => isset($data['keyword']) ? $data['keyword'] : ''  // сюда добавляем SEO URL
@@ -275,9 +278,14 @@ class ModelToolExchange extends Model {
              }
                       
             $proddata = $this->prepareProduct($product, $lang);           
-            $this->model_catalog_product->editProduct($product_id, $proddata);      
-                      
-            
+            //$this->model_catalog_product->editProduct($product_id, $proddata);
+            // Refresh name, cost, quantity, status
+            $this->db->query("UPDATE  " . DB_PREFIX . "product SET  quantity='". $product['quantity'] ."',
+                                                                    price='". $product['cost'] ."',
+                                                                    status='". $product['status'] ."'
+                                                                   WHERE product_id='$product_id'");
+            // Uncomment/comment on necessity
+            $this->db->query("UPDATE  " . DB_PREFIX . "product_description SET  name='". $product['name'] ."' WHERE product_id='$product_id'");
         } else {
             //добавим
             $proddata = $this->prepareProduct($product, $lang);
@@ -545,7 +553,9 @@ class ModelToolExchange extends Model {
     function isOcIdCat($kod_1c) {
         //выгружалась ли ранее такая группа?
 
-        $query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "1c_cat WHERE 1c_kod_group='" . $kod_1c . "'");
+        $query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "1c_cat as 1c_cat
+                                    INNER JOIN  " . DB_PREFIX . "category AS category ON 1c_cat.oc_cat_id = category.category_id
+                                   WHERE 1c_kod_group='" . $kod_1c . "'");
         if (!empty($query->row)) {
 
             return $query->row;
@@ -664,9 +674,9 @@ class ModelToolExchange extends Model {
         return false;
     }
 
-    public function refreshProduct($kod_1c, $name_1c, $ostatok_1c, $cost_1c) {
+    public function refreshProduct($kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_deleted) {
 
-        $textquery = "UPDATE " . DB_PREFIX . "product SET quantity=" . $ostatok_1c . ", price=" . $cost_1c . " WHERE product_id IN (SELECT oc_prod_id FROM " . DB_PREFIX . "1c_product WHERE 1c_kod_prod='$kod_1c')";
+        $textquery = "UPDATE " . DB_PREFIX . "product SET quantity=" . $ostatok_1c . ", price=" . $cost_1c . ", status=".$is_deleted ." WHERE product_id IN (SELECT oc_prod_id FROM " . DB_PREFIX . "1c_product WHERE 1c_kod_prod='$kod_1c')";
 
         $this->db->query($textquery);
     }

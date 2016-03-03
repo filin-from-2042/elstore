@@ -1,4 +1,4 @@
-<?php require_once('/../../config.php'); ?>
+<?php require_once(DIR . THEME .'/config.php'); ?>
 <?php $bootstrap = new Bootstrap(); ?>
 <form class="form-horizontal" name="payment_address">
     <input type="hidden" name="payment_address" value="existing" pattern="^(existing|new)$" required />

@@ -1,4 +1,4 @@
-<?php require_once('/../../config.php'); ?>
+<?php require_once(DIR . THEME .'template/module/config.php'); ?>
 <?php $bootstrap = new Bootstrap(); ?>
 <?php include('/../module/notification.tpl'); ?>
 <form class="form-horizontal" name="shipping_method">

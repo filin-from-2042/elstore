@@ -2,7 +2,7 @@
 <?php echo $header; ?>
 <!-- notification -->
 <div id="notification" class="container hidden-print">
-    <?php include('/../module/notification.tpl'); ?>
+    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
@@ -114,7 +114,11 @@
 
             <!-- top -->
             <?php if ($content_top) { ?>
-                <div id="top" class="row"><div class="<?php echo $bootstrap->top; ?>"><?php echo $content_top; ?></div></div>
+                <div id="top" class="row">
+                    <div class="<?php echo $bootstrap->top; ?>">
+                        <?php echo $content_top; ?>
+                    </div>
+                </div>
             <?php } ?>
             <!-- bottom -->
             <?php if ($content_bottom) { ?>

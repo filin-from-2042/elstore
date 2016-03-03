@@ -1,5 +1,8 @@
 <!-- MENU -->
-<?php echo $supermenu; ?>
+<?php
+//!!! supermenu
+//echo $supermenu;
+?>
 <?php if ($categories) { ?>
 <div class="navbar navbar-inverse">
     <div class="navbar-header">

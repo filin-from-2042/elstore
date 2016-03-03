@@ -1,4 +1,9 @@
 <?php
+//	/home/elektrik-1/elektrika-nmk.ru/docs/index.php
+// echo phpinfo();
+
+
+
 // Version
 define('VERSION', '1.5.5.1.2');
 
@@ -7,11 +12,14 @@ if (file_exists('config.php')) {
 	require_once('config.php');
 }  
 
+
 // Install 
 if (!defined('DIR_APPLICATION')) {
 	header('Location: install/index.php');
 	exit;
 }
+
+
 // vQmod
   require_once('./vqmod/vqmod.php');
   VQMod::bootup();
@@ -33,8 +41,8 @@ require_once(VQMod::modCheck(DIR_SYSTEM . 'library/length.php'));
 require_once(VQMod::modCheck(DIR_SYSTEM . 'library/cart.php'));
 require_once(VQMod::modCheck(DIR_SYSTEM . 'library/ocstore.php'));
 
-
- 
+// Bootstrap theme config
+//require_once(DIR_APPLICATION .'view/theme/bootstrap3/config.php');
 
 
 // Registry
