@@ -73,87 +73,61 @@
 ?>
 </head>
 <body>
-<!-- toolbar -->
-<div id="toolbar" class="navbar navbar-default hidden-print" role="toolbar">
+<!-- HEADER -->
+<header id="header">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toolbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="<?php echo $home; ?>"><?php echo $name; ?></a>
-        </div>
-        <div id="toolbar-collapse" class="navbar-collapse collapse">
-            <!-- language -->
-            <?php if ($language) { ?>
-                <ul class="nav navbar-nav">
-                    <li id="language" class="dropdown"><?php echo $language; ?></li>
-                </ul>
-            <?php } ?>
-            <!-- currency -->
-            <?php if ($currency) { ?>
-                <ul class="nav navbar-nav">
-                    <li id="currency" class="dropdown"><?php echo $currency; ?></li>
-                </ul>
-            <?php } ?>
-            <!-- cart -->
-            <ul class="nav navbar-nav">
-                <li id="cart" class="dropdown"><?php echo $cart; ?></li>
-            </ul>
-            <!-- login/logout -->
-            <ul class="nav navbar-nav navbar-right">
-                <li><p class="navbar-text">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $logged ? $text_logged : $text_welcome; ?></p></li>
-            </ul>
-            <!-- search -->
-            <form id="search" name="search" class="navbar-form" role="search" onsubmit="event.preventDefault(); location = 'index.php?route=product/search&' + $(this).serialize();">
-                <div class="input-group">
-                    <input type="search" class="form-control" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search ? : ''; ?>" style="min-width: 100px;" required />
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default" title="<?php echo $text_search; ?>"><span class="glyphicon glyphicon-search"></span></button>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-sm-12">
+                <div class="header-wrap">
+                    <div class="logo-wrap">
+                        <?php if ($logo) { ?>
+                        <!-- logo -->
+                        <a class="pull-left" href="<?php echo $home; ?>" role="banner">
+                            <img id="logo" class="img-responsive" src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
+                        </a>
+
+                        <?php } ?>
+                    </div>
+                    <div class="elements-wrap">
+                            <div class="shop-menu-wrapper">
+                                <div class="shop-nav">
+                                    <ul id="shopnav" class="shop-menu">
+                                        <li><a href="#">Compare</a></li>
+                                        <li><a href="/">Wishlist</a></li>
+                                        <li><a href="/">Delivery</a></li>
+                                        <li><a href="/">Help</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<div class="socials-wrapper">
+                                <ul class="social">
+                                    <li><a href="https://www.facebook.com/" title="facebook"><i class="icon-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/" title="twitter"><i class="icon-twitter"></i></a>
+                                </ul>
+                            </div>-->
+                            <div class="search-wrapper">
+                                <!-- BEGIN SEARCH FORM -->
+                                <div class="search-form search-form__h clearfix">
+                                    <form id="search" name="search" class="navbar-form pull-right" role="search" onsubmit="event.preventDefault(); location = 'index.php?route=product/search&' + $(this).serialize();">
+
+                                            <input type="search" class="form-control" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search ? : ''; ?>" style="min-width: 100px;" required />
+                                            <!--<div class="input-group-btn">
+                                                <button type="submit" class="btn btn-default" title="<?php echo $text_search; ?>"><span class="glyphicon glyphicon-search"></span></button>
+                                            </div>-->
+                                            <input type="submit" value="" id="search-form_is" class="btn btn-primary">
+
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-nav">
+                    <div id="menu" class="container-fluid hidden-print">
+                        <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/menu.tpl'); ?>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- header -->
-<div id="header" class="container">
-    <div class="page-header">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php if ($logo) { ?>
-                    <!-- logo -->
-                    <a class="pull-left" href="<?php echo $home; ?>" role="banner">
-                        <img id="logo" class="img-responsive" src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
-                    </a>
-
-                <?php } ?>
             </div>
         </div>
     </div>
-</div>
-<!-- links -->
-<div id="links" class="container hidden-print">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <ul class="nav nav-pills pull-right hidden-xs" role="navigation">
-                <li><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
-                <li><a class="wishlist-total" href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
-                <li><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a></li>
-                <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></li>
-            </ul>
-            <ul class="nav nav-pills nav-stacked text-center visible-xs" role="navigation">
-                <li><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
-                <li><a class="wishlist-total" href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
-                <li><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a></li>
-                <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<br />
-<!-- menu -->
-<div id="menu" class="container-fluid hidden-print">
-    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/menu.tpl'); ?>
-</div>
+</header>
