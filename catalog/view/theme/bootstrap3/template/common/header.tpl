@@ -6,7 +6,7 @@
 <!-- meta -->
 <meta charset="UTF-8" />
 <title><?php echo $title; ?></title>
-<base href="<?php echo $base='http://www.elektrik-1.nichost.ru/'; ?>" />
+<base href="<?php echo $base; ?>" />
 <?php if ($description) { ?>
     <meta name="description" content="<?php echo $description; ?>" />
 <?php } ?>

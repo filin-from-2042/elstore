@@ -250,7 +250,9 @@ class ModelToolExchange extends Model {
         if (!empty($tmp['1c_kod_prod'])) {
             //ранее выгружался
 
-            $this->db->query("UPDATE  " . DB_PREFIX . "1c_product SET 1c_ostatok='" . $ostatok_1c . "', 1c_cena='" . $cost_1c . "', 1c_name='$name_1c', 1c_kod_prod_rod='$kod_1c_rod'  WHERE 1c_kod_prod='$kod_1c'");
+            $this->db->query("UPDATE  " . DB_PREFIX . "1c_product SET 1c_kod_prod_rod='".$kod_1c_rod ."', 1c_ostatok='" . $ostatok_1c . "', 1c_cena='" . $cost_1c . "', 1c_name='$name_1c', 1c_kod_prod_rod='$kod_1c_rod'  WHERE 1c_kod_prod='$kod_1c'");
+
+
             $product_cat = $this->isOcIdCat($kod_1c_rod);
             $product['product_category'] = (int) $product_cat['oc_cat_id'];
 
@@ -265,27 +267,23 @@ class ModelToolExchange extends Model {
 
 
 
-        if (!empty($product_id) && $this->model_catalog_product->getProduct((int)$product_id)) {
+        if (!empty($product_id)) {
             //обновим
-            
-              if (!$this->priority){
-                  
-                  //получим старые keyword и имя
-                  
-                  $product['name'] = $this->getOldName($product_id);     
-                  $product['keyword'] = $this->getOldKeyword($product_id);
-            
-             }
-                      
-            $proddata = $this->prepareProduct($product, $lang);           
-            //$this->model_catalog_product->editProduct($product_id, $proddata);
+
             // Refresh name, cost, quantity, status
             $this->db->query("UPDATE  " . DB_PREFIX . "product SET  quantity='". $product['quantity'] ."',
                                                                     price='". $product['cost'] ."',
                                                                     status='". $product['status'] ."'
                                                                    WHERE product_id='$product_id'");
             // Uncomment/comment on necessity
-            $this->db->query("UPDATE  " . DB_PREFIX . "product_description SET  name='". $product['name'] ."' WHERE product_id='$product_id'");
+            if ($tmp['name']!=$product['name'])
+                $this->db->query("UPDATE  " . DB_PREFIX . "product_description SET  name='". $product['name'] ."' WHERE product_id='$product_id'");
+            // Update parent id category if needed
+
+            if ($tmp['category_id']!=$product['product_category']){
+                $this->db->query("UPDATE  " . DB_PREFIX . "product_to_category SET  category_id='". $product['product_category'] ."' WHERE product_id='$product_id'");
+            }
+
         } else {
             //добавим
             $proddata = $this->prepareProduct($product, $lang);
@@ -296,16 +294,6 @@ class ModelToolExchange extends Model {
         }
     }
     
-    private function getOldName($product_id){
-        $query = $this->db->query("SELECT name FROM ".DB_PREFIX."product_description WHERE product_id='".(int)$product_id."'");
-        return $query->row['name'];
-        
-    }
-     private function getOldKeyword($product_id){
-         $sql = "SELECT keyword FROM ".DB_PREFIX."url_alias WHERE query='product_id=".(int)$product_id."'";
-         $query = $this->db->query($sql);
-        return $query->row['keyword'];
-    }
 
     private function prepareProduct($product, $language_id) {
 
@@ -431,25 +419,6 @@ class ModelToolExchange extends Model {
             }
         }
 
-        if (isset($data['product_option'])) {
-            foreach ($data['product_option'] as $product_option) {
-                if ($product_option['type'] == 'select' || $product_option['type'] == 'radio' || $product_option['type'] == 'checkbox' || $product_option['type'] == 'image') {
-                    $this->db->query("INSERT INTO " . DB_PREFIX . "product_option SET product_id = '" . (int) $product_id . "', option_id = '" . (int) $product_option['option_id'] . "', required = '" . (int) $product_option['required'] . "'");
-
-                    $product_option_id = $this->db->getLastId();
-
-                    if (isset($product_option['product_option_value']) && count($product_option['product_option_value']) > 0) {
-                        foreach ($product_option['product_option_value'] as $product_option_value) {
-                            $this->db->query("INSERT INTO " . DB_PREFIX . "product_option_value SET product_option_id = '" . (int) $product_option_id . "', product_id = '" . (int) $product_id . "', option_id = '" . (int) $product_option['option_id'] . "', option_value_id = '" . (int) $product_option_value['option_value_id'] . "', quantity = '" . (int) $product_option_value['quantity'] . "', subtract = '" . (int) $product_option_value['subtract'] . "', price = '" . (float) $product_option_value['price'] . "', price_prefix = '" . $this->db->escape($product_option_value['price_prefix']) . "', points = '" . (int) $product_option_value['points'] . "', points_prefix = '" . $this->db->escape($product_option_value['points_prefix']) . "', weight = '" . (float) $product_option_value['weight'] . "', weight_prefix = '" . $this->db->escape($product_option_value['weight_prefix']) . "'");
-                        }
-                    } else {
-                        $this->db->query("DELETE FROM " . DB_PREFIX . "product_option WHERE product_option_id = '" . $product_option_id . "'");
-                    }
-                } else {
-                    $this->db->query("INSERT INTO " . DB_PREFIX . "product_option SET product_id = '" . (int) $product_id . "', option_id = '" . (int) $product_option['option_id'] . "', option_value = '" . $this->db->escape($product_option['option_value']) . "', required = '" . (int) $product_option['required'] . "'");
-                }
-            }
-        }
 
         if (isset($data['product_discount'])) {
             foreach ($data['product_discount'] as $product_discount) {
@@ -566,7 +535,9 @@ class ModelToolExchange extends Model {
     function isOcIdProd($kod_1c) {
         //выгружался ли ранее такой товар?
 
-        $query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "1c_product WHERE 1c_kod_prod='" . $kod_1c . "'");
+        $query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "1c_product
+                                    INNER JOIN  " . DB_PREFIX . "product as pr on pr.product_id=oc_prod_id
+                                   WHERE 1c_kod_prod='" . $kod_1c . "'");
         if (!empty($query->row)) {
 
             return $query->row;

@@ -1,0 +1,61 @@
+<!-- Thumbs for main categories-->
+
+            <div class="main-categories">
+                <div class="col-sm-4 col-md-4 category-container">
+                    <div class="thumbnail">
+                        <img src="image/lampochka.jpg" alt="...">
+                        <div class="caption">
+                            <h3>Электрика</h3>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod </p>
+                            <p><a href="#" class="btn btn-danger" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 category-container">
+                    <div class="thumbnail">
+                        <img src="image/slide21.jpg" alt="...">
+                        <div class="caption">
+                            <h3>Инструмент</h3>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod </p>
+                            <p><a href="#" class="btn btn-danger" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 category-container">
+                    <div class="thumbnail">
+                        <img src="image/slide22.jpg" alt="...">
+                        <div class="caption">
+                            <h3>Сантехника</h3>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod </p>
+                            <p><a href="#" class="btn btn-danger" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            Menu with categories
+
+            <?php foreach ($categories as $category) { ?>
+                            <?php if ($category['children']) { ?>
+                                <li class="dropdown <?php echo $category['active'] ? 'active' : '' ?>">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="category-title"><?php echo $category['name']; ?></span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <?php $columns = 12 / ceil(12 / $category['column']); ?>
+                                    <ul class="dropdown-menu list-columns list-columns-xs-1 list-columns-sm-<?php echo ($columns < 2) ? '1' : '2'; ?> list-columns-md-<?php echo $columns; ?> list-columns-lg-<?php echo $columns; ?>">
+                                        <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                                        <li class="divider"></li>
+                                        <?php for ($i = 0; $i < count($category['children']); $i++) { ?>
+                                            <li  class="category-item"><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                            <?php } else { ?>
+                                <li class="<?php echo $category['active'] ? 'active' : '' ?>">
+                                    <a  href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                                </li>
+                            <?php } ?>
+                        <?php } ?>
