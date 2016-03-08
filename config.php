@@ -1,9 +1,9 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://elektrika-nmk.ru/');
-
+define('HTTP_SERVER', 'http://'.$_SERVER["HTTP_HOST"].'/');
 // HTTPS
-define('HTTPS_SERVER', 'http://elektrika-nmk.ru/');
+define('HTTPS_SERVER', 'https://'.$_SERVER["HTTP_HOST"].'/');
+
 $dir=getcwd();
 
 // DIR
@@ -25,5 +25,11 @@ define('DB_HOSTNAME', 'elektrik-1.mysql');
 define('DB_USERNAME', 'elektrik-1_mysql');
 define('DB_PASSWORD', '7EsOinX-');
 define('DB_DATABASE', 'elektrik-1_db');
+
+//define('DB_HOSTNAME', '192.168.1.37');
+//define('DB_USERNAME', 'root');
+//define('DB_PASSWORD', '');
+//define('DB_DATABASE', 'elektrik-1_db');
+
 define('DB_PREFIX', 'oc_');
 ?>
