@@ -20,23 +20,24 @@
             <div class="item active">
                 <img src="image/slide1.jpg" alt="...">
                 <div class="carousel-caption">
-                    <h2>Заголовок</h2>
-                    Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptat.
-                    <p><a href="#" class="btn btn-danger" role="button">Button</a></p>
+                    <h2>Официальный дилер ТриколорТВ</h2>
+                    Помощь в выборе  спутникового оборудования, регистрация, предоставление всей интересующей и актуальной информации
+                    <p><a href="http://elektrika-nmk.ru/index.php?route=product/category&path=446_664" class="btn btn-danger" role="button">Обзор спутниковых приемников</a></p>
                 </div>
             </div>
             <div class="item">
                 <img src="image/slide2.jpg" alt="...">
                 <div class="carousel-caption">
-                    <h2>Заголовок</h2>
-                    Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptat.
-                    <p><a href="#" class="btn btn-danger" role="button">Button</a></p>
+                    <h2>Инструмент по ценам прошлого года</h2>
+                    Ликвидация инструмента в магазине "Мир Профи". <br>
+                    Успейте купить!
+                    <p><a href="http://elektrika-nmk.ru/index.php?route=product/special" class="btn btn-danger" role="button">Обзор акций</a></p>
                 </div>
             </div>
             <div class="item">
                 <img src="image/slide3.jpg" alt="...">
                 <div class="carousel-caption">
-                    <h2>Заголовок</h2>
+                    <h2>Специальные цены на продукцию компании "TDM Electric"</h2>
                     Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptat.
                     <p><a href="#" class="btn btn-danger" role="button">Button</a></p>
                 </div>
@@ -62,8 +63,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="indent">
-                        <h2><strong>Welcome</strong> to our store!</h2>
-                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptat.
+                        <h2><strong>Добро пожаловать</strong> в наш магазин!</h2>
+                    Только у нас вы найдете электрику для дома и офиса по самым низким в Новомосковске ценам!
+                    Более 10 000 наименований товаров в наличии и под заказ.
                     </div>
                 </div>
             </div>
