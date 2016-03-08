@@ -81,11 +81,11 @@
                 <div class="header-wrap">
                     <div class="logo-wrap">
                         <?php if ($logo) { ?>
-                        <!-- logo -->
-                        <a class="pull-left" href="<?php echo $home; ?>" role="banner">
+                            <?php if ($home == $og_url) { ?>
                             <img id="logo" class="img-responsive" src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
-                        </a>
-
+                            <?php } else { ?>
+                            <a href="<?php echo $home; ?>"><img id="logo" class="img-responsive" src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
+                            <?php } ?>
                         <?php } ?>
                     </div>
                     <div class="elements-wrap">
@@ -119,6 +119,16 @@
                                     </form>
                                 </div>
                             </div>
+                            <div id="welcome">
+                                <?php if (!$logged) { ?>
+                                <?php echo $text_welcome; ?>
+                                <?php } else { ?>
+                                <?php echo $text_logged; ?>
+                                <?php } ?>
+                            </div>
+                            <?php echo $language; ?>
+                            <?php echo $currency; ?>
+                            <?php echo $cart; ?>
                     </div>
                     <div class="clearfix"></div>
                 </div>
