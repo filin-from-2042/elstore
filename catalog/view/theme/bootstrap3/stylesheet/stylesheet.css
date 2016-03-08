@@ -551,7 +551,40 @@ header#header{
         font-size: 25px;
     }
 }
+/*------------------ FOOTER ------------*/
 
+#footer{
+    position: relative;
+    z-index: 1;
+    border: none;
+    background: url(../image/footer_background.png) repeat-x center top #191919;
+    padding: 60px 0 40px;
+    text-align: left;
+}
+#footer ul{
+    margin: 0;
+    padding: 0;
+    float: none;
+}
+#footer li{
+    display: block;
+    font: 400 18px/20px Lato;
+    float: none;
+    text-transform: none;
+    line-height: 1.8;
+}
+#footer h4{
+
+    font: 800 24px/20px Lato;
+    float: none;
+    text-transform: none;
+    color: #fcc605;
+}
+
+#footer li a{
+    color: #fff;
+    display: inline-block;
+}
 
 @media (max-width: 992px) and (min-width: 728px) {
     .category-container .caption p{width: 100%;}
@@ -571,4 +604,9 @@ ul.products{
         display: table;
         clear: both;
     }
+    #footer_additional{
+        clear: both;
+    }
+
+
 }
