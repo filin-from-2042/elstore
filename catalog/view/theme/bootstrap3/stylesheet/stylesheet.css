@@ -109,7 +109,7 @@ div.subcategory {
     display: inline-block;
     line-height: 34px;
     font-weight: 700;
-    color: #ef4135;
+    color: #f16c14;
     text-align: center;
 }
 .old_price{
@@ -122,7 +122,7 @@ div.subcategory {
 }
 
 .text-block {
-    background: #ef4135;
+    background: #f16c14;
     font-size: 17px;
     line-height: 29px;
     text-align: center;
@@ -221,7 +221,7 @@ div.subcategory {
 
 .category-container:after {
     content: '';
-    background: #ef4135;
+    background: #f16c14;
     opacity: 0.8;
     position: absolute;
     right: -150%;
@@ -252,7 +252,7 @@ div.subcategory {
 
 
 /*--------------------------------------- HEADER ------------------------------------------*/
-header#header{
+#header{
     padding: 0;
     border: none;
     position: relative;
@@ -264,14 +264,8 @@ header#header{
 #header .header-wrap{
     padding: 25px 0;
 }
-#header .header-wrap:before{
-    position: absolute;
-    content: '';
-    top: 0;
-    bottom: 0;
-    left: -200%;
-    right: -200%;
-    z-index: -1;
+#header {
+
     background: url(../image/header-bgr.png) repeat-x bottom center #191919;
 }
 #header .logo-wrap{
@@ -389,7 +383,7 @@ header#header{
 /*----- TOP MENU -------------*/
 #menu{
     border: none;
-   background: #ef4135;
+   background: #f16c14;
 }
 .navbar-inverse{
     background: none;
@@ -578,7 +572,7 @@ header#header{
     font: 800 24px/20px Lato;
     float: none;
     text-transform: none;
-    color: #fcc605;
+    color: #f16c14;
 }
 
 #footer li a{

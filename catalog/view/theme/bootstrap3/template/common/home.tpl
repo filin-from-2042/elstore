@@ -18,6 +18,14 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+                <img src="image/slide3.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h2>Специальные цены на продукцию компании <br>"TDM Electric"</h2>
+                    Лампочки, розетки, автоматы и многое другое по выгодным ценам! Специальное предложение для коммерческих организаций.
+                </div>
+            </div>
+
+            <div class="item ">
                 <img src="image/slide1.jpg" alt="...">
                 <div class="carousel-caption">
                     <h2>Официальный дилер ТриколорТВ</h2>
@@ -29,19 +37,13 @@
                 <img src="image/slide2.jpg" alt="...">
                 <div class="carousel-caption">
                     <h2>Инструмент по ценам прошлого года</h2>
-                    Ликвидация инструмента в магазине "Мир Профи". <br>
+                    Ликвидация инструмента <br>
+                    в магазине "Мир Профи". <br>
                     Успейте купить!
                     <p><a href="http://elektrika-nmk.ru/index.php?route=product/special" class="btn btn-danger" role="button">Обзор акций</a></p>
                 </div>
             </div>
-            <div class="item">
-                <img src="image/slide3.jpg" alt="...">
-                <div class="carousel-caption">
-                    <h2>Специальные цены на продукцию компании "TDM Electric"</h2>
-                    Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptat.
-                    <p><a href="#" class="btn btn-danger" role="button">Button</a></p>
-                </div>
-            </div>
+
         </div>
 
         <!-- Controls -->

@@ -288,7 +288,7 @@ class ControllerProductProduct extends Controller {
 			$this->data['points'] = $product_info['points'];
 			
 			if ($product_info['quantity'] <= 0) {
-				$this->data['stock'] = $product_info['stock_status'];
+                $this->data['stock'] = $this->language->get('text_outstock');
 			} elseif ($this->config->get('config_stock_display')) {
 				$this->data['stock'] = $product_info['quantity'];
 			} else {

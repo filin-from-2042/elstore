@@ -10,12 +10,13 @@
     <div class="row">
         <!-- center -->
         <div class="<?php echo $bootstrap->center; ?>">
+            <!-- breadcrumbs -->
+            <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
             <!-- top -->
             <?php if ($content_top) { ?>
                 <div id="top" class="row"><div class="<?php echo $bootstrap->top; ?>"><?php echo $content_top; ?></div></div>
             <?php } ?>
-            <!-- breadcrumbs -->
-            <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
+
             <!-- content -->
             <div id="content" class="row">
                 <div class="<?php echo $bootstrap->content; ?>" role="main">
