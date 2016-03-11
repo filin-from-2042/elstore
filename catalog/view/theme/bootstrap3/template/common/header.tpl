@@ -92,28 +92,19 @@
                             <div class="shop-menu-wrapper">
                                 <div class="shop-nav">
                                     <ul id="shopnav" class="shop-menu">
-                                        <li><a href="#">Compare</a></li>
-                                        <li><a href="/">Wishlist</a></li>
-                                        <li><a href="/">Delivery</a></li>
-                                        <li><a href="/">Help</a></li>
+                                        <li><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
+                                        <li><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></li>
+                                        <li><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a></li>
+                                        <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <!--<div class="socials-wrapper">
-                                <ul class="social">
-                                    <li><a href="https://www.facebook.com/" title="facebook"><i class="icon-facebook"></i></a></li>
-                                    <li><a href="https://twitter.com/" title="twitter"><i class="icon-twitter"></i></a>
-                                </ul>
-                            </div>-->
                             <div class="search-wrapper">
                                 <!-- BEGIN SEARCH FORM -->
                                 <div class="search-form search-form__h clearfix">
                                     <form id="search" name="search" class="navbar-form pull-right" role="search" onsubmit="event.preventDefault(); location = 'index.php?route=product/search&' + $(this).serialize();">
 
                                             <input type="search" class="form-control" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search ? : ''; ?>" style="min-width: 100px;" required />
-                                            <!--<div class="input-group-btn">
-                                                <button type="submit" class="btn btn-default" title="<?php echo $text_search; ?>"><span class="glyphicon glyphicon-search"></span></button>
-                                            </div>-->
                                             <input type="submit" value="" id="search-form_is" class="btn btn-primary">
 
                                     </form>
@@ -128,16 +119,18 @@
                             </div>
                             <?php echo $language; ?>
                             <?php echo $currency; ?>
-                            <?php echo $cart; ?>
+                            <div class="cart-wrap">
+                                <?php echo $cart; ?>
+                            </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="header-nav">
-                    <div id="menu" class="container-fluid hidden-print">
-                        <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/menu.tpl'); ?>
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div id="menu" class="container-fluid hidden-print">
+            <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/menu.tpl'); ?>
         </div>
     </div>
 </header>

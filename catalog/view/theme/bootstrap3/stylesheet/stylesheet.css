@@ -359,6 +359,22 @@ div.subcategory {
     color: #fff;
     position: relative;
 }
+#header #welcome,
+#header .cart-wrap{
+    text-align: right;
+    color: #8A8383;
+}
+#header #welcome a,
+#header .cart-wrap a{
+    color: #ffffff;
+}
+#header #menu-collapse{
+    text-align: center;
+}
+#header #menu-collapse ul{
+    float: none;
+    display: inline-block;
+}
 .navbar{
     border-radius: 0;
     margin-bottom: 0;
