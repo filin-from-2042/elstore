@@ -2,7 +2,7 @@
 <?php echo $header; ?>
 <!-- notification -->
 <div id="notification" class="container hidden-print">
-    <?php include('/../module/notification.tpl'); ?>
+    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
@@ -15,7 +15,7 @@
                 <div id="top" class="row"><div class="<?php echo $bootstrap->top; ?>"><?php echo $content_top; ?></div></div>
             <?php } ?>
             <!-- breadcrumbs -->
-            <?php include('/../module/breadcrumbs.tpl'); ?>
+            <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
             <!-- content -->
             <div id="content" class="row">
                 <div class="<?php echo $bootstrap->content; ?>" role="main">
@@ -131,6 +131,8 @@
         <?php } ?>
     </div>
 </div>
+<script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=K3c_whlQjG-CppDG1ELZonoKzteiz4Wl&width=100%&height=359&lang=ru_RU&sourceType=constructor"></script>
+
 <!-- footer -->
 <?php echo $footer; ?>
 <script>
