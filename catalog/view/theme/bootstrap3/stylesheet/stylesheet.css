@@ -13,7 +13,10 @@
     src: url(../fonts/Lato.ttf); /* Путь к файлу со шрифтом */
 }
 
-
+.caption a{
+    color: #292929;
+    font-weight: 500;
+}
 .center{
     margin: 0 auto;
 }
@@ -93,15 +96,20 @@ div.subcategory {
 
 }
 .controls{
-    /*//float: left;*/
     background: #292929;
     color: #fff;
     font: 400 12px/20px Lato;
     text-align: center;
-    margin: 0;
+    margin: 4px 1% 0 0;
+    width: 48%;
     padding: 5px 0;
-}
 
+}
+.product-item .controls:nth-child(3){
+    margin: 4px 0 0 1%;
+    width: 50%;
+
+}
 .controls a{
     color: #ffffff;
 }
@@ -169,6 +177,7 @@ div.subcategory {
     position: relative;
     z-index: 4;
     font-family: "Lato";
+    font-size: 25px;
 }
 .text-block h2 {
     font-size: 63px;
@@ -184,6 +193,7 @@ div.subcategory {
 .thumbnail .caption {
     font-family: "Lato";
     /*font-size: 30px;*/
+    padding: 30px 30px 13px;
 }
 
 .cameraContent {
@@ -557,6 +567,9 @@ div.subcategory {
 /*---------- LATEST, SALES ETC -----------*/
 .panel-default{
     border: none;
+}
+.panel-body{
+    padding: 0;
 }
 
 .specials-title, .recs-title{
