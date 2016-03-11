@@ -21,7 +21,6 @@
                 <?php $columns = 12 / ceil(12 / $category['column']); ?>
                 <ul class="dropdown-menu list-columns list-columns-xs-1 list-columns-sm-<?php echo ($columns < 2) ? '1' : '2'; ?> list-columns-md-<?php echo $columns; ?> list-columns-lg-<?php echo $columns; ?>">
                     <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-                    <li class="divider"></li>
                     <?php for ($i = 0; $i < count($category['children']); $i++) { ?>
                     <li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
                     <?php } ?>
@@ -65,6 +64,9 @@
         } else {
             $('#menu ul.dropdown-menu').removeClass().addClass('dropdown-menu');
         }
+        // sidebar
+        var parentWidth = $('#sidebar #menu-collapse').width();
+        $('#sidebar .dropdown-menu').css('marginLeft',parentWidth+'px');
     });
 </script>
 <?php } ?>

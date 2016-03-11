@@ -441,6 +441,9 @@ div.subcategory {
 #sidebar {
     margin-top: 30px;
 }
+#sidebar .dropdown a:hover{
+    background: #3f3f3f;
+}
 
 
 
