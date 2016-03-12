@@ -56,12 +56,16 @@
                                     <li class="text-big"><span class="text-info"><?php echo $text_stock; ?></span> <wbr /><?php echo $stock; ?></li>
                                 <?php if ($price) { ?>
                                     <li class="text-big nowrap">
-                                        <strong class="text-info"><?php echo $text_price; ?></strong> <wbr />
-                                        <?php if (!$special) { ?>
-                                            <strong class="text-danger"><?php echo $price; ?></strong>
-                                        <?php } else { ?>
-                                            <small class="text-warning text-sthrough"><?php echo $price; ?></small> <strong class="text-danger"><?php echo $special; ?></strong>
-                                        <?php } ?>
+                                        <?php if ($price) { ?>
+                                        <strong class="text-danger nowrap product-price"><?php echo $price; ?></strong>
+                                        <?php }?>
+
+
+                                        <?php if ($special){ ?>
+                                        <p>
+                                            <small class="text-warning text-sthrough nowrap old_price "><?php echo $special; ?></small> <wbr />
+                                            <?php } ?>
+                                        </p>
                                     </li>
                                     <?php if ($tax) { ?>
                                         <li><span class="text-muted"><?php echo $text_tax; ?> <?php echo $tax ?></span></li>
@@ -202,7 +206,7 @@
                         </div>
                         <!-- add to compare & add to wishlist -->
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden-print">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 controls ">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                                     <div class="col-xs-1">
                                         <a class="btn btn-link wishlist" name="addToWishList" title="<?php echo $this->language->get('button_wishlist'); ?>" onclick="addToWishList('<?php echo $product['product_id']; ?>');" /><div  class="glyphicon glyphicon-heart"></div> </a>
                                     </div>

@@ -1,6 +1,6 @@
-<?php require_once(DIR . THEME .'/config.php'); ?>
+<?php require_once(DIR_APPLICATION .'view/theme/bootstrap3/config.php'); ?>
 <?php $bootstrap = new Bootstrap(); ?>
-<?php include('/../module/notification.tpl'); ?>
+<?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
 <form class="form-horizontal" name="payment_method">
     <?php if ($payment_methods) { ?>
         <div class="form-group">

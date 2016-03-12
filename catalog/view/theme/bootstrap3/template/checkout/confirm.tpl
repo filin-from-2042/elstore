@@ -1,4 +1,4 @@
-<?php require_once(DIR . THEME .'/config.php'); ?>
+<?php require_once(DIR_APPLICATION .'view/theme/bootstrap3/config.php'); ?>
 <?php $bootstrap = new Bootstrap(); ?>
 <?php if (!isset($redirect)) { ?>
     <div class="table-responsive">

@@ -1,6 +1,6 @@
-<?php require_once(DIR . THEME .'template/module/config.php'); ?>
+<?php require_once(DIR_APPLICATION .'view/theme/bootstrap3/config.php'); ?>
 <?php $bootstrap = new Bootstrap(); ?>
-<?php include('/../module/notification.tpl'); ?>
+<?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
 <form class="form-horizontal" name="shipping_method">
     <?php if ($shipping_methods) { ?>
         <h3><?php echo $text_shipping_method; ?></h3>
