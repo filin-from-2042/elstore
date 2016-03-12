@@ -30,7 +30,7 @@
                 <div class="carousel-caption">
                     <h2>Официальный дилер ТриколорТВ</h2>
                     Помощь в выборе  спутникового оборудования, регистрация, предоставление всей интересующей и актуальной информации
-                    <p><a href="http://elektrika-nmk.ru/index.php?route=product/category&path=446_664" class="btn btn-danger" role="button">Обзор спутниковых приемников</a></p>
+                    <p><a href="/index.php?route=product/category&path=446_664" class="btn btn-danger" role="button">Обзор спутниковых приемников</a></p>
                 </div>
             </div>
             <div class="item">
@@ -40,7 +40,7 @@
                     Ликвидация инструмента <br>
                     в магазине "Мир Профи". <br>
                     Успейте купить!
-                    <p><a href="http://elektrika-nmk.ru/index.php?route=product/special" class="btn btn-danger" role="button">Обзор акций</a></p>
+                    <p><a href="/index.php?route=product/special" class="btn btn-danger" role="button">Обзор акций</a></p>
                 </div>
             </div>
 
