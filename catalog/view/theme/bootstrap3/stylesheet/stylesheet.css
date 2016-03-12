@@ -647,7 +647,9 @@ div.subcategory {
 /*----- TOP MENU -------------*/
 #menu{
     border: none;
-   background: #f16c14;
+    background: #f16c14;
+    width: 100%;
+    z-index: 100;
 }
 .navbar-inverse{
     background: none;
@@ -668,7 +670,9 @@ div.subcategory {
 
 
 /*------------ SIDEBAR----------------------*/
-
+#sidebar{
+    z-index: 100;
+}
 #sidebar ul {
     background: #292929;
 }

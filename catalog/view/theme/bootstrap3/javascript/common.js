@@ -345,4 +345,25 @@ jQuery(function($) {
             });
         }, 'html');
     };
+
+    /************************************************ GENERAL EVENT LISTENERS *****************************************/
+    //------------------------ SCROLL LISTENER ---------------------
+    $(window).scroll(function()
+    {
+        // прилипание главного меню
+        if($(window).scrollTop() >= $('#header .header-nav').offset().top)
+        {
+            $('#menu').css({
+                'position':'fixed',
+                'top':0
+            })
+        }
+        else{
+            $('#menu').css({
+                'position':'static',
+                'top':'initial'
+            })
+        }
+    });
+
 });
