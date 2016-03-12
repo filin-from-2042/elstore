@@ -350,18 +350,34 @@ jQuery(function($) {
     //------------------------ SCROLL LISTENER ---------------------
     $(window).scroll(function()
     {
+        var sidebarContainer = $('#sidebar');
+        var sidebarWrap = $('#sidebar #menu-collapse');
+        var sidebbarMenu = $('#sidebar #menu-collapse ul');
+
         // прилипание главного меню
-        if($(window).scrollTop() >= $('#header .header-nav').offset().top)
+        if($(window).scrollTop() >= sidebarContainer.offset().top)
         {
-            $('#menu').css({
-                'position':'fixed',
-                'top':0
-            })
+            if(Number($(window).scrollTop()+sidebbarMenu.height()) >= Number($('#map-container').offset().top))
+            {
+                sidebarWrap.css({
+                    'position':'fixed',
+                    'top':'-'+(sidebbarMenu.height() - ($('#map-container').offset().top-$(window).scrollTop()) )+'px',
+                    'width':sidebarContainer.width() + 'px'
+                })
+            }else{
+
+                sidebarWrap.css({
+                    'position':'fixed',
+                    'top':0,
+                    'width':sidebarContainer.width() + 'px'
+                })
+            }
         }
         else{
-            $('#menu').css({
+            sidebarWrap.css({
                 'position':'static',
-                'top':'initial'
+                'top':'initial',
+                'width':'auto'
             })
         }
     });
