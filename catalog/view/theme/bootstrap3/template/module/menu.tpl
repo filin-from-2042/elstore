@@ -15,12 +15,10 @@
     </div>
     <div id="menu-collapse" class="navbar-collapse collapse container">
         <ul class="nav navbar-nav " role="menu">
-               <li class="menu-item"><a href="">Главная</a></li>
-               <li class="menu-item"><a href="http://elektrika-nmk.ru/index.php?route=information/information&information_id=4">О Нас</a></li>
+               <li class="menu-item"><a href="<?php echo $home; ?>">Главная</a></li>
+               <li class="menu-item"><a href="./index.php?route=information/information&information_id=4">О Нас</a></li>
                <li class="menu-item"><a href="">Галерея</a></li>
-               <li class="menu-item"><a href="http://elektrika-nmk.ru/index.php?route=information/contact">Контакты</a></li>
+               <li class="menu-item"><a href="./index.php?route=information/contact">Контакты</a></li>
         </ul>
     </div>
 </div>
-
-
