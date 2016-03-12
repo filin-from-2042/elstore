@@ -692,10 +692,10 @@ div.subcategory {
 #sidebar li a{
     background: #292929;
     display: block;
-    font: 600 18px/30px Lato;
+    font: 600 14px/30px Lato;
     text-transform: uppercase;
     color: #fff;
-    padding: 20px 0 10px 20px;
+    padding: 10px 0 10px 15px;
 }
 #sidebar li{
     border-bottom: 1px solid black;
