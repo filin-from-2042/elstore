@@ -416,7 +416,7 @@ div.subcategory {
     color: #8A8383;
 }
 #header #welcome a,
-#header .cart-wrap a{
+#header .cart-wrap #cart-button{
     color: #ffffff;
 }
 #header #menu-collapse{
@@ -425,6 +425,9 @@ div.subcategory {
 #header #menu-collapse ul{
     float: none;
     display: inline-block;
+}
+#header .header-nav{
+    min-height: 75px;
 }
 .navbar{
     border-radius: 0;
@@ -644,6 +647,16 @@ div.subcategory {
     /*color: #212328;*/
     /*font-weight: 400;*/
 /*}*/
+
+/*---------- CART ---------------------------------*/
+#header .cart-wrap{
+    position: relative;
+}
+#header .cart-wrap #cart-content{
+    left: inherit;
+    right: 0;
+    z-index: 1001;
+}
 /*----- TOP MENU -------------*/
 #menu{
     border: none;
