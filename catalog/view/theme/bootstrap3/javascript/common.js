@@ -67,7 +67,7 @@ jQuery(function($) {
                     location = json.redirect;
                 } else if (json.success) {
                     $('#cart').triggerHandler('added');
-                    $('#notification').html(oc.notification('success', json.success)).scrollBody();
+                    $('#notification').showTopRight('success', json.success);
                 }
             }
         });
@@ -86,7 +86,7 @@ jQuery(function($) {
             success: function(json) {
                 if (json.success) {
                     $('.compare-total').html(json['total']);
-                    $('#notification').html(oc.notification('success', json.success)).scrollBody();
+                    $('#notification').showTopRight('success', json.success);
                 }
             }
         });
@@ -105,7 +105,7 @@ jQuery(function($) {
             success: function(json) {
                 if(json.success) {
                     $('.wishlist-total').html(json['total']);
-                    $('#notification').html(oc.notification('success', json.success)).scrollBody();
+                    $('#notification').showTopRight('success', json.success);
                 }
             }
         });
