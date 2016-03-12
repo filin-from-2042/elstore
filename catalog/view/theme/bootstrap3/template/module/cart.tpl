@@ -95,7 +95,7 @@ jQuery(function($) {
             success: function(html) {
                 $html = $(html);
                 $('#cart-total').html($html.find('#cart-total').html());
-                $('#cart-content').html($html.filter('#cart-content').html());
+                $('#cart-content').html($html.find('#cart-content').html());
             }
         });
     };
