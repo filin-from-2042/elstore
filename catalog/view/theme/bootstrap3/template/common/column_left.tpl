@@ -1,26 +1,25 @@
-<!--<div id='cssmenu'>
-    <ul>
-        <li><a href='#'><span>Home</span></a></li>
-        <li class='active has-sub'><a href='#'><span>Products</span></a>
-            <ul>
-                <li class='has-sub'><a href='#'><span>Product 1</span></a>
-                    <ul>
-                        <li><a href='#'><span>Sub Product</span></a></li>
-                        <li class='last'><a href='#'><span>Sub Product</span></a></li>
-                    </ul>
-                </li>
-                <li class='has-sub'><a href='#'><span>Product 2</span></a>
-                    <ul>
-                        <li><a href='#'><span>Sub Product</span></a></li>
-                        <li class='last'><a href='#'><span>Sub Product</span></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li><a href='#'><span>About</span></a></li>
-        <li class='last'><a href='#'><span>Contact</span></a></li>
-    </ul>
-</div>-->
+<?php
+function renderCategories($categories,$result='')
+{
+    foreach($categories as $category)
+    {
+        if($category['children'])
+        {
+            $result.= '<li class="'. (($category['active']) ? 'active' : '') . '">
+                            <a><span>'.$category['name'].'</span><span class="caret"></span></a>
+                            <ul>
+                                '.renderCategories($category['children']).'
+                            </ul>
+                        </li>';
+        }else{
+            $result.='<li class="'. (($category['active'] )? 'active' : '') .'">
+                        <a href="'.$category['href'].'">'.$category['name'].'</a>
+                    </li>';
+        }
+     }
+    return $result;
+}
+?>
 
 <!-- MENU -->
 <?php if (isset($categories)) { ?>
@@ -35,27 +34,7 @@
     </div>
     <div id="menu-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav" role="menu">
-            <?php foreach ($categories as $category) { ?>
-            <?php if ($category['children']) { ?>
-            <li class="dropdown <?php echo $category['active'] ? 'active' : '' ?>">
-                <a class="dropdown-toggle" data-toggle="dropdown">
-                    <span><?php echo $category['name']; ?></span>
-                    <span class="caret"></span>
-                </a>
-                <?php $columns = 12 / ceil(12 / $category['column']); ?>
-                <ul class="dropdown-menu list-columns list-columns-xs-1 list-columns-sm-<?php echo ($columns < 2) ? '1' : '2'; ?> list-columns-md-<?php echo $columns; ?> list-columns-lg-<?php echo $columns; ?>">
-                    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-                    <?php for ($i = 0; $i < count($category['children']); $i++) { ?>
-                    <li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
-                    <?php } ?>
-                </ul>
-            </li>
-            <?php } else { ?>
-            <li class="<?php echo $category['active'] ? 'active' : '' ?>">
-                <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-            </li>
-            <?php } ?>
-            <?php } ?>
+            <?=renderCategories($categories)?>
         </ul>
     </div>
 </div>

@@ -686,8 +686,18 @@ div.subcategory {
 #sidebar{
     z-index: 100;
 }
+#sidebar .caret{
+    border-top-color: #f16c14;
+    border-bottom-color: #f16c14;
+}
 #sidebar ul {
     background: #292929;
+    width: 270px;
+    padding: 0;
+}
+#sidebar li{
+    position: relative;
+
 }
 #sidebar li a{
     background: #292929;
@@ -696,6 +706,17 @@ div.subcategory {
     text-transform: uppercase;
     color: #fff;
     padding: 10px 0 10px 15px;
+}
+#sidebar ul ul{
+    display:none;
+}
+#sidebar li:hover > ul,
+#sidebar li.open > ul{
+    display: block;
+    position: absolute;
+    top: 0;
+    margin-left: 270px;
+    z-index: 1001;
 }
 #sidebar li{
     border-bottom: 1px solid black;
@@ -706,7 +727,7 @@ div.subcategory {
 #sidebar {
     margin-top: 30px;
 }
-#sidebar .dropdown a:hover{
+#sidebar a:hover{
     background: #3f3f3f;
 }
 #sidebar .dropdown-menu {

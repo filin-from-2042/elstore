@@ -348,38 +348,58 @@ jQuery(function($) {
 
     /************************************************ GENERAL EVENT LISTENERS *****************************************/
     //------------------------ SCROLL LISTENER ---------------------
-    $(window).scroll(function()
+//    $(window).scroll(function()
+//    {
+//        var sidebarContainer = $('#sidebar');
+//        var sidebarWrap = $('#sidebar #menu-collapse');
+//        var sidebbarMenu = $('#sidebar #menu-collapse ul');
+//
+//        // прилипание главного меню
+//        if($(window).scrollTop() >= sidebarContainer.offset().top)
+//        {
+//            if(Number($(window).scrollTop()+sidebbarMenu.height()) >= Number($('#map-container').offset().top))
+//            {
+//                sidebarWrap.css({
+//                    'position':'fixed',
+//                    'top':'-'+(sidebbarMenu.height() - ($('#map-container').offset().top-$(window).scrollTop()) )+'px',
+//                    'width':sidebarContainer.width() + 'px'
+//                })
+//            }else{
+//
+//                sidebarWrap.css({
+//                    'position':'fixed',
+//                    'top':0,
+//                    'width':sidebarContainer.width() + 'px'
+//                })
+//            }
+//        }
+//        else{
+//            sidebarWrap.css({
+//                'position':'static',
+//                'top':'initial',
+//                'width':'auto'
+//            })
+//        }
+//    });
+
+    $('#sidebar li').click(function(e)
     {
-        var sidebarContainer = $('#sidebar');
-        var sidebarWrap = $('#sidebar #menu-collapse');
-        var sidebbarMenu = $('#sidebar #menu-collapse ul');
-
-        // прилипание главного меню
-        if($(window).scrollTop() >= sidebarContainer.offset().top)
+        e.stopPropagation();
+       $('#sidebar li').removeClass('open');
+        if(!$(this).hasClass('open'))
         {
-            if(Number($(window).scrollTop()+sidebbarMenu.height()) >= Number($('#map-container').offset().top))
-            {
-                sidebarWrap.css({
-                    'position':'fixed',
-                    'top':'-'+(sidebbarMenu.height() - ($('#map-container').offset().top-$(window).scrollTop()) )+'px',
-                    'width':sidebarContainer.width() + 'px'
-                })
-            }else{
-
-                sidebarWrap.css({
-                    'position':'fixed',
-                    'top':0,
-                    'width':sidebarContainer.width() + 'px'
-                })
-            }
+            $(this).addClass('open');
+            $(this).parents('li').addClass('open');
         }
-        else{
-            sidebarWrap.css({
-                'position':'static',
-                'top':'initial',
-                'width':'auto'
-            })
+        else
+        {
+            $(this).removeClass('open');
+            $(this).parents('li').removeClass('open');
         }
+    });
+    $('body').click(function(e)
+    {
+        $('#sidebar li').removeClass('open');
     });
 
 });

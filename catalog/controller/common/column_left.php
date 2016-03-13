@@ -102,46 +102,7 @@ class ControllerCommonColumnLeft extends Controller {
         $this->load->model('catalog/category');
 
         $this->load->model('catalog/product');
-
-        $this->data['categories'] = array();
-
-        $categories = $this->model_catalog_category->getCategories(0);
-
-        foreach ($categories as $category) {
-            if ($category['top']) {
-                // Level 2
-                $children_data = array();
-
-                $children = $this->model_catalog_category->getCategories($category['category_id']);
-
-                foreach ($children as $child) {
-                    //Будем вычислять кол-во товаров в категориях только если это кол-во надо показывать
-                    if ($this->config->get('config_product_count')) {
-                        $data = array(
-                            'filter_category_id'  => $child['category_id'],
-                            'filter_sub_category' => true
-                        );
-
-                        $product_total = $this->model_catalog_product->getTotalProducts($data);
-                    }
-
-                    $children_data[] = array(
-                        'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
-                        'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
-                    );
-                }
-
-                // Level 1
-                $this->data['categories'][] = array(
-                    'name'     => $category['name'],
-                    'children' => $children_data,
-                    'active'   => in_array($category['category_id'], $parts),
-                    'column'   => $category['column'] ? $category['column'] : 1,
-                    'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
-                );
-            }
-        }
-
+        $this->data['categories'] = $this->getChildren();
         $this->children = array(
             'module/language',
             'module/currency',
@@ -156,4 +117,25 @@ class ControllerCommonColumnLeft extends Controller {
 
         $this->render();
     }
+    // возвращает иерархию категорий товаров
+    protected function getChildren($parent_id=0, $path='')
+    {
+        $children = array();
+
+        $categories = $this->model_catalog_category->getCategories($parent_id);
+        if(!$categories) return;
+
+        foreach ($categories as $category) {
+
+            $children[]=array(
+                                'name'     => $category['name'],
+                                'children' => $this->getChildren($category['category_id'], ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']),
+                                'active'   => in_array($category['category_id'], explode('_',$path)),
+                                'column'   => $category['column'] ? $category['column'] : 1,
+                                'href'     => $this->url->link('product/category', 'path='.( ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']) )
+                            );
+        }
+        return  $children;
+    }
+
 }
