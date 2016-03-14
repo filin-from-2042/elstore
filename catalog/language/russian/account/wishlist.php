@@ -14,7 +14,7 @@ $_['text_empty']    = 'У Вас нет закладок';
 // Column
 $_['column_image']  = 'Изображение';
 $_['column_name']   = 'Наименование товара';
-$_['column_model']  = 'Модель';
+$_['column_model']  = 'Код товара';
 $_['column_stock']  = 'Наличие';
 $_['column_price']  = 'Цена';
 $_['column_action'] = 'Действие';

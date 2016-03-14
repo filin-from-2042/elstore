@@ -232,7 +232,7 @@ class ModelToolExchange extends Model {
         $product = array();
         $product['cost'] = $cost_1c;      
         $product['name'] = htmlentities($name_1c, ENT_QUOTES, 'UTF-8'); 
-        $product['model'] = !empty($article_1c) ? $article_1c :'-';
+        $product['model'] = $kod_1c;
         $product['quantity'] = $ostatok_1c;
         $product['keyword'] = htmlentities($this->mb_transliterate($name_1c), ENT_QUOTES, 'UTF-8');
         $product['status'] = ( $is_deleted?0:1);
@@ -271,7 +271,8 @@ class ModelToolExchange extends Model {
             //обновим
 
             // Refresh name, cost, quantity, status
-            $this->db->query("UPDATE  " . DB_PREFIX . "product SET  quantity='". $product['quantity'] ."',
+            $this->db->query("UPDATE  " . DB_PREFIX . "product SET  model = '". $product['model'] ."',
+                                                                    quantity='". $product['quantity'] ."',
                                                                     price='". $product['cost'] ."',
                                                                     status='". $product['status'] ."'
                                                                    WHERE product_id='$product_id'");

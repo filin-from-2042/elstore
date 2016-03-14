@@ -25,7 +25,7 @@ $_['text_empty']             = 'Ваша корзина пуста!';
 // Column
 $_['column_image']           = 'Фото';
 $_['column_name']            = 'Наименование товара';
-$_['column_model']           = 'Модель';
+$_['column_model']           = 'Код товара';
 $_['column_quantity']        = '<span title="Количество">Кол-во</span>';
 $_['column_price']           = 'Цена';
 $_['column_total']           = 'Итого';

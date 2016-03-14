@@ -23,6 +23,7 @@
                     <h1><?php echo $heading_title; ?></h1>
                     <p class="lead"><?php echo $text_account_already; ?></p>
                     <form class="form-horizontal" name="register" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+
                         <fieldset>
                             <legend><?php echo $text_your_details; ?></legend>
                             <div class="form-group">
@@ -73,25 +74,54 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
-                                    <?php echo $entry_fax; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <input type="tel" class="form-control" name="fax" value="<?php echo $fax; ?>" />
+
+                        </fieldset>
+
+                        <!-- For ur --->
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"  aria-controls="collapseOne">
+                                            <input type="radio"><legend>Юридическое лицо</legend>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label class="<?php echo $bootstrap->label; ?>">
+                                                <?php echo $entry_company; ?>
+                                            </label>
+                                            <div class="<?php echo $bootstrap->input; ?>">
+                                                <input type="text" class="form-control" name="company" value="<?php echo $company; ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="<?php echo $bootstrap->label; ?>">
+                                                <?php echo $entry_companyinn; ?>
+                                            </label>
+                                            <div class="<?php echo $bootstrap->input; ?>">
+                                                <input type="text" class="form-control" name="inn" value="<?php echo $inn; ?>" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="<?php echo $bootstrap->label; ?>">
+                                                <?php echo $entry_companykpp; ?>
+                                            </label>
+                                            <div class="<?php echo $bootstrap->input; ?>">
+                                                <input type="text" class="form-control" name="kpp" value="<?php echo $kpp; ?>" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </fieldset>
+                        </div>
+
                         <fieldset>
                             <legend><?php echo $text_your_address; ?></legend>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
-                                    <?php echo $entry_company; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <input type="text" class="form-control" name="company" value="<?php echo $company; ?>" />
-                                </div>
-                            </div>
+
                             <div class="form-group <?php echo (count($customer_groups) <= 1) ? 'sr-only' : ''; ?>">
                                 <label class="<?php echo $bootstrap->label; ?>">
                                     <?php echo $entry_customer_group; ?>
@@ -107,18 +137,7 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
-                                    <b class="text-danger">*</b>
-                                    <?php echo $entry_company_id; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <input type="text" class="form-control" name="company_id" value="<?php echo $company_id; ?>" required />
-                                    <?php if ($error_company_id) { ?>
-                                        <span class="text-warning" role="status"><?php echo $error_company_id; ?></span>
-                                    <?php } ?>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label class="<?php echo $bootstrap->label; ?>">
                                     <b class="text-danger">*</b>
@@ -205,6 +224,7 @@
                                 </div>
                             </div>
                         </fieldset>
+
                         <fieldset>
                             <legend><?php echo $text_your_password; ?></legend>
                             <div class="form-group">
@@ -232,6 +252,7 @@
                                 </div>
                             </div>
                         </fieldset>
+
                         <fieldset>
                             <legend><?php echo $text_newsletter; ?></legend>
                             <div class="form-group">

@@ -6,8 +6,8 @@
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
-<div id="main" class="container">
-    <div class="row">
+<div id="main">
+    <div class="row main-page">
         <!-- center -->
         <div class="<?php echo $bootstrap->center; ?>">
             <!-- breadcrumbs -->

@@ -468,15 +468,15 @@ class ControllerProductCategory extends Controller {
 			} else {
 				$this->template = 'default/template/error/not_found.tpl';
 			}
-			
-			$this->children = array(
-				'common/column_left',
-				'common/column_right',
-				'common/content_top',
-				'common/content_bottom',
-				'common/footer',
-				'common/header'
-			);
+
+            $this->children = array(
+                'common/column_left',
+                'common/column_right',
+                'common/content_top',
+                'common/content_bottom',
+                'common/footer',
+                'common/header'
+            );
 					
 			$this->response->setOutput($this->render());
 		}

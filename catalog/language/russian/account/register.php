@@ -13,12 +13,15 @@ $_['text_your_password']   = 'Ваш пароль';
 $_['text_agree']           = 'Я прочитал <a class="colorbox" href="%s" alt="%s"><b>%s</b></a> и согласен с условиями';
 
 // Entry
+$_['entry_company']        = 'Компания:';
+$_['entry_companyinn']     = 'ИНН:';
+$_['entry_companykpp']     = 'КПП:';
 $_['entry_firstname']      = 'Имя,Отчество:';
 $_['entry_lastname']       = 'Фамилия:';
 $_['entry_email']          = 'E-Mail:';
 $_['entry_telephone']      = 'Телефон:';
 $_['entry_fax']            = 'Факс:';
-$_['entry_company']        = 'Компания:';
+
 $_['entry_customer_group'] = 'Вид деятельноти:';
 $_['entry_company_id']     = 'ID компании:';
 $_['entry_tax_id']         = 'ИНН:';

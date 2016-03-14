@@ -9,6 +9,9 @@ $_['text_your_details']   = 'Ваша учетная запись';
 $_['text_success']        = 'Ваша учетная запись была успешно обновлена!';
 
 // Entry
+$_['entry_company']       = 'Компания:';
+$_['entry_companyinn']    = 'ИНН:';
+$_['entry_companykpp']    = 'КПП:';
 $_['entry_firstname']     = 'Имя, Отчество:';
 $_['entry_lastname']      = 'Фамилия:';
 $_['entry_email']         = 'E-Mail:';

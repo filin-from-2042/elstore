@@ -47,6 +47,10 @@ class ControllerAccountEdit extends Controller {
 
 		$this->data['text_your_details'] = $this->language->get('text_your_details');
 
+		$this->data['entry_company'] = $this->language->get('entry_company');
+		$this->data['entry_companyinn'] = $this->language->get('entry_companyinn');
+		$this->data['entry_companykpp'] = $this->language->get('entry_companykpp');
+
 		$this->data['entry_firstname'] = $this->language->get('entry_firstname');
 		$this->data['entry_lastname'] = $this->language->get('entry_lastname');
 		$this->data['entry_email'] = $this->language->get('entry_email');
@@ -109,12 +113,12 @@ class ControllerAccountEdit extends Controller {
 		}
 
 		if (isset($this->request->post['email'])) {
-			$this->data['email'] = $this->request->post['email'];
-		} elseif (isset($customer_info)) {
-			$this->data['email'] = $customer_info['email'];
-		} else {
-			$this->data['email'] = '';
-		}
+            $this->data['email'] = $this->request->post['email'];
+        } elseif (isset($customer_info)) {
+            $this->data['email'] = $customer_info['email'];
+        } else {
+            $this->data['email'] = '';
+        }
 
 		if (isset($this->request->post['telephone'])) {
 			$this->data['telephone'] = $this->request->post['telephone'];
@@ -131,6 +135,30 @@ class ControllerAccountEdit extends Controller {
 		} else {
 			$this->data['fax'] = '';
 		}
+
+        if (isset($this->request->post['company_name'])) {
+            $this->data['company_name'] = $this->request->post['company_name'];
+        } elseif (isset($customer_info)) {
+            $this->data['company_name'] = $customer_info['company_name'];
+        } else {
+            $this->data['company_name'] = '';
+        }
+
+        if (isset($this->request->post['inn'])) {
+            $this->data['inn'] = $this->request->post['inn'];
+        } elseif (isset($customer_info)) {
+            $this->data['inn'] = $customer_info['inn'];
+        } else {
+            $this->data['inn'] = '';
+        }
+
+        if (isset($this->request->post['kpp'])) {
+            $this->data['kpp'] = $this->request->post['kpp'];
+        } elseif (isset($customer_info)) {
+            $this->data['kpp'] = $customer_info['kpp'];
+        } else {
+            $this->data['kpp'] = '';
+        }
 
 		$this->data['back'] = $this->url->link('account/account', '', 'SSL');
 

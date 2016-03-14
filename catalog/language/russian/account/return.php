@@ -23,7 +23,7 @@ $_['text_agree']         = 'Я прочитал <a class="colorbox" href="%s" al
 
 // Column
 $_['column_product']     = 'Наименование товара';
-$_['column_model']       = 'Модель';
+$_['column_model']       = 'Код товара';
 $_['column_quantity']    = 'Количество';
 $_['column_price']       = 'Цена';
 $_['column_opened']      = 'Открыто';
@@ -41,7 +41,7 @@ $_['entry_lastname']     = 'Фамилия:';
 $_['entry_email']        = 'E-Mail:';
 $_['entry_telephone']    = 'Телефон:';
 $_['entry_product']      = 'Наименование товара:';
-$_['entry_model']        = 'Модель:';
+$_['entry_model']        = 'Код товара:';
 $_['entry_quantity']     = 'Количество:';
 $_['entry_reason']       = 'Причина возврата:';
 $_['entry_opened']       = 'Товар распакован:';

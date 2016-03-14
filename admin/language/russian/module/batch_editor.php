@@ -46,7 +46,7 @@ $_['column_tag'] = 'Теги';
 
 $_['column_sort_order'] = 'Порядок сортировки';
 $_['column_manufacturer_id'] = 'Производитель';
-$_['column_model'] = 'Модель';
+$_['column_model'] = 'Код товара';
 $_['column_sku'] = 'Артикул';
 $_['column_quantity'] = 'Количество';
 $_['column_image'] = 'Изображения';
