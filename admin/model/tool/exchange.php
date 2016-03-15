@@ -24,6 +24,11 @@ class ModelToolExchange extends Model {
 
     //--------------------------------------------Категории--------------------------------------------------------------------------------------------  
     public function addCategory($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0', $is_deleted=false) {
+        // categories with trash will always turned off
+        // СервисПак и папка для ненужных элементов
+        if ($kod_1c=='УР4466' || $kod_1c=='ЕА0041'){
+            $is_deleted=true;
+        }
 
         $data = array();
         $data['name'] = htmlentities($name_1c, ENT_QUOTES, 'UTF-8');
