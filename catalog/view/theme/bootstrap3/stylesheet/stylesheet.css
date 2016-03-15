@@ -707,7 +707,7 @@ div.subcategory {
     font: 600 14px/30px Lato;
     text-transform: uppercase;
     color: #fff;
-    padding: 10px 15px 10px 15px;
+    padding: 5px 15px 5px 15px;
     line-height: 1.5;
 }
 #sidebar ul ul{
@@ -718,7 +718,7 @@ div.subcategory {
     display: block;
     position: absolute;
     top: 0;
-    margin-left: 270px;
+    margin-left: 100%;
     z-index: 1001;
 }
 #sidebar li{

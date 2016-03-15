@@ -245,37 +245,35 @@ class ModelToolExchange extends Model {
         
         
         $tmp = $this->isOcIdProd($kod_1c);
+        $product_cat = $this->isOcIdCat($kod_1c_rod);
         $product_id = $tmp['oc_prod_id'];
 
         if (!empty($tmp['1c_kod_prod'])) {
             //ранее выгружался
-
             $this->db->query("UPDATE  " . DB_PREFIX . "1c_product SET 1c_kod_prod_rod='".$kod_1c_rod ."', 1c_ostatok='" . $ostatok_1c . "', 1c_cena='" . $cost_1c . "', 1c_name='$name_1c', 1c_kod_prod_rod='$kod_1c_rod'  WHERE 1c_kod_prod='$kod_1c'");
-
-
-            $product_cat = $this->isOcIdCat($kod_1c_rod);
             $product['product_category'] = (int) $product_cat['oc_cat_id'];
 
         } else {
             //добавим
             $this->db->query("INSERT INTO " . DB_PREFIX . "1c_product (1c_kod_prod, 1c_name, 1c_kod_prod_rod, 1c_ostatok, 1c_cena  ) VALUES ('$kod_1c','$name_1c','$kod_1c_rod','$ostatok_1c','$cost_1c')");
-            $product_cat = $this->isOcIdCat($kod_1c_rod);
+
             $product['product_category'] = (int) $product_cat['oc_cat_id'];
         }
 
         $this->load->model('catalog/product');
 
-
-
         if (!empty($product_id)) {
             //обновим
 
-            // Refresh name, cost, quantity, status
-            $this->db->query("UPDATE  " . DB_PREFIX . "product SET  model = '". $product['model'] ."',
+            if ($tmp['quantity']!=$product['quantity'] || $tmp['cost']!=$product['cost'] || $tmp['status']!=$product['status']){
+                // Refresh name, cost, quantity, status
+                $this->db->query("UPDATE  " . DB_PREFIX . "product SET  model = '". $product['model'] ."',
                                                                     quantity='". $product['quantity'] ."',
                                                                     price='". $product['cost'] ."',
                                                                     status='". $product['status'] ."'
                                                                    WHERE product_id='$product_id'");
+            }
+
             // Uncomment/comment on necessity
             if ($tmp['name']!=$product['name'])
                 $this->db->query("UPDATE  " . DB_PREFIX . "product_description SET  name='". $product['name'] ."' WHERE product_id='$product_id'");
