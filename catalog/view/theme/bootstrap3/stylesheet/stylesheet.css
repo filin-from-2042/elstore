@@ -692,6 +692,13 @@ div.subcategory {
     border-top-color: #f16c14;
     border-bottom-color: #f16c14;
 }
+#sidebar .arrow{
+    position: absolute;
+    right: 10px;
+    color: #f16c14;
+    border-top-color: #f16c14;
+    border-bottom-color: #f16c14;
+}
 #sidebar ul {
     background: #292929;
     width: 100%;
