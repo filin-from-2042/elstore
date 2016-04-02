@@ -701,7 +701,8 @@ div.subcategory {
     position: relative;
 
 }
-#sidebar li a{
+#sidebar li a,
+#sidebar li>span{
     background: #292929;
     display: block;
     font: 600 14px/30px Lato;
@@ -730,7 +731,8 @@ div.subcategory {
 #sidebar {
     margin-top: 30px;
 }
-#sidebar a:hover{
+#sidebar a:hover,
+#sidebar span:hover{
     background: #3f3f3f;
 }
 #sidebar .dropdown-menu {

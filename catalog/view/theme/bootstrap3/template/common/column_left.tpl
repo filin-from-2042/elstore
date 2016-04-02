@@ -6,7 +6,7 @@ function renderCategories($categories,$result='')
         if($category['children'])
         {
             $result.= '<li class="'. (($category['active']) ? 'active' : '') . '">
-                            <a><span>'.$category['name'].'</span><span class="caret"></span></a>
+                            <span><span>'.$category['name'].'</span><span class="caret"></span></span>
                             <ul>
                                 '.renderCategories($category['children']).'
                             </ul>
