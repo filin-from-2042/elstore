@@ -348,39 +348,97 @@ jQuery(function($) {
 
     /************************************************ GENERAL EVENT LISTENERS *****************************************/
     //------------------------ SCROLL LISTENER ---------------------
-//    $(window).scroll(function()
-//    {
-//        var sidebarContainer = $('#sidebar');
-//        var sidebarWrap = $('#sidebar #menu-collapse');
-//        var sidebbarMenu = $('#sidebar #menu-collapse ul');
-//
-//        // прилипание главного меню
-//        if($(window).scrollTop() >= sidebarContainer.offset().top)
-//        {
-//            if(Number($(window).scrollTop()+sidebbarMenu.height()) >= Number($('#map-container').offset().top))
-//            {
-//                sidebarWrap.css({
-//                    'position':'fixed',
-//                    'top':'-'+(sidebbarMenu.height() - ($('#map-container').offset().top-$(window).scrollTop()) )+'px',
-//                    'width':sidebarContainer.width() + 'px'
-//                })
-//            }else{
-//
-//                sidebarWrap.css({
-//                    'position':'fixed',
-//                    'top':0,
-//                    'width':sidebarContainer.width() + 'px'
-//                })
-//            }
-//        }
-//        else{
-//            sidebarWrap.css({
-//                'position':'static',
-//                'top':'initial',
-//                'width':'auto'
-//            })
-//        }
-//    });
+    window.lastScrollTop = 0;
+    window.lastScrollDirection = 'down';
+    $(window).scroll(function(event)
+    {
+        /*
+        var sidebarContainer = $('#sidebar');
+        var sidebarWrap = $('#sidebar #menu-collapse');
+        var sidebarMenu = $('#sidebar #menu-collapse ul');
+        var scrollTop = $(window).scrollTop();
+
+        var sidebarContainerBottom = sidebarContainer.offset().top + sidebarMenu.height();
+        var scrollBottom = scrollTop+$(window).height();
+
+
+        // если крутим вниз
+        if(scrollTop > lastScrollTop)
+        {
+            // если пересекли нижнюю границу меню
+            if(scrollBottom > sidebarContainerBottom)
+            {
+                // если направление изменилось
+                if(lastScrollDirection==='up') sidebarMenu.animate({ 'position':'fixed',bottom:0,top:'auto','width':sidebarContainer.width() + 'px'},500);
+                else sidebarMenu.css({ 'position':'fixed',bottom:0,top:'auto','width':sidebarContainer.width() + 'px'},500);
+            }
+            else
+            {
+                sidebarMenu.css({
+                    'position':'static',
+                    'top':'initial',
+                    'width':'auto'
+                });
+            }
+
+            lastScrollDirection = 'down';
+        }
+        // если вверх
+        else
+        {
+            // если скролл опущен ниже верхней границы меню
+            if(scrollTop >= sidebarContainer.offset().top)
+            {
+                // если направление изменилось
+                if(lastScrollDirection==='down') sidebarMenu.animate({ 'position':'fixed',top:0,bottom:'auto','width':sidebarContainer.width() + 'px'},500);
+                else sidebarMenu.css({ 'position':'fixed',top:0,bottom:'auto','width':sidebarContainer.width() + 'px'},500);
+            }
+            else
+            {
+                sidebarMenu.css({
+                    'position':'static',
+                    'top':'initial',
+                    'width':'auto'
+                });
+            }
+
+            lastScrollDirection = 'up'
+        }
+        lastScrollTop = scrollTop;
+*/
+
+    //-------------
+        /*
+        // прилипание главного меню
+        if(scrollTop >= sidebarContainer.offset().top)
+        {
+            // если докрутили до карты, верхний отступ в минус (упирается в карту)
+            if(Number(scrollTop+sidebarMenu.height()) >= Number($('#map-container').offset().top))
+            {
+                sidebarWrap.css({
+                    'position':'fixed',
+                    'top':'-'+(sidebarMenu.height() - ($('#map-container').offset().top-scrollTop) )+'px',
+                    'width':sidebarContainer.width() + 'px'
+                })
+            }
+            else
+            {
+                sidebarWrap.css({
+                    'position':'fixed',
+                    'top':0,
+                    'width':sidebarContainer.width() + 'px'
+                })
+            }
+        }
+        else{
+            sidebarWrap.css({
+                'position':'static',
+                'top':'initial',
+                'width':'auto'
+            })
+        }
+*/
+    });
 
     $('#sidebar li').click(function(e)
     {
