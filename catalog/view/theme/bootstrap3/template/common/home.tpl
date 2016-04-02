@@ -7,7 +7,7 @@
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
 <div id="main" class="container-fluid">
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -20,8 +20,8 @@
             <div class="item active">
                 <img src="image/slide3.jpg" alt="...">
                 <div class="carousel-caption">
-                    <h2>Специальные цены на продукцию компании <br>"TDM Electric"</h2>
-                    Лампочки, розетки, автоматы и многое другое по выгодным ценам! Специальное предложение для коммерческих организаций.
+                    <h2>Специальные цены на продукцию компании <br><a href="/index.php?route=product/manufacturer/info&manufacturer_id=43">"TDM Electric"</a></h2>
+                    <p class="hidden-sm hidden-xs">Лампочки, розетки, автоматы и многое другое по выгодным ценам! Специальное предложение для коммерческих организаций.</p>
                 </div>
             </div>
 
@@ -29,18 +29,16 @@
                 <img src="image/slide1.jpg" alt="...">
                 <div class="carousel-caption">
                     <h2>Официальный дилер ТриколорТВ</h2>
-                    Помощь в выборе  спутникового оборудования, регистрация, предоставление всей интересующей и актуальной информации
+                    <p class="hidden-sm hidden-xs">Помощь в выборе  спутникового оборудования, регистрация, предоставление всей интересующей и актуальной информации</p>
                     <p><a href="/index.php?route=product/category&path=446_664" class="btn btn-danger" role="button">Обзор спутниковых приемников</a></p>
                 </div>
             </div>
             <div class="item">
                 <img src="image/slide2.jpg" alt="...">
                 <div class="carousel-caption">
-                    <h2>Инструмент по ценам прошлого года</h2>
-                    Ликвидация инструмента <br>
-                    в магазине "Мир Профи". <br>
-                    Успейте купить!
-                    <p><a href="/index.php?route=product/special" class="btn btn-danger" role="button">Обзор акций</a></p>
+                    <h2>Светодиодные лампы NEO</h2>
+                    <p class="hidden-sm hidden-xs">Экономия с лампами нового поколения в 20 раз!</p>
+                    <p><a href="http://elektrika-nmk.ru/index.php?route=product/category&path=434_612_763" class="btn btn-danger" role="button">Обзор</a></p>
                 </div>
             </div>
 
@@ -66,7 +64,7 @@
                 <div class="col-xs-12">
                     <div class="indent">
                         <h2><strong>Добро пожаловать</strong> в наш магазин!</h2>
-                    Только у нас вы найдете электрику для дома и офиса по самым низким в Новомосковске ценам!
+                    Только у нас вы найдете электрику для дома и офиса по самым низким ценам в Новомосковске!<br>
                     Более 10 000 наименований товаров в наличии и под заказ.
                     </div>
                 </div>

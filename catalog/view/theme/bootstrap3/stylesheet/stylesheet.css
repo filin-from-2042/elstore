@@ -755,7 +755,12 @@ div.subcategory {
 /*------------------------- CART ---------------------*/
 
 /*------------------ CAROUSEL -----------------*/
-
+#works-on-site{
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    font-family: Lato;
+}
 .carousel-inner:before {
     position: absolute;
     height: 300%;
@@ -786,7 +791,12 @@ div.subcategory {
     font-size: 20px;
     font-family: "Lato";
 }
-
+.carousel-caption a{
+    color: #f16c14;
+}
+.carousel-caption .btn-danger{
+    background: #292929;
+}
 .carousel-caption h2{
     padding: 20px;
     font: 600 28px/30px Lato;
@@ -800,6 +810,33 @@ div.subcategory {
     width: 10%;
 }
 
+
+@media (max-width: 1024px){
+    .carousel-caption h2 {
+         padding: 0;
+        font: 600 20px/30px Lato;
+    }
+}
+
+@media (min-width: 1025px) and  (max-width:1200px){
+    .carousel-caption h2 {
+        padding: 10px;
+        font: 600 20px/30px Lato;
+    }
+    .carousel-caption p{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 760px){
+    .text-block h2 {
+        font-size: 45px;
+            }
+
+    .text-block .indent {
+        padding: 20px 15px;
+    }
+}
 /*------ Images -------------*/
 
 .img-zoom {

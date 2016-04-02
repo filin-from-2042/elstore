@@ -5,7 +5,7 @@
 <div class="row hidden-print">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- display view -->
-        <ul class="nav nav-pills pull-left">
+        <!--<ul class="nav nav-pills pull-left">
             <li id="display-list" class="active" title="<?php echo $text_display . ' ' . $text_list; ?>">
                 <a><small class="glyphicon glyphicon-th-list"></small></a>
             </li>
@@ -24,7 +24,7 @@
                     <li><a href="#4">4</a></li>
                 </ul>
             </li>
-        </ul>
+        </ul>-->
         <!-- display filter -->
         <ul class="nav nav-pills pull-right">
             <!-- filter sort -->
@@ -75,7 +75,7 @@
 <div id="products" class="row">
     <?php foreach ($products as $product) {   ?>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
             <div class="product-item thumbnail">
                 <div class="row">

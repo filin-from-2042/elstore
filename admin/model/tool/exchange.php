@@ -69,7 +69,7 @@ class ModelToolExchange extends Model {
             $this->db->query("UPDATE  " . DB_PREFIX . "1c_cat SET oc_cat_id='$category_id' WHERE 1c_kod_group='$kod_1c'");
         }
 
-        $this->updateParentCat();
+        // $this->updateParentCat();
     }
 
     function updateParentCat() {

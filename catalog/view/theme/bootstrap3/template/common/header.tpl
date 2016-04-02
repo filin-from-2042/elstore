@@ -133,4 +133,13 @@
             <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/menu.tpl'); ?>
         </div>
     </div>
+
+    <!-- Temporary info----->
+    <div id="works-on-site">
+        <div class="container">
+            <div class="row">
+                На сайте ведется заполнение технической информации по товарам. Приносим извинения за предоставленные неудобства.
+            </div>
+        </div>
+    </div>
 </header>
