@@ -10,7 +10,23 @@
                             <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
                         <?php } ?>
                     </ul>
+                    <div class="LiveInternetCounter">
+                        <!--LiveInternet counter--><script type="text/javascript"><!--
+                            document.write("<a href='//www.liveinternet.ru/click' "+
+                            "target=_blank><img src='//counter.yadro.ru/hit?t12.6;r"+
+                            escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                                    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                            ";"+Math.random()+
+                            "' alt='' title='LiveInternet: показано число просмотров за 24"+
+                            " часа, посетителей за 24 часа и за сегодня' "+
+                            "border='0' width='88' height='31'><\/a>")
+                            //--></script><!--/LiveInternet-->
+
+                    </div>
+
                 </div>
+
             <?php } ?>
             <div id="footer_support" class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <h4><?php echo $text_service; ?></h4>
