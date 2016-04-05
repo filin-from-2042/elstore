@@ -20,8 +20,8 @@
             <div id="content" class="row">
                 <div class="<?php echo $bootstrap->content; ?>" role="main">
                     <!-- heading title -->
-                    <h1><?php echo $heading_title; ?></h1>
-                    <div class="row">
+
+                    <div class="row product-heading">
                         <!-- product images -->
                         <?php if ($thumb || $images) { ?>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
@@ -44,6 +44,7 @@
                             </div>
                         <?php } ?>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
+                            <h1 id="product-heading"><?php echo $heading_title; ?></h1>
                             <!-- product info -->
                             <ul class="list-unstyled">
                                 <?php if ($manufacturer) { ?>
@@ -57,13 +58,13 @@
                                 <?php if ($price) { ?>
                                     <li class="text-big nowrap">
                                         <?php if ($price) { ?>
-                                        <strong class="text-danger nowrap product-price"><?php echo $price; ?></strong>
+                                        <strong class="text-danger nowrap snglproduct-price"><?php echo $price; ?></strong>
                                         <?php }?>
 
 
                                         <?php if ($special){ ?>
                                         <p>
-                                            <small class="text-warning text-sthrough nowrap old_price "><?php echo $special; ?></small> <wbr />
+                                            <small class="text-warning text-sthrough nowrap snglold_price "><?php echo $special; ?></small> <wbr />
                                             <?php } ?>
                                         </p>
                                     </li>
@@ -85,19 +86,21 @@
                                 <?php } ?>
                             </ul>
                             <br />
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row snglproduct-controls">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+
                             <!-- review -->
                             <ul class="list-unstyled">
                                 <li><img src="<?php echo THEME . 'image/stars-' . $rating . '.png'; ?>" alt="<?php echo $reviews; ?>" title="<?php echo $reviews; ?>" /></li>
                                 <?php if ($review_status) { ?>
-                                    <li class="hidden-print"><a onclick="$('#product-tabs a[href=\'#tab-review\']').tab('show'); $('#reviews').scrollBody();"><?php echo $reviews; ?></a></li>
-                                    <li class="hidden-print"><a href="#modal-review" data-toggle="modal"><?php echo $text_write; ?></a></li>
+                                <li class="hidden-print"><a onclick="$('#product-tabs a[href=\'#tab-review\']').tab('show'); $('#reviews').scrollBody();"><?php echo $reviews; ?></a></li>
+                                <li class="hidden-print"><a href="#modal-review" data-toggle="modal"><?php echo $text_write; ?></a></li>
                                 <?php } ?>
                             </ul>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <!-- product options -->
                             <?php if ($options) { ?>
                                 <form class="form-horizontal well" name="product_options">
@@ -183,6 +186,25 @@
                                 </form>
                                 <br />
                             <?php } ?>
+                        </div>
+
+                        <!-- add to compare & add to wishlist -->
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 hidden-print">
+                            <div class="col-xs-6 controls">
+                                <a class="btn btn-link wishlist" name="addToWishList" title="<?php echo $this->language->get('button_wishlist'); ?>" onclick="addToWishList('<?php echo $product['product_id']; ?>');" /><div  class="glyphicon glyphicon-heart"></div> </a>
+                            </div>
+                            <div class="col-xs-6 controls">
+                                <a class="btn btn-link compare" name="addToCompare" title="<?php echo $this->language->get('button_compare'); ?>" onclick="addToCompare('<?php echo $product['product_id']; ?>');" /><div class="glyphicon glyphicon-list"></div> </a>
+                            </div>
+                            <?php if ($review_status) { ?>
+                                <div class="pull-left share-it">
+                                    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/add_this.tpl'); ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hidden-print form-buy">
+
                             <!-- add to cart -->
                             <form class="form-horizontal" name="product">
                                 <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
@@ -199,26 +221,10 @@
                                     </div>
                                 </div>
                                 <?php if ($minimum > 1) { ?>
-                                    <small class="help-block col-xs-12 col-sm-8 col-md-8 col-lg-8 col-sm-offset-4 col-md-offset-4 col-lg-offset-4"><?php echo $text_minimum; ?></small>
+                                <small class="help-block col-xs-12 col-sm-8 col-md-8 col-lg-8 col-sm-offset-4 col-md-offset-4 col-lg-offset-4"><?php echo $text_minimum; ?></small>
                                 <?php } ?>
                             </form>
-                            <hr style="width: 100%" />
-                        </div>
-                        <!-- add to compare & add to wishlist -->
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden-print">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                                    <div class="col-xs-1">
-                                        <a class="btn btn-link wishlist" name="addToWishList" title="<?php echo $this->language->get('button_wishlist'); ?>" onclick="addToWishList('<?php echo $product['product_id']; ?>');" /><div  class="glyphicon glyphicon-heart"></div> </a>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <a class="btn btn-link compare" name="addToCompare" title="<?php echo $this->language->get('button_compare'); ?>" onclick="addToCompare('<?php echo $product['product_id']; ?>');" /><div class="glyphicon glyphicon-list"></div> </a>
-                                    </div>
-                                </div>
-                            <?php if ($review_status) { ?>
-                                <div class="pull-left">
-                                    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/add_this.tpl'); ?>
-                                </div>
-                            <?php } ?>
+
                         </div>
                     </div>
                     <br />
