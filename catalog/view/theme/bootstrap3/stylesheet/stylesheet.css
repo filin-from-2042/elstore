@@ -763,12 +763,14 @@ div.subcategory {
     border-top-color: #f16c14;
     border-bottom-color: #f16c14;
 }
-#sidebar .arrow{
+#sidebar .arrow {
     position: absolute;
-    right: 10px;
     color: #f16c14;
     border-top-color: #f16c14;
     border-bottom-color: #f16c14;
+    top: 50%;
+    right: 3%;
+    margin: -5% 0 0;
 }
 #sidebar ul {
     background: #292929;
