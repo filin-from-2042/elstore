@@ -228,7 +228,7 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getFoundProducts(); 
 			
 			foreach ($results as $result) {
-                if ($category_info['products_template']!=0) {$width = '300px'; $height  = '200px'; } else{$width=$this->config->get('config_image_category_width'); $height = $this->config->get('config_image_category_height');}
+                if ($category_info['products_template']!=NULL ) {$width = $this->config->get('config_image_category_width'); $height  = $this->config->get('config_image_category_height'); } else{$width=$this->config->get('config_image_product_width'); $height = $this->config->get('config_image_product_height');}
                 if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $width, $height);
 				} else {
