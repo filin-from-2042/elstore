@@ -81,7 +81,6 @@ class ControllerProductCategory extends Controller {
 				}
 									
 				$category_info = $this->model_catalog_category->getCategory($path_id);
-				
 				if ($category_info) {
 	       			$this->data['breadcrumbs'][] = array(
    	    				'text'      => $category_info['name'],
@@ -194,6 +193,7 @@ class ControllerProductCategory extends Controller {
 			$this->data['categories'] = array();
 			
 			$results = $this->model_catalog_category->getCategories($category_id);
+
 			
 			foreach ($results as $result) {
 				$data = array(
@@ -228,10 +228,11 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getFoundProducts(); 
 			
 			foreach ($results as $result) {
-				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+                if ($category_info['products_template']!=NULL ) {$width = $this->config->get('config_image_category_width'); $height  = $this->config->get('config_image_category_height'); } else{$width=$this->config->get('config_image_product_width'); $height = $this->config->get('config_image_product_height');}
+                if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $width, $height);
 				} else {
-					$image = $this->model_tool_image->resize('no_image.jpg', $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$image = $this->model_tool_image->resize('no_image.jpg', $width, $height);
 				}
 				
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -268,7 +269,7 @@ class ControllerProductCategory extends Controller {
 					'tax'         => $tax,
 					'rating'      => $result['rating'],
 					'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
 				);
 			}
 			
@@ -403,8 +404,10 @@ class ControllerProductCategory extends Controller {
 		
 			$this->data['continue'] = $this->url->link('common/home');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
-				$this->template = $this->config->get('config_template') . '/template/product/category.tpl';
+            if ( $category_info['products_template']) {$products_template='/template/product/category-mini.tpl';}
+            else $products_template = '/template/product/category.tpl';
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . $products_template)) {
+				$this->template = $this->config->get('config_template') . $products_template ;
 			} else {
 				$this->template = 'default/template/product/category.tpl';
 			}
