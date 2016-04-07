@@ -703,8 +703,9 @@ div.subcategory {
     border-bottom-color: #f16c14;
     top: 50%;
     right: 3%;
-    margin: -3% 0;
+    margin: -10px 0;
     font-size: 10px;
+    height:21px;
 }
 #sidebar ul {
     background: #292929;
