@@ -57,7 +57,7 @@ class ControllerModuleBt3Featured extends Controller {
 					'special' 	 => $special,
 					'rating'     => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
-                    'href'    	 => $this->url->link('product/product', array('product_id=' . $product_info['product_id'],'path=' . $product_info['productCategories'] ))
+					'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
 				);
 			}
 		}
