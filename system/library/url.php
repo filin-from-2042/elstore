@@ -21,11 +21,19 @@ class Url {
 		}
 		
 		$url .= 'index.php?route=' . $route;
-			
-		if ($args) {
-			$url .= str_replace('&', '&amp;', '&' . ltrim($args, '&')); 
-		}
-		
+
+        if ($args)
+        {
+            if(is_array($args))
+            {
+               foreach($args as $arg)
+               {
+                   $url .= str_replace('&', '&amp;', '&' . ltrim($arg, '&'));
+               }
+            }
+            else $url .= str_replace('&', '&amp;', '&' . ltrim($args, '&'));
+        }
+
 		foreach ($this->rewrite as $rewrite) {
 			$url = $rewrite->rewrite($url);
 		}

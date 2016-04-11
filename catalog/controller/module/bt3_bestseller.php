@@ -39,7 +39,6 @@ class ControllerModuleBt3BestSeller extends Controller {
 			} else {
 				$rating = false;
 			}
-							
 			$this->data['products'][] = array(
 				'product_id' => $result['product_id'],
 				'thumb'   	 => $image,
@@ -48,7 +47,7 @@ class ControllerModuleBt3BestSeller extends Controller {
 				'special' 	 => $special,
 				'rating'     => $rating,
 				'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-				'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+                'href'    	 => $this->url->link('product/product', array('product_id=' . $result['product_id'],'path=' . $result['productCategories'] ))
 			);
 		}
         
