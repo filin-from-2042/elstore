@@ -90,12 +90,37 @@ class ModelCatalogProduct extends Model {
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
                 'viewed'           => $query->row['viewed'],
-                'productCategories'=> $query->row['productCategories']
+                'productCategories'=> $this->getProductCategories($product_id)
 			);
 		} else {
 			return false;
 		}
 	}
+    // метод возвращает категории товара в формате id_id_id
+    public function getProductCategories($product_id)
+    {
+        $path="";
+        $query = $this->db->query("SELECT category_id FROM oc_product_to_category WHERE product_id = ".$product_id." ORDER BY main_category LIMIT 1");
+        if($query->num_rows)
+        {
+            $path .= $query->row["category_id"];
+            $prodCat = $query->row["category_id"];
+
+            while(true)
+            {
+                $query = $this->db->query("SELECT `parent_id` FROM `oc_category` WHERE `category_id` =".$prodCat);
+                if($query->num_rows && $query->row["parent_id"]!=0)
+                {
+                    $path.="_".$query->row["parent_id"];
+                    $prodCat = $query->row["parent_id"];
+                }
+                else break;
+            }
+
+        }
+        return $path;
+
+    }
 
 	public function getProducts($data = array()) {
 		if ($this->customer->isLogged()) {
