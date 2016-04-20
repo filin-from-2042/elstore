@@ -88,6 +88,7 @@ jQuery(function($) {
                 if (json.success) {
                     $('.compare-total').html(json['total']);
                     $('#notification').showTopRight('success', json.success);
+                    setTimeout(function(){$('#notification').fadeOut(1000);},3000)
                 }
             }
         });
@@ -107,6 +108,7 @@ jQuery(function($) {
                 if(json.success) {
                     $('.wishlist-total').html(json['total']);
                     $('#notification').showTopRight('success', json.success);
+                    setTimeout(function(){$('#notification').fadeOut(1000);},3000)
                 }
             }
         });
