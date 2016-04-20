@@ -68,6 +68,7 @@ jQuery(function($) {
                 } else if (json.success) {
                     $('#cart').triggerHandler('added');
                     $('#notification').showTopRight('success', json.success);
+                    setTimeout(function(){$('#notification').fadeOut(1000);},3000)
                 }
             }
         });
