@@ -102,7 +102,7 @@ class ModelCatalogProduct extends Model {
         $query = $this->db->query("SELECT category_id FROM oc_product_to_category WHERE product_id = ".$product_id." ORDER BY main_category LIMIT 1");
         if($query->num_rows)
         {
-            $path .= $query->row["category_id"];
+            $path = $query->row["category_id"];
             $prodCat = $query->row["category_id"];
 
             while(true)
@@ -110,7 +110,7 @@ class ModelCatalogProduct extends Model {
                 $query = $this->db->query("SELECT `parent_id` FROM `oc_category` WHERE `category_id` =".$prodCat);
                 if($query->num_rows && $query->row["parent_id"]!=0)
                 {
-                    $path.="_".$query->row["parent_id"];
+                    $path=$query->row["parent_id"]."_".$path;
                     $prodCat = $query->row["parent_id"];
                 }
                 else break;
