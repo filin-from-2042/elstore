@@ -191,6 +191,22 @@ div.subcategory {
 .category-mini .product-price{
     font-size: 35px;
 }
+
+@media(min-width: 1200px) {
+    .category-mini #products .product-item.thumbnail .caption {
+        padding: 0 10px 5px 0;
+    }
+}
+@media(max-width: 420px){
+    .category-mini .col-xs-6{
+        width: 100%;
+    }
+}
+
+.category-mini .product-price{
+    font-size: 35px;
+}
+.category-mini .product-image img{margin: 0 auto}
 .category-mini .product-image img{margin: 0 auto}
 
 .snglproduct-price{

@@ -27,7 +27,7 @@ class ModelCatalogProduct extends Model {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}	
 				
-		$query = $this->db->query("SELECT DISTINCT *, pd.name AS name, ".
+		$query = $this->db->query("SELECT DISTINCT *, pd.name AS name, p.measure AS measure, ".
                                     " p.image, ".
                                     "  m.name AS manufacturer, ".
                                     " (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < '" . $this->NOW . "') AND (pd2.date_end = '0000-00-00' OR pd2.date_end > '" . $this->NOW . "')) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount,  ".
@@ -51,6 +51,7 @@ class ModelCatalogProduct extends Model {
 				'seo_h1'           => $query->row['seo_h1'],
 				'product_id'       => $query->row['product_id'],
 				'name'             => $query->row['name'],
+				'measure'          => $query->row['measure'],
 				'description'      => $query->row['description'],
 				'meta_description' => $query->row['meta_description'],
 				'meta_keyword'     => $query->row['meta_keyword'],

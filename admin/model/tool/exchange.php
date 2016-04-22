@@ -24,6 +24,8 @@ class ModelToolExchange extends Model {
 
     //--------------------------------------------Категории--------------------------------------------------------------------------------------------  
     public function addCategory($action, $kod_1c, $name_1c, $ostatok_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0', $is_deleted=false) {
+
+
         // categories with trash will always turned off
         // СервисПак и папка для ненужных элементов
         if ($kod_1c=='УР4466' || $kod_1c=='ЕА0041'){
@@ -231,7 +233,7 @@ class ModelToolExchange extends Model {
     }
 
     //--------------------------------------------Продукт----------------------------------------------------------------------------------------------       
-    public function addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0',$is_deleted = false) {
+    public function addProduct($action, $kod_1c, $description, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0',$is_deleted = false) {
 
         $data = array();
         $product = array();
@@ -241,6 +243,9 @@ class ModelToolExchange extends Model {
         $product['quantity'] = $ostatok_1c;
         $product['keyword'] = htmlentities($this->mb_transliterate($name_1c), ENT_QUOTES, 'UTF-8');
         $product['status'] = ( $is_deleted?0:1);
+        $product['measure']= $edizm_1c;
+        //$product['description'] = htmlentities($description, ENT_QUOTES,'UTF-8');
+        $product['description'] = nl2br($description);
         //$product['option'] = $edizm_1c;
 
         $option_id = $this->checkOptions($lang);
@@ -269,6 +274,14 @@ class ModelToolExchange extends Model {
 
         if (!empty($product_id)) {
             //обновим
+            if ($tmp['measure']!=$edizm_1c)
+            {
+                $this->db->query("UPDATE  " . DB_PREFIX . "product SET  measure = '". $product['measure'] ."'   WHERE product_id='$product_id'");
+            }
+
+            if ($tmp['description']!=$description){
+                $this->db->query("UPDATE  " . DB_PREFIX . "product_description SET  description = '". $product['description'] ."'   WHERE product_id='$product_id'");
+            }
 
             if ($tmp['quantity']!=$product['quantity'] || $tmp['cost']!=$product['cost'] || $tmp['status']!=$product['status']){
                 // Refresh name, cost, quantity, status
@@ -305,6 +318,7 @@ class ModelToolExchange extends Model {
 
         $result = array(
             'model' => isset($product['model']) ? $product['model'] : ''
+            , 'measure' => isset($product['measure']) ? $product['measure'] : ''
             , 'sku' => ''
             , 'upc' => ''
             , 'ean' => ''
@@ -368,9 +382,7 @@ class ModelToolExchange extends Model {
             'required'=>'1'
             
         )
-            
-            
-            
+
             
         );
 
@@ -383,17 +395,11 @@ class ModelToolExchange extends Model {
 
 
 
-
-
-
-
-
-
         return $result;
     }
 
     public function addProductToOc($data) {
-        $this->db->query("INSERT INTO " . DB_PREFIX . "product SET model = '" . $this->db->escape($data['model']) . "', sku = '" . $this->db->escape($data['sku']) . "', upc = '" . $this->db->escape($data['upc']) . "', ean = '" . $this->db->escape($data['ean']) . "', jan = '" . $this->db->escape($data['jan']) . "', isbn = '" . $this->db->escape($data['isbn']) . "', mpn = '" . $this->db->escape($data['mpn']) . "', location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int) $data['quantity'] . "', minimum = '" . (int) $data['minimum'] . "', subtract = '" . (int) $data['subtract'] . "', stock_status_id = '" . (int) $data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int) $data['manufacturer_id'] . "', shipping = '" . (int) $data['shipping'] . "', price = '" . (float) $data['price'] . "', points = '" . (int) $data['points'] . "', weight = '" . (float) $data['weight'] . "', weight_class_id = '" . (int) $data['weight_class_id'] . "', length = '" . (float) $data['length'] . "', width = '" . (float) $data['width'] . "', height = '" . (float) $data['height'] . "', length_class_id = '" . (int) $data['length_class_id'] . "', status = '" .  $data['status'] . "', tax_class_id = '" . $this->db->escape($data['tax_class_id']) . "', sort_order = '" . (int) $data['sort_order'] . "', date_added = NOW()");
+        $this->db->query("INSERT INTO " . DB_PREFIX . "product SET model = '" . $this->db->escape($data['model']) . "', measure = '" . $this->db->escape($data['measure']) . "', upc = '" . $this->db->escape($data['upc']) . "', ean = '" . $this->db->escape($data['ean']) . "', jan = '" . $this->db->escape($data['jan']) . "', isbn = '" . $this->db->escape($data['isbn']) . "', mpn = '" . $this->db->escape($data['mpn']) . "', location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int) $data['quantity'] . "', minimum = '" . (int) $data['minimum'] . "', subtract = '" . (int) $data['subtract'] . "', stock_status_id = '" . (int) $data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int) $data['manufacturer_id'] . "', shipping = '" . (int) $data['shipping'] . "', price = '" . (float) $data['price'] . "', points = '" . (int) $data['points'] . "', weight = '" . (float) $data['weight'] . "', weight_class_id = '" . (int) $data['weight_class_id'] . "', length = '" . (float) $data['length'] . "', width = '" . (float) $data['width'] . "', height = '" . (float) $data['height'] . "', length_class_id = '" . (int) $data['length_class_id'] . "', status = '" .  $data['status'] . "', tax_class_id = '" . $this->db->escape($data['tax_class_id']) . "', sort_order = '" . (int) $data['sort_order'] . "', date_added = NOW()");
 
         $product_id = $this->db->getLastId();
 
@@ -541,6 +547,7 @@ class ModelToolExchange extends Model {
 
         $query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "1c_product
                                     INNER JOIN  " . DB_PREFIX . "product as pr on pr.product_id=oc_prod_id
+                                    INNER JOIN ". DB_PREFIX. "product_description as pd on pd.product_id = pr.product_id
                                    WHERE 1c_kod_prod='" . $kod_1c . "'");
         if (!empty($query->row)) {
 
