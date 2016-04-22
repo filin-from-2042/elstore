@@ -67,5 +67,26 @@ class ModelCatalogCategory extends Model {
 		
 		return $query->row['total'];
 	}
+
+    // возвращает иерархию категорий товаров
+    public function getHierarhy($parent_id=0, $path='')
+    {
+        $children = array();
+
+        $categories = $this->model_catalog_category->getCategories($parent_id);
+        if(!$categories) return;
+
+        foreach ($categories as $category) {
+
+            $children[]=array(
+                'name'     => $category['name'],
+                'children' => $this->getHierarhy($category['category_id'], ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']),
+                'active'   => in_array($category['category_id'], explode('_',$path)),
+                'column'   => $category['column'] ? $category['column'] : 1,
+                'href'     => $this->url->link('product/category', 'path='.( ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']) )
+            );
+        }
+        return  $children;
+    }
 }
 ?>

@@ -102,7 +102,7 @@ class ControllerCommonColumnLeft extends Controller {
         $this->load->model('catalog/category');
 
         $this->load->model('catalog/product');
-        $this->data['categories'] = $this->getChildren();
+        $this->data['categories'] = $this->model_catalog_category->getHierarhy();
         $this->children = array(
             'module/language',
             'module/currency',
@@ -116,26 +116,6 @@ class ControllerCommonColumnLeft extends Controller {
         }
 
         $this->render();
-    }
-    // возвращает иерархию категорий товаров
-    protected function getChildren($parent_id=0, $path='')
-    {
-        $children = array();
-
-        $categories = $this->model_catalog_category->getCategories($parent_id);
-        if(!$categories) return;
-
-        foreach ($categories as $category) {
-
-            $children[]=array(
-                                'name'     => $category['name'],
-                                'children' => $this->getChildren($category['category_id'], ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']),
-                                'active'   => in_array($category['category_id'], explode('_',$path)),
-                                'column'   => $category['column'] ? $category['column'] : 1,
-                                'href'     => $this->url->link('product/category', 'path='.( ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']) )
-                            );
-        }
-        return  $children;
     }
 
 }
