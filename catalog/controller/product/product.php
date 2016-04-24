@@ -107,6 +107,15 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 		}
+        else
+        {
+            // "Каталог" в крошку добавляем только если просматриваем из категорий
+            $this->data['breadcrumbs'][] = array(
+                'text'      => "Каталог",
+                'href'      => $this->url->link('product/category'),
+                'separator' => false
+            );
+        }
 		
 		if (isset($this->request->get['search']) || isset($this->request->get['tag'])) {
 			$url = '';

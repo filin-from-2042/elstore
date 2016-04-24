@@ -49,9 +49,15 @@ class ControllerProductCategory extends Controller {
        		'text'      => $this->language->get('text_home'),
 			'href'      => $this->url->link('common/home'),
        		'separator' => false
-   		);	
-			
-		if (isset($this->request->get['path'])) {
+   		);
+
+        $this->data['breadcrumbs'][] = array(
+            'text'      => "Каталог",
+            'href'      => $this->url->link('product/category'),
+            'separator' => false
+        );
+
+        if (isset($this->request->get['path'])) {
 			$url = '';
 			
 			if (isset($this->request->get['sort'])) {
@@ -423,6 +429,7 @@ class ControllerProductCategory extends Controller {
 				
 			$this->response->setOutput($this->render());										
     	} else {
+
 			$url = '';
 			
 			if (isset($this->request->get['path'])) {
@@ -449,29 +456,32 @@ class ControllerProductCategory extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
-						
-			$this->data['breadcrumbs'][] = array(
-				'text'      => $this->language->get('text_error'),
-				'href'      => $this->url->link('product/category', $url),
-				'separator' => $this->language->get('text_separator')
-			);
-				
-			$this->document->setTitle($this->language->get('text_error'));
 
-      		$this->data['heading_title'] = $this->language->get('text_error');
+            $this->document->setTitle("Каталог товаров");
 
-      		$this->data['text_error'] = $this->language->get('text_error');
+            $this->data['heading_title'] = "Каталог товаров";
 
-      		$this->data['button_continue'] = $this->language->get('button_continue');
 
-      		$this->data['continue'] = $this->url->link('common/home');
+            $this->data['categories'] = array();
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
-				$this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
-			} else {
-				$this->template = 'default/template/error/not_found.tpl';
-			}
 
+            $results = $this->model_catalog_category->getCategories($category_id);
+
+            foreach ($results as $result) {
+
+                $this->data['categories'][] = array(
+                    'name'  => $result['name'] ,
+                    'href'  => $this->url->link('product/category', 'path=' . $result['category_id']),
+                    'thumb' => $this->model_tool_image->resize(($result['image']=='' ? 'no_image.jpg' : $result['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
+                );
+            }
+
+
+            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
+                $this->template = $this->config->get('config_template') . '/template/product/category.tpl' ;
+            } else {
+                $this->template = 'default/template/product/category.tpl';
+            }
             $this->children = array(
                 'common/column_left',
                 'common/column_right',

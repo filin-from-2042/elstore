@@ -26,7 +26,7 @@
 
                     <h1><?php echo $heading_title; ?></h1>
 
-                   <?php if ($categories) { ?>
+                   <?php if (isset($categories) && $categories) { ?>
                         <div class="row hidden-print">
                             <?php foreach ($categories as $category) { ?>
                                 <div class="subcategory col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -40,10 +40,10 @@
                         </div>
                         <br />
                     <?php } ?>
-                    <?php if ($products) { ?>
+                    <?php if (isset($products) && $products) { ?>
                         <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/products.tpl'); ?>
                     <?php } ?>
-                    <?php if (!$categories && !$products) { ?>
+                    <?php if (isset($categories) && !$categories && isset($products) && !$products) { ?>
                         <p class="lead"><?php echo $text_empty; ?></p>
                         <br />
                         <a class="btn btn-primary pull-right" href="<?php echo $continue; ?>" title="<?php echo $button_continue; ?>"><?php echo $button_continue; ?></a>
