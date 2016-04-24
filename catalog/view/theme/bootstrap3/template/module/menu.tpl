@@ -19,6 +19,7 @@
                <li class="menu-item"><a href="./index.php?route=product/special">Акции</a></li>
                <li class="menu-item"><a href="./index.php?route=information/contact">Контакты</a></li>
                <li class="menu-item"><a href="./index.php?route=information/information&information_id=6">Доставка</a></li>
+               <li class="menu-item" id="catalog-btn"><a class="visible-xs visible-sm" href="/index.php?route=product/category">Каталог товаров</a></li>
         </ul>
     </div>
 </div>

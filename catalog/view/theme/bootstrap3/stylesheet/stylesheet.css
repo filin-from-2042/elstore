@@ -765,12 +765,17 @@ div.subcategory {
     display: inline-block;
 }
 
-#menu #menu-collapse li a {
+#menu #menu-collapse li a,
+#menu .navbar-brand {
     color: #fff;
     font-size: 20px;
 }
-
-
+#menu #catalog-btn{
+    float: none;
+    clear: both;
+    display: block;
+    text-align: center;
+}
 /*------------ SIDEBAR----------------------*/
 #sidebar{
     z-index: 100;

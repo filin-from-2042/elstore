@@ -36,7 +36,7 @@ class Bootstrap {
     public function __construct($column_left = false, $column_right = false, $content_top = false, $content_bottom = false) {
         if ($column_left && $column_right) {
             $this->center = 'col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-push-3 col-lg-push-3';
-            $this->left = 'col-xs-12 col-sm-6 col-md-3 col-lg-3 col-md-pull-6 col-lg-pull-6 hidden-xs hidden-print';
+            $this->left = 'col-xs-12 col-sm-6 col-md-3 col-lg-3 col-md-pull-6 col-lg-pull-6 hidden-xs hidden-sm hidden-print';
             $this->right = 'col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-xs hidden-print';
             $this->content = 'col-xs-12 col-sm-12 col-md-12 col-lg-12';
             $this->top = 'col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden-print';
@@ -45,7 +45,7 @@ class Bootstrap {
             $this->input = 'col-xs-12 col-sm-8 col-md-8 col-lg-8';
         } elseif ($column_left) {
             $this->center = 'col-xs-12 col-sm-12 col-md-9 col-lg-9 col-md-push-3 col-lg-push-3';
-            $this->left = 'col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9 hidden-xs hidden-print';
+            $this->left = 'col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9 hidden-xs hidden-sm hidden-print';
             $this->right = '';
             $this->content = 'col-xs-12 col-sm-12 col-md-12 col-lg-12';
             $this->top = 'col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden-print';
