@@ -69,21 +69,26 @@ class ModelCatalogCategory extends Model {
 	}
 
     // возвращает иерархию категорий товаров
-    public function getHierarhy($parent_id=0, $path='')
+    public function getHierarhy( $maxDept=null, $parent_id=0, $path='',$dept = 0)
     {
+        $dept++;
+        if($maxDept!== null &&  $maxDept < $dept) return;
         $children = array();
 
         $categories = $this->model_catalog_category->getCategories($parent_id);
         if(!$categories) return;
 
-        foreach ($categories as $category) {
-
+        foreach ($categories as $category)
+        {
+            $newPath = ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id'];
             $children[]=array(
                 'name'     => $category['name'],
-                'children' => $this->getHierarhy($category['category_id'], ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']),
+                'category_id'=>$category['category_id'],
+                'children' => $this->getHierarhy($maxDept, $category['category_id'], $newPath, $dept),
                 'active'   => in_array($category['category_id'], explode('_',$path)),
                 'column'   => $category['column'] ? $category['column'] : 1,
-                'href'     => $this->url->link('product/category', 'path='.( ($path==='') ? $category['category_id'] : $path.'_'.$category['category_id']) )
+                'path'     => $newPath,
+                'href'     => $this->url->link('product/category', 'path='.( $newPath) )
             );
         }
         return  $children;
