@@ -786,11 +786,9 @@ div.subcategory {
     color: #fff;
     font-size: 20px;
 }
-#menu #catalog-btn{
-    float: none;
-    clear: both;
-    display: block;
-    text-align: center;
+#menu .navbar-brand {
+    font:600 18px/30px Lato;
+    text-transform: uppercase;
 }
 /*------------ SIDEBAR----------------------*/
 #sidebar{
@@ -1067,8 +1065,27 @@ div.subcategory {
     display: inline-block;
 }
 
+@media (max-width: 768px){
+
+    #menu ul.navbar-nav{
+        width: 100%;
+        margin: 0;
+    }
+      #menu #catalog-btn,
+      #menu #menu-collapse li{
+          float: none;
+          clear: both;
+          display: block;
+          text-align: center;
+          border:1px solid #cccccc;
+      }
+}
+
 @media (max-width: 992px) and (min-width: 728px) {
     .category-container .caption p{width: 100%;}
+    #menu li {
+        padding: 10px 2px;
+    }
 
 }
 
