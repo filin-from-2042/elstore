@@ -54,7 +54,7 @@
                                 <?php if ($reward) { ?>
                                     <li class="text-big"><span class="text-info"><?php echo $text_reward; ?></span> <wbr /><?php echo $reward; ?></li>
                                 <?php } ?>
-                                    <li class="text-big"><span class="text-info"><?php echo $text_stock; ?></span> <wbr /><?php echo $stock; ?></li>
+                                    <li class="text-big"><span class="text-info"><?php echo $text_stock; ?></span> <wbr /><?php echo $stock . ' ' . $measure; ?></li>
                                 <?php if ($price) { ?>
                                     <li class="text-big nowrap">
                                         <?php if ($price) { ?>
