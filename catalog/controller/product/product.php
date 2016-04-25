@@ -12,7 +12,57 @@ class ControllerProductProduct extends Controller {
 			'href'      => $this->url->link('common/home'),			
 			'separator' => false
 		);
-		
+
+
+
+        $this->load->model('catalog/manufacturer');
+
+        if (isset($this->request->get['manufacturer_id'])) {
+            $this->data['breadcrumbs'][] = array(
+                'text'      => $this->language->get('text_brand'),
+                'href'      => $this->url->link('product/manufacturer'),
+                'separator' => $this->language->get('text_separator')
+            );
+
+            $url = '';
+
+            if (isset($this->request->get['sort'])) {
+                $url .= '&sort=' . $this->request->get['sort'];
+            }
+
+            if (isset($this->request->get['order'])) {
+                $url .= '&order=' . $this->request->get['order'];
+            }
+
+            if (isset($this->request->get['page'])) {
+                $url .= '&page=' . $this->request->get['page'];
+            }
+
+            if (isset($this->request->get['limit'])) {
+                $url .= '&limit=' . $this->request->get['limit'];
+            }
+
+            $manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($this->request->get['manufacturer_id']);
+
+            if ($manufacturer_info) {
+                $this->data['breadcrumbs'][] = array(
+                    'text'	    => $manufacturer_info['name'],
+                    'href'	    => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url),
+                    'separator' => $this->language->get('text_separator')
+                );
+            }
+        }
+        else
+        {
+            // "Каталог" в крошку добавляем только если просматриваем из категорий
+            $this->data['breadcrumbs'][] = array(
+                'text'      => "Каталог",
+                'href'      => $this->url->link('product/category'),
+                'separator' => false
+            );
+        }
+
+
 		$this->load->model('catalog/category');	
 		
 		if (isset($this->request->get['path'])) {
@@ -69,53 +119,7 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 		}
-		
-		$this->load->model('catalog/manufacturer');	
-		
-		if (isset($this->request->get['manufacturer_id'])) {
-			$this->data['breadcrumbs'][] = array( 
-				'text'      => $this->language->get('text_brand'),
-				'href'      => $this->url->link('product/manufacturer'),
-				'separator' => $this->language->get('text_separator')
-			);	
-	
-			$url = '';
-			
-			if (isset($this->request->get['sort'])) {
-				$url .= '&sort=' . $this->request->get['sort'];
-			}	
 
-			if (isset($this->request->get['order'])) {
-				$url .= '&order=' . $this->request->get['order'];
-			}	
-			
-			if (isset($this->request->get['page'])) {
-				$url .= '&page=' . $this->request->get['page'];
-			}
-						
-			if (isset($this->request->get['limit'])) {
-				$url .= '&limit=' . $this->request->get['limit'];
-			}
-							
-			$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($this->request->get['manufacturer_id']);
-
-			if ($manufacturer_info) {	
-				$this->data['breadcrumbs'][] = array(
-					'text'	    => $manufacturer_info['name'],
-					'href'	    => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url),					
-					'separator' => $this->language->get('text_separator')
-				);
-			}
-		}
-        else
-        {
-            // "Каталог" в крошку добавляем только если просматриваем из категорий
-            $this->data['breadcrumbs'][] = array(
-                'text'      => "Каталог",
-                'href'      => $this->url->link('product/category'),
-                'separator' => false
-            );
-        }
 		
 		if (isset($this->request->get['search']) || isset($this->request->get['tag'])) {
 			$url = '';
