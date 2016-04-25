@@ -42,7 +42,17 @@ jQuery(function($) {
             sessionStorage.clear();
         });
     }
-    
+
+    window.noticeTimeout="";
+    window.showNotice = function(text)
+    {
+        if(window.noticeTimeout) clearTimeout(window.noticeTimeout);
+        var noticeObj = $('#notification');
+        noticeObj.hide();
+        noticeObj.showTopRight('success', text);
+        window.noticeTimeout = setTimeout(function(){$('#notification').fadeOut(1000);},3000)
+    }
+
     /**
      * ADD TO CART
      * @param {string} product_id
@@ -67,8 +77,11 @@ jQuery(function($) {
                     location = json.redirect;
                 } else if (json.success) {
                     $('#cart').triggerHandler('added');
+                    window.showNotice(json.success);
+                    /*
                     $('#notification').showTopRight('success', json.success);
                     setTimeout(function(){$('#notification').fadeOut(1000);},3000)
+                    */
                 }
             }
         });
@@ -87,8 +100,11 @@ jQuery(function($) {
             success: function(json) {
                 if (json.success) {
                     $('.compare-total').html(json['total']);
+                    window.showNotice(json.success);
+                    /*
                     $('#notification').showTopRight('success', json.success);
                     setTimeout(function(){$('#notification').fadeOut(1000);},3000)
+                    */
                 }
             }
         });
@@ -107,8 +123,11 @@ jQuery(function($) {
             success: function(json) {
                 if(json.success) {
                     $('.wishlist-total').html(json['total']);
+                    window.showNotice(json.success);
+                    /*
                     $('#notification').showTopRight('success', json.success);
                     setTimeout(function(){$('#notification').fadeOut(1000);},3000)
+                    */
                 }
             }
         });
