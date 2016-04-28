@@ -4,11 +4,6 @@
 @import url("elements.css");
 
 @font-face {
-    font-family: "Roboto Regular"; /* Имя шрифта */
-    src: url(../fonts/roboto-regular.ttf); /* Путь к файлу со шрифтом */
-}
-
-@font-face {
     font-family: "Lato"; /* Имя шрифта */
     src: url(../fonts/Lato.ttf); /* Путь к файлу со шрифтом */
 }
@@ -40,13 +35,57 @@ a:not([href]) {
 }
 /* subcategory */
 div.subcategory {
-    min-height: 0px;
-    border: 1px solid #ccc;
+    min-height: 140px;
+    text-align: justify;
+    padding:0;
+    background-origin: padding-box;
+    position: relative;
 }
-.cat_thumbnail {
-    font-family: "Lato";
-    font-size: 20px;
-    padding: 0 0 0px 0;;
+.single-column{
+    background: #191919;
+    padding: 0 50px 0 50px;
+}
+.subcategory-image{
+}
+.category-description{
+    color: #fff;
+    z-index: 20;
+    position: absolute;
+    bottom: 0;
+    padding-left: 10px;
+}
+.subcategory-image img{
+    width: 100%;
+    height: auto;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    /*margin: 15px 0 15px 0;*/
+    z-index: 1;
+}
+.catalog-title{
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+}
+.cat_thumbnail .caption{
+    /*font-family: "Lato";*/
+    color: #fff;
+    font-size: 23px;
+    text-transform: capitalize;
+    z-index: 20;
+    /* text-align: justify; */
+    position: absolute;
+    top: 0;
+     left: 0;
+    padding-left: 10px;
+}
+
+@media (max-width: 1200px) {
+    .cat_thumbnail .caption{
+        font-size: 19px;}
 }
 
 /* product-item */
@@ -85,7 +124,7 @@ div.subcategory {
     margin: 0 auto;
 }
 .caption .media-heading a{
-    font-family: "Roboto Regular";
+    font-family: "Lato";
     font-size: 17px;
     line-height: 29px;
     font-weight: 300;
@@ -208,6 +247,18 @@ div.subcategory {
 }
 .category-mini .product-image img{margin: 0 auto}
 .category-mini .product-image img{margin: 0 auto}
+
+
+
+.page-categories.row{
+    overflow: hidden;
+}
+
+/*.page-categories [class*="col-"]{*/
+    /*margin-bottom: -99999px;*/
+    /*padding-bottom: 99999px;*/
+/*}*/
+
 
 .snglproduct-price{
     font-size: 40px;
@@ -1107,4 +1158,97 @@ ul.products{
     }
 
 
+}
+/*----------------------- TRANSITION FOR IMAGES IN CATEGORIES ------------------*/
+
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.hovereffect .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.hovereffect:hover .overlay {
+    background-color: rgba(170,170,170,0.4);
+    z-index: 20;
+}
+
+.hovereffect h2, .hovereffect img {
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.hovereffect:hover img {
+    -webkit-transform: scale(1.1) rotate(5deg);
+    -ms-transform: scale(1.1) rotate(5deg);
+    -moz-transform: scale(1.1) rotate(5deg);
+    -o-transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1) rotate(5deg);
+
+}
+
+.hovereffect h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hovereffect span.info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #fff;
+    margin: 50px 0 0 0;
+    background-color: transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    font-weight: normal;
+    /*height: 85%;*/
+    /*width: 85%;*/
+    /*position: absolute;*/
+    /*top: 1%;*/
+    /*left: 8%;*/
+    padding: 70px;
+}
+
+.hovereffect:hover span.info {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.4);
 }

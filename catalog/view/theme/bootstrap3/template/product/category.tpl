@@ -1,5 +1,6 @@
 <!-- header -->
 <?php echo $header; ?>
+
 <!-- notification -->
 <div id="notification" class="container hidden-print">
     <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
@@ -9,7 +10,10 @@
 <div id="main">
     <div class="row main-page">
         <!-- center -->
-        <div class="<?php echo $bootstrap->center; ?>">
+        <?php if (isset($products) && $products) { ?>
+            <div class="<?php echo $bootstrap->center; ?>">
+         <?php }
+         else echo '<div class="col-lg-12 single-column">'; ?>
             <!-- breadcrumbs -->
             <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
             <!-- top -->
@@ -19,28 +23,37 @@
 
 
 
-
             <!-- content -->
             <div id="content" class="row">
                <div class="<?php echo $bootstrap->content; ?>" role="main">
 
-                    <h1><?php echo $heading_title; ?></h1>
+                    <h1 class="catalog-title"><?php echo $heading_title; ?></h1>
 
-                   <?php if (isset($categories) && $categories) { ?>
-                        <div class="row hidden-print">
-                            <?php foreach ($categories as $category) { ?>
-                                <div class="subcategory col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <a class="cat_thumbnail" href="<?php echo $category['href']; ?>" style="text-decoration: none;">
-                                        <div class="caption text-center">
-                                            <span><?php echo $category['name']; ?></span>
-                                        </div>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <br />
-                    <?php } ?>
-                    <?php if (isset($products) && $products) { ?>
+                   <div class="row page-categories hidden-print">
+                       <?php if (isset($categories) && $categories) { ?>
+                           <?php foreach ($categories as $category) { ?>
+                           <div class="subcategory  col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                               <div class="hovereffect">
+                                   <a class="cat_thumbnail" href="<?php echo $category['href']; ?>" style="text-decoration: none;">
+                                       <div class="subcategory-image"><img src="<?php echo $category['thumb']; ?>"></div>
+                                       <div class="caption text-left">
+                                           <span><?php echo $category['name']; ?></span>
+                                       </div>
+                                       <?php if ($category['meta_description']) { ?>
+                                           <div class="overlay">
+                                               <span class="info"><?php echo $category['meta_description']; ?></span>
+                                           </div>
+                                       <?php }?>
+                                   </a>
+                               </div>
+
+                           </div>
+                           <?php } ?>
+
+
+                        <?php } ?>
+                   </div>
+                   <?php if (isset($products) && $products) { ?>
                         <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/products.tpl'); ?>
                     <?php } ?>
                     <?php if (isset($categories) && !$categories && isset($products) && !$products) { ?>
@@ -57,9 +70,12 @@
             <?php } ?>
         </div>
         <!-- left -->
-        <?php if ($column_left) { ?>
-            <div id="left" class="<?php echo $bootstrap->left; ?>"><?php echo $column_left; ?></div>
-        <?php } ?>
+        <?php if (isset($products) && $products) { ?>
+            <?php if ($column_left) { ?>
+                <div id="left" class="<?php echo $bootstrap->left; ?>"><?php echo $column_left; ?></div>
+                <?php } ?>
+            <?php } ?>
+
         <!-- right -->
         <?php if ($column_right) { ?>
             <div id="right" class="<?php echo $bootstrap->right; ?>"><?php echo $column_right; ?></div>

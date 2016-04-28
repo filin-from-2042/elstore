@@ -115,15 +115,20 @@ class ControllerProductCategory extends Controller {
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
-			
+
 			if ($category_info['seo_h1']) {
 				$this->data['heading_title'] = $category_info['seo_h1'];
 			} else {
 				$this->data['heading_title'] = $category_info['name'];
 			}
-			
+
+
+
+
+
 			$this->data['text_refine'] = $this->language->get('text_refine');
-			$this->data['text_empty'] = $this->language->get('text_empty');			
+			$this->data['text_refine'] = $this->language->get('text_refine');
+			$this->data['text_empty'] = $this->language->get('text_empty');
 			$this->data['text_quantity'] = $this->language->get('text_quantity');
 			$this->data['text_manufacturer'] = $this->language->get('text_manufacturer');
 			$this->data['text_model'] = $this->language->get('text_model');
@@ -210,6 +215,7 @@ class ControllerProductCategory extends Controller {
 				$product_total = $this->model_catalog_product->getTotalProducts($data);				
 				
 				$this->data['categories'][] = array(
+                    'meta_description'  => $result['meta_description'] ,
 					'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
 					'thumb' => $this->model_tool_image->resize(($result['image']=='' ? 'no_image.jpg' : $result['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
@@ -471,6 +477,7 @@ class ControllerProductCategory extends Controller {
 
                 $this->data['categories'][] = array(
                     'name'  => $result['name'] ,
+                    'meta_description'  => $result['meta_description'] ,
                     'href'  => $this->url->link('product/category', 'path=' . $result['category_id']),
                     'thumb' => $this->model_tool_image->resize(($result['image']=='' ? 'no_image.jpg' : $result['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
                 );
