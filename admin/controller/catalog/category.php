@@ -251,10 +251,12 @@ class ControllerCatalogCategory extends Controller {
 
 		$this->data['categories'] = $this->getAllCategories($categories);
 
+
 		if (isset($category_info)) {
 			unset($this->data['categories'][$category_info['category_id']]);
+            $this->data['products_template'] = $category_info['products_template'];
+            $this->data['category_template'] = $category_info['category_template'];
 		}
-
 		if (isset($this->request->post['parent_id'])) {
 			$this->data['parent_id'] = $this->request->post['parent_id'];
 		} elseif (!empty($category_info)) {
@@ -314,6 +316,8 @@ class ControllerCatalogCategory extends Controller {
 			$this->data['image'] = '';
 		}
 
+
+
 		$this->load->model('tool/image');
 
 		if (isset($this->request->post['image']) && file_exists(DIR_IMAGE . $this->request->post['image'])) {
@@ -365,6 +369,8 @@ class ControllerCatalogCategory extends Controller {
 		} else {
 			$this->data['category_layout'] = array();
 		}
+
+
 
 		$this->load->model('design/layout');
 

@@ -32,6 +32,17 @@
                   <span class="error"><?php echo $error_name[$language['language_id']]; ?></span>
                   <?php } ?></td>
               </tr>
+                <tr>
+
+                    <td>Шаблон для товаров</td>
+                    <td><input type="text" name="products_template" maxlength="255" size="100" value="<?php echo $products_template; ?>" /></td>
+                </tr>
+                <tr>
+
+                    <td>Шаблон для категорий</td>
+                    <td><input type="text" name="category_template" maxlength="255" size="100" value="<?php echo $category_template; ?>" /></td>
+                </tr>
+
               <tr>
 
                 <td><?php echo $entry_seo_h1; ?></td>

@@ -6,10 +6,11 @@
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
-<div id="main" class="container">
-    <div class="row">
+<div id="main" class="container-fluid">
+    <div class="row main-page">
         <!-- center -->
-        <div class="<?php echo $bootstrap->center; ?>">
+        <div class="<?php echo $bootstrap->center; ?> main-center">
+
             <!-- top -->
             <?php if ($content_top) { ?>
                 <div id="top" class="row"><div class="<?php echo $bootstrap->top; ?>"><?php echo $content_top; ?></div></div>
@@ -47,18 +48,32 @@
                         </li>
                     </ul>
                     <br />
+                    <?php $counter = 0; ?>
                     <ul class="list-unstyled">
-                        <?php foreach ($categories as $category_1) { ?>
+                        <?php foreach ($categories as $key=>$category_1) { ?>
                             <li>
-                                <a href="<?php echo $category_1['href']; ?>"><?php echo $category_1['name']; ?></a>
                                 <?php if ($category_1['children']) { ?>
-                                    <ul class="list-unstyled">
-                                        <?php foreach ($category_1['children'] as $category_2) { ?>
-                                            <li>&nbsp;&nbsp;<a href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?></a>
+                                    <label for="c<?php echo $key;?>k<?php echo $counter;?>">
+                                        <?php echo $category_1['name']; ?>
+                                    </label>
+                                <?php } else { ?>
+                                     <span  ><a href="<?php echo $category_1['href']; ?>"><?php echo $category_1['name']; ?></a></span>
+                                <?php } ?>
+                                <?php if ($category_1['children']) { ?>
+                                    <ul>
+                                        <?php foreach ($category_1['children'] as $key2=>$category_2) { ?>
+                                            <li>
+                                                <?php if ($category_2['children']) { ?>
+                                                    <label   for="c<?php echo $key;?>p<?php echo $key2;?>k<?php echo $counter;?>">
+                                                        <?php echo $category_2['name']; ?>
+                                                    </label>
+                                                <?php } else { ?>
+                                                   <span  ><a href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?></a></span>
+                                                 <? }?>
                                             <?php if ($category_2['children']) { ?>
-                                                <ul class="list-unstyled">
+                                                <ul>
                                                 <?php foreach ($category_2['children'] as $category_3) { ?>
-                                                    <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $category_3['href']; ?>"><?php echo $category_3['name']; ?></a></li>
+                                                    <li><span  ><a href="<?php echo $category_3['href']; ?>"><?php echo $category_3['name']; ?></a></span></li>
                                                 <?php } ?>
                                                 </ul>
                                             <?php } ?>
@@ -67,7 +82,8 @@
                                     </ul>
                                 <?php } ?>
                             </li>
-                        <?php } ?>
+                        <?php $counter++;
+                        } ?>
                     </ul>
                 </div>
             </div>
