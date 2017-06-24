@@ -1,6 +1,6 @@
 <?php
 // Text
-$_['text_search']       = 'Поиск';
+$_['text_search']       = 'Поиск по наименованию или коду';
 
 $_['text_brand']        = 'Производитель';
 $_['text_manufacturer'] = 'Производитель:';

@@ -1,7 +1,4 @@
 <!-- PRODUCTS -->
-<!-- product compare -->
-<p class="hidden-print"><a class="compare-total" href="<?php echo $compare; ?>"><?php echo $text_compare; ?></a></p>
-<br />
 <div class="row hidden-print">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- display view -->
@@ -26,99 +23,113 @@
             </li>
         </ul>-->
         <!-- display filter -->
-        <ul class="nav nav-pills pull-right">
-            <!-- filter sort -->
-            <li id="display-sort" class="dropdown">
-                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu" style="min-width: 100%;">
-                    <?php foreach ($sorts as $sorts) { ?>
-                        <?php if ($sorts['value'] != $sort . '-' . $order) { ?>
-                            <li><a href="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></a></li>
-                        <?php } else { ?>
-                            <?php $selected = $sorts['text']; ?>
-                        <?php } ?>
-                    <?php } ?>
-                </ul>
-                <a class="dropdown-toggle hidden-xs" data-toggle="dropdown">
-                    <span><?php echo $text_sort; ?>&nbsp;<?php echo $selected; ?></span>
-                    <span class="caret"></span>
-                </a>
-                <a class="dropdown-toggle visible-xs" data-toggle="dropdown" title="<?php echo $text_sort; ?>&nbsp;<?php echo $selected; ?>">
-                    <span class="glyphicon glyphicon-sort"></span>
-                    <span class="caret"></span>
-                </a>
-            </li>
-            <!-- filter limit -->
-            <li class="dropdown">
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="min-width: 100%;">
-                    <?php foreach ($limits as $limits) { ?>
-                        <?php if ($limits['value'] != $limit) { ?>
-                            <li><a href="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></a></li>
-                        <?php } else { ?>
-                            <?php $selected = $limits['text']; ?>
-                        <?php } ?>
-                    <?php } ?>
-                </ul>
-                <a class="dropdown-toggle hidden-xs" data-toggle="dropdown">
-                    <span><?php echo $text_limit; ?>&nbsp;<?php echo $selected; ?></span>
-                    <span class="caret"></span>
-                </a>
-                <a class="dropdown-toggle visible-xs" data-toggle="dropdown" title="<?php echo $text_limit; ?>&nbsp;<?php echo $selected; ?>">
-                    <span><?php echo $selected; ?></span>
-                    <span class="caret"></span>
-                </a>
-            </li>
-        </ul>
+       <div class="container">
+           <ul class="nav nav-pills pull-right">
+               <!-- filter sort -->
+               <li id="display-sort" class="dropdown">
+                   <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu" style="min-width: 100%;">
+                       <?php foreach ($sorts as $sorts) { ?>
+                       <?php if ($sorts['value'] != $sort . '-' . $order) { ?>
+                       <li><a href="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></a></li>
+                       <?php } else { ?>
+                       <?php $selected = $sorts['text']; ?>
+                       <?php } ?>
+                       <?php } ?>
+                   </ul>
+                   <a class="dropdown-toggle hidden-xs" data-toggle="dropdown">
+                       <span><?php echo $text_sort; ?>&nbsp;<?php echo $selected; ?></span>
+                       <span class="caret"></span>
+                   </a>
+                   <a class="dropdown-toggle visible-xs" data-toggle="dropdown" title="<?php echo $text_sort; ?>&nbsp;<?php echo $selected; ?>">
+                       <span class="glyphicon glyphicon-sort"></span>
+                       <span class="caret"></span>
+                   </a>
+               </li>
+               <!-- filter limit -->
+               <li class="dropdown">
+                   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="min-width: 100%;">
+                       <?php foreach ($limits as $limits) { ?>
+                       <?php if ($limits['value'] != $limit) { ?>
+                       <li><a href="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></a></li>
+                       <?php } else { ?>
+                       <?php $selected = $limits['text']; ?>
+                       <?php } ?>
+                       <?php } ?>
+                   </ul>
+                   <a class="dropdown-toggle hidden-xs" data-toggle="dropdown">
+                       <span><?php echo $text_limit; ?>&nbsp;<?php echo $selected; ?></span>
+                       <span class="caret"></span>
+                   </a>
+                   <a class="dropdown-toggle visible-xs" data-toggle="dropdown" title="<?php echo $text_limit; ?>&nbsp;<?php echo $selected; ?>">
+                       <span><?php echo $selected; ?></span>
+                       <span class="caret"></span>
+                   </a>
+               </li>
+           </ul>
+       </div>
+
     </div>
 </div>
 <br />
 <!-- products -->
-<div id="products" class="row">
+<div id="products" class="container">
     <?php foreach ($products as $product) {   ?>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 products-container">
 
-            <div class="product-item thumbnail">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 product-image">
-                        <a class="center" href="<?php echo $product['href']; ?>">
-                            <img class="img-responsive center" src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" />
-                        </a>
-                        <?php if ($product['rating']) { ?>
-                        <img class="pull-right" src="<?php echo HTTP_SERVER . 'catalog/view/theme/' . $this->config->get('config_template') . '/image/stars-' . $product['rating'] . '.png'; ?>" alt="<?php echo $product['reviews']; ?>" title="<?php echo $product['reviews']; ?>" />
-                        <?php } ?>
-                    </div>
+        <div class="product-item thumbnail">
+            <?php if (isset($product['quantity']) && $product['quantity']=='0') {
+                ?>
+            <div class="no-quantity">
+                <div>
+                    Нет в наличии
                 </div>
-                <div class="caption">
-                    <h4><a class="media-heading" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+            </div>
 
+            <?php } ?>
+            <div class="product-code"><?php echo $product['code']; ?></div>
+            <div class="bookmark"><a class="btn btn-link wishlist" name="addToWishList" title="<?php echo $this->language->get('button_wishlist'); ?>" onclick="addToWishList('<?php echo $product['product_id']; ?>');" /><div class="glyphicon glyphicon-heart"></div> </a></div>
 
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                    <a class="center" href="<?php echo $product['href']; ?>">
+                        <img class="img-responsive center" src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" />
+                    </a>
+                    <?php if ($product['rating']) { ?>
+                    <img class="pull-right" src="<?php echo HTTP_SERVER . 'catalog/view/theme/' . $this->config->get('config_template') . '/image/stars-' . $product['rating'] . '.png'; ?>" alt="<?php echo $product['reviews']; ?>" title="<?php echo $product['reviews']; ?>" />
+                    <?php } ?>
+                </div>
+            </div>
+            <hr>
+            <div class="caption">
+                <h4><a class="media-heading" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+                <div class="prices">
                     <?php if ($product['price']) { ?>
                     <strong class="text-danger nowrap product-price"><?php echo $product['price']; ?></strong>
                     <?php }?>
 
 
                     <?php if ($product['special']){ ?>
-                    <p>
-                        <small class="text-warning text-sthrough nowrap old_price "><?php echo $product['special']; ?></small> <wbr />
-                        <?php } ?>
-                    </p>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 old_price">
+                        <small class="text-warning text-sthrough nowrap  "><?php echo $product['special']; ?></small> <wbr />
+                    </div>
+                    <?php } ?>
+
 
                 </div>
+                <div class="clear"></div>
 
-                <div class="row product-controls" style="margin: 0 -5px 0 -5px">
-
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 button-wishlist">
-                        <a class="btn btn-link wishlist" name="addToWishList" title="<?php echo $this->language->get('button_wishlist'); ?>" onclick="addToWishList('<?php echo $product['product_id']; ?>');" /><div class="glyphicon glyphicon-heart"></div> </a>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 button-compare ">
-                        <a class="btn btn-link compare" name="addToCompare" title="<?php echo $this->language->get('button_compare'); ?>" onclick="addToCompare('<?php echo $product['product_id']; ?>');" /><div class="glyphicon glyphicon-list"></div> </a>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
-                        <button type="button" class="add2cart" name="addToCart" onclick="addToCart(<?php echo $product['product_id']; ?>, 1, this);" /><div class="glyphicon glyphicon-shopping-cart"></div></button>
-                    </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 button-cart ">
+                    <button type="button" class="add2cart" name="addToCart" onclick="addToCart(<?php echo $product['product_id']; ?>, 1, this);" />В корзину <div class="glyphicon glyphicon-shopping-cart"></div></button>
                 </div>
+
             </div>
+
+
+
         </div>
+    </div>
     <?php } ?>
 </div>
 <!-- pagination -->

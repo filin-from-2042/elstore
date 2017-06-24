@@ -6,7 +6,7 @@
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
-<div id="main" class="container-fluid">
+<div id="main" class="container">
     <div class="row main-page">
         <!-- center -->
         <div class="<?php echo $bootstrap->center; ?> main-center">
@@ -49,7 +49,7 @@
                     </ul>
                     <br />
                     <?php $counter = 0; ?>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled sitemap">
                         <?php foreach ($categories as $key=>$category_1) { ?>
                             <li>
                                 <?php if ($category_1['children']) { ?>
@@ -57,7 +57,7 @@
                                         <?php echo $category_1['name']; ?>
                                     </label>
                                 <?php } else { ?>
-                                     <span  ><a href="<?php echo $category_1['href']; ?>"><?php echo $category_1['name']; ?></a></span>
+                                     <span  ><a class="lvl1" href="<?php echo $category_1['href']; ?>"><?php echo $category_1['name']; ?></a></span>
                                 <?php } ?>
                                 <?php if ($category_1['children']) { ?>
                                     <ul>
@@ -68,12 +68,12 @@
                                                         <?php echo $category_2['name']; ?>
                                                     </label>
                                                 <?php } else { ?>
-                                                   <span  ><a href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?></a></span>
+                                                   <span  ><a class="lvl2" href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?></a></span>
                                                  <? }?>
                                             <?php if ($category_2['children']) { ?>
                                                 <ul>
                                                 <?php foreach ($category_2['children'] as $category_3) { ?>
-                                                    <li><span  ><a href="<?php echo $category_3['href']; ?>"><?php echo $category_3['name']; ?></a></span></li>
+                                                    <li><span  ><a class="lvl3" href="<?php echo $category_3['href']; ?>"><?php echo $category_3['name']; ?></a></span></li>
                                                 <?php } ?>
                                                 </ul>
                                             <?php } ?>

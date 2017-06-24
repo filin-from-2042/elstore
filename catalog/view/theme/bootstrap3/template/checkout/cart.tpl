@@ -63,7 +63,7 @@
                                                 <input type="number" class="form-control" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" min="1" style="width: 85px;" />
                                             </td>
                                             <td class="nowrap">
-                                                <button type="submit" class="btn btn-default" title="<?php echo $button_update; ?>">
+                                                <button  id="btn-update" class="btn btn-default" title="<?php echo $button_update; ?>">
                                                     <span class="glyphicon glyphicon-refresh"></span>
                                                 </button>
                                                 <a class="btn btn-default" href="<?php echo $product['remove']; ?>" title="<?php echo $button_remove; ?>">
@@ -250,7 +250,13 @@
                     </div>
                     <br />
                     <div class="pull-right">
+                        <?php if ($logged){ ?>
+                        <button type="button" id="button-confirm" class="btn btn-primary" title="Подтвердить заказ" data-loading-text="Подтвердить заказ...">Подтвердить заказ</button>
+                        <?php }
+                        else {
+                        ?>
                         <a class="btn btn-success" href="<?php echo $checkout; ?>" title="<?php echo $button_checkout; ?>"><?php echo $button_checkout; ?></a>
+                        <?php }?>
                         <a class="btn btn-primary" href="<?php echo $continue; ?>" title="<?php echo $button_shopping; ?>"><?php echo $button_shopping; ?></a>
                     </div>
                 </div>
@@ -365,5 +371,23 @@ jQuery(function($){
     $('select[name="country_id"]', 'form[name="shipping"]').change();
 });
 </script>
+
+<script>
+    jQuery(function($) {
+        /** Confirm */
+        $('#button-confirm').click(function() {
+            $.ajax({
+                async: false,
+                url: 'index.php?route=checkout/create_order',
+                type: 'get',
+                context: this,
+                success: function(responce) {
+                   if(parseInt(responce) > 0 ) location = 'index.php?route=checkout/success'
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

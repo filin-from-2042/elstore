@@ -205,12 +205,12 @@ class ControllerAccountRegister extends Controller {
 			$this->data['telephone'] = '';
 		}
 		
-		if (isset($this->request->post['fax'])) {
+		/*if (isset($this->request->post['fax'])) {
     		$this->data['fax'] = $this->request->post['fax'];
 		} else {
 			$this->data['fax'] = '';
 		}
-		
+
 		if (isset($this->request->post['company'])) {
     		$this->data['company'] = $this->request->post['company'];
 		} else {
@@ -227,7 +227,7 @@ class ControllerAccountRegister extends Controller {
             $this->data['kpp'] = $this->request->post['kpp'];
         } else {
             $this->data['kpp'] = '';
-        }
+        }*/
 
 		$this->load->model('account/customer_group');
 		
@@ -250,7 +250,7 @@ class ControllerAccountRegister extends Controller {
 		}
 		
 		// Company ID
-		if (isset($this->request->post['company_id'])) {
+		/*if (isset($this->request->post['company_id'])) {
     		$this->data['company_id'] = $this->request->post['company_id'];
 		} else {
 			$this->data['company_id'] = '';
@@ -304,6 +304,7 @@ class ControllerAccountRegister extends Controller {
 		} else {
       		$this->data['zone_id'] = '';
     	}
+		*/
 		
 		$this->load->model('localisation/country');
 		
@@ -409,19 +410,19 @@ class ControllerAccountRegister extends Controller {
 			}						
 		}
 		
-    	if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
+    	/*if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
       		$this->error['address_1'] = $this->language->get('error_address_1');
     	}
 
     	if ((utf8_strlen($this->request->post['city']) < 2) || (utf8_strlen($this->request->post['city']) > 128)) {
       		$this->error['city'] = $this->language->get('error_city');
-    	}
+    	}*/
 
-		$this->load->model('localisation/country');
+		//$this->load->model('localisation/country');
 		
-		$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
+		//$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
 		
-		if ($country_info) {
+		/*if ($country_info) {
 			if ($country_info['postcode_required'] && (utf8_strlen($this->request->post['postcode']) < 2) || (utf8_strlen($this->request->post['postcode']) > 10)) {
 				$this->error['postcode'] = $this->language->get('error_postcode');
 			}
@@ -432,15 +433,15 @@ class ControllerAccountRegister extends Controller {
 			if ($this->config->get('config_vat') && $this->request->post['tax_id'] && (vat_validation($country_info['iso_code_2'], $this->request->post['tax_id']) == 'invalid')) {
 				$this->error['tax_id'] = $this->language->get('error_vat');
 			}
-		}
+		}*/
 
-    	if ($this->request->post['country_id'] == '') {
-      		$this->error['country'] = $this->language->get('error_country');
-    	}
+    	//if ($this->request->post['country_id'] == '') {
+      	//	$this->error['country'] = $this->language->get('error_country');
+    	//}
 		
-    	if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
+    	/*if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
       		$this->error['zone'] = $this->language->get('error_zone');
-    	}
+    	}*/
 
     	if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
       		$this->error['password'] = $this->language->get('error_password');

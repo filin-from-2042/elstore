@@ -52,9 +52,11 @@ class ControllerModuleFeatured extends Controller {
 				$this->data['products'][] = array(
 					'product_id' => $product_info['product_id'],
 					'thumb'   	 => $image,
+                    'quantity'   => 0,
 					'name'    	 => $product_info['name'],
 					'price'   	 => $price,
 					'special' 	 => $special,
+                    'code'        => isset($product_info['model'])? ('код: ' . $product_info['model']):' ',
 					'rating'     => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
 					'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),

@@ -142,6 +142,7 @@ class ControllerProductSpecial extends Controller {
 				'special'     => $special,
 				'tax'         => $tax,
 				'rating'      => $result['rating'],
+                'code'        => isset($result['model'])? ('код: ' . $result['model']):'',
 				'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 				'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
 			);

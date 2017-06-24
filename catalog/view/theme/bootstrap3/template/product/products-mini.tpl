@@ -2,7 +2,7 @@
 <div id="products" class="row">
     <?php foreach ($products as $product) {   ?>
 
-    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
 
         <div class="product-item thumbnail">
             <div class="row">

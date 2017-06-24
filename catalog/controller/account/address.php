@@ -497,13 +497,14 @@ class ControllerAccountAddress extends Controller {
   	}
 	
   	protected function validateForm() {
-    	if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
-      		$this->error['firstname'] = $this->language->get('error_firstname');
-    	}
-
-    	if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
-      		$this->error['lastname'] = $this->language->get('error_lastname');
-    	}
+        if (isset($this->request->post['firstname']))
+            if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
+                $this->error['firstname'] = $this->language->get('error_firstname');
+            }
+        if (isset($this->request->post['lastname']))
+            if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
+                $this->error['lastname'] = $this->language->get('error_lastname');
+            }
 
     	if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
       		$this->error['address_1'] = $this->language->get('error_address_1');
@@ -514,25 +515,25 @@ class ControllerAccountAddress extends Controller {
     	}
 		
 		$this->load->model('localisation/country');
-		
-		$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
-		
-		if ($country_info) {
-			if ($country_info['postcode_required'] && (utf8_strlen($this->request->post['postcode']) < 2) || (utf8_strlen($this->request->post['postcode']) > 10)) {
-				$this->error['postcode'] = $this->language->get('error_postcode');
-			}
-			
-			// VAT Validation
-			$this->load->helper('vat');
-			
-			if ($this->config->get('config_vat') && !empty($this->request->post['tax_id']) && (vat_validation($country_info['iso_code_2'], $this->request->post['tax_id']) == 'invalid')) {
-				$this->error['tax_id'] = $this->language->get('error_vat');
-			}		
-		}
-		
-    	if ($this->request->post['country_id'] == '') {
-      		$this->error['country'] = $this->language->get('error_country');
-    	}
+        if (isset($this->request->post['firstname']))
+        {
+            $country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
+
+            if ($country_info) {
+
+
+                // VAT Validation
+                $this->load->helper('vat');
+
+                if ($this->config->get('config_vat') && !empty($this->request->post['tax_id']) && (vat_validation($country_info['iso_code_2'], $this->request->post['tax_id']) == 'invalid')) {
+                    $this->error['tax_id'] = $this->language->get('error_vat');
+                }
+            }
+        }
+        if (isset($this->request->post['country_id']))
+            if ($this->request->post['country_id'] == '') {
+                $this->error['country'] = $this->language->get('error_country');
+            }
 		
     	if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
       		$this->error['zone'] = $this->language->get('error_zone');

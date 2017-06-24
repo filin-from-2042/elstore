@@ -45,6 +45,7 @@ class ControllerModuleBt3BestSeller extends Controller {
 				'thumb'   	 => $image,
 				'name'    	 => $result['name'],
 				'price'   	 => $price,
+                'code'        => isset($result['model'])? ('код: ' . $result['model']):' ',
 				'special' 	 => $special,
 				'rating'     => $rating,
 				'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),

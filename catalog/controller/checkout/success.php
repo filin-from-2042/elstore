@@ -1,6 +1,6 @@
 <?php
 class ControllerCheckoutSuccess extends Controller { 
-	public function index() { 	
+	public function index() {
 		if (isset($this->session->data['order_id'])) {
 			$this->cart->clear();
 

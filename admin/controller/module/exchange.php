@@ -14,8 +14,11 @@ class ControllerModuleExchange extends Controller {
     private $error = array(); 
     
     public function index() {
-        
-    $this->load->language('module/exchange');   
+
+        file_put_contents ( "debug.txt" ,$_POST , FILE_APPEND );
+
+
+        $this->load->language('module/exchange');
     $this->document->setTitle($this->language->get('heading_title'));
     
    
@@ -97,36 +100,36 @@ class ControllerModuleExchange extends Controller {
 			$this->session->data['success'] = $this->language->get('text_success');
 			//$this->redirect($this->url->link('extension/module', 'token=' . $this->session->data['token'], 'SSL'));
 		}
-        
+
           if (isset($this->request->post['exchange_status'])) {
-              
-		if (isset($this->request->post['exchange_delete_check'])){	
+
+		if (isset($this->request->post['exchange_delete_check'])){
                       if ($this->request->post['exchange_status']=='1'){
                           $this->log->write("delete");
                           $this->load->model('tool/exchange');
-                          $this->model_tool_exchange->deleteProd();           
+                          $this->model_tool_exchange->deleteProd();
                       }
                       if ($this->request->post['exchange_status']=='0'){
                           $this->log->write("deleteAll");
                           $this->load->model('tool/exchange');
-                          $this->model_tool_exchange->deleteAll();           
+                          $this->model_tool_exchange->deleteAll();
                       }
                       if ($this->request->post['exchange_status']=='2'){
                           $this->log->write("clearProduct");
                           $this->load->model('tool/exchange');
-                          $this->model_tool_exchange->clearProduct();           
+                          $this->model_tool_exchange->clearProduct();
                       }
                       if ($this->request->post['exchange_status']=='3'){
                           $this->log->write("DeleteDouble");
-                          
-                          
-                          $this->load->model('tool/exchange');                        
+
+
+                          $this->load->model('tool/exchange');
                           $this->model_tool_exchange->deleteDouble();
                           //$this->model_tool_exchange->addProduct('addProduct', '00005504', 'article', 'Медальон', '2', 'шт', '100', 0, 0, $lang = '2');
                       }
-                      
-                     
-		} 
+
+
+		}
           }
         //$this->redirect($this->url->link('module/exchange', 'token=' . $this->session->data['token'], 'SSL'));
  //---------------------------//-----------------------------------------------------   
@@ -210,7 +213,8 @@ class ControllerModuleExchange extends Controller {
         }
         $this->load->model('tool/exchange');
         $lang = $this->model_tool_exchange->getLanguageId($this->config->get('config_language'));
-        
+
+
         switch ($action){
             case 'addCategory':
                 if ($is_group_1c){
@@ -219,10 +223,11 @@ class ControllerModuleExchange extends Controller {
                 }
                 break;
             case 'addProduct':
-                if (!$is_group_1c){               
+                //file_put_contents ( "debug.txt" ,$kod_1c. ' ' . $name_1c . ' ' .$ostatok_1c . ' '  , FILE_APPEND );
+                //if (!$is_group_1c){
                     $this->load->model('tool/exchange');
                     $this->model_tool_exchange->addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $lang,$is_deleted);
-                }
+               // }
                 break;
             case 'getProduct':
                 if (!$is_group_1c){

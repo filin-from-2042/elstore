@@ -43,25 +43,8 @@
                         <input type="text" class="form-control" name="firstname" value="" pattern="^.{1,32}$" required />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="<?php echo $bootstrap->label; ?>">
-                        <?php echo $entry_company; ?>
-                    </label>
-                    <div class="<?php echo $bootstrap->input; ?>">
-                        <input type="text" class="form-control" name="company" value="" />
-                    </div>
-                </div>
-                <?php if ($company_id_display) { ?>
-                    <div class="form-group">
-                        <label class="<?php echo $bootstrap->label; ?>">
-                            <b class="text-danger <?php echo $company_id_required ? '' : 'sr-only'; ?>">*</b>
-                            <?php echo $entry_company_id; ?>
-                        </label>
-                        <div class="<?php echo $bootstrap->input; ?>">
-                            <input type="text" class="form-control" name="company_id" value="" <?php echo $company_id_required ? 'pattern="^.+$" required' : ''; ?> />
-                        </div>
-                    </div>
-                <?php } ?>
+
+
                 <?php if ($tax_id_display) { ?>
                     <div class="form-group">
                         <label class="<?php echo $bootstrap->label; ?>">
@@ -114,23 +97,8 @@
                         <input type="text" class="form-control" name="address_1" value="" pattern="^.{3,128}$" required />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="<?php echo $bootstrap->label; ?>">
-                        <?php echo $entry_address_2; ?>
-                    </label>
-                    <div class="<?php echo $bootstrap->input; ?>">
-                        <input type="text" class="form-control" name="address_2" value="" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="<?php echo $bootstrap->label; ?>">
-                        <b class="text-danger">*</b>
-                        <?php echo $entry_postcode; ?>
-                    </label>
-                    <div class="<?php echo $bootstrap->input; ?>">
-                        <input type="text" class="form-control" name="postcode" value="" />
-                    </div>
-                </div>
+
+
             </div>
         </div>
     <?php } else { ?>
@@ -254,40 +222,40 @@ jQuery(function($) {
     <?php if ($addresses) { ?>
         $('#payment-tabs a').click(function() {
             var payment = this.hash.split('_').slice(-1)[0];
-            
+
             $(':input[required]', 'form[name="payment_address"]').attr('required', false);
             $(':input[pattern], :input[data-pattern]', '#tab-payment_' + payment).attr('required', true);
-            
+
             $('input[name="payment_address"]', 'form[name="payment_address"]').val(payment);
-            
+
             if (window.sessionStorage) window.sessionStorage.setItem('user_payment_address', payment);
         });
     <?php } ?>
-    
+
     // GET COUNTRY
     $('select[name="country_id"]', 'form[name="payment_address"]').change(function() {
         getCountry.call(this, {
             url: 'index.php?route=checkout/checkout/country',
-            zone_id: '<?php echo $zone_id; ?>',
+            zone_id: '<?php echo ($zone_id?$zone_id:'2790') ?>',
             textSelect: '<?php echo $text_select; ?>',
             textNone: '<?php echo $text_none; ?>'
         });
     });
-    
+
     // GET GEO IP
     <?php if ($init_geo_ip) { ?>
         getGeoIp('form[name="payment_address"]');
     <?php } ?>
-    
+
     // BIND FORM STORAGE
     $('form[name="payment_address"]').formStorage({
         prefix: 'user_',
         check: true
     });
-    
+
     // TRIGGER INPUTS
     $('select[name="country_id"]', 'form[name="payment_address"]').change();
-    
+
     <?php if ($addresses) { ?>
         if (window.sessionStorage && window.sessionStorage['user_payment_address']) {
             $('#payment-tabs a[href$="#tab-payment_' + window.sessionStorage['user_payment_address'] + '"]').click();

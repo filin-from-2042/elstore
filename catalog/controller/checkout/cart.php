@@ -3,6 +3,8 @@ class ControllerCheckoutCart extends Controller {
 	private $error = array();
 	
 	public function index() {
+        $this->data['logged'] = $this->customer->isLogged();
+
 		$this->language->load('checkout/cart');
 
 		if (!isset($this->session->data['vouchers'])) {

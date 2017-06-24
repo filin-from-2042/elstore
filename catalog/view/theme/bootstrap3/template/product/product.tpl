@@ -9,13 +9,15 @@
 <div id="main">
     <div class="row main-page">
         <!-- center -->
-        <div class="<?php echo $bootstrap->center; ?>">
+        <div class="<?php echo $bootstrap->center; ?> container">
             <!-- top -->
             <?php if ($content_top) { ?>
                 <div id="top" class="row"><div class="<?php echo $bootstrap->top; ?>"><?php echo $content_top; ?></div></div>
             <?php } ?>
             <!-- breadcrumbs -->
+            <div class="container">
             <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
+            </div>
             <!-- content -->
             <div id="content" class="row">
                 <div class="<?php echo $bootstrap->content; ?>" role="main">
@@ -27,26 +29,43 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
                                 <?php if ($thumb) { ?>
                                     <a class="slide" data-img-src="<?php echo $popup; ?>" data-img-title="<?php echo $heading_title; ?>">
-                                        <img class="img-responsive" src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+                                        <img id="mimage" class="img-responsive " src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
                                     </a>
                                 <?php } ?>
-                                <?php if ($images) { ?>
-                                    <ul class="list-inline">
-                                        <?php foreach ($images as $image) { ?>
-                                            <li>
-                                                <a class="slide" data-img-src="<?php echo $image['popup']; ?>" data-img-title="<?php echo $heading_title; ?>">
-                                                    <img class="img-responsive img-rounded" src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
-                                                </a>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
-                                <?php } ?>
+
                             </div>
                         <?php } ?>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
+                            <div class="row hidden-print product-share">
+                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                    <?php if ($review_status) { ?>
+                                    <div class="share-it">
+                                        <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/add_this.tpl'); ?>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+
+                                <!-- review -->
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-print">
+                                    <ul class="list-unstyled product-reviews">
+                                        <li><img src="<?php echo THEME . 'image/stars-' . $rating . '.png'; ?>" alt="<?php echo $reviews; ?>" title="<?php echo $reviews; ?>" /></li>
+                                        <?php if ($review_status) { ?>
+                                        <li class="hidden-print"><a onclick="$('#product-tabs a[href=\'#tab-review\']').tab('show'); $('#reviews').scrollBody();"><?php echo $reviews; ?></a></li>
+                                        <li class="hidden-print"><a href="#modal-review" data-toggle="modal"><?php echo $text_write; ?></a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
                             <h1 id="product-heading"><?php echo $heading_title; ?></h1>
+
+
+
                             <!-- product info -->
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled" style="position: relative">
+
+
+                                <li class="text-big "><span class="text-info">Просмотров:</span><?php echo $viewed; ?></li>
                                 <?php if ($manufacturer) { ?>
                                     <li class="text-big"><span class="text-info"><?php echo $text_manufacturer; ?></span> <wbr /><a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
                                 <?php } ?>
@@ -55,261 +74,115 @@
                                     <li class="text-big"><span class="text-info"><?php echo $text_reward; ?></span> <wbr /><?php echo $reward; ?></li>
                                 <?php } ?>
                                     <li class="text-big"><span class="text-info"><?php echo $text_stock; ?></span> <wbr /><?php echo $stock . ' ' . $measure; ?></li>
-                                <?php if ($price) { ?>
-                                    <li class="text-big nowrap">
-                                        <?php if ($price) { ?>
-                                        <strong class="text-danger nowrap snglproduct-price"><?php echo $price; ?></strong>
-                                        <?php }?>
 
-
-                                        <?php if ($special){ ?>
-                                        <p>
-                                            <small class="text-warning text-sthrough nowrap snglold_price "><?php echo $special; ?></small> <wbr />
-                                            <?php } ?>
-                                        </p>
-                                    </li>
-                                    <?php if ($tax) { ?>
-                                        <li><span class="text-muted"><?php echo $text_tax; ?> <?php echo $tax ?></span></li>
-                                    <?php } ?>
-                                    <?php if ($points) { ?>
-                                        <li><small class="text-muted"><?php echo $text_points; ?> <?php echo $points; ?></small></li>
-                                    <?php } ?>
-                                    <?php if ($discounts) { ?>
-                                        <li>
-                                            <ul class="list-unstyled">
-                                                <?php foreach ($discounts as $discount) { ?>
-                                                    <li><?php echo sprintf($text_discount, $discount['quantity'], $discount['price']); ?></li>
-                                                <?php } ?>
-                                            </ul>
-                                        </li>
-                                    <?php } ?>
-                                <?php } ?>
                             </ul>
-                            <br />
 
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row snglproduct-controls">
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            <div class="row snglproduct-controls">
 
-                            <!-- review -->
-                            <ul class="list-unstyled">
-                                <li><img src="<?php echo THEME . 'image/stars-' . $rating . '.png'; ?>" alt="<?php echo $reviews; ?>" title="<?php echo $reviews; ?>" /></li>
-                                <?php if ($review_status) { ?>
-                                <li class="hidden-print"><a onclick="$('#product-tabs a[href=\'#tab-review\']').tab('show'); $('#reviews').scrollBody();"><?php echo $reviews; ?></a></li>
-                                <li class="hidden-print"><a href="#modal-review" data-toggle="modal"><?php echo $text_write; ?></a></li>
-                                <?php } ?>
-                            </ul>
-                            <!-- product options -->
-                            <?php if ($options) { ?>
-                                <form class="form-horizontal well" name="product_options">
-                                    <fieldset>
-                                        <legend><?php echo $text_option; ?></legend>
-                                        <?php foreach ($options as $option) { ?>
-                                            <div id="option-<?php echo $option['product_option_id']; ?>" class="form-group">
-                                                <label class="<?php echo $bootstrap->label; ?>">
-                                                    <?php if ($option['required']) { ?>
-                                                        <b class="text-danger">*</b>
-                                                    <?php } ?>
-                                                    <?php echo $option['name']; ?>:
-                                                </label>
-                                                <div class="<?php echo $bootstrap->input; ?>">
-                                                    <?php if ($option['type'] == 'select') { ?>
-                                                        <select name="option[<?php echo $option['product_option_id']; ?>]" class="form-control">
-                                                            <option value=""><?php echo $text_select; ?></option>
-                                                            <?php foreach ($option['option_value'] as $option_value) { ?>
-                                                                <option value="<?php echo $option_value['product_option_value_id']; ?>">
-                                                                    <?php echo $option_value['name']; ?>
-                                                                    <?php if ($option_value['price']) { ?>
-                                                                        (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
-                                                                    <?php } ?>
-                                                                </option>
-                                                            <?php } ?>
-                                                        </select>
-                                                    <?php } elseif ($option['type'] == 'radio') { ?>
-                                                        <?php foreach ($option['option_value'] as $option_value) { ?>
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" id="option-value-<?php echo $option_value['product_option_value_id']; ?>" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
-                                                                    <?php echo $option_value['name']; ?>
-                                                                    <?php if ($option_value['price']) { ?>
-                                                                        (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
-                                                                    <?php } ?>
-                                                                </label>
-                                                            </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hidden-print form-buy">
+
+                                        <!-- add to cart -->
+                                        <form class="form-horizontal" name="product">
+                                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
+                                            <div class="form-group">
+
+
+                                                <?php if ($price) { ?>
+                                                <span class="text-big nowrap">
+                                                    <?php if ($price) { ?>
+                                                    <strong class="text-danger nowrap snglproduct-price"><?php echo $price; ?></strong>
+                                                    <?php }?>
+
+
+                                                    <?php if ($special){ ?>
+                                                    <p>
+                                                        <small class="text-warning text-sthrough nowrap snglold_price "><?php echo $special; ?></small> <wbr />
                                                         <?php } ?>
-                                                    <?php } elseif ($option['type'] == 'checkbox') { ?>
-                                                        <?php foreach ($option['option_value'] as $option_value) { ?>
-                                                            <div class="checkbox">
-                                                                <label>
-                                                                    <input type="checkbox" id="option-value-<?php echo $option_value['product_option_value_id']; ?>" name="option[<?php echo $option['product_option_id']; ?>][]" value="<?php echo $option_value['product_option_value_id']; ?>" />
-                                                                    <?php echo $option_value['name']; ?>
-                                                                    <?php if ($option_value['price']) { ?>
-                                                                        (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
-                                                                    <?php } ?>
-                                                                </label>
-                                                            </div>
+                                                    </p>
+                                                </span>
+
+                                                <?php if ($discounts) { ?>
+                                                <div>
+                                                    <ul class="list-unstyled">
+                                                        <?php foreach ($discounts as $discount) { ?>
+                                                        <li><?php echo sprintf($text_discount, $discount['quantity'], $discount['price']); ?></li>
                                                         <?php } ?>
-                                                    <?php } elseif ($option['type'] == 'image') { ?>
-                                                        <?php foreach ($option['option_value'] as $option_value) { ?>
-                                                            <div class="radio">
-                                                                <label>
-                                                                    <input type="radio" id="option-value-<?php echo $option_value['product_option_value_id']; ?>" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
-                                                                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" />
-                                                                    <?php echo $option_value['name']; ?>
-                                                                    <?php if ($option_value['price']) { ?>
-                                                                        (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
-                                                                    <?php } ?>
-                                                                </label>
-                                                            </div>
-                                                        <?php } ?>
-                                                    <?php } elseif ($option['type'] == 'text') { ?>
-                                                        <input type="text" class="form-control" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
-                                                    <?php } elseif ($option['type'] == 'textarea') { ?>
-                                                        <textarea class="form-control" name="option[<?php echo $option['product_option_id']; ?>]" rows="5"><?php echo $option['option_value']; ?></textarea>
-                                                    <?php } elseif ($option['type'] == 'file') { ?>
-                                                        <button type="button" id="button-option-<?php echo $option['product_option_id']; ?>" class="button-file btn btn-default" data-loading-text="<?php echo $text_wait; ?>"><?php echo $button_upload; ?></button>
-                                                        <input type="hidden" name="option[<?php echo $option['product_option_id']; ?>]" value="" />
-                                                        <br />
-                                                    <?php } elseif ($option['type'] == 'date') { ?>
-                                                        <input type="text" class="date form-control" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
-                                                    <?php } elseif ($option['type'] == 'time') { ?>
-                                                        <input type="text" class="time form-control" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
-                                                    <?php } elseif ($option['type'] == 'datetime') { ?>
-                                                        <input type="text" class="datetime form-control" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
-                                                    <?php } ?>
+                                                    </ul>
                                                 </div>
-                                            </div>
-                                        <?php } ?>
-                                    </fieldset>
-                                </form>
-                                <br />
-                            <?php } ?>
-                        </div>
-
-                        <!-- add to compare & add to wishlist -->
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 hidden-print">
-                            <div class="col-xs-6 controls">
-                                <a class="btn btn-link wishlist" name="addToWishList" title="<?php echo $this->language->get('button_wishlist'); ?>" onclick="addToWishList('<?php echo $product['product_id']; ?>');" /><div  class="glyphicon glyphicon-heart"></div> </a>
-                            </div>
-                            <div class="col-xs-6 controls">
-                                <a class="btn btn-link compare" name="addToCompare" title="<?php echo $this->language->get('button_compare'); ?>" onclick="addToCompare('<?php echo $product['product_id']; ?>');" /><div class="glyphicon glyphicon-list"></div> </a>
-                            </div>
-                            <?php if ($review_status) { ?>
-                                <div class="pull-left share-it">
-                                    <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/add_this.tpl'); ?>
-                                </div>
-                            <?php } ?>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hidden-print form-buy">
-
-                            <!-- add to cart -->
-                            <form class="form-horizontal" name="product">
-                                <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
-                                <div class="form-group">
-                                    <label class="control-label col-xs-2 col-sm-4 col-md-4 col-lg-4">
-                                        <b class="text-danger">*</b>
-                                        <?php echo $text_qty; ?>
-                                    </label>
-                                    <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
-                                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                                            <input type="number" class="form-control" name="quantity" value="<?php echo $minimum; ?>" min="<?php echo $minimum ?>" style="width: 85px;" pattern="^\d+$" required />
-                                        </div>
-                                        <button type="button" id="button-cart" class="btn btn-primary pull-right" name="addToCart" title="<?php echo $button_cart; ?>" data-loading-text="<?php echo $button_cart; ?>..."><?php echo $button_cart; ?></button>
-                                    </div>
-                                </div>
-                                <?php if ($minimum > 1) { ?>
-                                <small class="help-block col-xs-12 col-sm-8 col-md-8 col-lg-8 col-sm-offset-4 col-md-offset-4 col-lg-offset-4"><?php echo $text_minimum; ?></small>
-                                <?php } ?>
-                            </form>
-
-                        </div>
-                    </div>
-                    <br />
-                    <!-- tabs -->
-                    <ul id="product-tabs" class="nav nav-tabs hidden-print">
-                        <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
-                        <?php if ($attribute_groups) { ?>
-                            <li><a href="#tab-attribute" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
-                        <?php } ?>
-                        <?php if ($review_status) { ?>
-                            <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
-                        <?php } ?>
-                        <?php if ($products) { ?>
-                            <li><a href="#tab-related" data-toggle="tab"><?php echo $tab_related; ?> (<?php echo count($products); ?>)</a></li>
-                        <?php } ?>
-                    </ul>
-                    <div class="tab-content">
-                        <!-- tab description -->
-                        <div id="tab-description" class="tab-pane active">
-                            <?php echo $description; ?>
-                        </div>
-                        <!-- tab attributes -->
-                        <?php if ($attribute_groups) { ?>
-                            <div id="tab-attribute" class="tab-pane">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <?php foreach ($attribute_groups as $attribute_group) { ?>
-                                            <thead>
-                                                <tr>
-                                                    <td class="active" colspan="2"><?php echo $attribute_group['name']; ?></td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
-                                                    <tr>
-                                                        <td><?php echo $attribute['name']; ?></td>
-                                                        <td><?php echo $attribute['text']; ?></td>
-                                                    </tr>
                                                 <?php } ?>
-                                            </tbody>
-                                        <?php } ?>
-                                    </table>
+                                                <?php } ?>
+
+                                                <span class="product-quantity">
+                                                   <input type="number" class="form-control" name="quantity" value="<?php echo $minimum; ?>" min="<?php echo $minimum ?>" style="width: 85px;" pattern="^\d+$" required />
+                                                </span>
+                                                <span class="product-buy">
+                                                    <button type="button" id="button-cart" class="btn btn-primary pull-right" name="addToCart" title="<?php echo $button_cart; ?>" data-loading-text="<?php echo $button_cart; ?>..."><?php echo $button_cart; ?></button>
+                                                </span>
+
+                                            </div>
+                                            <?php if ($minimum > 1) { ?>
+                                            <small class="help-block col-xs-12 col-sm-8 col-md-8 col-lg-8 col-sm-offset-4 col-md-offset-4 col-lg-offset-4"><?php echo $text_minimum; ?></small>
+                                            <?php } ?>
+                                        </form>
+
+                                    </div>
+
+
                                 </div>
-                            </div>
+                    </div>
+                    </div>
+
+                    <?php if ($images) { ?>
+                    <div class="product-images row">
+                        <?php foreach ($images as $image) { ?>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <a class="slide" data-img-src="<?php echo $image['popup']; ?>" data-img-title="<?php echo $heading_title; ?>">
+                                <img class="img-responsive img-rounded" src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+                            </a>
+                        </div>
                         <?php } ?>
+                    </div>
+                    <div class="clear"></div>
+
+                    <?php } ?>
+
+                    <h3>Описание</h3>
+                    <div class="well well-sm">
+                        <!-- tab description -->
+                            <?php if($description) echo $description; else echo '<h4>Описания пока что нет!</h4>'; ?>
+                    </div>
+                    <h3>Отзывы от товаре</h3>
+                    <div class="well well-sm">
                         <!-- tab review -->
                         <?php if ($review_status) { ?>
-                            <div id="tab-review" class="tab-pane">
-                                <div id="reviews"></div>
-                                <br>
-                                <div class="row hidden-print">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
-                                        <button class="btn btn-default btn-sm" data-target="#modal-review" data-toggle="modal"><?php echo $text_write; ?></button>
-                                    </div>
+                            <div id="reviews"></div>
+                            <div class="row hidden-print">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left">
+                                    <button class="btn btn-default btn-lg" data-target="#modal-review" data-toggle="modal"><?php echo $text_write; ?></button>
                                 </div>
-                                <br />
-                            </div>
-                        <?php } ?>
-                        <!-- tab related products -->
-                        <?php if ($products) { ?>
-                            <div id="tab-related" class="tab-pane hidden-print">
-                                <!-- products thumbnail -->
-                                <?php $bt3 = 'col-xs-6 col-sm-4 col-md-4 col-lg-4'; ?>
-                                <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/products_thumbnail.tpl'); ?>
                             </div>
                         <?php } ?>
                     </div>
-                    <!-- product tags -->
-                    <?php if ($tags) { ?>
-                        <br />
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <small class="text-muted">
-                                    <b><?php echo $text_tags; ?></b>
-                                    <?php for ($i = 0; $i < count($tags); $i++) { ?>
-                                        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a><?php echo ($i < (count($tags) - 1)) ? ',' : ''; ?>
-                                    <?php } ?>
-                                </small>
-                            </div>
+
+
+
+                        <!-- tab related products -->
+                        <?php if ($products) { ?>
+                        <h3 class="hidden-print">Сопутствующие товары</h3>
+                        <div class="row hidden-print well-lg">
+                                <!-- products thumbnail -->
+                                <?php $bt3 = 'col-xs-6 col-sm-4 col-md-3 col-lg-3'; ?>
+                                <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/products_thumbnail.tpl'); ?>
                         </div>
-                    <?php } ?>
+                        <?php } ?>
+
                 </div>
             </div>
             <br />
             <!-- bottom -->
+
+
             <?php if ($content_bottom) { ?>
                 <div id="bottom" class="row"><div class="<?php echo $bootstrap->bottom; ?>"><?php echo $content_bottom; ?></div></div>
             <?php } ?>

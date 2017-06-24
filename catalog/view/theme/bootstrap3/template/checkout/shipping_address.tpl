@@ -210,40 +210,40 @@ jQuery(function($) {
     <?php if ($addresses) { ?>
         $('#shipping-tabs a').click(function() {
             var shipping = this.hash.split('_').slice(-1)[0];
-            
+
             $(':input[required]', 'form[name="shipping_address"]').attr('required', false);
             $(':input[pattern], :input[data-pattern]', '#tab-shipping_' + shipping).attr('required', true);
-            
+
             $('input[name="shipping_address"]', 'form[name="shipping_address"]').val(shipping);
-            
+
             if (window.sessionStorage) window.sessionStorage.setItem('shipping_shipping_address', shipping);
         });
     <?php } ?>
-    
+
     // GET COUNTRY
     $('select[name="country_id"]', 'form[name="shipping_address"]').change(function() {
         getCountry.call(this, {
             url: 'index.php?route=checkout/checkout/country',
-            zone_id: '<?php echo $zone_id; ?>',
+            zone_id: '<?php echo ($zone_id?$zone_id:'2790') ?>',
             textSelect: '<?php echo $text_select; ?>',
             textNone: '<?php echo $text_none; ?>'
         });
     });
-    
+
     // GET GEO IP
     <?php if ($init_geo_ip) { ?>
         getGeoIp('form[name="shipping_address"]');
     <?php } ?>
-    
+
     // BIND FORM STORAGE
     $('form[name="shipping_address"]').formStorage({
         prefix: 'shipping_',
         check: true
     });
-    
+
     // TRIGGER INPUTS
     $('select[name="country_id"]', 'form[name="shipping_address"]').change();
-    
+
     <?php if ($addresses) { ?>
         if (window.sessionStorage && window.sessionStorage['shipping_shipping_address']) {
             $('#shipping-tabs a[href$="#tab-shipping_' + window.sessionStorage['shipping_shipping_address'] + '"]').click();

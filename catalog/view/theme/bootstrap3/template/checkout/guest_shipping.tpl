@@ -21,14 +21,6 @@
     </div>
     <div class="form-group">
         <label class="<?php echo $bootstrap->label; ?>">
-            <?php echo $entry_company; ?>
-        </label>
-        <div class="<?php echo $bootstrap->input; ?>">
-            <input type="text" class="form-control" name="company" value="<?php echo $company; ?>" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="<?php echo $bootstrap->label; ?>">
             <b class="text-danger">*</b>
             <?php echo $entry_country; ?>
         </label>
@@ -47,7 +39,7 @@
             <?php echo $entry_zone; ?>
         </label>
         <div class="<?php echo $bootstrap->input; ?>">
-            <select class="form-control" name="zone_id" pattern="^\d+$" required></select>
+            <select  class="form-control" name="zone_id" pattern="^\d+$" required></select>
         </div>
     </div>
     <div class="form-group">

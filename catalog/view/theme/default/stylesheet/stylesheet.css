@@ -402,6 +402,7 @@ font-weight:700;
 #menu > ul > li > div > ul > li > a {
 	color: #FFFFFF;
 }
+
 .breadcrumb {
 	background: url('../image/background.png') repeat-x transparent;
 	border: 1px solid #DBDEE1;

@@ -22,21 +22,20 @@
                     <!-- heading title -->
                     <h1><?php echo $heading_title; ?></h1>
                     <div id="checkout-steps" class="panel-group">
+                        <?php if (!$logged) { ?>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <span><?php echo $text_checkout_option; ?></span>
-                                    <a class="step-back btn btn-xs btn-default accordion-toggle pull-right" href="#checkout" title="<?php echo $text_modify; ?>" data-toggle="collapse" data-parent="#checkout-steps" disabled><?php echo $text_modify; ?></a>
-                                </h4>
+                                <h4 class="panel-title">Шаг 1: способ оформления заказа</h4>
                             </div>
                             <div id="checkout" class="panel-collapse collapse">
                                 <div class="checkout-content panel-body"></div>
                             </div>
                         </div>
+                        <?php }?>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <span><?php echo $logged ? $text_checkout_payment_address : $text_checkout_account; ?></span>
+                                    <span>Шаг 2: Контактные данные</span>
                                     <a class="step-back btn btn-xs btn-default accordion-toggle pull-right" href="#payment-address" title="<?php echo $text_modify; ?>" data-toggle="collapse" data-parent="#checkout-steps" disabled><?php echo $text_modify; ?></a>
                                 </h4>
                             </div>
@@ -68,7 +67,7 @@
                                 </div>
                             </div>
                         <?php } ?>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default " style="display: none">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <span><?php echo $text_checkout_payment_method; ?></span>

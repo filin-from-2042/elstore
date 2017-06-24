@@ -72,15 +72,8 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
-                                    <?php echo $entry_fax; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <input type="tel" class="form-control" name="fax" value="<?php echo $fax; ?>" />
-                                </div>
-                            </div>
-                            <?php if ($company_name) { ?>
+
+
                                 <div class="form-group">
                                     <label class="<?php echo $bootstrap->label; ?>">
                                         <?php echo $entry_company; ?>
@@ -107,7 +100,6 @@
                                         <input type="text"  class="form-control" name="kpp" value="<?php echo $kpp; ?>" />
                                     </div>
                                 </div>
-                            <?php }?>
                             <div class="form-group">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
                                     <a class="btn btn-default" href="<?php echo $back; ?>" title="<?php echo $button_back; ?>"><?php echo $button_back; ?></a>

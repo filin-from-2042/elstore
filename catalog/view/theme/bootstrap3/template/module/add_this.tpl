@@ -1,5 +1,5 @@
 <!-- ADDTHIS -->
-<div class="addthis_toolbox addthis_default_style addthis_16x16_style"></div>
+<div class="addthis_toolbox addthis_default_style addthis_16x16_style hidden-print"></div>
 <script>
 jQuery(function($){
     window.addthis_config = { 'data_track_addressbar': true };

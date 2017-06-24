@@ -48,27 +48,7 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
-                                    <?php echo $entry_company; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <input type="text" class="form-control" name="company" value="<?php echo $company; ?>" />
-                                </div>
-                            </div>
-                            <?php if ($company_id_display) { ?>
-                                <div class="form-group">
-                                    <label class="<?php echo $bootstrap->label; ?>">
-                                        <?php echo $entry_company_id; ?>
-                                    </label>
-                                    <div class="<?php echo $bootstrap->input; ?>">
-                                        <input type="text" class="form-control" name="company_id" value="<?php echo $company_id; ?>" />
-                                        <?php if ($error_company_id) { ?>
-                                            <span class="text-warning" role="status"><?php echo $error_company_id; ?></span>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                            <?php } ?>
+
                             <?php if ($tax_id_display) { ?>
                                 <div class="form-group">
                                     <label class="<?php echo $bootstrap->label; ?>">
@@ -137,26 +117,6 @@
                             </div>
                             <div class="form-group">
                                 <label class="<?php echo $bootstrap->label; ?>">
-                                    <?php echo $entry_address_2; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <input type="text" class="form-control" name="address_2" value="<?php echo $address_2; ?>" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
-                                    <b class="text-danger">*</b>
-                                    <?php echo $entry_postcode; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <input type="text" class="form-control" name="postcode" value="<?php echo $postcode; ?>" pattern="^.{2,10}$" required />
-                                    <?php if ($error_postcode) { ?>
-                                        <span class="text-warning" role="status"><?php echo $error_postcode; ?></span>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
                                     <?php echo $entry_default; ?>
                                 </label>
                                 <div class="<?php echo $bootstrap->input; ?>">
@@ -205,7 +165,7 @@ jQuery(function($) {
     $('select[name="country_id"]', 'form[name="address"]').change(function() {
         getCountry.call(this, {
             url: 'index.php?route=account/address/country',
-            zone_id: '<?php echo $zone_id; ?>',
+            zone_id: '<?php echo ($zone_id?$zone_id:'2790'); ?>',
             textSelect: '<?php echo $text_select; ?>',
             textNone: '<?php echo $text_none; ?>'
         });

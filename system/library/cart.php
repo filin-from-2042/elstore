@@ -373,6 +373,9 @@ class Cart {
   	}
   
   	public function hasShipping() {
+
+        return false;
+
 		$shipping = false;
 		
 		foreach ($this->getProducts() as $product) {

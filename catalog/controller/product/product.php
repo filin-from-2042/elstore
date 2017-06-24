@@ -300,6 +300,7 @@ class ControllerProductProduct extends Controller {
 			$this->data['reward'] = $product_info['reward'];
 			$this->data['points'] = $product_info['points'];
 			$this->data['measure'] = $product_info['measure'];
+			$this->data['viewed'] = $product_info['viewed'];
 
 			if ($product_info['quantity'] <= 0) {
                 $this->data['stock'] = $this->language->get('text_outstock');
@@ -428,6 +429,7 @@ class ControllerProductProduct extends Controller {
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_related_width'), $this->config->get('config_image_related_height'));
+					//$image = $this->model_tool_image->resize($result['image'], 300, 450);
 				} else {
 					$image = false;
 				}
@@ -457,6 +459,7 @@ class ControllerProductProduct extends Controller {
 					'price'   	 => $price,
 					'special' 	 => $special,
 					'rating'     => $rating,
+					'code'     =>   $result['model'],
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);

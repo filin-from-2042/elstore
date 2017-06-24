@@ -28,7 +28,7 @@ class ModelToolExchange extends Model {
 
         // categories with trash will always turned off
         // СервисПак и папка для ненужных элементов
-        if ($kod_1c=='УР4466' || $kod_1c=='ЕА0041'){
+        if ($kod_1c=='УР4466' || $kod_1c=='ЕА0041' || strpos($name_1c,"(0)")){
             $is_deleted=true;
         }
 
@@ -71,7 +71,7 @@ class ModelToolExchange extends Model {
             $this->db->query("UPDATE  " . DB_PREFIX . "1c_cat SET oc_cat_id='$category_id' WHERE 1c_kod_group='$kod_1c'");
         }
 
-        // $this->updateParentCat();
+        $this->updateParentCat();
     }
 
     function updateParentCat() {
@@ -233,34 +233,37 @@ class ModelToolExchange extends Model {
     }
 
     //--------------------------------------------Продукт----------------------------------------------------------------------------------------------       
-    public function addProduct($action, $kod_1c, $description, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_1c_rod, $lang = '0',$is_deleted = false) {
+    public function addProduct($action, $kod_1c, $description, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $image, $kod_1c_rod, $lang = '0',$is_deleted = false) {
 
         $data = array();
         $product = array();
-        $product['cost'] = $cost_1c;      
+        $product['cost'] = $cost_1c;
         $product['name'] = htmlentities($name_1c, ENT_QUOTES, 'UTF-8'); 
         $product['model'] = $kod_1c;
-        $product['quantity'] = $ostatok_1c;
+        $product['quantity'] = ($ostatok_1c?$ostatok_1c:0);
         $product['keyword'] = htmlentities($this->mb_transliterate($name_1c), ENT_QUOTES, 'UTF-8');
+        if (strpos($name_1c,"(0)")){
+            $is_deleted=true;
+        }
         $product['status'] = ( $is_deleted?0:1);
         $product['measure']= $edizm_1c;
         //$product['description'] = htmlentities($description, ENT_QUOTES,'UTF-8');
         $product['description'] = nl2br($description);
         //$product['option'] = $edizm_1c;
 
-        $option_id = $this->checkOptions($lang);
-        
-        $product['option_id'] = $option_id;
-        
+//        $option_id = $this->checkOptions($lang);
+//
+//        $product['option_id'] = $option_id;
         
         
         $tmp = $this->isOcIdProd($kod_1c);
         $product_cat = $this->isOcIdCat($kod_1c_rod);
         $product_id = $tmp['oc_prod_id'];
 
+
         if (!empty($tmp['1c_kod_prod'])) {
             //ранее выгружался
-            $this->db->query("UPDATE  " . DB_PREFIX . "1c_product SET 1c_kod_prod_rod='".$kod_1c_rod ."', 1c_ostatok='" . $ostatok_1c . "', 1c_cena='" . $cost_1c . "', 1c_name='$name_1c', 1c_kod_prod_rod='$kod_1c_rod'  WHERE 1c_kod_prod='$kod_1c'");
+            $this->db->query("UPDATE  " . DB_PREFIX . "1c_product SET 1c_kod_prod_rod='".$kod_1c_rod ."', 1c_ostatok='" . $product['quantity'] . "', 1c_cena='" . $product['cost'] . "', 1c_name='".$name_1c."', 1c_kod_prod_rod='".$kod_1c_rod."'  WHERE 1c_kod_prod='".$kod_1c."'");
             $product['product_category'] = (int) $product_cat['oc_cat_id'];
 
         } else {
@@ -283,7 +286,28 @@ class ModelToolExchange extends Model {
                 $this->db->query("UPDATE  " . DB_PREFIX . "product_description SET  description = '". $product['description'] ."'   WHERE product_id='$product_id'");
             }
 
-            if ($tmp['quantity']!=$product['quantity'] || $tmp['cost']!=$product['cost'] || $tmp['status']!=$product['status']){
+
+            // Если новая цена меньше старой- запишем в акции на 31 день
+
+            if ( $tmp['price']>$product['cost'] && ($tmp['price']-$product['cost'])>=30  && $ostatok_1c!=0){
+                $query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "product_special
+                                           WHERE product_id='" . $product_id . "'");
+                if (!empty($query->row)) {
+
+                    $sql = "UPDATE  " . DB_PREFIX . "product_special SET price = '". $tmp['price'] ."', date_start='".date('Y-m-d') ."', date_end='".(date('Y-m-d', strtotime('+1 month'))) ."'   WHERE product_special_id='".$query->row['product_special_id']."'";
+                    $this->db->query($sql);
+                    //file_put_contents('debug.txt', $sql, FILE_APPEND);
+                    //return $query->row;
+                }
+                else {
+                    $sql = "INSERT INTO " . DB_PREFIX . "product_special (product_id, customer_group_id, 	price, date_start, date_end )
+                                                                             VALUES ('".$product_id."','1','".$tmp['price']."','".date('Y-m-d'). "','".(date('Y-m-d', strtotime('+1 month')))."')";
+                    $this->db->query($sql);
+                    //file_put_contents('debug.txt', $sql, FILE_APPEND);
+                }
+            }
+
+            if ($tmp['quantity']!=$product['quantity'] || $tmp['price']!=$product['cost'] || $tmp['status']!=$product['status']){
                 // Refresh name, cost, quantity, status
                 $this->db->query("UPDATE  " . DB_PREFIX . "product SET  model = '". $product['model'] ."',
                                                                     quantity='". $product['quantity'] ."',
@@ -308,6 +332,60 @@ class ModelToolExchange extends Model {
             $product_id = $this->addProductToOC($proddata);
             //добавим категорию в 1с таблицы
             $this->db->query("UPDATE  " . DB_PREFIX . "1c_product SET oc_prod_id='$product_id' WHERE 1c_kod_prod='$kod_1c'");
+        }
+
+
+        //file_put_contents('debug.txt', '111', FILE_APPEND);
+        //file_put_contents('debug.txt', $image, FILE_APPEND);
+        // New item, just added
+        if (!isset($tmp['product_id']) || $tmp['product_id']==0){
+            $tmp['product_id'] = $product_id;
+            $tmp['model'] = $kod_1c;
+        }
+        // Do image magic
+        // We get 0 if 1c has no image, so:
+        if ($image){
+            //decode
+            $image = base64_decode($image);
+            $imageSize = strlen($image);
+            // Get OC image and compare
+            if ($tmp['image'] && file_exists(DIR_IMAGE . $tmp['image'])) {
+                $oldImgSize = filesize(DIR_IMAGE . $tmp['image']);
+
+                if ($imageSize==$oldImgSize){
+                   //just do nothing. Hehehe
+                    //file_put_contents('debug.txt',"Hehehe" , FILE_APPEND);
+                }
+                else {
+                    // Delete old file
+                    unlink(DIR_IMAGE . $tmp['image']);
+                    // Save image to directory
+                    $newFilename = DIR_IMAGE. 'data/' .$tmp['model']. '.jpg';
+                    file_put_contents($newFilename,$image);
+                    // update rec
+                    $sql = "UPDATE  " . DB_PREFIX . "product SET image='data/" .$tmp['model']. ".jpg' WHERE product_id='".$tmp['product_id']." '";
+                    //file_put_contents('debug.txt',$sql , FILE_APPEND);
+                    $this->db->query($sql);
+                }
+
+            }else{
+                // just save image from 1c
+                $newFilename = DIR_IMAGE. 'data/' .$tmp['model']. '.jpg';
+                file_put_contents($newFilename,$image);
+                // update rec
+                $sql = "UPDATE  " . DB_PREFIX . "product SET image='data/" .$tmp['model']. ".jpg' WHERE product_id='".$tmp['product_id']." '";
+                //file_put_contents('debug.txt',$sql , FILE_APPEND);
+                $this->db->query($sql);
+            }
+
+
+
+            return false;
+
+
+
+
+
         }
     }
     
@@ -374,16 +452,16 @@ class ModelToolExchange extends Model {
         );
 
         $result['product_option'] = array('0'=>array(
-            
-            
+
+
             'type'=>'text',
             'option_value'=>$product['option'],
             'option_id'=>$product['option_id'],
             'required'=>'1'
-            
+
         )
 
-            
+
         );
 
 
@@ -633,6 +711,7 @@ class ModelToolExchange extends Model {
                             FROM " . DB_PREFIX . "product p
                             Join " . DB_PREFIX . "product_description d ON (d.product_id=p.product_id) 
                             Join " . DB_PREFIX . "1c_product c ON (c.oc_prod_id=p.product_id)
+                            JOIN " . DB_PREFIX . "product_image i ON (p.product_id=i.product_id)
                             WHERE p.product_id IN (SELECT oc_prod_id FROM " . DB_PREFIX . "1c_product)");
 
 

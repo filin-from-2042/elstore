@@ -1,3 +1,8 @@
+<script language="Javascript" type="text/javascript">
+    $(document).ready(function(){
+        $('#button-payment-method').trigger('click');
+    });
+</script>
 <?php require_once(DIR_APPLICATION .'view/theme/bootstrap3/config.php'); ?>
 <?php $bootstrap = new Bootstrap(); ?>
 <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/notification.tpl'); ?>
@@ -38,7 +43,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="radio">
                     <label>
-                        <input type="checkbox" name="agree" value="1" <?php echo $agree ? 'checked' : ''; ?> />
+                        <input type="checkbox" name="agree" value="1" checked="checked" />
                         <b class="text-danger">*</b>
                         <?php echo $text_agree; ?>
                     </label>

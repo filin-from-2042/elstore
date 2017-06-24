@@ -5,6 +5,7 @@
 
 !index.html
 
+parser/
 download/
 image/data/
 image/cache/
@@ -12,3 +13,4 @@ system/cache/
 system/logs/
 vqmod/vqcache
 
+image/

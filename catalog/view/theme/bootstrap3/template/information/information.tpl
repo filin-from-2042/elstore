@@ -6,7 +6,7 @@
 </div>
 <!-- main -->
 <?php $bootstrap = new Bootstrap((bool)$column_left, (bool)$column_right, (bool)$content_top, (bool)$content_bottom); ?>
-<div id="main" class="container">
+<div id="main" class="container inform-page">
     <div class="row">
         <!-- center -->
         <div class="<?php echo $bootstrap->center; ?>">
@@ -23,7 +23,6 @@
                     <h1><?php echo $heading_title; ?></h1>
                     <?php echo $description; ?>
                     <br />
-                    <a class="btn btn-primary pull-right" href="<?php echo $continue; ?>" title="<?php echo $button_continue; ?>"><?php echo $button_continue; ?></a>
                 </div>
             </div>
             <br />

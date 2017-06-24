@@ -20,40 +20,112 @@
             <div id="content" class="row">
                 <div class="<?php echo $bootstrap->content; ?>" role="main">
                     <!-- heading title -->
-                    <h1><?php echo $heading_title; ?></h1>
-                    <form class="form-horizontal" name="contact" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-                        <fieldset>
-                            <legend><?php echo $text_location; ?></legend>
-                            <div class="form-group">
-                                <label class="<?php echo $bootstrap->label; ?>">
-                                    <?php echo $text_address; ?>
-                                </label>
-                                <div class="<?php echo $bootstrap->input; ?>">
-                                    <p class="form-control-static"><?php echo $store; ?></p>
-                                    <p class="form-control-static"><?php echo $address; ?></p>
-                                </div>
+                    <h1>Наши магазины</h1>
+                    <!-- pics with stores-->
+                    <div class="stores-photos">
+                        <div class="row urvanka">
+                            <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <img class="img-responsive" src="/image/urvanka.jpg" />
                             </div>
-                            <?php if ($telephone) { ?>
-                                <div class="form-group">
-                                    <label class="<?php echo $bootstrap->label; ?>">
-                                        <?php echo $text_telephone; ?>
-                                    </label>
-                                    <div class="<?php echo $bootstrap->input; ?>">
-                                        <p class="form-control-static"><?php echo $telephone; ?></p>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 store-desc">
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <h3>
+                                            "Электрика" на Урванском рынке ("Светофор")
+                                        </h3>
+                                        <p>
+                                            Тульская область, <br />  г. Новомосковск, ул. Мира, д.34б <br /> тел. 8-(48762) 4-06-07, 8-953-954-20-63 <br />
+                                            Email: tricolor-nsk@mail.ru
+
+                                        </p>
+
+                                        <h3>Часы работы:</h3>
+                                        <p id="work-hours">
+                                            понедельник- выходной;<br>
+                                            вторник-воскресенье: 9-16.
+
+                                        </p>
                                     </div>
                                 </div>
-                            <?php } ?>
-                            <?php if ($fax) { ?>
-                                <div class="form-group">
-                                    <label class="<?php echo $bootstrap->label; ?>">
-                                        <?php echo $text_fax; ?>
-                                    </label>
-                                    <div class="<?php echo $bootstrap->input; ?>">
-                                        <p class="form-control-static"><?php echo $fax; ?></p>
+
+                                <div class="row hidden-sm hidden-xs hidden-print">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <img class="img-responsive" src="/image/urv2.jpg" />
                                     </div>
                                 </div>
-                            <?php } ?>
-                        </fieldset>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row profi">
+                            <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <img class="img-responsive" src="/image/profi.jpg" />
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 store-desc">
+
+                                <h3>
+                                    "Мир Профи"
+                                </h3>
+                                <p>
+                                    Тульская область, <br /> г. Новомосковск,ул. Садовского д.38 <br />тел.  8-(48762) 6-37-64, 8-953-194-25-31 <br />
+                                    Email: tricolor-nsk@mail.ru
+                                </p>
+
+                                <h3>Часы работы:</h3>
+                                <p id="work-hours">
+                                    понедельник-пятница: 10-19; <br>
+                                    суббота: 10-17; <br /> воскресенье - выходной.
+
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="row osn">
+                            <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <img class="img-responsive" src="/image/osn.jpg" />
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 store-desc">
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <h3>
+                                            "Электрика"
+                                        </h3>
+                                        <p>
+                                            Тульская область, <br /> г. Новомосковск, ул. Садовского д.34 <br />тел.  8-(48762) 6-37-64, 8-953-954-20-16<br />
+                                            Email: tricolor-nsk@mail.ru
+                                            <br>
+                                        </p>
+                                        <h3>Часы работы:</h3>
+                                        <p id="work-hours">
+                                            понедельник-пятница: 10-19; <br>
+                                            суббота-воскресенье: 10-17.
+
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row hidden-sm hidden-xs hidden-print">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <img class="img-responsive" src="/image/osn2.jpg" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- heading title -->
+                    <form class="form-horizontal" name="contact" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+
                         <fieldset class="hidden-print">
                             <legend><?php echo $text_contact; ?></legend>
                             <div class="form-group">

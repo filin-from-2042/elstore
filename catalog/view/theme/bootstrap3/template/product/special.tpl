@@ -15,12 +15,16 @@
                 <div id="top" class="row"><div class="<?php echo $bootstrap->top; ?>"><?php echo $content_top; ?></div></div>
             <?php } ?>
             <!-- breadcrumbs -->
-            <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
+            <div class="container">
+                <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/breadcrumbs.tpl'); ?>
+            </div>
             <!-- content -->
             <div id="content" class="row">
                 <div class="<?php echo $bootstrap->content; ?>" role="main">
                     <!-- heading title -->
-                    <h1><?php echo $heading_title; ?></h1>
+                    <div class="container">
+                        <h1><?php echo $heading_title; ?></h1>
+                    </div>
                     <?php if ($products) { ?>
                         <!-- products -->
                         <?php include(DIR_APPLICATION .'view/theme/bootstrap3/template/module/products.tpl'); ?>

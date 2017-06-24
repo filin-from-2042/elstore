@@ -51,7 +51,7 @@
             </tr>
             <tr>
               <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
-              <td><input type="text" name="config_telephone" value="<?php echo $config_telephone; ?>" />
+              <td><textarea name="config_telephone" cols="40" rows="5"><?php echo $config_telephone; ?>" </textarea>
                 <?php if ($error_telephone) { ?>
                 <span class="error"><?php echo $error_telephone; ?></span>
                 <?php } ?></td>
