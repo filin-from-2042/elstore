@@ -137,7 +137,7 @@ class ControllerCommonHeader extends Controller {
         foreach ($categories_1 as $category_1) {
             $level_2_data = array();
 
-            if ($category_1['name']=='Хозтовары'){Break;}
+           // if ($category_1['name']=='Хозтовары'){Break;}
 
             $categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
 
