@@ -19,7 +19,7 @@ if (!defined('DIR_APPLICATION')) {
 	exit;
 }
 
-
+/*
 // vQmod
 /*  require_once('./vqmod/vqmod.php');
   VQMod::bootup();
