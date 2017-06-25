@@ -1,0 +1,17 @@
+
+@media (max-width: 991px) {
+
+    .top-buttons a {
+        font-size: 13px;
+        line-height: 16px;
+        margin-right: 18px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .top-buttons a i {
+        font-size: 34px;
+        line-height: 34px;
+    }
+
+}

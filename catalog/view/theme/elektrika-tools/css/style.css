@@ -1,0 +1,276 @@
+/************************** GENERAL ********************************/
+body {
+    font-family: 'Roboto Condensed',sans-serif;
+    font-weight: 400;
+    color: #777;
+    background: #ebebeb;
+    font-size: 13px;
+    line-height: 23px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Roboto Condensed',sans-serif;
+    margin: 10px 0 20px;
+    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #1c1c1c;
+}
+
+button {
+    outline: none;
+}
+
+/************************** SWIPE MENU ******************************/
+.swipe-control:hover i {
+    color: #fff;
+}
+
+.swipe-control i {
+    line-height: 50px;
+    font-size: 30px;
+    vertical-align: top;
+}
+
+.swipe-control {
+    border-right: 1px solid #333;
+    display: block;
+    height: 50px;
+    vertical-align: top;
+    text-align: center;
+    width: 64px;
+    z-index: 100;
+}
+
+.swipe-control,.swipe-control:focus {
+    color: #ccc;
+}
+
+.swipe-control:hover,.swipe-control:active,body.ind .swipe-control {
+    color: #fff;
+}
+.swipe ul {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.swipe ul li {
+    list-style-type: none;
+}
+
+.swipe ul li a:hover {
+    color: #fff;
+    background-color: #f97001;
+}
+
+.swipe ul li a:hover i,.swipe .foot li a:hover:before {
+    color: #fff;
+}
+
+.swipe ul li a {
+    display: block;
+    padding: 10px 20px;
+    font-weight: normal;
+    color: #333;
+    border-bottom: 1px solid #dfdede;
+    line-height: 25px;
+}
+
+.swipe .foot li a:before {
+    content: "\f05a";
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    display: inline;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    height: auto;
+    line-height: normal;
+    margin-top: 0;
+    text-decoration: inherit;
+    vertical-align: baseline;
+    width: auto;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-size: 26px;
+    color: #f97001;
+    margin-right: 9px;
+}
+
+.swipe .foot li+li a:before {
+    content: "\f0d1"
+}
+
+.swipe .foot li+li+li a:before {
+    content: "\f06a"
+}
+
+.swipe .foot li+li+li+li a:before {
+    content: "\f085"
+}
+
+.swipe .foot.foot-1 li a:before {
+    content: "\f0ac"
+}
+
+.swipe .foot.foot-1 li+li a:before {
+    content: "\f079"
+}
+
+.swipe .foot.foot-1 li+li+li a:before {
+    content: "\f0e8"
+}
+
+.swipe .foot.foot-2 li a:before {
+    content: "\f02c"
+}
+
+.swipe .foot.foot-2 li+li a:before {
+    content: "\f06b"
+}
+
+.swipe .foot.foot-2 li+li+li a:before {
+    content: "\f0c0"
+}
+
+.swipe .foot.foot-2 li+li+li+li a:before {
+    content: "\f0a3"
+}
+
+.swipe .foot.foot-3 li a:before {
+    content: "\f0cb"
+}
+
+.swipe .foot.foot-3 li+li a:before {
+    content: "\f003"
+}
+
+.swipe ul li a i {
+    font-size: 21px;
+    color: #f97001;
+    line-height: 25px;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.swipe {
+    background-color: #fff;
+    color: #777;
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    top: 50px;
+    width: 237px;
+    z-index: 101;
+    height: 100%;
+    left: -237px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.swipe .swipe-menu {
+    height: 100%;
+    overflow: auto;
+}
+
+
+.ind .swipe {
+    display: block;
+    left: 0;
+}
+
+.ind #page {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 88;
+}
+
+.ind .shadow {
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 88
+}
+
+/************************* TOP ROW **************************/
+.toprow-1 {
+    background-color: #1c1c1c;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 90;
+    display: none;
+}
+
+/************************ TOP BUTTONS ************************/
+
+.top-buttons {
+    padding: 15px 15px 11px;
+    display: inline-block;
+}
+
+.top-buttons a {
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #262626;
+    margin-right: 23px;
+}
+
+.top-buttons a:hover {
+    color: #f97001;
+}
+
+.top-buttons a:hover i {
+    color: #333;
+}
+
+.top-buttons a p {
+    margin-bottom: 0;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.top-buttons a i {
+    display: inline-block;
+    float: left;
+    color: #f97001;
+    font-size: 42px;
+    line-height: 42px;
+    margin-right: 10px;
+}
+
+
+/************************* PAGE ******************************/
+#page {
+    overflow: hidden;
+    background: #fff;
+}
+
+
+/************************* HEADER ****************************/
+header {
+    background: #f97001;
+    margin-bottom: 30px;
+}
+
+header .top-panel {
+    background: #fff;
+    line-height: 0;
+}
+
+header .top-panel .box_html {
+    margin-bottom: 0;
+}

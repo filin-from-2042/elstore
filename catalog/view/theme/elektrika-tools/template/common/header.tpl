@@ -26,10 +26,12 @@
 <link href="<?php echo $icon; ?>" rel="icon" />
 <?php } ?>
 
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700,400italic&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- Bootstrap -->
+<link href="catalog/view/theme/elektrika-tools/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="catalog/view/theme/elektrika-tools/css/font-awesome.min.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,6 +48,8 @@
 <?php } ?>
 
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_tablet.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_mobile.css" />
 
 <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
 <?php foreach ($scripts as $script) { ?>
@@ -63,64 +67,69 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <?php } ?>
 <?php echo $google_analytics; ?>
 </head>
-<body>
+<body class="<?=$class?>">
 
-<div id="container">
-<div id="header">
-<div id="top">
-</div>
-  <?php if ($logo) { ?>
-  <div id="logo">
-  <?php if ($home == $og_url) { ?>
-  <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
-  <?php } else { ?>
-  <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
-  <?php } ?>
-  </div>
-  <?php } ?>
-  <?php echo $language; ?>
-  <?php echo $currency; ?>
-  <?php echo $cart; ?>
-  <div id="search">
-    <div class="button-search"></div>
-    <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
-  </div>
-  <div id="welcome">
-    <?php if (!$logged) { ?>
-    <?php echo $text_welcome; ?>
-    <?php } else { ?>
-    <?php echo $text_logged; ?>
-    <?php } ?>
-  </div>
-  <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
-</div>
-<?php if ($categories && false) { ?>
-<div id="menu">
-  <ul>
-    <?php foreach ($categories as $category) { ?>
-    <li><?php if ($category['active']) { ?>
-	<a href="<?php echo $category['href']; ?>" class="active"><?php echo $category['name']; ?></a>
-	<?php } else { ?>
-	<a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-	<?php } ?>
-
-      <?php if ($category['children']) { ?>
-      <div>
-        <?php for ($i = 0; $i < count($category['children']);) { ?>
+<!-- swipe menu -->
+<div class="swipe">
+    <div class="swipe-menu">
         <ul>
-          <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
-          <?php for (; $i < $j; $i++) { ?>
-          <?php if (isset($category['children'][$i])) { ?>
-          <li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
-          <?php } ?>
-          <?php } ?>
+
+            <li><a href="<?php echo $account; ?>" title="My Account"><i class="fa fa-user"></i> <span><?php echo $text_account; ?></span></a></li>
+            <li><a href="/index.php?route=account/register"><i class="fa fa-user"></i> Create an account</a></li>
+            <li><a href="/index.php?route=account/login"><i class="fa fa-lock"></i>Login</a></li>
+            <li><a href="/index.php?route=account/wishlist" id="wishlist-total2" title="Wish List <span>0</span>"><i class="fa fa-heart"></i> <span>Wish List <span>0</span></span></a></li>
+            <li><a href="/index.php?route=checkout/cart" title="Shopping Cart"><i class="fa fa-shopping-cart"></i> <span>Shopping Cart</span></a></li>
+            <li><a href="/index.php?route=checkout/checkout" title="Checkout"><i class="fa fa-share"></i> <span>Checkout</span></a></li>
         </ul>
-        <?php } ?>
-      </div>
-      <?php } ?>
-    </li>
-    <?php } ?>
-  </ul>
+        <ul class="foot">
+            <li><a href="/index.php?route=information/information&amp;information_id=4">About</a></li>
+            <li><a href="/index.php?route=information/information&amp;information_id=6">Delivery</a></li>
+            <li><a href="/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
+            <li><a href="/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
+        </ul>
+        <ul class="foot foot-1">
+            <li><a href="/index.php?route=information/contact">Contact Us</a></li>
+            <li><a href="/index.php?route=account/return/insert">Returns</a></li>
+            <li><a href="/index.php?route=information/sitemap">Site Map</a></li>
+        </ul>
+
+        <ul class="foot foot-2">
+            <li><a href="/index.php?route=product/manufacturer">Brands</a></li>
+            <li><a href="/index.php?route=account/voucher">Gift Vouchers</a></li>
+            <li><a href="/index.php?route=affiliate/account">Affiliates</a></li>
+            <li><a href="/index.php?route=product/special">Specials</a></li>
+        </ul>
+        <ul class="foot foot-3">
+            <li><a href="/index.php?route=account/order">Order History</a></li>
+            <li><a href="/index.php?route=account/newsletter">Newsletter</a></li>
+        </ul>
+    </div>
 </div>
-<?php } ?>
-<div id="notification"></div>
+
+<div id="page">
+    <div class="shadow"></div>
+    <div class="toprow-1">
+        <a class="swipe-control" href="#"><i class="fa fa-align-justify"></i></a>
+    </div>
+    <header>
+        <div class="top-panel">
+            <div class="container">
+                <div class="box_html top-buttons">
+                    <div class="row">
+                        <a href="/index.php?route=information/information&information_id=6" class="one-third blue">
+                            <i class="fa fa-truck"></i>
+                            <p>Бесплатная доставка<br>на заказы от 500р</p>
+                        </a>
+                        <a href="#" class="one-third">
+                            <i class="fa fa-money"></i>
+                            <p>Оплата<br>при получении</p>
+                        </a>
+                        <a href="/index.php?route=information/information&information_id=9" class="one-third green">
+                            <i class="fa fa-refresh"></i>
+                            <p>14 дней<br>на возврат</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

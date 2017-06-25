@@ -1,0 +1,19 @@
+@media (max-width: 767px){
+    .toprow-1 {
+        display: block;
+    }
+    header .top-panel {
+        margin-top:50px;
+    }
+    .top-buttons a i {
+        font-size: 25px;
+        line-height: 32px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 630px){
+    header .top-panel .box_html{
+        display: none;
+    }
+}

@@ -9,6 +9,24 @@ class ControllerCommonHeader extends Controller {
             $server = $this->config->get('config_url');
         }
 
+        // For page specific css
+        if (isset($this->request->get['route'])) {
+            if (isset($this->request->get['product_id'])) {
+                $class = '-' . $this->request->get['product_id'];
+            } elseif (isset($this->request->get['path'])) {
+                $class = '-' . $this->request->get['path'];
+            } elseif (isset($this->request->get['manufacturer_id'])) {
+                $class = '-' . $this->request->get['manufacturer_id'];
+            } elseif (isset($this->request->get['information_id'])) {
+                $class = '-' . $this->request->get['information_id'];
+            } else {
+                $class = '';
+            }
+            $this->data['class'] = str_replace('/', '-', $this->request->get['route']) . $class;
+        } else {
+            $this->data['class'] = 'common-home';
+        }
+
         $this->data['base'] = $server;
         $this->data['description'] = $this->document->getDescription();
         $this->data['keywords'] = $this->document->getKeywords();
