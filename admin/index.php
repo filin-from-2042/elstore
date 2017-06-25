@@ -12,22 +12,33 @@ if (!defined('DIR_APPLICATION')) {
 	header('Location: ../install/index.php');
 	exit;
 }
-// vQmod
-  require_once('../vqmod/vqmod.php');
-  VQMod::bootup();
-//VirtualQMOD
-require_once('../vqmod/vqmod.php');
-VQMod::bootup();
+//// vQmod
+//  require_once('../vqmod/vqmod.php');
+//  VQMod::bootup();
+////VirtualQMOD
+//require_once('../vqmod/vqmod.php');
+//VQMod::bootup();
+//
+//// VQMODDED Startup
+//require_once(VQMod::modCheck(DIR_SYSTEM . 'startup.php'));
+//
+//// Application Classes
+//require_once(VQMod::modCheck(DIR_SYSTEM . 'library/currency.php'));
+//require_once(VQMod::modCheck(DIR_SYSTEM . 'library/user.php'));
+//require_once(VQMod::modCheck(DIR_SYSTEM . 'library/weight.php'));
+//require_once(VQMod::modCheck(DIR_SYSTEM . 'library/length.php'));
+//require_once(VQMod::modCheck(DIR_SYSTEM . 'library/ocstore.php'));
 
-// VQMODDED Startup
-require_once(VQMod::modCheck(DIR_SYSTEM . 'startup.php'));
+// Startup
+require_once(DIR_SYSTEM . 'startup.php');
+
 
 // Application Classes
-require_once(VQMod::modCheck(DIR_SYSTEM . 'library/currency.php'));
-require_once(VQMod::modCheck(DIR_SYSTEM . 'library/user.php'));
-require_once(VQMod::modCheck(DIR_SYSTEM . 'library/weight.php'));
-require_once(VQMod::modCheck(DIR_SYSTEM . 'library/length.php'));
-require_once(VQMod::modCheck(DIR_SYSTEM . 'library/ocstore.php'));
+require_once(DIR_SYSTEM . 'library/currency.php');
+require_once(DIR_SYSTEM . 'library/user.php');
+require_once(DIR_SYSTEM . 'library/weight.php');
+require_once(DIR_SYSTEM . 'library/length.php');
+require_once(DIR_SYSTEM . 'library/ocstore.php');
 
 // Registry
 $registry = new Registry();

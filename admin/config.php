@@ -23,9 +23,16 @@ define('DIR_CATALOG', $rootDir.'/catalog/');
 
 // DB
 define('DB_DRIVER', 'mysql');
-define('DB_HOSTNAME', 'elektrik-1.mysql');
-define('DB_USERNAME', 'elektrik-1_mysql');
-define('DB_PASSWORD', '7EsOinX-');
+
+//define('DB_HOSTNAME', 'elektrik-1.mysql');
+//define('DB_USERNAME', 'elektrik-1_mysql');
+//define('DB_PASSWORD', '7EsOinX-');
+//define('DB_DATABASE', 'elektrik-1_db');
+
+define('DB_HOSTNAME', '192.168.0.106');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
 define('DB_DATABASE', 'elektrik-1_db');
+
 define('DB_PREFIX', 'oc_');
 ?>
