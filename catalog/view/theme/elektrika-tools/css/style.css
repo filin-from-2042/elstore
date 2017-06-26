@@ -21,6 +21,15 @@ button {
     outline: none;
 }
 
+.register-top a{
+    -webkit-transition:all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+
+
+
 /************************** SWIPE MENU ******************************/
 .swipe-control:hover i {
     color: #fff;
@@ -166,7 +175,7 @@ button {
     width: 240px;
     z-index: 101;
     height: 100%;
-    left: -237px;
+    left: -240px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -273,4 +282,107 @@ header .top-panel {
 
 header .top-panel .box_html {
     margin-bottom: 0;
+}
+
+header #logo {
+    float: left;
+    margin: 20px 10px 29px 0;
+}
+header #logo img{
+    width: 270px;
+}
+header .box-right {
+    display: inline-block;
+    float: right;
+    margin-top: 42px;
+}
+header .register-top {
+    display: inline-block;
+    margin: 21px 0 20px;
+}
+header .box-cart {
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+header .register-top a:first-child {
+    padding-left: 21px;
+    padding-right: 21px;
+}
+header .register-top a {
+    display: block;
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+header .register-top a>i {
+    display: inline-block;
+    color: #333;
+    font-size: 15px;
+    line-height: 21px;
+    height: 19px;
+    vertical-align: top;
+    margin-right: 14px;
+}
+header #cart {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: 62px;
+    margin: 0 0 25px 24px;
+}
+header #cart a > i {
+    font-size: 47px;
+    margin-right: 14px;
+    line-height: 58px;
+    vertical-align: top;
+    display: block;
+    float: left;
+}
+header #cart .heading a {
+    border: 0;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    line-height: 62px;
+    background: none;
+    text-transform: uppercase;
+    padding: 0;
+}
+header #cart .heading a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+#cart .heading #cart-total {
+    margin-left: 6px;
+    font-size: 16px;
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    text-align: center;
+    background: #333;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    display: inline-block;
+    vertical-align: bottom;
+}
+header #cart .content {
+    clear: both;
+    display: none;
+    position: relative;
+    top: 2px;
+    padding: 8px;
+    min-height: 150px;
+    background: #f7f7f7;
+    z-index: 1001;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    padding: 5px 10px;
+}
+header #cart.active .content{
+    display: block;
 }

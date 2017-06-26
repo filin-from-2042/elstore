@@ -54,6 +54,7 @@
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_tablet.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_mobile.css" />
 
+<script src="catalog/view/theme/elektrika-tools/js/common.js"></script>
 <?php foreach ($scripts as $script) { ?>
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
@@ -135,5 +136,29 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                 </div>
             </div>
         </div>
-
+        <div id="logo-block">
+            <div class="container">
+                <?php if ($logo) { ?>
+                <div id="logo">
+                    <?php if ($home == $og_url) { ?>
+                    <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
+                    <?php } else { ?>
+                    <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
+                    <?php } ?>
+                </div>
+                <?php } ?>
+                <div class="box-right">
+                    <div class="box-cart">
+                        <?=$cart?>
+                    </div>
+                    <div class="register-top">
+                        <?php if (!$logged) { ?>
+                            <?php echo $text_welcome; ?>
+                        <?php } else { ?>
+                            <?php echo $text_logged; ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
