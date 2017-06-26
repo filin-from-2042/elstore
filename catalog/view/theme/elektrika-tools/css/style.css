@@ -78,7 +78,7 @@ button {
 }
 
 .swipe .foot li a:before {
-    content: "\f05a";
+    /*content: "\f05a";*/
     background-image: none;
     background-position: 0 0;
     background-repeat: repeat;
@@ -99,7 +99,7 @@ button {
     color: #f97001;
     margin-right: 9px;
 }
-
+/*
 .swipe .foot li+li a:before {
     content: "\f0d1"
 }
@@ -147,7 +147,7 @@ button {
 .swipe .foot.foot-3 li+li a:before {
     content: "\f003"
 }
-
+*/
 .swipe ul li a i {
     font-size: 21px;
     color: #f97001;
@@ -163,7 +163,7 @@ button {
     overflow: hidden;
     position: fixed;
     top: 50px;
-    width: 237px;
+    width: 240px;
     z-index: 101;
     height: 100%;
     left: -237px;

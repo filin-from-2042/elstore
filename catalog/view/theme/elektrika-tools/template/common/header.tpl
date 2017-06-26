@@ -75,33 +75,34 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
         <ul>
 
             <li><a href="<?php echo $account; ?>" title="My Account"><i class="fa fa-user"></i> <span><?php echo $text_account; ?></span></a></li>
-            <li><a href="/index.php?route=account/register"><i class="fa fa-user"></i> Create an account</a></li>
-            <li><a href="/index.php?route=account/login"><i class="fa fa-lock"></i>Login</a></li>
-            <li><a href="/index.php?route=account/wishlist" id="wishlist-total2" title="Wish List <span>0</span>"><i class="fa fa-heart"></i> <span>Wish List <span>0</span></span></a></li>
-            <li><a href="/index.php?route=checkout/cart" title="Shopping Cart"><i class="fa fa-shopping-cart"></i> <span>Shopping Cart</span></a></li>
-            <li><a href="/index.php?route=checkout/checkout" title="Checkout"><i class="fa fa-share"></i> <span>Checkout</span></a></li>
+            <?php if (!$logged) { ?>
+            <li><a href="<?=$login?>"><i class="fa fa-lock"></i><?php echo $text_login; ?></a></li>
+            <li><a href="<?=register?>"><i class="fa fa-user"></i><?php echo $text_register; ?></a></li>
+            <?php } else { ?>
+            <li><a href="<?=$logged_simple?>"><i class="fa fa-sign-out" aria-hidden="true"></i><?php echo $text_logged_simple; ?></a></li>
+            <?php } ?>
+            <li><a href="<?php echo $wishlist; ?>" id="wishlist-total2" title="Wish List <span>0</span>"><i class="fa fa-heart"></i><?php echo $text_wishlist; ?></a></li>
+            <li><a href="<?php echo $shopping_cart; ?>" title="Shopping Cart"><i class="fa fa-shopping-cart"></i><?php echo $text_shopping_cart; ?></a></li>
         </ul>
         <ul class="foot">
-            <li><a href="/index.php?route=information/information&amp;information_id=4">About</a></li>
-            <li><a href="/index.php?route=information/information&amp;information_id=6">Delivery</a></li>
-            <li><a href="/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
-            <li><a href="/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
+            <li><a href="/index.php?route=information/information&information_id=6"><i class="fa fa-truck"></i>Доставка</a></li>
+            <li><a href="<?php echo $return; ?>"><i class="fa fa-retweet" aria-hidden="true"></i><?php echo $text_return; ?></a></li>
+            <li><a href="/index.php?route=information/information&information_id=5"><i class="fa fa-cogs" aria-hidden="true"></i>Условия соглашения</a></li>
+            <li><a href="/index.php?route=information/information&information_id=3"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Политика безопасности</a></li>
         </ul>
         <ul class="foot foot-1">
-            <li><a href="/index.php?route=information/contact">Contact Us</a></li>
-            <li><a href="/index.php?route=account/return/insert">Returns</a></li>
-            <li><a href="/index.php?route=information/sitemap">Site Map</a></li>
+            <li><a href="<?php echo $contact; ?>"><i class="fa fa-globe" aria-hidden="true"></i><?php echo $text_contact; ?></a></li>
+            <li><a href="<?=$sitemap?>"><i class="fa fa-sitemap" aria-hidden="true"></i><?=$text_sitemap?></a></li>
         </ul>
 
         <ul class="foot foot-2">
-            <li><a href="/index.php?route=product/manufacturer">Brands</a></li>
-            <li><a href="/index.php?route=account/voucher">Gift Vouchers</a></li>
-            <li><a href="/index.php?route=affiliate/account">Affiliates</a></li>
-            <li><a href="/index.php?route=product/special">Specials</a></li>
+            <li><a href="<?php echo $manufacturer; ?>"><i class="fa fa-tags" aria-hidden="true"></i><?php echo $text_manufacturer; ?></a></li>
+            <li><a href="<?php echo $voucher; ?>"><i class="fa fa-gift" aria-hidden="true"></i><?php echo $text_voucher; ?></a></li>
+            <li><a href="<?php echo $special; ?>"><i class="fa fa-certificate" aria-hidden="true"></i><?php echo $text_special; ?></a></li>
         </ul>
         <ul class="foot foot-3">
-            <li><a href="/index.php?route=account/order">Order History</a></li>
-            <li><a href="/index.php?route=account/newsletter">Newsletter</a></li>
+            <li><a href="<?php echo $order; ?>"><i class="fa fa-list-ol" aria-hidden="true"></i><?php echo $text_order; ?></a></li>
+            <li><a href="<?php echo $newsletter; ?>"><i class="fa fa-envelope-o" aria-hidden="true"></i><?php echo $text_newsletter; ?></a></li>
         </ul>
     </div>
 </div>

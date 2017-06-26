@@ -61,16 +61,38 @@ class ControllerCommonHeader extends Controller {
         $this->data['text_search'] = $this->language->get('text_search');
         $this->data['text_welcome'] = sprintf($this->language->get('text_welcome'), $this->url->link('account/login', '', 'SSL'), $this->url->link('account/register', '', 'SSL'));
         $this->data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', 'SSL'), $this->customer->getFirstName(), $this->url->link('account/logout', '', 'SSL'));
+        $this->data['text_logged_simple'] = $this->language->get('text_logged_simple');
         $this->data['text_account'] = $this->language->get('text_account');
         $this->data['text_checkout'] = $this->language->get('text_checkout');
         $this->data['text_page'] = $this->language->get('text_page');
+        $this->data['text_login'] = $this->language->get('text_login');
+        $this->data['text_register'] = $this->language->get('text_register');
+        $this->data['text_sitemap'] = $this->language->get('text_sitemap');
+        $this->data['text_manufacturer'] = $this->language->get('text_manufacturer');
+        $this->data['text_voucher'] = $this->language->get('text_voucher');
+        $this->data['text_special'] = $this->language->get('text_special');
+        $this->data['text_order'] = $this->language->get('text_order');
+        $this->data['text_newsletter'] = $this->language->get('text_newsletter');
+        $this->data['text_return'] = $this->language->get('text_return');
+        $this->data['text_contact'] = $this->language->get('text_contact');
 
         $this->data['home'] = $this->url->link('common/home');
         $this->data['wishlist'] = $this->url->link('account/wishlist', '', 'SSL');
         $this->data['logged'] = $this->customer->isLogged();
         $this->data['account'] = $this->url->link('account/account', '', 'SSL');
+        $this->data['logged_simple'] = $this->url->link('account/logout', '', 'SSL');
         $this->data['shopping_cart'] = $this->url->link('checkout/cart');
         $this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+        $this->data['login'] = $this->url->link('account/login', '', 'SSL');
+        $this->data['register'] = $this->url->link('account/register', '', 'SSL');
+        $this->data['sitemap'] = $this->url->link('information/sitemap');
+        $this->data['manufacturer'] = $this->url->link('product/manufacturer');
+        $this->data['voucher'] = $this->url->link('account/voucher', '', 'SSL');
+        $this->data['special'] = $this->url->link('product/special');
+        $this->data['order'] = $this->url->link('account/order', '', 'SSL');
+        $this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');
+        $this->data['return'] = $this->url->link('account/return/insert', '', 'SSL');
+        $this->data['contact'] = $this->url->link('information/contact');
 
         // Daniel's robot detector
         $status = true;
