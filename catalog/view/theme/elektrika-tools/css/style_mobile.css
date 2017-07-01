@@ -10,6 +10,66 @@
         line-height: 32px;
         margin-right: 8px;
     }
+    /*********************** CART *********************/
+    header #cart {
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin: 0;
+        z-index: 91;
+        height: 50px;
+        border-left: 1px solid #333;
+    }
+    header #cart .heading i {
+        display: block;
+        float: left;
+        line-height: 50px;
+        font-size: 30px;
+        margin-right: 10px;
+    }
+    header #cart .heading {
+        text-align: left;
+        padding: 0 15px;
+        background: #000;
+        min-width: 50px;
+        line-height: 50px;
+        height: auto;
+        width: auto;
+        vertical-align: top;
+        background: none;
+    }
+    header #cart .heading a{
+        color: #ccc;
+    }
+    header #cart .heading a:hover{
+        color:#fff;
+    }
+    header #cart .heading #cart-total{
+        height: 46px;
+        line-height: 46px;
+        width: 46px;
+        margin-left: 0;
+        float: left;
+    }
+    header #search {
+        width: 100%;
+    }
+    header #search input {
+        max-width: 70%;
+        width: 70%;
+    }
+    header #search button {
+        float: right;
+        width: 30%;
+    }
+    header #logo{
+        float: none;
+        text-align: center;
+    }
+    header #logo a {
+        display: inline-block;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 630px){

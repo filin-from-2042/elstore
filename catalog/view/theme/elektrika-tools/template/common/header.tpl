@@ -72,6 +72,81 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 </head>
 <body class="<?=$class?>">
 
+<!-- Modal -->
+<div class="modal fade bhoechie-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 bhoechie-tab-menu">
+                                <div class="list-group">
+
+                                    <?php foreach($categories as $k=>$category){
+                                    echo '<a href="#" class="list-group-item  '. ($k?'':'active') . '  text-center">';
+                                        echo  $category['name'] . '</a>';
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
+                                <!-- flight section -->
+
+                                <?php foreach($categories as $k=>$category){
+                                echo '<div class="bhoechie-tab-content ' . ($k?'':'active') . ' ">';
+                                    if (isset($category['children'])){
+                                    foreach( $category['children'] as $child){
+                                    echo '<div class="col-sm-12 col-md-12 col-lg-12">';
+
+                                        echo '<a href="' . $child['href'] . '" >';
+                                            echo '<h3 id="category-parent">' .$child['name'] .'</h3>';
+                                            echo '<div class="col-sm-6 hidden-xs">';
+                                                echo '<img class="img-responsive" src="'. $child['thumb'] .'" />';
+                                                echo '</div>';
+
+                                            echo '</a>';
+                                        if (isset($child['children']) && !empty($child['children']))
+                                        {
+                                        echo '<div class="col-sm-6 subcategories" >';
+                                            foreach($child['children'] as $grchild)
+                                            {
+                                            echo '<a href="' . $grchild['href'] . '" ><i class="fa fa-angle-right"></i>' .$grchild['name'] . '</a><br>';
+                                            echo '<div class="clearfix"></div> ';
+
+                                            }
+                                            echo '</div> ';
+                                        echo '<div class="clearfix"></div> ';
+                                        }
+                                        else
+                                        {
+                                        echo '<div  id="catdesc" class="col-sm-6 hidden-xs" >';
+                                            echo '<p>';
+                                                if (isset($child['desc']))echo html_entity_decode ($child['desc'])    ;
+                                                echo '</p>';
+                                            echo '</div> ';
+                                        echo '<div class="clearfix"></div> ';
+                                        }
+                                        echo '</div>';
+                                    }
+                                    }
+
+                                    echo '</div>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- swipe menu -->
 <div class="swipe">
     <div class="swipe-menu">
@@ -147,7 +222,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                     <?php } ?>
                 </div>
                 <?php } ?>
-                <div class="box-right">
+                <div class="box-right hidden-xs">
                     <div class="box-cart">
                         <?=$cart?>
                     </div>
@@ -157,6 +232,59 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                         <?php } else { ?>
                             <?php echo $text_logged; ?>
                         <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="tm_menu" class="col-md-3 sf-with-ul sf-arrows">
+                    <ul class="menu">
+                        <li><a class="button-category" data-toggle="modal" data-target="#myModal">Каталог<i class="fa fa-bars"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-9 block-menu">
+                    <div class="clearfix">
+                        <div id="top-links" class="nav pull-left hidden-xs ">
+                            <ul class="list-inline">
+                                <li class="first">
+                                    <a href="<?php echo $home; ?>">
+                                        <i class="fa fa-home hidden-md hidden-lg"></i>
+                                        <span class="hidden-sm"><?php echo $text_home; ?></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $wishlist; ?>" id="wishlist-total">
+                                        <i class="fa fa-heart hidden-md hidden-lg"></i>
+                                        <span class="hidden-sm"><?php echo $text_wishlist; ?></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $account; ?>">
+                                        <i class="fa fa-user hidden-md hidden-lg"></i>
+                                        <span class="hidden-sm"><?php echo $text_account; ?></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $shopping_cart; ?>" title="<?php echo $text_shopping_cart; ?>">
+                                        <i class="fa fa-shopping-cart hidden-md hidden-lg"></i>
+                                        <span class="hidden-sm"><?php echo $text_shopping_cart; ?></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>">
+                                        <i class="fa fa-share hidden-md hidden-lg"></i>
+                                        <span class="hidden-sm"><?php echo $text_checkout; ?></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="search">
+                            <i class="fa fa-search"></i>
+                            <input type="text" name="search" value="" placeholder="">
+                            <button type="button" class="button-search"><i class="fa fa-angle-double-right"></i></button>
+                            <div class="clear"></div>
+                        </div>
                     </div>
                 </div>
             </div>
