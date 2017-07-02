@@ -186,7 +186,6 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 </div>
 
 <div id="page">
-    <div class="shadow"></div>
     <div class="toprow-1">
         <a class="swipe-control" href="#"><i class="fa fa-align-justify"></i></a>
     </div>
@@ -290,3 +289,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             </div>
         </div>
     </header>
+    <div id="notification"></div>
+    <div id="back-top">
+        <a href="#top">
+            <span class="wrap">
+                <span class="content"></span>
+            </span>
+        </a>
+    </div>
