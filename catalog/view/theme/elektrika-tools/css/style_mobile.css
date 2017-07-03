@@ -85,6 +85,15 @@
     .info-blocks .more {
         right: 10px;
     }
+    .info-blocks>div:last-child {
+        margin-bottom: 30px;
+    }
+    .box_html.welcome > span {
+        float: none;
+        margin-right: 0;
+        display: block;
+        text-align: center;
+    }
 }
 
 @media (max-width: 630px){

@@ -1135,3 +1135,53 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
         padding: 20px 15px;
     }
 }
+
+/************************ WELCOME BLOCK HTML **************************/
+.box_html {
+    margin-bottom: 30px;
+}
+
+.box_html.map {
+    margin-bottom: 11px;
+}
+
+.box_html {
+    font-size: 21px;
+    line-height: 20px;
+}
+
+.box_html p {
+    position: relative;
+    display: block;
+}
+
+.box_html.welcome {
+    background: #ededed;
+    padding: 22px 30px 25px 30px;
+    color: #777;
+    font-size: 13px;
+    line-height: 23px;
+    font-weight: normal;
+}
+
+.box_html.welcome>span {
+    display: inline-block;
+    float: left;
+    margin: 0 65px 10px 0;
+    font-size: 41px;
+    line-height: 40px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.box_html.welcome span span {
+    color: #f97001;
+}
+
+.box_html.welcome p {
+    margin-top: 4px;
+}
+
+.box_html.map .list-unstyled {
+    margin-bottom: 0;
+}
