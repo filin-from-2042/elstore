@@ -19,4 +19,17 @@
     header .register-top a {
         font-size: 15px;
     }
+    .info-blocks .side-item .more{
+        right: 5px;
+    }
+    .info-blocks .more {
+        right: 15px;
+    }
+    .info-blocks .side-item .side-item-caption {
+        width: 75%;
+    }
+    .info-blocks .side-item .side-item-caption  h2{
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
 }

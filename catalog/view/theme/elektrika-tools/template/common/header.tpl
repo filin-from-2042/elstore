@@ -291,7 +291,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
     </header>
     <div id="notification"></div>
     <div id="back-top">
-        <a href="#top">
+        <a href="#top" class="round-animated-btn">
             <span class="wrap">
                 <span class="content"></span>
             </span>

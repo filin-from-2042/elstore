@@ -70,6 +70,21 @@
         display: inline-block;
         max-width: 100%;
     }
+    .info-blocks .side-item{
+        text-align: center;
+    }
+    .info-blocks .side-item img{
+        max-width: 370px;
+    }
+    .info-blocks .side-item>div{
+        display: inline-block;
+    }
+    .info-blocks .carousel-caption{
+        right: 20%;
+    }
+    .info-blocks .more {
+        right: 10px;
+    }
 }
 
 @media (max-width: 630px){
