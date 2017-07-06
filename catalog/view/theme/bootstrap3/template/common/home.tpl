@@ -16,6 +16,7 @@
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
@@ -33,6 +34,16 @@
 
                     -->
                     <div class="item active">
+                        <img src="image/slide0607.jpg" class="img-responsive" alt="...">
+                        <div class="carousel-caption">
+                            <h2 class="hidden-xs" style="font-size: 30px;">Эффективное уличное освещение</h2>
+                            <p style="font-size: 20px;">Новинка! Универсальный светодиодный прожектор с возможностью крепления на столб. Самый бюджетный вариант среди прожекторов данного класса.</p>
+                            <p><a href="http://elektrika-nmk.ru/index.php?route=product/product&path=441_635&product_id=22241">Подробнее</a></p>
+                        </div>
+                    </div>
+
+
+                    <div class="item ">
                         <img src="image/slide111.jpg" class="img-responsive" alt="...">
                         <div class="carousel-caption">
                             <h2 class="hidden-xs">Красиво, практично,а главное - дешево!</h2>
