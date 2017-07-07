@@ -318,6 +318,29 @@ a:hover {
 .btn:hover,.btn:focus {
     color: #f97001;
 }
+/* COPYRIGHT */
+.copyright br {
+    display: none;
+}
+
+.copyright a {
+    font-size: 13px;
+    line-height: 16px;
+    color: #777;
+}
+
+.copyright a:hover {
+    color: #f97001;
+}
+
+.copyright {
+    margin-top: 20px;
+    padding: 15px 0 19px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #777;
+    background: #ebebeb;
+}
 
 /********************** ROUND ANIMATED BUTTON ******************/
 .round-animated-btn{
@@ -1499,4 +1522,95 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .panel.goods-block .panel-body{
     padding: 0;
+}
+
+
+/*************************** FOOTER *********************************/
+footer {
+    margin-top: 0px;
+    padding-top: 35px;
+    background: #f2f2f2;
+}
+
+footer li {
+    font-size: 15px;
+    line-height: 18px;
+    padding: 6px 0 ;
+}
+footer li:before{
+    content: "\f105";
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+
+    font-size: 23px;
+    line-height: 19px;
+    height: 19px;
+    float: left;
+    vertical-align: top;
+    color: #f97001;
+    margin-right: 14px;
+}
+footer li a {
+    font-size: 16px;
+    line-height: 19px;
+    color: #777;
+    display: inline-block;
+    width: 80%;
+}
+
+footer li a:active,footer li a:focus {
+    color: #777;
+}
+
+footer ul li a span {
+    overflow: hidden;
+    word-wrap: break-word;
+    clear: none;
+}
+
+footer li a:hover {
+    color: #f97001;
+}
+
+footer h5 {
+    color: #333;
+    font-size: 25px;
+    line-height: 27px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0 0 17px;
+}
+footer h5 {
+    font-size: 23px;
+}
+.footer_box {
+    margin-bottom: 15px;
+}
+
+.footer_box.social h5 {
+    margin-bottom: 27px;
+}
+
+footer .social a {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+footer .social a i {
+    font-size: 25px;
+    line-height: 51px;
+    text-align: center;
+    display: inline-block;
+    width: 51px;
+    height: 51px;
+    color: #fff;
+    background: #f97001;
+}
+
+footer .social a:hover i {
+    background: #333;
 }

@@ -136,6 +136,20 @@
     .product-thumb .image a {
         position: relative;
     }
+    /******************** FOOTER *******************/
+    footer{
+        padding-top: 0;
+        text-align: center;
+    }
+    footer > .container {
+        display: none;
+        padding-top: 0;
+    }
+    footer .copyright {
+        margin-top: 0px;
+        padding: 20px 0;
+    }
+
 }
 
 @media (max-width: 630px){
