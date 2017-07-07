@@ -25,19 +25,25 @@
         </div>
     <?php } ?>
     <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
+      <h2><?php echo $heading_title; ?></h2>
       <?php if ($thumb || $description) { ?>
-      <div class="category-info">
-        <?php if ($thumb) { ?>
-        <div class="image"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" /></div>
-        <?php } ?>
-        <?php if ($description) { ?>
-        <?php echo $description; ?>
-        <?php } ?>
-      </div>
+        <div class="row">
+          <div class="col-sm-10">
+              <div class="category-info">
+                <?php if ($thumb) { ?>
+                <div class="image"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" /></div>
+                <?php } ?>
+                <?php if ($description) { ?>
+                <?php echo $description; ?>
+                <?php } ?>
+              </div>
+          </div>
+       </div>
       <?php } ?>
+
       <?php if ($categories) { ?>
-      <h2><?php echo $text_refine; ?></h2>
+      <h3><?php echo $text_refine; ?></h3>
+      <div class="row">
       <div class="category-list">
         <?php if (count($categories) <= 5) { ?>
         <ul>
@@ -58,7 +64,9 @@
         <?php } ?>
         <?php } ?>
       </div>
+      </div>
       <?php } ?>
+
       <?php if ($products) { ?>
       <div class="product-filter">
         <div class="display"><b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display('grid');"><?php echo $text_grid; ?></a></div>

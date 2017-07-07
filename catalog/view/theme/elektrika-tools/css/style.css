@@ -1666,3 +1666,9 @@ footer .social a i {
 footer .social a:hover i {
     background: #333;
 }
+
+
+/***************************** CONTENT ****************************/
+#content{
+    min-height: 600px;
+}
