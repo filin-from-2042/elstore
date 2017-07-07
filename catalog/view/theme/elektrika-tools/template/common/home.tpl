@@ -161,5 +161,8 @@
         <div id="content" class="<?=$class?>"><?php echo $content_top; ?><?php echo $content_bottom; ?></div>
         <?php echo $column_right; ?>
     </div>
+    <div id="map-container">
+        <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=K3c_whlQjG-CppDG1ELZonoKzteiz4Wl&width=100%&height=359&lang=ru_RU&sourceType=constructor"></script>
+    </div>
 </div>
 <?php echo $footer; ?>

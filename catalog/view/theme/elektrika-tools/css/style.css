@@ -1668,6 +1668,10 @@ footer .social a:hover i {
 }
 
 
+#map-container{
+    margin-bottom: 30px;
+}
+
 /***************************** CONTENT ****************************/
 #content{
     min-height: 600px;
