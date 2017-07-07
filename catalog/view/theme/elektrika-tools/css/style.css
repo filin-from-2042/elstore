@@ -517,7 +517,6 @@ a:hover {
 }
 
 .swipe .foot li a:before {
-    /*content: "\f05a";*/
     background-image: none;
     background-position: 0 0;
     background-repeat: repeat;
@@ -893,8 +892,6 @@ header a.button-category i {
 header .block-menu >div {
     padding: 10px;
     background: #333;
-    /*display: inline-block;*/
-    /*width: 100%;*/
     line-height: 25px;
 }
 
@@ -1020,7 +1017,6 @@ div.bhoechie-tab-menu div.list-group>a.active:after{
 
 div.bhoechie-tab-content{
     background-color: #ffffff;
-    /* border: 1px solid #eeeeee; */
     padding-top: 0;
 }
 
@@ -1291,7 +1287,6 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .product-thumb .image a {
     display: block;
-    position: relative;
 }
 .product-thumb .image a:hover img {
     -moz-transform: scale(1.1,1.1);
@@ -1323,6 +1318,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .product-thumb .image {
     float: none;
+    position: relative;
 }
 .product-thumb a.quickview {
     display: inline-block;
@@ -1480,4 +1476,27 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     max-width: 100%;
     line-height: 23px;
     margin-right: 10px;
+}
+
+/************************* GOODS BLOCK ***************************/
+.panel.goods-block{
+    border:none;
+}
+.panel.goods-block .panel-heading{
+    padding: 0;
+    border:none;
+    background: none;
+}
+.panel.goods-block .panel-heading h3{
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: normal;
+    color: #333;
+    margin: 0 0 30px;
+    text-transform: uppercase;
+    padding: 19px 20px;
+    border: 1px solid #dfdede;
+}
+.panel.goods-block .panel-body{
+    padding: 0;
 }

@@ -130,6 +130,12 @@
         border: 1px solid #dfdede;
         overflow: hidden;
     }
+    .product-thumb .image{
+        position: static;
+    }
+    .product-thumb .image a {
+        position: relative;
+    }
 }
 
 @media (max-width: 630px){
