@@ -274,6 +274,51 @@ a:hover {
     text-decoration: none;
     color:#333;
 }
+.btn.btn-icon {
+    background: #f97001;
+    border: none;
+    color: #fff;
+    line-height: 51px;
+    height: 51px;
+    border: none;
+    width: 51px;
+    padding: 0;
+    text-align: center;
+}
+.btn.btn-icon i {
+    color: #fff;
+    font-size: 25px;
+    line-height: 51px;
+    margin: 0;
+    width: 100%;
+}
+.btn.btn-icon:hover {
+    background-color: #333;
+}
+.btn.details i {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 22px;
+    height: 19px;
+    color: #dfdfdf;
+    width: .7em;
+    min-width: 5px;
+    margin-left: 7px;
+}
+.btn.details:hover i {
+    color: #616161;
+}
+.btn.details i.fa-info {
+    display: none;
+}
+.btn-link:hover,.btn-link:focus {
+    color: #f97001
+}
+
+.btn:hover,.btn:focus {
+    color: #f97001;
+}
+
 /********************** ROUND ANIMATED BUTTON ******************/
 .round-animated-btn{
     position: relative;
@@ -597,7 +642,26 @@ a:hover {
     margin-right: 10px;
 }
 
-
+/************************* PRODUCT STICKERS ********************/
+.stickers {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    z-index: 10;
+}
+.sale, .new_pr {
+    float: left;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    position: relative;
+    background: #75b70e;
+    color: #fff;
+    padding: 6px 10px 7px;
+}
+.new_pr {
+    background: #54b5e8;
+}
 /************************* PAGE ******************************/
 #page {
     overflow: hidden;
@@ -1184,4 +1248,236 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 
 .box_html.map .list-unstyled {
     margin-bottom: 0;
+}
+
+/************************* PRODUCT THUMBNAILS ****************/
+.product-thumb {
+    margin-bottom: 30px;
+    position: relative;
+    border: 1px solid #dfdede;
+    margin-bottom: 25px;
+}
+.product-thumb .cart-button {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+.product-thumb .cart-button .btn-icon {
+    float: left;
+}
+.product-thumb .btn-icon.wishlist,
+.product-thumb .btn-icon.compare {
+    background: #d2d2d2;
+}
+.product-thumb .btn-icon.wishlist:hover,
+.product-thumb .btn-icon.compare:hover {
+    background: #333;
+}
+.product-thumb .cart-button .btn-icon.wishlist {
+    margin-right: 10px;
+}
+.product-thumb .price {
+    max-width: 100%;
+    line-height: 22px;
+}
+.product-thumb .btn-add {
+    float: right;
+}
+.product-thumb .image {
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+}
+.product-thumb .image a {
+    display: block;
+    position: relative;
+}
+.product-thumb .image a:hover img {
+    -moz-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1);
+}
+.product-thumb .image img {
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition: all 0.6s ease-out 0s;
+    -moz-transition: all 0.6s ease-out 0s;
+    -o-transition: all 0.6s ease-out 0s;
+    transition: all 0.6s ease-out 0s;
+    display: inline-block;
+}
+.product-thumb .img-wrap:before,
+.product-thumb .img-wrap_before{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.product-thumb .img-wrap{
+    height: 210px;
+    white-space: nowrap;
+    text-align: center; margin: 1em 0;
+}
+.product-thumb .image {
+    float: none;
+}
+.product-thumb a.quickview {
+    display: inline-block;
+    visibility: hidden;
+    z-index: 5;
+    width: 118px;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -58px;
+    margin-top: -19px;
+    text-align: center;
+    line-height: 28px;
+    padding: 5px 5px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid #dfdede;
+    color: #333;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.product-thumb:hover a.quickview {
+    visibility: visible;
+    top: 50%;
+    opacity: 1;
+}
+.product-thumb a.quickview:hover {
+    background-color: #f97001;
+    border-color: #f97001;
+    color: #fff;
+}
+.product-thumb .caption {
+    color: #999;
+    position: relative;
+}
+.product-thumb .name a {
+    width: 100%;
+    padding: 13px 15px 7px 19px;
+    background: #f2f2f2;
+    display: inline-block;
+    height: 74px;
+    font-size: 14px;
+    line-height: 23px;
+    color: #333;
+    overflow: hidden;
+}
+.product-thumb .name a:hover {
+    color: #fff;
+    background: #f97001;
+}
+
+.product-thumb .cart-button {
+    width: auto;
+}
+.product-thumb .rating {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.rating .fa-stack {
+    font-size: 8px;
+}
+
+.rating .fa-star-o {
+    color: #999;
+    font-size: 15px;
+}
+
+.rating .fa-star {
+    color: #dadada;
+    font-size: 15px;
+}
+.rating .fa-star.activ{
+    color: #f97001;
+}
+
+.product-thumb .description {
+    font-size: 13px;
+    line-height: 23px;
+    margin-bottom: 15px;
+}
+.product-thumb .price {
+    color: #f97001;
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.product-thumb .price-tax {
+    font-size: 12px;
+}
+.product-thumb .price-total {
+    font-weight: normal;
+    color: #f97001;
+}
+.product-thumb .price-new {
+    margin-right: 0;
+}
+
+.product-thumb .price-old {
+    color: #dcdcdc;
+    font-size: 17px;
+    line-height: 15px;
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+.product-thumb .price-tax {
+    color: #999;
+    font-size: 12px;
+    display: block;
+}
+
+.product-thumb .button-group {
+    border-top: 1px solid #ddd;
+    background-color: #eee;
+    overflow: auto;
+}
+
+.product-thumb .button-group {
+    border-left: 1px solid #ddd;
+}
+
+.product-thumb .button-group button {
+    width: 60%;
+    border: none;
+    display: inline-block;
+    float: left;
+    background-color: #eee;
+    color: #888;
+    line-height: 38px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.product-thumb .button-group button+button {
+    width: 20%;
+    border-left: 1px solid #ddd;
+}
+
+.product-thumb .button-group button:hover {
+    color: #444;
+    background-color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+}
+.product-thumb .btn.btn-add {
+    display: block;
+    text-align: center;
+    max-width: 100%;
+    line-height: 23px;
+    margin-right: 10px;
 }

@@ -63,4 +63,8 @@ jQuery(document).ready(function() {
         });
     });
 
+    /************************ INIT TOOLTIPS ***********************/
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 });

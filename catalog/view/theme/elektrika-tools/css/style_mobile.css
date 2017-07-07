@@ -94,6 +94,42 @@
         display: block;
         text-align: center;
     }
+
+    /************************* THUMBINALS ******************/
+    .product-thumb{
+        text-align: center;
+        margin-bottom: 0;
+        border: none;
+        border-top: 1px dotted #ccc;
+    }
+    .products-container:first-child .product-thumb{
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+    }
+    .product-thumb .btn.btn-add {
+        display: inline-block;
+        float: none;
+    }
+    .product-thumb .cart-button{
+        text-align: center;
+    }
+    .product-thumb .name{
+        text-align: center;
+    }
+    .product-thumb .name a {
+        background: none;
+        height: auto;
+        padding: 0;
+        width: auto;
+    }
+    .product-thumb .image{
+        display: inline-block;
+    }
+    .product-thumb .image .img-wrap {
+        border: 1px solid #dfdede;
+        overflow: hidden;
+    }
 }
 
 @media (max-width: 630px){
