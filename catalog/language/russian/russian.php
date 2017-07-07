@@ -10,6 +10,7 @@ $_['thousand_point']        = ' ';
 
 // Text
 $_['text_home']             = 'Главная';
+$_['icon_home']             = '<i class="fa fa-home"></i>';
 $_['text_yes']              = 'Да';
 $_['text_no']               = 'Нет';
 $_['text_none']             = ' --- Не выбрано --- ';

@@ -691,6 +691,58 @@ a:hover {
 }
 
 
+/********************* BREADCRUMBS *************************/
+
+.breadcrumb {
+    margin: 0 0 20px 0;
+    padding: 8px 0;
+    border-radius: 0;
+    border: none;
+    color: #fff;
+    background: #333;
+}
+
+.breadcrumb a {
+    color: #fff;
+}
+
+.breadcrumb a:hover,.breadcrumb li.last a {
+    color: #f97001;
+}
+
+.breadcrumb i {
+    font-size: 25px;
+    line-height: 25px;
+    vertical-align: top;
+}
+
+.breadcrumb>li {
+    padding: 0 15px 0 25px;
+    position: relative;
+}
+
+.breadcrumb>li+li:before {
+    content: '';
+    padding: 0;
+}
+
+.breadcrumb>li:after {
+    display: inline-block;
+    font-family: "FontAwesome";
+    content: '\f101';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.breadcrumb>li:first-child:after {
+    display: none;
+}
+
 /************************* HEADER ****************************/
 header {
     background: #f97001;
