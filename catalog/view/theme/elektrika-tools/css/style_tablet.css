@@ -94,6 +94,11 @@
     footer li:before{
         display: none;
     }
+
+    /******************** CATEGORY *********************/
+    .box-subcat li {
+        height:180px;
+    }
 }
 @media (max-width: 1199px) and (min-width: 992px)
 {
@@ -132,6 +137,11 @@
     footer li a {
         font-size: 15px;
         line-height: 18px;
+    }
+
+    /******************** CATEGORY *********************/
+    .box-subcat li {
+        height:220px;
     }
 
 }

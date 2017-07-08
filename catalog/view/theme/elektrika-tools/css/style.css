@@ -213,6 +213,10 @@ html[lang="ru"] .addthis_button_tweet {
     font-size:100%;
     font-size:16px;
 }
+select.form-control,textarea.form-control,input[type="text"].form-control,input[type="password"].form-control,input[type="datetime"].form-control,input[type="datetime-local"].form-control,input[type="date"].form-control,input[type="month"].form-control,input[type="time"].form-control,input[type="week"].form-control,input[type="number"].form-control,input[type="email"].form-control,input[type="url"].form-control,input[type="search"].form-control,input[type="tel"].form-control,input[type="color"].form-control {
+    font-size: 12px;
+    border-radius: 0
+}
 
 
 /************************** GENERAL ********************************/
@@ -247,7 +251,8 @@ header #search button,
 header #top-links a,
 header a.button-category i,
 #back-top span.default,
-#back-top span.hovered{
+#back-top span.hovered,
+#compare-total{
     -webkit-transition:all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
@@ -340,6 +345,14 @@ a:hover {
     line-height: 16px;
     color: #777;
     background: #ebebeb;
+}
+.name a {
+    font-size: 15px;
+    line-height: 23px;
+    color: #333;
+}
+.name a:hover {
+    color: #f97001;
 }
 
 /********************** ROUND ANIMATED BUTTON ******************/
@@ -700,6 +713,7 @@ a:hover {
     border: none;
     color: #fff;
     background: #333;
+    padding-left: 25px;
 }
 
 .breadcrumb a {
@@ -715,12 +729,13 @@ a:hover {
     line-height: 25px;
     vertical-align: top;
 }
-
 .breadcrumb>li {
     padding: 0 15px 0 25px;
     position: relative;
 }
-
+.breadcrumb>li:first-child{
+    padding-left: 0;
+}
 .breadcrumb>li+li:before {
     content: '';
     padding: 0;
@@ -1675,4 +1690,116 @@ footer .social a:hover i {
 /***************************** CONTENT ****************************/
 #content{
     min-height: 600px;
+}
+/* SUBCATEGORIES */
+.refinement-title{
+    margin-top: 30px;
+}
+.box-subcat {
+    padding: 0;
+    margin: 0;
+}
+
+.box-subcat li {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 30px;
+    height:230px;
+}
+
+.box-subcat li:hover .name a {
+    color: #f97001;
+}
+
+.box-subcat li .name a {
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.box-subcat li .image {
+    margin-bottom: 10px;
+}
+
+.box-subcat li .image:hover {
+}
+
+.box-subcat li .image img {
+    background-color: #fff;
+    max-width: 100%;
+}
+
+.box-subcat li .image a {
+    display: block;
+    background: #fff;
+    border: 1px solid #dfdede;
+}
+
+.box-subcat li .image a:hover {
+    border: 1px solid #bbb;
+}
+
+.box-subcat li.first-in-line {
+    clear: left;
+}
+
+.img-thumbnail {
+    border: 0;
+    background-color: #f7f7f7;
+    padding: 0;
+    border-radius: 0
+}
+
+/******************* PRODUCT FILTER *********************/
+.product-filter {
+    border: none;
+    padding: 17px 30px;
+    background: #fff;
+    border: 1px solid #dfdede;
+    box-shadow: none;
+    margin-bottom: 20px;
+}
+
+.product-filter label {
+    font-size: 15px;
+    color: #1c1c1c;
+    padding-top: 7px;
+    text-transform: uppercase;
+}
+.product-filter .view-type-container{
+    padding-top: 5px;
+}
+.product-filter .view-type-container i {
+    vertical-align: top;
+    border: 0;
+    background: none;
+    font-size: 27px;
+}
+.product-filter .view-type-container a{
+    cursor: pointer;
+}
+.product-filter .view-type-container .view-type{
+    border: 0;
+    background: none;
+    font-size: 27px;
+    padding: 0;
+    margin: 0 5px;
+}
+#compare-total {
+    display: inline-block;
+    font-size: 17px;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    background: #f97001;
+}
+#compare-total:hover {
+    background: #333;
+}
+#compare-total i{
+    vertical-align: middle;
+    margin-left: 3px;
+    font-size: 14px;
+}
+.nav-cat .pagination {
+    margin: 5px 0px 5px 10px;
 }
