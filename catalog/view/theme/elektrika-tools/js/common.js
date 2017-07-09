@@ -23,6 +23,12 @@ function getURLVar(key) {
     }
 }
 
+function showNotification(notificationText)
+{
+    $('#notification').html('<div class="success alert alert-success" style="display: none;">' + notificationText + '<button type="button" class="close" data-dismiss="alert">×</button></div>');
+    $('.success').fadeIn('slow');
+}
+
 function addToCart(product_id, quantity) {
     quantity = typeof(quantity) != 'undefined' ? quantity : 1;
 
@@ -39,13 +45,8 @@ function addToCart(product_id, quantity) {
             }
 
             if (json['success']) {
-                $('#notification').html('<div class="success alert alert-success" style="display: none;">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">×</button></div>');
-
-                $('.success').fadeIn('slow');
-
+                showNotification(json['success']);
                 $('#cart-total').html(json['total']);
-
-                //$('html, body').animate({ scrollTop: 0 }, 'slow');
             }
         }
     });
@@ -60,13 +61,9 @@ function addToWishList(product_id) {
             $('.success, .warning, .attention, .information').remove();
 
             if (json['success']) {
-                $('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
 
-                $('.success').fadeIn('slow');
-
+                showNotification(json['success']);
                 $('#wishlist-total').html(json['total']);
-
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
             }
         }
     });
@@ -82,14 +79,15 @@ function addToCompare(product_id) {
             $('.success, .warning, .attention, .information').remove();
 
             if (json['success']) {
-                $('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
-
-                $('.success').fadeIn('slow');
-
+                showNotification(json['success']);
                 $('#compare-total').html(json['total']);
-
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
             }
         }
     });
+}
+
+function initTooltips(selector)
+{
+    selector = selector || '[data-toggle="tooltip"]';
+    $(selector).tooltip();
 }

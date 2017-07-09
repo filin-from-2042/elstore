@@ -35,11 +35,11 @@ class Pagination {
 		
 		if ($page > 1) {
 			$tmp_url = str_replace('&amp;', '&', $this->url);
-			$output .= ' <a href="' . str_replace('&', '&amp;', rtrim( str_replace('page={page}', '', $tmp_url), '?&')) . '">' . $this->text_first . '</a>';
+			$output .= ' <li><a href="' . str_replace('&', '&amp;', rtrim( str_replace('page={page}', '', $tmp_url), '?&')) . '">' . $this->text_first . '</a></li>';
 			if ($page == 2){
-				$output .= '<a href="' . str_replace('&', '&amp;', rtrim( str_replace('page={page}', '', $tmp_url), '?&')) . '">' . $this->text_prev . '</a> ';
+				$output .= '<li><a href="' . str_replace('&', '&amp;', rtrim( str_replace('page={page}', '', $tmp_url), '?&')) . '" aria-label="Предыдущая"><span aria-hidden="true">' . $this->text_prev . '</span></a></li> ';
 			}else{
-				$output .= '<a href="' . str_replace('{page}', $page - 1, $this->url) . '">' . $this->text_prev . '</a> ';
+				$output .= '<li><a href="' . str_replace('{page}', $page - 1, $this->url) . '" aria-label="Предыдущая"><span aria-hidden="true">' . $this->text_prev . '</span></a></li> ';
 			}
 		}
 
@@ -68,11 +68,11 @@ class Pagination {
 
 			for ($i = $start; $i <= $end; $i++) {
 				if ($page == $i) {
-					$output .= ' <b>' . $i . '</b> ';
+					$output .= ' <li class="active"><span>' . $i . '</span></li> ';
 				} elseif($i == 1) {
-					$output .= ' <a href="' . str_replace('&', '&amp;', rtrim( str_replace('page={page}', '', $tmp_url), '?&')) . '">' . $i . '</a> ';
+					$output .= ' <li><a href="' . str_replace('&', '&amp;', rtrim( str_replace('page={page}', '', $tmp_url), '?&')) . '">' . $i . '</a></li> ';
 				} else {
-					$output .= ' <a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a> ';
+					$output .= ' <li><a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a></li> ';
 				}
 			}
 							
@@ -82,7 +82,7 @@ class Pagination {
 		}
 		
    		if ($page < $num_pages) {
-			$output .= ' <a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a> <a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</a> ';
+			$output .= ' <li><a href="' . str_replace('{page}', $page + 1, $this->url) . '" aria-label="Следующая"><span aria-hidden="true">' . $this->text_next . '</span></a></li> <li><a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</a></li> ';
 		}
 		
 		$find = array(
@@ -99,7 +99,7 @@ class Pagination {
 			$num_pages
 		);
 		
-		return ($output ? '<div class="' . $this->style_links . '">' . $output . '</div>' : '') . '<div class="' . $this->style_results . '">' . str_replace($find, $replace, $this->text) . '</div>';
+		return ($output ? '<nav aria-label="Catalog navigation"><ul class="pagination ' . $this->style_links . '">' . $output . '</ul></nav>' : '') . '<div class="' . $this->style_results . '">' . str_replace($find, $replace, $this->text) . '</div>';
 	}
 }
 ?>

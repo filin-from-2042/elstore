@@ -123,6 +123,10 @@
         padding: 0;
         width: auto;
     }
+    .product-thumb .name a:hover {
+        color: #f97001;
+        background: none;
+    }
     .product-thumb .image{
         display: inline-block;
     }
@@ -132,6 +136,10 @@
     }
     .product-thumb .image{
         position: static;
+    }
+    .product-thumb .image img{
+        max-width: 268px;
+        max-height: 268px;
     }
     .product-thumb .image a {
         position: relative;
@@ -159,10 +167,80 @@
     .product-filter .view-type-container{
         display: none;
     }
+    .product-thumb .btn-icon.wishlist,
+    .product-thumb .btn-icon.compare {
+        float: none;
+    }
+    /******************* PRODUCT GRID ****************/
+    .product-grid:first-child .product-thumb {
+        border: none;
+    }
+    .product-grid .product-thumb .description_list,
+    .product-grid .product-thumb .description{
+        display: block;
+    }
+    /****************** PRODUCT LIST *******************/
+    .product-list .product-thumb .image{
+        border:none;
+    }
+    .product-list .product-thumb .image .img-wrap{
+        margin: 0;
+        height: 153px;
+    }
+    .product-list .product-thumb .image img{
+        width: 100%;
+    }
+    .product-list .product-thumb .name,
+    .product-list .product-thumb .cart-button{
+        text-align: left;
+    }
+
+    .category-info .img-thumbnail{
+        max-height: 268px;
+        max-width: 268px;
+    }
 }
 
 @media (max-width: 630px){
     header .top-panel .box_html{
         display: none;
+    }
+}
+@media (max-width: 518px) {
+
+
+    .product-list .product-thumb .caption,
+    .product-list .product-thumb .name,
+    .product-list .product-thumb .cart-button,
+    .product-list .product-thumb .price,
+    .product-list .product-thumb .rating{
+        text-align:center;
+    }
+    .product-list .product-thumb .image {
+        float:none;
+        width:auto;
+        max-width:100%;
+        display:inline-block;
+        margin:0 auto 10px;
+    }
+    .product-list .product-thumb .cart-button button {
+        float:none;
+    }
+    .product-list .product-thumb .caption {
+        width: 100%;
+    }
+    .product-list .product-thumb .image .img-wrap{
+        height: auto;
+    }
+
+
+    .pagination-wrap-cat,
+    .compare-wrap-cat{
+        float: none !important;
+        display: block;
+        text-align: center;
+    }
+    .compare-wrap-cat{
+        margin-top: 15px;
     }
 }

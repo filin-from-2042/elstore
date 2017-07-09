@@ -252,7 +252,9 @@ header #top-links a,
 header a.button-category i,
 #back-top span.default,
 #back-top span.hovered,
-#compare-total{
+#compare-total,
+.name a,
+.product-layout{
     -webkit-transition:all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
@@ -1396,10 +1398,11 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .product-thumb .img-wrap:before,
 .product-thumb .img-wrap_before{
-    content: "";
+    content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle;
+    margin-left: -3px;
 }
 .product-thumb .img-wrap{
     height: 210px;
@@ -1800,6 +1803,113 @@ footer .social a:hover i {
     margin-left: 3px;
     font-size: 14px;
 }
+.nav-cat{
+    margin-bottom: 20px;
+}
 .nav-cat .pagination {
     margin: 5px 0px 5px 10px;
+}
+
+
+/************************* PRODUCT GRID *********************/
+.product-grid .product-thumb .description_list,
+.product-grid .product-thumb .description{
+    display: none;
+}
+
+/************************* PRODUCT GRID *********************/
+
+.product-list .product-thumb {
+    margin-top: 25px;
+    border:none;
+    border-top: 1px dotted #e5e5e5;
+    padding-top: 25px;
+    margin-bottom: 0;
+}
+.product-list:first-child .product-thumb {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+}
+
+.product-list .product-thumb .name a {
+    background: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+.product-list .product-thumb .name a:hover{
+    color: #f97001;
+    background: none;
+}
+.product-list .product-thumb .rating {
+    left: 0;
+    top: 0;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.product-list .product-thumb .caption {
+    width: 73%;
+    float: left;
+}
+
+.product-list .image {
+    margin: 0 3% 0 0;
+    width: 23.1%;
+    float: left;
+    border: 1px solid #dfdede;
+}
+
+.product-list .product-thumb .cart-button {
+    width: auto;
+    padding: 0;
+}
+.product-list .product-thumb .price,
+.product-list .product-thumb .rating{
+    text-align: left;
+}
+.product-list .rating .fa-stack {
+    font-size: 8px;
+    width: 1.3em;
+}
+.product-list .rating .fa-star {
+    font-size: 11px;
+}
+
+/*********************** PAGINATION **********************/
+.pagination {
+    border-radius: 0
+}
+
+.pagination>li:last-child>a,
+.pagination>li:last-child>span,
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {
+    border-radius: 0
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: #f97001;
+    border-color: #f97001;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: #777;
+}
+
+.pagination>li>a:hover,
+.pagination>li>span:hover,
+.pagination>li>a:focus,
+.pagination>li>span:focus {
+    color: #f97001;
+    background: #fafafa;
 }

@@ -76,6 +76,7 @@
     }
     .product-thumb .price {
         margin-bottom: 5px;
+        height: 45px;
     }
     .product-thumb .price span{
         display: block;

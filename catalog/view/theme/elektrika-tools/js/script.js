@@ -64,6 +64,7 @@ jQuery(document).ready(function() {
     });
 
     /************************ INIT TOOLTIPS ***********************/
+    initTooltips();
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
