@@ -253,12 +253,17 @@ header a.button-category i,
 #back-top span.default,
 #back-top span.hovered,
 #compare-total,
-.name a,
-.product-layout{
+.name a{
     -webkit-transition:all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
     transition: all .5s ease-out;
+}
+.product-layout{
+    -webkit-transition:all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
 }
 .btn:visited, .btn {
     position: relative;
@@ -1807,7 +1812,7 @@ footer .social a:hover i {
     margin-bottom: 20px;
 }
 .nav-cat .pagination {
-    margin: 5px 0px 5px 10px;
+    margin: 0;
 }
 
 
