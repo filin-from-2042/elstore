@@ -250,10 +250,175 @@
                             <li><button class="btn btn-default" onclick="addToWishList('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i> <span class="hidden-sm"><?php echo $button_wishlist; ?></span></button></li>
                             <li><button type="button" class="btn btn-default" onclick="addToCompare('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i> <span class="hidden-sm"><?php echo $button_compare; ?></span></button></li>
                         </ul>
+                        <div class="share product-share">
+                            <div class="addthis_toolbox addthis_default_style addthis_16x16_style hidden-print"></div>
+                            <script>
+                                jQuery(function($){
+                                    window.addthis_config = { 'data_track_addressbar': true };
+
+                                    $.getScript('//s7.addthis.com/js/300/addthis_widget.js', function() {
+                                        var addthis = '';
+                                        addthis += '<a class="addthis_button_twitter"></a>';
+                                        addthis += '<a class="addthis_button_facebook"></a>';
+                                        addthis += '<a class="addthis_button_google_plusone_share"></a>';
+                                        addthis += '<a class="addthis_button_vk"></a>';
+                                        addthis += '<a class="addthis_button_odnoklassniki_ru"></a>';
+                                        addthis += '<a class="addthis_button_mymailru"></a>';
+                                        addthis += '<a class="addthis_button_moikrug"></a>';
+                                        addthis += '<a class="addthis_button_email"></a>';
+                                        addthis += '<a class="addthis_button_print"></a>';
+                                        addthis += '<a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>';
+
+                                        $('.addthis_toolbox').html(addthis);
+                                    });
+                                });
+                            </script>
+                        </div>
 
                     </div>
                 </div>
             </div>
+            <div class="product-desc product-section">
+                <h3 class="product-section_title"><?php echo $tab_description; ?></h3>
+                <?php echo $description; ?>
+            </div>
+            <?php if ($attribute_groups) { ?>
+                <div id="tab-specification" class="product-spec product-section">
+                    <h3 class="product-section_title"><?php echo $tab_attribute; ?></h3>
+                    <table class="table table-bordered">
+                        <?php foreach ($attribute_groups as $attribute_group) { ?>
+                        <thead>
+                        <tr>
+                            <td colspan="2"><?php echo $attribute_group['name']; ?></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+                        <tr>
+                            <td><?php echo $attribute['name']; ?></td>
+                            <td><?php echo $attribute['text']; ?></td>
+                        </tr>
+                        <?php } ?>
+                        </tbody>
+                        <?php } ?>
+                    </table>
+                </div>
+            <?php } ?>
+            <?php if ($review_status) { ?>
+            <div id="tab-review" class="tab-content">
+                <h3 class="product-section_title"><?php echo $reviews_title; ?></a></h3>
+                <form class="form-horizontal">
+                    <div id="review"></div>
+                    <div class="review-form-title">
+                        <h3 class="product-section_title close-tab" id="reviews_form_title"><?php echo $text_write; ?></h3>
+                    </div>
+                    <div class="product-review-form" id="reviews_form">
+
+                        <div class="form-group required">
+                            <label class="control-label col-sm-3" for="input-name"><?php echo $entry_name; ?></label>
+                            <div class="col-sm-9">
+                                <input type="text" name="name" value="" id="input-name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label col-sm-3" for="input-review"><?php echo $entry_review; ?></label>
+                            <div class="col-sm-9">
+                                <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                                <div class="help-block"><?php echo $text_note; ?></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label col-sm-3"><?php echo $entry_rating; ?></label>
+                            <div class="col-sm-9">
+                                &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
+                                <input type="radio" name="rating" value="1">
+                                &nbsp;
+                                <input type="radio" name="rating" value="2">
+                                &nbsp;
+                                <input type="radio" name="rating" value="3">
+                                &nbsp;
+                                <input type="radio" name="rating" value="4">
+                                &nbsp;
+                                <input type="radio" name="rating" value="5">
+                                &nbsp;<?php echo $entry_good; ?></div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label col-sm-3" for="input-captcha"><?php echo $entry_captcha; ?></label>
+                            <div class="col-sm-9">
+                                <input type="text" name="captcha" value="" id="input-captcha" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <img src="index.php?route=product/product/captcha" alt="" id="captcha">
+                                <div class="pull-right">
+                                    <button type="button" id="button-review" data-loading-text="Загрузка..." class="btn btn-primary"><?php echo $button_continue; ?></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        <script type="text/javascript"><!--
+            jQuery('#reviews_form_title').addClass('close-tab');
+            jQuery('#reviews_form_title').on("click", function(){
+                if (jQuery(this).hasClass('close-tab')) { jQuery(this).removeClass('close').parents('#tab-review').find('#reviews_form').slideToggle(); }
+                else {
+                    jQuery(this).addClass('close-tab').parents('#tab-review').find('#reviews_form').slideToggle();
+                }
+            })
+            $('#review').delegate('.pagination a', 'click', function() {
+                $('#review').fadeOut('slow');
+
+                $('#review').load(this.href);
+
+                $('#review').fadeIn('slow');
+
+                return false;
+            });
+
+            $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
+
+            $('#button-review').on('click', function() {
+                $.ajax({
+                    url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+                    type: 'post',
+                    dataType: 'json',
+                    data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
+                    beforeSend: function() {
+                        $('#button-review').button('loading');
+                    },
+                    complete: function() {
+                        $('#button-review').button('reset');
+                        $('#captcha').attr('src', 'index.php?route=product/product/captcha#'+new Date().getTime());
+                        $('input[name=\'captcha\']').val('');
+                    },
+                    success: function(json) {
+                        $('.alert-success, .alert-danger').remove();
+
+                        if (json['error']) {
+                            $('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+                        }
+
+                        if (json['success']) {
+                            $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+
+                            $('input[name=\'name\']').val('');
+                            $('textarea[name=\'text\']').val('');
+                            $('input[name=\'rating\']:checked').prop('checked', false);
+                            $('input[name=\'captcha\']').val('');
+                        }
+                    }
+                });
+            });
+            //--></script>
+        <?php } ?>
         </div>
         <?php if ($column_right){ ?>
         <div class="col-sm-3">

@@ -15,6 +15,7 @@
     font-weight:bold;
     padding:10px 10px 13px;
     border-radius:0;
+    text-align: center;
     text-shadow:1px 1px 1px rgba(0,0,0,0.3)
 }
 .alert i {
@@ -175,6 +176,10 @@ textarea {
 label{
     cursor:default
 }
+select.form-control,textarea.form-control,input[type="text"].form-control,input[type="password"].form-control,input[type="datetime"].form-control,input[type="datetime-local"].form-control,input[type="date"].form-control,input[type="month"].form-control,input[type="time"].form-control,input[type="week"].form-control,input[type="number"].form-control,input[type="email"].form-control,input[type="url"].form-control,input[type="search"].form-control,input[type="tel"].form-control,input[type="color"].form-control {
+    font-size: 12px;
+    border-radius: 0
+}
 .close:hover,
 .close:focus {
     opacity:1
@@ -218,6 +223,24 @@ select.form-control,textarea.form-control,input[type="text"].form-control,input[
     border-radius: 0
 }
 
+.table-bordered thead:first-child tr:first-child>th:last-child,.table-bordered tbody:first-child tr:first-child>td:last-child,.table-bordered tbody:first-child tr:first-child>th:last-child {
+    border-radius: 0
+}
+
+.table-bordered thead:first-child tr:first-child>th:first-child,.table-bordered tbody:first-child tr:first-child>td:first-child,.table-bordered tbody:first-child tr:first-child>th:first-child {
+    border-radius: 0;
+}
+
+.table-bordered thead:last-child tr:last-child>th:first-child,.table-bordered tbody:last-child tr:last-child>td:first-child,.table-bordered tbody:last-child tr:last-child>th:first-child,.table-bordered tfoot:last-child tr:last-child>td:first-child,.table-bordered tfoot:last-child tr:last-child>th:first-child {
+    border-radius: 0
+}
+
+.table-bordered {
+    font-size: 14px;
+    border-color: #e5e5e5;
+    background: #fff;
+    box-shadow: none;
+}
 
 /************************** GENERAL ********************************/
 body {
@@ -277,16 +300,6 @@ header a.button-category i,
     padding: 14px 14px 16px;
     box-shadow: none;
 }
-
-a {
-    color: #f16c14;
-    outline: none;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: none;
-    color:#333;
-}
 .btn.btn-icon {
     background: #f97001;
     border: none;
@@ -330,6 +343,29 @@ a:hover {
 
 .btn:hover,.btn:focus {
     color: #f97001;
+}
+.btn-danger, .btn-primary, .btn-info, .btn-default {
+    color: #fff;
+    text-shadow: none;
+    background-color: #f97001;
+    border: none;
+    border-radius: 0;
+}
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary,.btn-danger:hover,.btn-danger:focus,.btn-danger:active,.btn-danger.active,.open .dropdown-toggle.btn-danger,.btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open .dropdown-toggle.btn-info,.btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled],.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default {
+     background: #333;
+     text-shadow: none;
+     color: #fff;
+     box-shadow: none;
+ }
+
+a {
+    color: #f16c14;
+    outline: none;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color:#333;
 }
 /* COPYRIGHT */
 .copyright br {
@@ -1493,7 +1529,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     color: #dadada;
     font-size: 15px;
 }
-.rating .fa-star.activ{
+.rating .fa-star.activ,
+.review-item .fa-star.activ{
     color: #f97001;
 }
 
@@ -2213,5 +2250,65 @@ footer .social a:hover i {
 .product_page .product-buttons li button {
     width: 100%;
 }
+.product-share svg,
+.product-share span {
+    width: 32px!important;
+    height: 32px!important;
+}
 
+.product-section_title {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.review-form-title h3:hover {
+    color: #f97001;
+}
+
+.review-form-title {
+    text-align: center;
+}
+
+#reviews_form_title {
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid #f97001;
+    padding: 0 10px 5px;
+    display: inline-block;
+    text-align: center;
+}
+
+#reviews_form_title:before {
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top: 10px solid #f97001;
+    content: '';
+    margin-left: -10px;
+}
+
+.product-review-form {
+    display: none;
+}
+
+.product-review-form #captcha {
+    margin-top: 7px;
+}
+.review-score .fa-stack {
+    width: 1.2em;
+    height: 1.2em;
+}
+.review-score .fa-star{
+    font-size: 14px;
+}
+.review-author {
+    font-size: 16px;
+}
+.product-section {
+    margin-bottom: 3em;
+}
 
