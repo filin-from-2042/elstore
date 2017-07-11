@@ -243,9 +243,22 @@ class ControllerProductProduct extends Controller {
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
-			$this->document->addScript('catalog/view/javascript/jquery/tabs.js');
-			$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
-			$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
+
+            if($this->config->get('config_template')=="elektrika-tools")
+            {
+                // галерея для мобильных устройств
+                $this->document->addScript('catalog/view/theme/elektrika-tools/js/photoswipe/klass.min.js');
+                $this->document->addScript('catalog/view/theme/elektrika-tools/js/photoswipe/code.photoswipe.jquery-3.0.5.js');
+                $this->document->addStyle('catalog/view/theme/elektrika-tools/js/photoswipe/photoswipe.css');
+                // обычный слайдер
+                $this->document->addStyle('catalog/view/theme/elektrika-tools/js/jquery.bxslider/jquery.bxslider.css');
+                $this->document->addScript('catalog/view/theme/elektrika-tools/js/jquery.bxslider/jquery.bxslider.js');
+                // слайдшоу
+                $this->document->addStyle('catalog/view/theme/elektrika-tools/js/fancybox/jquery.fancybox.css');
+                $this->document->addScript('catalog/view/theme/elektrika-tools/js/fancybox/jquery.fancybox.pack.js');
+                // зум для изображений
+                $this->document->addScript('catalog/view/theme/elektrika-tools/js/jquery.elevatezoom.js');
+            }
 			
 			if ($product_info['seo_h1']) {
 				$this->data['heading_title'] = $product_info['seo_h1'];
@@ -320,6 +333,7 @@ class ControllerProductProduct extends Controller {
 			
 			if ($product_info['image']) {
 				$this->data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+				$this->data['thumb_zoom'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
 				$this->document->setOgImage($this->data['thumb']);
 			} else {
 				$this->data['thumb'] = $this->model_tool_image->resize('no_image.jpg', $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));

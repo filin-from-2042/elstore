@@ -199,6 +199,22 @@
         max-height: 268px;
         max-width: 268px;
     }
+    /*********************** PRODUCT CARD **************/
+    #default_gallery {
+        display: none;
+    }
+    #full_gallery {
+        display: block;
+    }
+    #full_gallery{
+         margin-bottom:15px;
+     }
+    #full_gallery .bx-wrapper .bx-prev {
+        left: -1px;
+    }
+    #full_gallery .bx-wrapper .bx-next {
+        right: -1px;
+    }
 }
 
 @media (max-width: 630px){
@@ -243,4 +259,15 @@
     .compare-wrap-cat{
         margin-top: 15px;
     }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+
+    #full_gallery {
+        display:block;
+    }
+    #default_gallery {
+        display:none;
+    }
+
 }

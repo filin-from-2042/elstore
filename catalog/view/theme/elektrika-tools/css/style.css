@@ -253,7 +253,8 @@ header a.button-category i,
 #back-top span.default,
 #back-top span.hovered,
 #compare-total,
-.name a{
+.name a,
+.btn.btn-default:hover i{
     -webkit-transition:all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
@@ -1918,3 +1919,299 @@ footer .social a:hover i {
     color: #f97001;
     background: #fafafa;
 }
+
+
+/****************************** PRODUCT PAGE ****************************/
+/****** GALLERY ************/
+#full_gallery {
+    border: 1px solid #ddd;
+}
+#full_gallery {
+    display: none;
+    background: #fff;
+}
+#default_gallery {
+    margin-bottom: 30px;
+}
+
+#default_gallery .bx-controls-direction,#default_gallery .bx-controls {
+    height: 100%;
+}
+
+#default_gallery .image-thumb .bx-wrapper .bx-prev,#default_gallery .image-thumb .bx-wrapper .bx-next {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    right: auto;
+    margin: 0;
+    left: auto;
+    border: 0
+}
+
+#default_gallery .image-thumb .bx-wrapper .bx-prev:hover,#default_gallery .image-thumb .bx-wrapper .bx-next:hover {
+    background: #f97001;
+}
+
+#default_gallery .image-thumb .bx-wrapper .bx-prev {
+    top: 0;
+    bottom: auto;
+    right: auto
+}
+
+#default_gallery .image-thumb .bx-wrapper .bx-prev i,#default_gallery .image-thumb .bx-wrapper .bx-next i {
+    line-height: 34px;
+    color: #fff;
+    display: block;
+}
+
+#default_gallery .image-thumb img:hover,#default_gallery .image-thumb .active img {
+    border-color: #f97001;
+}
+
+#default_gallery .image-thumb img {
+    border: 1px solid #ddd;
+}
+
+#default_gallery .image-thumb {
+    padding: 0;
+    float: left;
+    padding-right: 1em;
+    width: 16%;
+}
+
+#default_gallery #image-additional {
+    margin: 0;
+    padding: 0;
+}
+
+#default_gallery #image-additional li {
+    float: none;
+    list-style: none;
+}
+
+#default_gallery .bx-wrapper {
+    margin: 0!important
+}
+
+#default_gallery img {
+    background-color: #fff;
+    width: 100%
+}
+.zoomWindow {
+    z-index: 40!important
+}
+.zoomWindow {
+    background-color: #fff;
+}
+.zoomWrapper {
+    vertical-align: top;
+}
+.bx-wrapper .bx-viewport {
+    background-color: transparent;
+}
+
+.bx-wrapper .bx-controls-direction a i {
+    line-height: 40px;
+    vertical-align: top;
+}
+
+.bx-wrapper .bx-controls-direction a:hover {
+    color: #f97001;
+}
+
+.bx-wrapper .bx-controls-direction a {
+    background: #fff;
+    border: 1px solid #dfdede;
+    color: #333;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    font-size: 15px;
+}
+.product_page .rating a {
+    cursor: pointer;
+    color: #1c1c1c;
+    margin-left: 10px;
+}
+.product_page .rating a:hover {
+    color: #f97001;
+}
+.product_page .general_info  .rating .fa-star {
+    font-size: 11px;
+}
+.product_page .general_info  .rating .fa-stack {
+    font-size: 8px;
+    width: 1.3em
+}
+.product_page .general_info {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.fancybox-skin .rating {
+    margin: 10px 0
+}
+
+.product_page .general_info .product-section,.general_info .price-section {
+    margin: 0 0 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.product_page .product-section a {
+    color: #1c1c1c;
+}
+
+.product_page .product-section a:hover {
+    color: #f97001;
+}
+
+.product_page .price-section span.price-old {
+    text-decoration: line-through;
+    margin: 0 10px 0 0;
+    color: #aaa;
+    font-size: 19px;
+    line-height: 25px;
+}
+
+.product_page .price-section span.price-new {
+    font-size: 29px;
+    color: #f97001;
+    margin-right: 5px;
+}
+
+.product_page .price-section span.reward {
+    display: block;
+    margin-top: 10px;
+}
+
+.product_page .price-section span.reward {
+    display: block;
+}
+
+.product_page .price-section {
+    line-height: normal;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.product_page .reward-block span {
+    display: block;
+}
+#content ul.list-unstyled li {
+    padding: 5px 0;
+}
+
+#content ul.list-unstyled li a i {
+    color: #f97001;
+    font-size: 23px;
+    line-height: 19px;
+    margin-right: 10px;
+}
+
+.product_page h1.product-title {
+    margin-bottom: 10px;
+}
+.product_page h1 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    line-height: 29px;
+    color: #1c1c1c;
+    line-height: normal;
+}
+.product_page #default_gallery .image {
+    float: left;
+    width: 84%;
+    border: 1px solid #dfdede;
+    border-right: none;
+    background: none;
+    position: relative;
+}
+
+.product_page #default_gallery .image:after {
+    position: absolute;
+    z-index: 41;
+    top: 0;
+    content: '';
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: #dfdede;
+}
+
+.product_page #button-cart {
+    width: 100%;
+}
+
+.product_page #product .btn.btn-default {
+    background: #fff;
+    border: 1px solid #dfdede;
+    color: #333;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 15px;
+}
+
+.product_page #product .btn.btn-default i {
+    color: #dfdfdf;
+    display: inline;
+    float: none;
+    font-size: 21px;
+    line-height: 19px;
+    margin: 0 5px 0 0;
+}
+
+.product_page #product .btn.btn-default:hover {
+    color: #f97001;
+}
+
+.product_page #product .btn.btn-default:hover i {
+    color: #333;
+}
+
+.product_page #product .btn-add {
+    padding: 0 10px;
+    color: #fff;
+    background: #f97001;
+    border: none;
+    line-height: 51px;
+}
+
+.product_page #product .btn-add i {
+    float: none;
+    display: inline;
+    font-size: 25px;
+    line-height: 51px;
+    color: #fff;
+    margin: 0 5px 0 0;
+}
+
+.product_page #product .btn-add:hover {
+    background: #333;
+}
+
+.product_page .product-buttons {
+    clear: both;
+    overflow: hidden;
+    margin: 0 -5px 1em;
+    padding: 0;
+}
+
+.product_page .product-buttons li {
+    float: left;
+    width: 50%;
+    padding: 0 5px;
+    list-style: none;
+}
+
+.product_page .product-buttons li button {
+    width: 100%;
+}
+
+

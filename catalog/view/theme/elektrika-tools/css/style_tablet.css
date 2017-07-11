@@ -145,4 +145,13 @@
         height:220px;
     }
 
+    /*********************** PRODUCT CARD ****************/
+    /*GALLERY*/
+    #full_gallery .bx-prev{
+        left: -1px;
+    }
+    #full_gallery .bx-next{
+        right: -1px;
+    }
+
 }
