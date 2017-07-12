@@ -210,10 +210,20 @@
          margin-bottom:15px;
      }
     #full_gallery .bx-wrapper .bx-prev {
-        left: -1px;
+        left: -6px;
     }
     #full_gallery .bx-wrapper .bx-next {
-        right: -1px;
+        right: -6px;
+    }
+    .related-products {
+        padding: 0 39px;
+    }
+    .related-products .bx-wrapper {
+        width: 224px;
+    }
+    .related-products .product-thumb .image img{
+        max-width: 221px;
+        max-height: 221px;
     }
 }
 

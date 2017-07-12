@@ -22,11 +22,26 @@ function getURLVar(key) {
         }
     }
 }
+function getChar(event) {
+    if (event.which == null) {
+        if (event.keyCode < 32) return null;
+        return String.fromCharCode(event.keyCode) // IE
+    }
 
-function showNotification(notificationText)
+    if (event.which!=0 && event.charCode!=0) {
+        if (event.which < 32) return null;
+        return String.fromCharCode(event.which)
+    }
+
+    return null;
+}
+function showNotification(notificationText, fadeOut)
 {
     $('#notification').html('<div class="success alert alert-success" style="display: none;">' + notificationText + '<button type="button" class="close" data-dismiss="alert">×</button></div>');
     $('.success').fadeIn('slow');
+
+    var fadeOut = fadeOut || true;
+    if(fadeOut) setTimeout(function() {$('.success').fadeOut(1000)},3000)
 }
 
 function addToCart(product_id, quantity) {

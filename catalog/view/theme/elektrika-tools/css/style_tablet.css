@@ -100,6 +100,9 @@
     .box-subcat li {
         height:180px;
     }
+    .related-products {
+        padding: 0 121px;
+    }
 }
 @media (max-width: 1199px) and (min-width: 992px)
 {
@@ -152,6 +155,10 @@
     }
     #full_gallery .bx-next{
         right: -1px;
+    }
+
+    .related-products {
+        padding: 0 105px;
     }
 
 }

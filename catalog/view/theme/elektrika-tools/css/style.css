@@ -241,6 +241,24 @@ select.form-control,textarea.form-control,input[type="text"].form-control,input[
     background: #fff;
     box-shadow: none;
 }
+.table-bordered {
+    border-radius: 0
+}
+
+.table thead td {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #323232!important;
+    font-size: 13px;
+    background-color: #f9f9f9;
+}
+
+.table th,.table td {
+    padding: 20px;
+    border-color: #e5e5e5;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 /************************** GENERAL ********************************/
 body {
@@ -2031,10 +2049,15 @@ footer .social a:hover i {
     list-style: none;
 }
 
-#default_gallery .bx-wrapper {
-    margin: 0!important
+#default_gallery .bx-wrapper ,
+.related-products .bx-wrapper {
+    margin: 0!important;
+    border: 0;
+    box-shadow: none;
 }
-
+.related-products .bx-wrapper{
+    margin: auto !important;
+}
 #default_gallery img {
     background-color: #fff;
     width: 100%
@@ -2311,4 +2334,66 @@ footer .social a:hover i {
 .product-section {
     margin-bottom: 3em;
 }
+.related-products {
+    padding: 0 94px;
+}
+.related-products .bx-wrapper .bx-prev {
+    left: -50px
+}
 
+.related-products .bx-wrapper .bx-next {
+    right: -50px;
+}
+.related-products .bx-controls-direction a,
+#full_gallery .bx-controls-direction a{
+    text-indent: initial;
+    height: 40px;
+}
+.related-products .product-thumb{
+    border: 1px solid #dfdede;
+}
+.related-products .product-thumb .image {
+    min-width: 221px;
+}
+.related-products .product-thumb .image .img-wrap{
+    border: none;
+}
+.related-products .product-thumb .name a{
+    width: 100%;
+    padding: 13px 15px 7px 19px;
+    background: #f2f2f2;
+    height: 74px;
+    color: #333;
+}
+.related-products .product-thumb .name a:hover {
+    color: #fff;
+    background: #f97001;
+}
+.product-options .has-error .text-danger {
+    background: url(../image/warning.png) no-repeat scroll 10px center #ffd1d1;
+    border: 1px solid #f8acac;
+    color: #b80719;
+    display: inline-block;
+    font-family: "Arial",sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 13px;
+    margin: 10px 0 5px;
+    overflow: hidden;
+    padding: 8px 10px 8px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+#product .input-group[class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#product .alert {
+    position: relative;
+}
+#product .alert.count-minimum i{
+    margin-right: 5px;
+
+}
