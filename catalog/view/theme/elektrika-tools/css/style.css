@@ -2416,3 +2416,56 @@ footer .social a:hover i {
     margin-right: 5px;
 
 }
+
+/************************* MANUFACTURERS LIST *****************************/
+.manufacturer-content {
+    padding: 20px;
+}
+.manufacturer-list {
+    border: 1px solid #e6e6e6;
+    margin-bottom: -1px;
+}
+
+.manufacturer-heading {
+    background: none repeat scroll 0 0 #f9f9f9;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    padding: 5px;
+}
+
+.manufacturer-heading span {
+    background: #f97001;
+    color: #fff;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 30px;
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 50px;
+}
+
+.product-manufacturer #content {
+    font-size: 16px;
+}
+.box.info .box-content ul li a,.account-account #content ul li a,.site-map-page ul li a,.manufacturer-list a {
+    font-size: 16px;
+    line-height: 19px;
+    color: #1c1c1c;
+}
+
+.box.info .box-content ul li a i,.account-account #content ul li a i,.site-map-page ul li a i,.manufacturer-list a i {
+    font-size: 23px;
+    line-height: 19px;
+    margin-right: 10px;
+    height: 19px;
+    color: #f97001;
+    vertical-align: top;
+}
+
+.box.info .box-content ul li a:hover,.account-account #content ul li a:hover,.site-map-page ul li a:hover,.manufacturer-list a:hover {
+    color: #f97001;
+}
