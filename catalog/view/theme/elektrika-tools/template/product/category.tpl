@@ -26,7 +26,7 @@
     <?php } ?>
     <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
       <h2><?php echo $heading_title; ?></h2>
-      <?php if ($thumb || $description) { ?>
+      <?php if (isset($description) || isset($description)) { ?>
         <div class="row">
           <div>
               <div class="category-info">
@@ -42,7 +42,7 @@
       <?php } ?>
 
       <?php if ($categories) { ?>
-      <h3 class="refinement-title"><?php echo $text_refine; ?></h3>
+      <?php if(isset($text_refine) && $text_refine){ ?><h3 class="refinement-title"><?php echo $text_refine; ?></h3><? } ?>
       <div class="row">
           <div class="category-list">
                 <ul class="box-subcat">
@@ -57,7 +57,7 @@
       </div>
       <?php } ?>
 
-      <?php if ($products) { ?>
+      <?php if (isset($products) && $products) { ?>
           <div class="product-filter clearfix">
               <div class="row">
                   <div class="col-md-2">
