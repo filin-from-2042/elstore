@@ -231,7 +231,6 @@ class ControllerProductProduct extends Controller {
 																		
 			$this->data['breadcrumbs'][] = array(
 				'text'      => $product_info['name'],
-				'href'      => $this->url->link('product/product', $url . '&product_id=' . $this->request->get['product_id']),
 				'separator' => $this->language->get('text_separator')
 			);			
 			

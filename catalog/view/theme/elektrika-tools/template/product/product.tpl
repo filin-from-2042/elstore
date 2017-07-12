@@ -14,7 +14,11 @@
             <ul class="breadcrumb">
                 <?php foreach ($breadcrumbs as $breadcrumb) { ?>
                 <li>
+                    <?php if(isset($breadcrumb['href'])){ ?>
                     <a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+                    <?php }else{ ?>
+                        <span ><?php echo $breadcrumb['text']; ?></span>
+                    <?php } ?>
                 </li>
                 <?php } ?>
             </ul>
