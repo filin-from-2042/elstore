@@ -70,7 +70,7 @@ class ControllerProductProduct extends Controller {
         } else {
             $product_id = 0;
         }
-        $this->request->get['path'] = $this->getProductCategories($product_id);
+       // $this->request->get['path'] = $this->getProductCategories($product_id);
 
 		if (isset($this->request->get['path'])) {
 			$path = '';
