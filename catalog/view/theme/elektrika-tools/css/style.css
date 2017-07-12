@@ -2369,6 +2369,25 @@ footer .social a:hover i {
     color: #fff;
     background: #f97001;
 }
+.related-products .product-thumb .rating {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+.related-products .product-thumb .caption,
+.related-products .product-thumb .cart-button{
+    position: static;
+}
+.related-products .product-thumb{
+    position: relative;
+}
+.related-products .rating .fa-star {
+    font-size: 11px;
+}
+.related-products .rating .fa-stack {
+    font-size: 8px;
+    width: 1.3em;
+}
 .product-options .has-error .text-danger {
     background: url(../image/warning.png) no-repeat scroll 10px center #ffd1d1;
     border: 1px solid #f8acac;
