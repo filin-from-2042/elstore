@@ -572,6 +572,7 @@
             });
             //--></script>
         <?php } ?>
+        <?php echo $content_bottom; ?>
         </div>
         <?php if ($column_right){ ?>
         <div class="col-sm-3">
