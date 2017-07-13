@@ -9,6 +9,7 @@
 .alert button.close {
     vertical-align:top;
     margin-top:-3px;
+    text-shadow: none;
 }
 .alert {
     color:#fff;
