@@ -1848,7 +1848,8 @@ footer .social a:hover i {
     padding: 0;
     margin: 0 5px;
 }
-#compare-total {
+#compare-total,
+.continue-btn{
     display: inline-block;
     font-size: 17px;
     color: #fff;
