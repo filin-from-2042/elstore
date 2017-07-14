@@ -152,7 +152,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
     <div class="swipe-menu">
         <ul>
 
-            <li><a href="<?php echo $account; ?>" title="My Account"><i class="fa fa-user"></i> <span><?php echo $text_account; ?></span></a></li>
+            <li><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>"><i class="fa fa-user"></i> <span><?php echo $text_account; ?></span></a></li>
             <?php if (!$logged) { ?>
             <li><a href="<?=$login?>"><i class="fa fa-lock"></i><?php echo $text_login; ?></a></li>
             <li><a href="<?=register?>"><i class="fa fa-user"></i><?php echo $text_register; ?></a></li>
