@@ -82,14 +82,12 @@ class ControllerCheckoutCart extends Controller {
 		}
 		
 		$this->document->setTitle($this->language->get('heading_title'));
-		$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
-		$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 			
       	$this->data['breadcrumbs'] = array();
 
       	$this->data['breadcrumbs'][] = array(
         	'href'      => $this->url->link('common/home'),
-        	'text'      => $this->language->get('text_home'),
+        	'text'      => $this->language->get('icon_home'),
         	'separator' => false
       	); 
 

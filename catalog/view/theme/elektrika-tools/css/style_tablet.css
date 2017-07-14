@@ -103,6 +103,12 @@
     .related-products {
         padding: 0 121px;
     }
+
+    /*********************** CART ********************/
+    .checkout-cart  .cart-controls-wrap{
+        min-width: 110px;
+    }
+
 }
 @media (max-width: 1199px) and (min-width: 992px)
 {
