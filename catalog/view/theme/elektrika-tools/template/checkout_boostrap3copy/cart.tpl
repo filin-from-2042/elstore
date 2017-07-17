@@ -133,20 +133,21 @@
         </div>
         <?php } ?>
     </div>
-    <?php echo $footer; ?>
-    <script>
-        jQuery(function($) {
-            /** Confirm */
-            $('#button-confirm').click(function() {
-                $.ajax({
-                    async: false,
-                    url: 'index.php?route=checkout/create_order',
-                    type: 'get',
-                    context: this,
-                    success: function(responce) {
-                        if(parseInt(responce) > 0 ) location = 'index.php?route=checkout/success'
-                    }
-                });
+</div>
+<?php echo $footer; ?>
+<script>
+    jQuery(function($) {
+        /** Confirm */
+        $('#button-confirm').click(function() {
+            $.ajax({
+                async: false,
+                url: 'index.php?route=checkout/create_order',
+                type: 'get',
+                context: this,
+                success: function(responce) {
+                    if(parseInt(responce) > 0 ) location = 'index.php?route=checkout/success'
+                }
             });
         });
-    </script>
+    });
+</script>
