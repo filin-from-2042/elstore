@@ -34,7 +34,7 @@
                         <div class="col-sm-10">
                             <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="Имя" id="input-firstname" class="form-control">
                             <?php if ($error_firstname) { ?>
-                            <span class="error"><?php echo $error_firstname; ?></span>
+                            <span class="alert alert-danger"><?php echo $error_firstname; ?></span>
                             <?php } ?>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <div class="col-sm-10">
                             <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="Фамилия" id="input-lastname" class="form-control">
                             <?php if ($error_lastname) { ?>
-                            <span class="error"><?php echo $error_lastname; ?></span>
+                            <span class="alert alert-danger"><?php echo $error_lastname; ?></span>
                             <?php } ?>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="col-sm-10">
                             <input type="email" name="email" value="<?php echo $email; ?>" placeholder="E-Mail" id="input-email" class="form-control">
                             <?php if ($error_email) { ?>
-                            <span class="error"><?php echo $error_email; ?></span>
+                            <span class="alert alert-danger"><?php echo $error_email; ?></span>
                             <?php } ?>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <div class="col-sm-10">
                             <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="Телефон" id="input-telephone" class="form-control">
                             <?php if ($error_telephone) { ?>
-                            <span class="error"><?php echo $error_telephone; ?></span>
+                            <span class="alert alert-danger"><?php echo $error_telephone; ?></span>
                             <?php } ?>
                         </div>
                     </div>

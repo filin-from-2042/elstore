@@ -34,7 +34,7 @@
                         <div class="col-sm-10">
                             <input type="password" name="password" value="<?php echo $password; ?>" placeholder="Введите новый пароль" id="input-password" class="form-control">
                             <?php if ($error_password) { ?>
-                            <span class="error"><?php echo $error_password; ?></span>
+                            <span class="alert alert-danger"><?php echo $error_password; ?></span>
                             <?php } ?>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <div class="col-sm-10">
                             <input type="password" name="confirm" value="<?php echo $confirm; ?>" placeholder="Повторите новый пароль" id="input-confirm" class="form-control">
                             <?php if ($error_confirm) { ?>
-                            <span class="error"><?php echo $error_confirm; ?></span>
+                            <span class="alert alert-danger"><?php echo $error_confirm; ?></span>
                             <?php } ?>
                         </div>
                     </div>
