@@ -228,6 +228,7 @@
     }
 
     /**************** ACCOUNT PASSWORD **********************/
+    .account-address #content ,
     .account-password #content {
         min-height: 350px;
     }
