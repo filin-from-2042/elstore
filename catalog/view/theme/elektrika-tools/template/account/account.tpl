@@ -25,6 +25,9 @@
         </aside>
         <?php } ?>
         <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
+            <?php if ($success) { ?>
+            <div class="alert alert-success"><?php echo $success; ?></div>
+            <?php } ?>
             <h2><?php echo $text_my_account; ?></h2>
             <div class="content">
                 <ul class="list-unstyled">
