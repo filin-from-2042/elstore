@@ -10,6 +10,23 @@
         line-height: 32px;
         margin-right: 8px;
     }
+    aside .box-content {
+        display: none;
+    }
+    aside .box-heading {
+        cursor:pointer
+    }
+    aside .box-heading i {
+        float:right;
+        color:#f97001;
+        font-size:25px;
+        line-height:25px;
+        cursor:pointer;
+    }
+    aside .box-heading:hover i {
+        color:#333;
+    }
+
     /*********************** CART *********************/
     header #cart {
         position: fixed;

@@ -363,7 +363,7 @@ header a.button-category i,
 .btn:hover,.btn:focus {
     color: #f97001;
 }
-.btn-danger, .btn-primary, .btn-info, .btn-default {
+.btn-danger, .btn-primary,.btn-primary:visited, .btn-info, .btn-default {
     color: #fff;
     text-shadow: none;
     background-color: #f97001;
@@ -418,6 +418,72 @@ a:hover {
     color: #f97001;
 }
 
+/***************** ASIDE CONTENT *****************/
+.box.info .box-content ul li a,
+.account-account #content ul li a,
+.site-map-page ul li a,
+.manufacturer-list a {
+    font-size: 16px;
+    line-height: 19px;
+    color: #1c1c1c;
+}
+
+.box.info .box-content ul li a i,
+.account-account #content ul li a i,
+.site-map-page ul li a i,
+.manufacturer-list a i {
+    font-size: 23px;
+    line-height: 19px;
+    margin-right: 10px;
+    height: 19px;
+    color: #f97001;
+    vertical-align: top;
+}
+
+.box.info .box-content ul li a:hover,
+.account-account #content ul li a:hover,
+.site-map-page ul li a:hover,
+.manufacturer-list a:hover {
+    color: #f97001;
+}
+
+.box.info .box-content ul li:first-child {
+    border-top: none;
+}
+.box.info .box-content ul {
+    padding: 0
+}
+
+.box.info .box-content ul li {
+    list-style-type: none;
+}
+
+.box.info .box-content ul li,
+.account-account #content ul li,
+.site-map-page ul li,
+.manufacturer-list li {
+    padding: 5px 0;
+    line-height: 19px;
+}
+
+.box-heading h3 {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: normal;
+    color: #333;
+    margin: 0 0 30px;
+    text-transform: uppercase;
+    padding: 19px 20px;
+    border: 1px solid #dfdede;
+}
+
+.box.info .box-content ul {
+    padding: 0
+}
+
+.box.info .box-content ul li {
+    list-style-type: none;
+}
 /********************** ROUND ANIMATED BUTTON ******************/
 .round-animated-btn{
     position: relative;
@@ -2723,4 +2789,45 @@ td .price,.price b {
     text-shadow: none;
     color: #fff;
     box-shadow: none;
+}
+/*********************** LOGIN *******************/
+
+.account-login .well {
+    background-color: #f9f9f9;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 0;
+    box-shadow: none
+}
+
+.account-login .well .heading {
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.account-login .well p {
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.account-login .well .heading i {
+    color: #d9d9d9;
+    float: left;
+    font-size: 56px;
+    margin-right: 14px;
+}
+
+.account-login .well .heading h2 {
+    font-size: 23px;
+    color: #1c1c1c;
+    margin: 0 0 5px
+}
+
+.account-login .well .heading strong {
+    font-weight: normal;
+    font-style: italic;
 }
