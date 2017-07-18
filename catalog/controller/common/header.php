@@ -83,6 +83,7 @@ class ControllerCommonHeader extends Controller {
         $this->data['logged_simple'] = $this->url->link('account/logout', '', 'SSL');
         $this->data['shopping_cart'] = $this->url->link('checkout/cart');
         $this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+        $this->data['checkout_simple'] = $this->url->link('checkout/checkout_simple', '', 'SSL');
         $this->data['login'] = $this->url->link('account/login', '', 'SSL');
         $this->data['register'] = $this->url->link('account/register', '', 'SSL');
         $this->data['sitemap'] = $this->url->link('information/sitemap');

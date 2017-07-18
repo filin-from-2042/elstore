@@ -271,7 +271,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>">
+                                    <a href="<?php echo $checkout_simple; ?>" title="<?php echo $text_checkout; ?>">
                                         <i class="fa fa-share hidden-md hidden-lg"></i>
                                         <span class="hidden-sm"><?php echo $text_checkout; ?></span>
                                     </a>

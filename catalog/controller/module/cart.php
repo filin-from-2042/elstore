@@ -129,7 +129,8 @@ class ControllerModuleCart extends Controller {
 		$this->data['cart'] = $this->url->link('checkout/cart');
 						
 		$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
-	
+		$this->data['checkout_simple'] = $this->url->link('checkout/checkout_simple', '', 'SSL');
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/cart.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/module/cart.tpl';
 		} else {

@@ -51,7 +51,7 @@
     </div>
     <div class="checkout">
         <a class="btn btn-primary" href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a>
-        <a class="btn btn-primary" href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a>
+        <a class="btn btn-primary" href="<?php echo $checkout_simple; ?>"><?php echo $text_checkout; ?></a>
     </div>
     <?php } else { ?>
     <div class="empty"><?php echo $text_empty; ?></div>
