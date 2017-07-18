@@ -226,6 +226,11 @@
         max-width: 221px;
         max-height: 221px;
     }
+
+    /**************** ACCOUNT PASSWORD **********************/
+    .account-password #content {
+        min-height: 350px;
+    }
 }
 
 @media (max-width: 630px){
