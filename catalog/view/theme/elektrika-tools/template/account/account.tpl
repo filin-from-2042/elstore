@@ -55,7 +55,7 @@
                     <li><a href="<?php echo $newsletter; ?>"><i class="fa fa-angle-right"></i><?php echo $text_newsletter; ?></a></li>
                 </ul>
             </div>
-
+            <?php echo $content_bottom; ?>
         </div>
         <?php if ($column_right){ ?>
         <aside class="col-sm-3">
