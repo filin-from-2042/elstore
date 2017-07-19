@@ -26,6 +26,9 @@
         <?php } ?>
         <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
             <h1><?php echo $heading_title; ?></h1>
+            <?php if ($success) { ?>
+            <div class="alert alert-success"><?php echo $success; ?></div>
+            <?php } ?>
             <?php if ($products) { ?>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
