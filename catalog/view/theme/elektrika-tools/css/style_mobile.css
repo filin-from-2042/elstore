@@ -232,6 +232,11 @@
     .account-password #content {
         min-height: 350px;
     }
+
+
+    aside{
+        margin-top: 15px;
+    }
 }
 
 @media (max-width: 630px){

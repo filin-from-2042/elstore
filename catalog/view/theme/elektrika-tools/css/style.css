@@ -2838,7 +2838,8 @@ td .price,.price b {
 .account-wishlist .table-bordered .green {
     color: #75b70e;
 }
-.account-wishlist .table-bordered .btn.btn-icon {
+.account-wishlist .table-bordered .btn.btn-icon ,
+.account-order .table-bordered .btn.btn-icon {
     margin: 2px;
 }
 .account-wishlist .table-bordered .image img{
