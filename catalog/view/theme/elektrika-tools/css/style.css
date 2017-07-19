@@ -2834,3 +2834,14 @@ td .price,.price b {
     font-weight: normal;
     font-style: italic;
 }
+/**************************** WISHLIST *******************/
+.account-wishlist .table-bordered .green {
+    color: #75b70e;
+}
+.account-wishlist .table-bordered .btn.btn-icon {
+    margin: 2px;
+}
+.account-wishlist .table-bordered .image img{
+    max-width: 47px;
+    max-height: 47px;
+}
