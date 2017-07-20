@@ -112,7 +112,6 @@
                         </tbody></table>
                 </div>
             </div>
-
             <div class="buttons">
                 <div class="pull-right">
                     <?php /*if ($logged){ ?>
@@ -124,8 +123,6 @@
                     <a href="<?php echo $continue; ?>" data-toggle="tooltip" title="Перейти в каталог магазина" class="btn btn-primary continue-btn"><?php echo $button_shopping; ?></a>
                 </div>
             </div>
-
-
             <?php echo $content_bottom; ?>
         </div>
         <?php if ($column_right){ ?>
