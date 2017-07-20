@@ -175,7 +175,6 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 
         <ul class="foot foot-2">
             <li><a href="<?php echo $manufacturer; ?>"><i class="fa fa-tags" aria-hidden="true"></i><?php echo $text_manufacturer; ?></a></li>
-            <li><a href="<?php echo $voucher; ?>"><i class="fa fa-gift" aria-hidden="true"></i><?php echo $text_voucher; ?></a></li>
             <li><a href="<?php echo $special; ?>"><i class="fa fa-certificate" aria-hidden="true"></i><?php echo $text_special; ?></a></li>
         </ul>
         <ul class="foot foot-3">
