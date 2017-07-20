@@ -28,6 +28,7 @@
 
                             -->
                             <div class="item active">
+                                <a href="/index.php?route=information/information&information_id=8" class="general-block-link"></a>
                                 <img src="image/slide111.jpg" class="img-responsive" alt="...">
                                 <div class="carousel-caption">
                                     <h2 class="hidden-xs">Красиво, практично,а главное - дешево!</h2>
@@ -46,6 +47,7 @@
 
 
                             <div class="item ">
+                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=42" class="general-block-link"></a>
                                 <img src="image/ecola.jpg" alt="...">
                                 <div class="carousel-caption">
                                     <h2 class="hidden-xs">Настоящая экономия!<br></h2>
@@ -61,6 +63,7 @@
                             </div>
 
                             <div class="item ">
+                                <a href="/index.php?route=product/category&path=430_501" class="general-block-link"></a>
                                 <img src="image/slide5.jpg" alt="...">
                                 <div class="carousel-caption">
                                     <h2 class="hidden-xs">Элегантность и практичность<br></h2>
@@ -109,13 +112,14 @@
 
             <div class="col-xs-12 col-sm-4 col-lg-4 side-item">
                 <div class="">
+                    <a href="/index.php?route=product/product&product_id=15437" class="general-block-link"></a>
                     <img class="img-responsive" src="image/slides1.jpg" alt="...">
                     <div class="side-item-caption">
                         <h2>Мотоблок Агат<br></h2>
-                        <p>Надежный мотоблок <a href="http://elektrika-nmk.ru/index.php?route=product/product&product_id=15437"> АГАТ ХМ 6,5 с двигателем Hammerman </a> по супер-цене!</p>
+                        <p>Надежный мотоблок <a href="/index.php?route=product/product&product_id=15437"> АГАТ ХМ 6,5 с двигателем Hammerman </a> по супер-цене!</p>
                     </div>
                     <div class="more">
-                        <a href="/index.php?route=product/category&path=430_501" class="round-animated-btn small">
+                        <a href="/index.php?route=product/product&product_id=15437" class="round-animated-btn small">
                             <span class="wrap">
                                 <span class="content"></span>
                             </span>
@@ -126,6 +130,7 @@
 
             <div class="col-xs-12 col-sm-4  col-lg-4 side-item">
                 <div class="">
+                    <a href="/index.php?route=product/product&product_id=15437" class="general-block-link"></a>
                     <img  class="img-responsive" src="image/zakaz.jpg" alt="...">
                     <div  class="side-item-caption">
                         <h2>При заказе с сайта - скидка 5%!<br></h2>
