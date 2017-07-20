@@ -2846,3 +2846,31 @@ td .price,.price b {
     max-width: 47px;
     max-height: 47px;
 }
+
+/************************* SITEMAP ****************************/
+.information-sitemap ul {
+}
+
+.information-sitemap #content ul li {
+    color: #1c1c1c;
+    padding: 7px 0;
+}
+
+.information-sitemap #content ul li {
+    list-style-type: none;
+    font-size: 17px;
+    line-height: 19px;
+}
+.information-sitemap  #content ul li a{
+    font-size: 16px;
+    line-height: 19px;
+    color: #1c1c1c;
+}
+.information-sitemap #content ul li a i {
+    font-size: 23px;
+    line-height: 19px;
+    margin-right: 10px;
+    height: 19px;
+    color: #f97001;
+    vertical-align: top;
+}

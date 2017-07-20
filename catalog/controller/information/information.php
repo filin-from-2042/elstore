@@ -8,7 +8,7 @@ class ControllerInformationInformation extends Controller {
 		$this->data['breadcrumbs'] = array();
 		
       	$this->data['breadcrumbs'][] = array(
-        	'text'      => $this->language->get('text_home'),
+        	'text'      => $this->language->get('icon_home'),
 			'href'      => $this->url->link('common/home'),
         	'separator' => false
       	);
