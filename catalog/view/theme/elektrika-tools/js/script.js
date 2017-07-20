@@ -17,9 +17,14 @@ jQuery(document).ready(function() {
 
         $('#cart').load('index.php?route=module/cart #cart > *');
 
+        $(document).mouseup(function (e) {
+            var $cart = $('#cart');
+            $cart.is(e.target) || 0 !== $cart.has(e.target).length || toggleCart(e);
+        })
+        /*
         $('body').delegate('#cart','mouseleave', function() {
             $(this).removeClass('active');
-        });
+        });*/
     });
 
     $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {

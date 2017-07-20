@@ -100,9 +100,19 @@ function addToCompare(product_id) {
         }
     });
 }
-
+// инициализации бустраповских подсказок
 function initTooltips(selector)
 {
     selector = selector || '[data-toggle="tooltip"]';
     $(selector).tooltip();
+}
+// переключение внешнего вида корзины
+function toggleCart(event)
+{
+    var $cart = $('#cart');
+    if ($cart.is(":visible")) {
+        $cart.removeClass('active');
+    } else  {
+        $cart.addClass('active');
+    }
 }
