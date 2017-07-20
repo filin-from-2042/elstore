@@ -50,11 +50,11 @@
                         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="login-form">
                             <div class="form-group">
                                 <label class="control-label" for="input-email"><?php echo $entry_email; ?></b></label>
-                                <input type="text" name="email" value="<?php echo $email; ?>" placeholder="E-Mail Address" id="input-email" class="form-control" />
+                                <input type="text" name="email" value="<?php echo $email; ?>" placeholder="E-Mail адрес" id="input-email" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="input-password"><?php echo $entry_password; ?></label>
-                                <input type="password" name="password" value="<?php echo $password; ?>" placeholder="Password" id="input-password" class="form-control" />
+                                <input type="password" name="password" value="<?php echo $password; ?>" placeholder="Пароль" id="input-password" class="form-control" />
                                 <br />
                                 <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a></div>
                             <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
