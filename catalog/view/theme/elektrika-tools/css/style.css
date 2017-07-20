@@ -2874,3 +2874,31 @@ td .price,.price b {
     color: #f97001;
     vertical-align: top;
 }
+
+/************************** COMPARE ************************/
+.product-compare .table-bordered a:hover strong{
+    color:#f97001;
+}
+.product-compare .table-bordered .price-old{
+    color: #f97001;
+    float: left;
+    margin-right: 5px;
+}
+
+.product-compare .table-bordered .price-new {
+    font-size: 13px;
+    line-height: 16px;
+}
+.product-compare .table-responsive > .table > tbody > tr > td.description, .product-compare .table-responsive > .table > tbody > tr > td a strong, .account-wishlist .table-bordered .text-left a {
+    white-space: normal;
+}
+.product-compare .rating .fa-star-o,
+.product-compare .rating .fa-star{
+    font-size: 11px;
+}
+.product-compare .rating .fa-star-o {
+    color: #999;
+}
+.product-compare .rating .fa-star {
+    color: #dadada;
+}
