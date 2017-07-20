@@ -122,10 +122,6 @@ class ControllerProductCategory extends Controller {
 				$this->data['heading_title'] = $category_info['name'];
 			}
 
-
-
-
-
 			$this->data['text_refine'] = $this->language->get('text_refine');
 			$this->data['text_refine'] = $this->language->get('text_refine');
 			$this->data['text_empty'] = $this->language->get('text_empty');
@@ -483,102 +479,155 @@ class ControllerProductCategory extends Controller {
 				
 			$this->response->setOutput($this->render());										
     	} else {
+            // если не передали переменную с категорией, значит корень каталога, иначе не найдено
+            if($category_id==0)
+            {
+                $url = '';
 
-			$url = '';
+                if (isset($this->request->get['path'])) {
+                    $url .= '&path=' . $this->request->get['path'];
+                }
 
-			if (isset($this->request->get['path'])) {
-				$url .= '&path=' . $this->request->get['path'];
-			}
-
-			if (isset($this->request->get['filter'])) {
-				$url .= '&filter=' . $this->request->get['filter'];
-			}
-
-
-			if (isset($this->request->get['sort'])) {
-				$url .= '&sort=' . $this->request->get['sort'];
-			}
-
-			if (isset($this->request->get['order'])) {
-				$url .= '&order=' . $this->request->get['order'];
-			}
-
-			if (isset($this->request->get['page'])) {
-				$url .= '&page=' . $this->request->get['page'];
-			}
-
-			if (isset($this->request->get['limit'])) {
-				$url .= '&limit=' . $this->request->get['limit'];
-			}
-
-            $this->document->setTitle("Каталог товаров");
-
-            $this->data['heading_title'] = "Каталог товаров";
+                if (isset($this->request->get['filter'])) {
+                    $url .= '&filter=' . $this->request->get['filter'];
+                }
 
 
-            $this->data['categories'] = array();
+                if (isset($this->request->get['sort'])) {
+                    $url .= '&sort=' . $this->request->get['sort'];
+                }
+
+                if (isset($this->request->get['order'])) {
+                    $url .= '&order=' . $this->request->get['order'];
+                }
+
+                if (isset($this->request->get['page'])) {
+                    $url .= '&page=' . $this->request->get['page'];
+                }
+
+                if (isset($this->request->get['limit'])) {
+                    $url .= '&limit=' . $this->request->get['limit'];
+                }
+
+                $this->document->setTitle("Каталог товаров");
+                $this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
+                $this->data['heading_title'] = "Каталог товаров";
 
 
-            $results = $this->model_catalog_category->getCategories($category_id);
+                $this->data['categories'] = array();
 
-            foreach ($results as $result) {
 
-                $this->data['categories'][] = array(
-                    'name'  => $result['name'] ,
-                        'meta_description'  => $result['meta_description'] ,
-                    'href'  => $this->url->link('product/category', 'path=' . $result['category_id']),
-                    'thumb' => $this->model_tool_image->resize(($result['image']=='' ? 'no_image.jpg' : $result['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
+                $results = $this->model_catalog_category->getCategories($category_id);
+
+                foreach ($results as $result) {
+
+                    $this->data['categories'][] = array(
+                        'name'  => $result['name'] ,
+                            'meta_description'  => $result['meta_description'] ,
+                        'href'  => $this->url->link('product/category', 'path=' . $result['category_id']),
+                        'thumb' => $this->model_tool_image->resize(($result['image']=='' ? 'no_image.jpg' : $result['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
+                    );
+                }
+
+    //            $categories_1 = $this->model_catalog_category->getCategories(0);
+    //
+    //            foreach ($categories_1 as $category_1) {
+    //                $level_2_data = array();
+    //
+    //                $categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
+    //
+    //                foreach ($categories_2 as $category_2) {
+    //                    $level_3_data = array();
+    //
+    //                    $categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
+    //
+    //                    foreach ($categories_3 as $category_3) {
+    //                        $level_3_data[] = array(
+    //                            'name' => $category_3['name'],
+    //                            'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id']),
+    //                            'meta_description'  => $category_3['meta_description'] ,
+    //                            'thumb' => $this->model_tool_image->resize(($category_3['image']=='' ? 'no_image.jpg' : $category_3['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
+    //
+    //                        );
+    //                    }
+    //
+    //                    $level_2_data[] = array(
+    //                        'name'     => $category_2['name'],
+    //                        'children' => $level_3_data,
+    //                        'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id']),
+    //                        'meta_description'  => $category_2['meta_description'] ,
+    //                        'thumb' => $this->model_tool_image->resize(($category_2['image']=='' ? 'no_image.jpg' : $category_2['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
+    //
+    //                    );
+    //                }
+    //
+    //                $this->data['categories'][] = array(
+    //                    'name'     => $category_1['name'],
+    //                    'children' => $level_2_data,
+    //                    'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id']),
+    //                    'meta_description'  => $category_1['meta_description'] ,
+    //                    'thumb' => $this->model_tool_image->resize(($category_1['image']=='' ? 'no_image.jpg' : $category_1['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
+    //
+    //                );
+    //            }
+
+
+                if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
+                    $this->template = $this->config->get('config_template') . '/template/product/category.tpl' ;
+                } else {
+                    $this->template = 'default/template/product/category.tpl';
+                }
+            }else{
+                $url = '';
+
+                if (isset($this->request->get['path'])) {
+                    $url .= '&path=' . $this->request->get['path'];
+                }
+
+                if (isset($this->request->get['filter'])) {
+                    $url .= '&filter=' . $this->request->get['filter'];
+                }
+
+
+                if (isset($this->request->get['sort'])) {
+                    $url .= '&sort=' . $this->request->get['sort'];
+                }
+
+                if (isset($this->request->get['order'])) {
+                    $url .= '&order=' . $this->request->get['order'];
+                }
+
+                if (isset($this->request->get['page'])) {
+                    $url .= '&page=' . $this->request->get['page'];
+                }
+
+                if (isset($this->request->get['limit'])) {
+                    $url .= '&limit=' . $this->request->get['limit'];
+                }
+
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => $this->language->get('text_error'),
+                    'href'      => $this->url->link('product/category', $url),
+                    'separator' => $this->language->get('text_separator')
                 );
+
+                $this->document->setTitle($this->language->get('text_error'));
+
+                $this->data['heading_title'] = $this->language->get('text_error');
+
+                $this->data['text_error'] = $this->language->get('text_error');
+
+                $this->data['button_continue'] = $this->language->get('button_continue');
+
+                $this->data['continue'] = $this->url->link('product/category');
+
+                if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
+                    $this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
+                } else {
+                    $this->template = 'default/template/error/not_found.tpl';
+                }
             }
 
-//            $categories_1 = $this->model_catalog_category->getCategories(0);
-//
-//            foreach ($categories_1 as $category_1) {
-//                $level_2_data = array();
-//
-//                $categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
-//
-//                foreach ($categories_2 as $category_2) {
-//                    $level_3_data = array();
-//
-//                    $categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
-//
-//                    foreach ($categories_3 as $category_3) {
-//                        $level_3_data[] = array(
-//                            'name' => $category_3['name'],
-//                            'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id']),
-//                            'meta_description'  => $category_3['meta_description'] ,
-//                            'thumb' => $this->model_tool_image->resize(($category_3['image']=='' ? 'no_image.jpg' : $category_3['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
-//
-//                        );
-//                    }
-//
-//                    $level_2_data[] = array(
-//                        'name'     => $category_2['name'],
-//                        'children' => $level_3_data,
-//                        'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id']),
-//                        'meta_description'  => $category_2['meta_description'] ,
-//                        'thumb' => $this->model_tool_image->resize(($category_2['image']=='' ? 'no_image.jpg' : $category_2['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
-//
-//                    );
-//                }
-//
-//                $this->data['categories'][] = array(
-//                    'name'     => $category_1['name'],
-//                    'children' => $level_2_data,
-//                    'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id']),
-//                    'meta_description'  => $category_1['meta_description'] ,
-//                    'thumb' => $this->model_tool_image->resize(($category_1['image']=='' ? 'no_image.jpg' : $category_1['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
-//
-//                );
-//            }
-
-
-            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
-                $this->template = $this->config->get('config_template') . '/template/product/category.tpl' ;
-            } else {
-                $this->template = 'default/template/product/category.tpl';
-            }
             $this->children = array(
                 'common/column_left',
                 'common/column_right',
