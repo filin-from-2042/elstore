@@ -63,7 +63,7 @@ class Pagination {
 			}
 
 			if ($start > 1) {
-				$output .= ' .... ';
+				$output .= '<li><span>....</span></li>';
 			}
 
 			for ($i = $start; $i <= $end; $i++) {
@@ -77,7 +77,7 @@ class Pagination {
 			}
 							
 			if ($end < $num_pages) {
-				$output .= ' .... ';
+				$output .= '<li><span>....</span></li>';
 			}
 		}
 		
