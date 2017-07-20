@@ -39,7 +39,9 @@
         vertical-align: top;
         background: none;
     }
-    header #cart .heading a{
+    header #cart .heading a,
+    header #cart:hover .heading a,
+    header #cart:hover .heading #cart-total{
         color: #ccc;
     }
     header #cart .heading a:hover{

@@ -220,11 +220,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                     <?php } ?>
                 </div>
                 <?php } ?>
-                <div class="box-right hidden-xs">
+                <div class="box-right">
                     <div class="box-cart">
                         <?=$cart?>
                     </div>
-                    <div class="register-top">
+                    <div class="register-top hidden-xs">
                         <?php if (!$logged) { ?>
                             <?php echo $text_welcome; ?>
                         <?php } else { ?>
