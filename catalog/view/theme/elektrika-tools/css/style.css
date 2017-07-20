@@ -1178,6 +1178,19 @@ header #search button:active,
 header #search button:hover {
     background: #000;
 }
+header #top-links li a span span {
+    display: inline-block;
+    background: #5c5c5c;
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    vertical-align: middle;
+    margin: -1px 0 0 1px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
 
 /******************* CATALOG MENU *******************/
 /*  bhoechie tab */

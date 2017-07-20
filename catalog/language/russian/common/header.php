@@ -1,7 +1,7 @@
 <?php
 // Text
 $_['text_home']           = 'Главная';
-$_['text_wishlist']       = 'Закладки (%s)';
+$_['text_wishlist']       = 'Закладки <span>%s</span>';
 $_['text_shopping_cart']  = 'Корзина';
 $_['text_search']         = 'Поиск по наименованию или коду';
 $_['text_welcome']        = '<a href="%s" class="button-register"><i class="fa fa-user"></i>Войти</a><a href="%s"><i class="fa fa-lock"></i>Зарегистрироваться</a>';
