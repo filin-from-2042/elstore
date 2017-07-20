@@ -2902,3 +2902,9 @@ td .price,.price b {
 .product-compare .rating .fa-star {
     color: #dadada;
 }
+
+
+/************************ SEARCH **********************/
+.product-search .search-btn-wrap{
+    margin-top: 10px;
+}
