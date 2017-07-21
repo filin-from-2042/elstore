@@ -291,6 +291,7 @@ header #cart .heading a,
 .btn,
 header #search button,
 header #top-links a,
+header a.button-category ,
 header a.button-category i,
 #back-top span.default,
 #back-top span.hovered,
@@ -1117,8 +1118,10 @@ header a.button-category i {
     color: #fff;
     cursor: pointer;
 }
+#tm_menu  .menu:hover a.button-category ,
 #tm_menu  .menu:hover .button-category i {
     color: #f97001;
+    cursor: pointer;
 }
 /************************* BLOCK MENU ***********************/
 header .block-menu >div {
