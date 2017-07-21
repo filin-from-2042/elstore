@@ -56,7 +56,7 @@ class ControllerModuleBt3Special extends Controller {
                 'code'        => isset($result['model'])? ('код: ' . $result['model']):'',
 				'rating'     => $rating,
 				'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-                'href'    	 => $this->url->link('product/product', array('product_id=' . $result['product_id'],'path=' . $result['productCategories'] ))
+                'href'    	 => $this->url->link('product/product', array('product_id=' . $result['product_id'] ))
 			);
 		}
         

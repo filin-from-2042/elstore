@@ -71,6 +71,12 @@ class ControllerProductProduct extends Controller {
             $product_id = 0;
         }
        // $this->request->get['path'] = $this->getProductCategories($product_id);
+        // если пришли из поиска или непонятно откуда строим цепочку крошек по каталогу
+        if ( (isset($this->request->get['search']) || isset($this->request->get['tag'])) ||
+                (!isset($this->request->get['search']) && !isset($this->request->get['tag']) && !isset($this->request->get['path']) && !isset($this->request->get['manufacturer_id'])) )
+        {
+            $this->request->get['path'] = $this->getProductCategories($product_id);
+        }
 
 		if (isset($this->request->get['path'])) {
 			$path = '';
@@ -127,7 +133,7 @@ class ControllerProductProduct extends Controller {
 			}
 		}
 
-		
+		/*
 		if (isset($this->request->get['search']) || isset($this->request->get['tag'])) {
 			$url = '';
 			
@@ -173,6 +179,8 @@ class ControllerProductProduct extends Controller {
 				'separator' => $this->language->get('text_separator')
 			); 	
 		}
+        */
+
 
 		$this->load->model('catalog/product');
 		
