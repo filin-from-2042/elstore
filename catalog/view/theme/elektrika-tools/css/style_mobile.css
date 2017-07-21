@@ -230,11 +230,16 @@
     }
 
     /**************** ACCOUNT PASSWORD **********************/
+    .account-edit #content ,
+    .account-newsletter #content ,
+    .account-wishlist #content ,
+    .account-return #content,
     .account-address #content ,
+    .account-account #content ,
+    .account-order #content ,
     .account-password #content {
-        min-height: 350px;
+        min-height: auto;
     }
-
 
     aside{
         margin-top: 15px;
