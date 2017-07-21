@@ -17,7 +17,8 @@ class ControllerModuleBt3Special extends Controller {
 			'sort'  => 'pd.name',
 			'order' => 'ASC',
 			'start' => 0,
-			'limit' => $setting['limit']
+			'limit' => $setting['limit'],
+            'status' => '1',
 		);
 
 		$results = $this->model_catalog_product->getProductSpecials($data);

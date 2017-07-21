@@ -295,7 +295,10 @@ class ModelCatalogProduct extends Model {
 			$customer_group_id = $this->customer->getCustomerGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
-		}	
+		}
+
+
+
 				
 		$sql = "SELECT DISTINCT ps.product_id, ".
                         "(SELECT AVG(rating) FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = ps.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating ".
@@ -303,7 +306,10 @@ class ModelCatalogProduct extends Model {
                 " LEFT JOIN " . DB_PREFIX . "product p ON (ps.product_id = p.product_id) ".
                 " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) ".
                 " LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) ".
-                " WHERE p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < '" . $this->NOW . "') AND (ps.date_end = '0000-00-00' OR ps.date_end > '" . $this->NOW . "')) GROUP BY ps.product_id";
+                "INNER JOIN " . DB_PREFIX . "product_to_category as pc on pc.product_id = ps.product_id
+                INNER JOIN " . DB_PREFIX . "category as cat on pc.category_id=cat.category_id".
+
+                " WHERE p.status = '1' AND cat.status='1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < '" . $this->NOW . "') AND (ps.date_end = '0000-00-00' OR ps.date_end > '" . $this->NOW . "')) GROUP BY ps.product_id";
 
 		$sort_data = array(
 			'pd.name',
@@ -772,7 +778,14 @@ class ModelCatalogProduct extends Model {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}		
 		
-		$query = $this->db->query("SELECT COUNT(DISTINCT ps.product_id) AS total FROM " . DB_PREFIX . "product_special ps LEFT JOIN " . DB_PREFIX . "product p ON (ps.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < '" . $this->NOW . "') AND (ps.date_end = '0000-00-00' OR ps.date_end > '" . $this->NOW . "'))");
+		$query = $this->db->query("
+          SELECT COUNT(DISTINCT ps.product_id) AS total
+          FROM " . DB_PREFIX . "product_special ps
+          LEFT JOIN " . DB_PREFIX . "product p ON (ps.product_id = p.product_id)
+          LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)
+          INNER JOIN " . DB_PREFIX . "product_to_category as pc on pc.product_id = ps.product_id
+          INNER JOIN " . DB_PREFIX . "category as cat on pc.category_id=cat.category_id
+          WHERE p.status = '1' AND cat.status='1'   AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < '" . $this->NOW . "') AND (ps.date_end = '0000-00-00' OR ps.date_end > '" . $this->NOW . "'))");
 		
 		if (isset($query->row['total'])) {
 			return $query->row['total'];
