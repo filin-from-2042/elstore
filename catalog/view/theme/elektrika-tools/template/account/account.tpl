@@ -33,7 +33,7 @@
                 <ul class="list-unstyled">
                     <li><a href="<?php echo $edit; ?>"><i class="fa fa-angle-right"></i><?php echo $text_edit; ?></a></li>
                     <li><a href="<?php echo $password; ?>"><i class="fa fa-angle-right"></i><?php echo $text_password; ?></a></li>
-                    <li><a href="<?php echo $address; ?>"><i class="fa fa-angle-right"></i><?php echo $text_address; ?></a></li>
+                    <?php /* ?><li><a href="<?php echo $address; ?>"><i class="fa fa-angle-right"></i><?php echo $text_address; ?></a></li><?php */ ?>
                     <li><a href="<?php echo $wishlist; ?>"><i class="fa fa-angle-right"></i><?php echo $text_wishlist; ?></a></li>
                 </ul>
             </div>
