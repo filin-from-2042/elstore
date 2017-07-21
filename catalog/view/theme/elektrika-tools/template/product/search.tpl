@@ -178,7 +178,7 @@
         $('#button-search').bind('click', function() {
             url = 'index.php?route=product/search';
 
-            var search = $('#content input[name=\'search\']').attr('value');
+            var search = $('#content input[name=\'search\']').val();
 
             if (search) {
                 url += '&search=' + encodeURIComponent(search);
