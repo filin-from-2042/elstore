@@ -25,7 +25,12 @@
         </aside>
         <?php } ?>
         <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
-
+            <?php if ($success) { ?>
+            <div class="alert alert-success"><?php echo $success; ?></div>
+            <?php } ?>
+            <?php if ($error_warning) { ?>
+            <div class="alert alert-danger"><?php echo $error_warning; ?></div>
+            <?php } ?>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="well">
