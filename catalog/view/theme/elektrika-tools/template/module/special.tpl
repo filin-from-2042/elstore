@@ -1,7 +1,10 @@
 <!-- SPECIAL -->
 <div class="panel panel-default special goods-block">
     <div class="panel-heading">
-        <h3 class="specials-title"><?php echo $heading_title; ?></h3>
+        <h3 class="specials-title"><?php echo $heading_title; ?>
+            <a class="pull-right" href="?route=product/special">Смотреть все</a>
+        </h3>
+
     </div>
     <div class="panel-body">
         <div id="products" class="row">

@@ -1210,7 +1210,7 @@ header #top-links li a span span {
 div.bhoechie-tab-container{
     z-index: 10;
     background-color: #ffffff;
-    padding: 0 !important;
+    padding: 10px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     border:1px solid #ddd;
@@ -1597,9 +1597,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     margin-left: -3px;
 }
 .product-thumb .img-wrap{
-    height: 210px;
+
     white-space: nowrap;
-    text-align: center; margin: 1em 0;
+    text-align: center;
 }
 .product-thumb .image {
     float: none;

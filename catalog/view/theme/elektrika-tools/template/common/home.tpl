@@ -118,18 +118,12 @@
 
             <div class="col-xs-12 col-sm-4  col-lg-4 side-item">
                 <div class="">
-                    <a href="/index.php?route=product/product&product_id=15437" class="general-block-link"></a>
+
                     <img  class="img-responsive" src="image/zakaz.jpg" alt="...">
                     <div  class="side-item-caption">
                         <h2>При заказе с сайта - скидка 5%!<br></h2>
                     </div>
-                    <div class="more">
-                        <a href="/index.php?route=product/category&path=430_501" class="round-animated-btn small">
-                            <span class="wrap">
-                                <span class="content"></span>
-                            </span>
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </div>

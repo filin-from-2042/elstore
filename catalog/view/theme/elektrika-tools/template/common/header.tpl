@@ -78,7 +78,6 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 bhoechie-tab-menu">
@@ -138,7 +137,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                             </div>
                         </div>
                     </div>
-                </div>
+
 
             </div>
             <div class="modal-footer">
