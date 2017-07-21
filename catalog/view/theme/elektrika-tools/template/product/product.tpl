@@ -34,7 +34,6 @@
 
                     <?php if (isset($thumb_zoom) || isset($images)) { ?>
                     <div id="default_gallery" class="product-gallery">
-
                         <?php if (isset($images) && $images) { ?>
                         <div class="image-thumb">
                             <ul id="image-additional">
@@ -48,32 +47,14 @@
                             </ul>
                         </div>
                         <?}?>
-
-                        <?/*?>
-                        <div class="image">
-                            <img id="gallery_zoom" src="<?php echo $images[0]['popup'];?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"
-                                 data-zoom-image="<?php echo $images[0]['popup']; ?>"/>
-                        </div>
-                        <?*/?>
-
                         <?php if (isset($thumb_zoom) &&  $thumb_zoom) { ?>
                         <div class="image">
-                            <img id="gallery_zoom" src="<?php echo $thumb_zoom; ?>" data-zoom-image="<?php echo $thumb_zoom; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>"/>
+                            <img id="gallery_zoom" src="<?php echo $thumb; ?>" data-zoom-image="<?php echo $thumb_zoom; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>"/>
                         </div>
                         <?}?>
-
                     </div>
                     <script>
                         jQuery(document).ready(function(){
-/*
-                            $("#gallery_zoom").elevateZoom({
-                                gallery: 'image-additional',
-                                cursor: 'pointer',
-                                zoomType: 'inner',
-                                galleryActiveClass: 'active',
-                                imageCrossfade: true
-                            });
-                            */
                             $("#gallery_zoom").elevateZoom({gallery: 'image-additional'});
                             $("#gallery_zoom").bind("click", function(e) {
                                 var ez = $('#gallery_zoom').data('elevateZoom');
