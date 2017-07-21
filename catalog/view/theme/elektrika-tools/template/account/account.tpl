@@ -41,12 +41,12 @@
             <div class="content">
                 <ul class="list-unstyled">
                     <li><a href="<?php echo $order; ?>"><i class="fa fa-angle-right"></i><?php echo $text_order; ?></a></li>
-                    <li><a href="<?php echo $download; ?>"><i class="fa fa-angle-right"></i><?php echo $text_download; ?></a></li>
+                    <?php /* ?><li><a href="<?php echo $download; ?>"><i class="fa fa-angle-right"></i><?php echo $text_download; ?></a></li><?php */ ?>
                     <?php if ($reward) { ?>
                     <li><a href="<?php echo $reward; ?>"><i class="fa fa-angle-right"></i><?php echo $text_reward; ?></a></li>
                     <?php } ?>
                     <li><a href="<?php echo $return; ?>"><i class="fa fa-angle-right"></i><?php echo $text_return; ?></a></li>
-                    <li><a href="<?php echo $transaction; ?>"><i class="fa fa-angle-right"></i><?php echo $text_transaction; ?></a></li>
+                    <?php /* ?><li><a href="<?php echo $transaction; ?>"><i class="fa fa-angle-right"></i><?php echo $text_transaction; ?></a></li><?php */ ?>
                 </ul>
             </div>
             <h2><?php echo $text_my_newsletter; ?></h2>
