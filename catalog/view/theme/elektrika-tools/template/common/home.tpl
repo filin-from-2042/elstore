@@ -11,23 +11,30 @@
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
 
-                            <!--
-                                                <div class="item active">
-                                                    <img src="image/slide4.jpg" alt="...">
-                                                    <div class="carousel-caption">
-                                                        <h2>Тепло и уют Вашего дома<br></h2>
-                                                        <p><a href="http://elektrika-nmk.ru/index.php?route=product/category&path=427_479">Теплотехника</a> в ассортименте. Утепляйтесь!</p>
-                                                    </div>
-                                                </div>
-
-
-                            -->
                             <div class="item active">
+                                <a href="/index.php?route=product/product&path=441_635&product_id=22241" class="general-block-link"></a>
+                                <img src="image/slide0607.jpg" class="img-responsive" alt="...">
+                                <div class="carousel-caption">
+                                    <h2 class="hidden-xs" style="font-size: 30px;">Эффективное уличное освещение</h2>
+                                    <p style="font-size: 20px;">Новинка! Универсальный светодиодный прожектор с возможностью крепления на столб. Самый бюджетный вариант среди прожекторов данного класса.</p>
+                                    <p><a href="/index.php?route=product/product&path=441_635&product_id=22241">Подробнее</a></p>
+                                </div>
+                                <div class="more">
+                                    <a href="/index.php?route=product/product&path=441_635&product_id=22241" class="round-animated-btn big">
+                                            <span class="wrap">
+                                                <span class="content"></span>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="item ">
                                 <a href="/index.php?route=information/information&information_id=8" class="general-block-link"></a>
                                 <img src="image/slide111.jpg" class="img-responsive" alt="...">
                                 <div class="carousel-caption">
@@ -43,8 +50,6 @@
                                     </a>
                                 </div>
                             </div>
-
-
 
                             <div class="item ">
                                 <a href="/index.php?route=product/manufacturer/info&manufacturer_id=42" class="general-block-link"></a>
@@ -77,23 +82,6 @@
                                     </a>
                                 </div>
                             </div>
-
-
-                           <!--<div class="item">
-                               <img src="image/slide6.jpg" alt="...">
-                               <div class="carousel-caption">
-                                   <h2>Экономия в мелочах<br></h2>
-                                   <p>Светодиодные лампы с цоколем <a href="/index.php?route=product/category&path=434_767">Е27</a>,
-                                       <a href="/index.php?route=product/category&path=434_842">Е14</a>, <a href="/index.php?route=product/category&path=434_843">Gx5.3</a></p>
-                               </div>
-                               <div class="more">
-                                   <a href="/index.php?route=product/category&path=434" class="round-animated-btn big">
-                                            <span class="wrap">
-                                                <span class="content"></span>
-                                            </span>
-                                   </a>
-                               </div>
-                           </div>-->
 
                         </div>
 
@@ -149,7 +137,10 @@
         <div class="col-sm-12">
             <div class="box_html welcome " style="opacity: 1; margin-top: 0px;">
                 <span>Добро пожаловать<br><span>в наш магазин</span></span>
-                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>
+                    У нас Вы найдете электротовары, электрооборудование, строительные материалы, хозяйственные товары и многое другое высокого качества по самым низким ценам. Широкий ассортимент товара в наличии и под заказ.
+                    Профессиональные  менеджеры всегда готовы проконсультировать и помочь быстро совершить покупку. Возможность безпроблемного возврата товара. Скидки постоянным клиентам.
+                </p>
             </div>
         </div>
 
