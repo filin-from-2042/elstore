@@ -350,7 +350,7 @@ class ControllerProductProduct extends Controller {
 				);
 			}
             // логика на случай отсутствия изображения товара, но наличия галереи. Берем первуб картинку из галереи за главную и удалям из самой-галереи
-            if(!$this->data['thumb_zoom'])
+            if(isset($this->data['thumb_zoom']) && !$this->data['thumb_zoom'])
             {
                 if(count($this->data['images'])>0)
                 {
