@@ -249,6 +249,18 @@
     #myModal .modal-dialog{
         width: 97%;
     }
+
+
+/***************** SPECIALS ******************/
+    .panel.goods-block .panel-heading h3{
+        position: relative;
+    }
+    .panel.goods-block .view-all{
+        font-size: 12px;
+        position: absolute;
+        right: 17px;
+        top: 31%
+    }
 }
 
 @media (max-width: 630px){

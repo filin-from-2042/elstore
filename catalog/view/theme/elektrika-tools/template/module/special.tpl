@@ -2,7 +2,7 @@
 <div class="panel panel-default special goods-block">
     <div class="panel-heading">
         <h3 class="specials-title"><?php echo $heading_title; ?>
-            <a class="pull-right" href="?route=product/special">Смотреть все</a>
+            <a class="pull-right view-all" href="?route=product/special">Смотреть все</a>
         </h3>
 
     </div>
