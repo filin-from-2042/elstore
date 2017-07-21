@@ -54,7 +54,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
                         <div class="col-sm-10">
-                            <input type="text" name="name" value="<?php echo $name; ?>" id="input-name" class="form-control">
+                            <input type="text" name="name" value="<?php echo $name; ?>" id="input-name" class="form-control" placeholder="Имя">
                             <?php if ($error_name) { ?>
                             <span class="alert alert-danger"><?php echo $error_name; ?></span>
                             <?php } ?>
@@ -63,7 +63,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
                         <div class="col-sm-10">
-                            <input type="text" name="email" value="<?php echo $email; ?>" id="input-email" class="form-control">
+                            <input type="text" name="email" value="<?php echo $email; ?>" id="input-email" class="form-control" placeholder="Email">
                             <?php if ($error_email) { ?>
                             <span class="alert alert-danger"><?php echo $error_email; ?></span>
                             <?php } ?>
@@ -72,7 +72,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-enquiry"><?php echo $entry_enquiry; ?></label>
                         <div class="col-sm-10">
-                            <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control"><?php echo $enquiry; ?></textarea>
+                            <textarea name="enquiry" rows="10" id="input-enquiry" class="form-control" placeholder="Текст вопроса"><?php echo $enquiry; ?></textarea>
                             <?php if ($error_enquiry) { ?>
                             <span class="alert alert-danger"><?php echo $error_enquiry; ?></span>
                             <?php } ?>
@@ -81,7 +81,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-captcha"><?php echo $entry_captcha; ?></label>
                         <div class="col-sm-10">
-                            <input type="text" name="captcha" id="input-captcha" class="form-control" value="<?php echo $captcha; ?>">
+                            <input type="text" name="captcha" id="input-captcha" class="form-control" value="<?php echo $captcha; ?>" placeholder="Код с изображения">
                         </div>
                     </div>
                     <div class="form-group">

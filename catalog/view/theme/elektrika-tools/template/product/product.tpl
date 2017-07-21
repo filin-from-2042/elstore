@@ -342,14 +342,14 @@
                         <div class="form-group required">
                             <label class="control-label col-sm-3" for="input-name"><?php echo $entry_name; ?></label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" value="" id="input-name" class="form-control">
+                                <input type="text" name="name" value="" id="input-name" class="form-control" placeholder="Имя">
                             </div>
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label col-sm-3" for="input-review"><?php echo $entry_review; ?></label>
                             <div class="col-sm-9">
-                                <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                                <textarea name="text" rows="5" id="input-review" class="form-control" placeholder="Текст отзыва"></textarea>
                                 <div class="help-block"><?php echo $text_note; ?></div>
                             </div>
                         </div>
@@ -373,7 +373,7 @@
                         <div class="form-group required">
                             <label class="control-label col-sm-3" for="input-captcha"><?php echo $entry_captcha; ?></label>
                             <div class="col-sm-9">
-                                <input type="text" name="captcha" value="" id="input-captcha" class="form-control">
+                                <input type="text" name="captcha" value="" id="input-captcha" class="form-control"  placeholder="Код с изображения">
                             </div>
                         </div>
 
