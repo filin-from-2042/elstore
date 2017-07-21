@@ -72,7 +72,7 @@
         padding: 5px 15px 10px;
     }
     .product-thumb .img-wrap {
-        height: 155px;
+        height: auto;
     }
     .product-thumb .price {
         margin-bottom: 5px;
