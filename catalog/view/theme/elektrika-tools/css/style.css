@@ -421,6 +421,15 @@ a:hover {
 .name a:hover {
     color: #f97001;
 }
+.form-group.required > label:after {
+    color: #ef4135;
+    content: "*";
+    display: inline-block;
+    font-size: 16px;
+    position: absolute;
+    right: 2px;
+    top: 8px;
+}
 
 /***************** ASIDE CONTENT *****************/
 .box.info .box-content ul li a,
