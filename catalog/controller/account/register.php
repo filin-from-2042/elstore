@@ -16,7 +16,19 @@ class ControllerAccountRegister extends Controller {
 		$this->load->model('account/customer');
 		
     	if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$this->model_account_customer->addCustomer($this->request->post);
+            $cusData = $this->request->post;
+            $cusData["fax"] = "";
+            $cusData["company"] = "";
+            $cusData["company_id"] = "";
+            $cusData["tax_id"] = "";
+            $cusData["address_1"] = "";
+            $cusData["address_2"] = "";
+            $cusData["city"] = "";
+            $cusData["postcode"] = "";
+            $cusData["country_id"] = "176";
+            // TODO: определение зоны по ip
+            $cusData["zone_id"] = "2790";
+			$this->model_account_customer->addCustomer($cusData);
 
 			$this->customer->login($this->request->post['email'], $this->request->post['password']);
 			
@@ -42,7 +54,7 @@ class ControllerAccountRegister extends Controller {
       	$this->data['breadcrumbs'] = array();
 
       	$this->data['breadcrumbs'][] = array(
-        	'text'      => $this->language->get('text_home'),
+        	'text'      => $this->language->get('icon_home'),
 			'href'      => $this->url->link('common/home'),        	
         	'separator' => false
       	); 
