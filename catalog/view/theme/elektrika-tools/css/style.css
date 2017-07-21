@@ -2970,3 +2970,7 @@ td .price,.price b {
 .product-search .search-btn-wrap{
     margin-top: 10px;
 }
+
+#full_gallery  .bx-wrapper .bx-controls-direction a{
+    z-index: 999;
+}
