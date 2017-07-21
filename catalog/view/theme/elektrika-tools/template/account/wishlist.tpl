@@ -61,8 +61,8 @@
                             </div>
                             <?php } ?></td>
                         <td class="text-right">
-                            <button type="button" onclick="addToCart('<?php echo $product['product_id']; ?>');" data-toggle="tooltip" title="" class="btn btn-icon" data-original-title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-                            <a href="<?php echo $product['remove']; ?>" data-toggle="tooltip" title="" class="btn btn-icon" data-original-title="Remove"><i class="fa fa-times"></i></a>
+                            <button type="button" onclick="addToCart('<?php echo $product['product_id']; ?>');" data-toggle="tooltip" title="" class="btn btn-icon" data-original-title="В корзину"><i class="fa fa-shopping-cart"></i></button>
+                            <a href="<?php echo $product['remove']; ?>" data-toggle="tooltip" title="" class="btn btn-icon" data-original-title="Удалить из закладок"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
                     </tbody>
