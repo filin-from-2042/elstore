@@ -94,6 +94,9 @@ class ControllerCommonHeader extends Controller {
         $this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');
         $this->data['return'] = $this->url->link('account/return/insert', '', 'SSL');
         $this->data['contact'] = $this->url->link('information/contact');
+        $this->data['shipping'] = $this->url->link('information/information', 'information_id=6');
+        $this->data['terms'] = $this->url->link('information/information', 'information_id=5');
+        $this->data['security'] = $this->url->link('information/information', 'information_id=3');
 
         // Daniel's robot detector
         $status = true;

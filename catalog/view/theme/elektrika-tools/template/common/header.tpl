@@ -162,10 +162,10 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             <li><a href="<?php echo $shopping_cart; ?>" title="Shopping Cart"><i class="fa fa-shopping-cart"></i><?php echo $text_shopping_cart; ?></a></li>
         </ul>
         <ul class="foot">
-            <li><a href="/index.php?route=information/information&information_id=6"><i class="fa fa-truck"></i>Доставка</a></li>
+            <li><a href="<?=$shipping?>"><i class="fa fa-truck"></i>Доставка</a></li>
             <li><a href="<?php echo $return; ?>"><i class="fa fa-retweet" aria-hidden="true"></i><?php echo $text_return; ?></a></li>
-            <li><a href="/index.php?route=information/information&information_id=5"><i class="fa fa-cogs" aria-hidden="true"></i>Условия соглашения</a></li>
-            <li><a href="/index.php?route=information/information&information_id=3"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Политика безопасности</a></li>
+            <li><a href="<?=$terms?>"><i class="fa fa-cogs" aria-hidden="true"></i>Условия соглашения</a></li>
+            <li><a href="<?=security?>"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Политика безопасности</a></li>
         </ul>
         <ul class="foot foot-1">
             <li><a href="<?php echo $contact; ?>"><i class="fa fa-globe" aria-hidden="true"></i><?php echo $text_contact; ?></a></li>
@@ -192,15 +192,15 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             <div class="container">
                 <div class="box_html top-buttons">
                     <div class="row">
-                        <a href="/index.php?route=information/information&information_id=6" class="one-third blue">
+                        <a href="<?=$shipping?>" class="one-third blue">
                             <i class="fa fa-truck"></i>
                             <p>Бесплатная доставка<br>на заказы от 500р</p>
                         </a>
-                        <a href="#" class="one-third">
+                        <a href="<?=$terms?>" class="one-third">
                             <i class="fa fa-money"></i>
                             <p>Оплата<br>при получении</p>
                         </a>
-                        <a href="/index.php?route=information/information&information_id=9" class="one-third green">
+                        <a href="<?php echo $return; ?>" class="one-third green">
                             <i class="fa fa-refresh"></i>
                             <p>14 дней<br>на возврат</p>
                         </a>
