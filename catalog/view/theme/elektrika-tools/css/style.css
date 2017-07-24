@@ -1232,10 +1232,6 @@ div.bhoechie-tab-container{
     padding: 10px;
     border-radius: 4px;
     -moz-border-radius: 4px;
-    border:1px solid #ddd;
-    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     background-clip: padding-box;
     opacity: 0.97;
     filter: alpha(opacity=97);
@@ -1296,6 +1292,10 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .bhoechie-tab-content>div{
     border: 1px solid #eee;
+    border-bottom: none;
+}
+.bhoechie-tab-content>div:last-child{
+    border-bottom: 1px solid #eee;
 }
 .bhoechie-tab-content #category-parent{
     top:0;
@@ -1303,9 +1303,38 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 .modal-dialog {
     width:85%;
 }
+
 .bhoechie-tab-content a{
     color: #f16c14;
 }
+.bhoechie-tab-content ul{
+    padding: 0;
+    list-style: none;
+}
+.bhoechie-tab-content ul li {
+    color: #1c1c1c;
+    padding: 7px 0;
+}
+
+.bhoechie-tab-contentul li {
+    list-style-type: none;
+    font-size: 17px;
+    line-height: 19px;
+}
+.bhoechie-tab-content ul li a{
+    font-size: 16px;
+    line-height: 19px;
+    color: #1c1c1c;
+}
+.bhoechie-tab-content ul li a i {
+    font-size: 23px;
+    line-height: 19px;
+    margin-right: 10px;
+    height: 19px;
+    color: #f97001;
+    vertical-align: top;
+}
+
 @media (min-width: 1200px){
     .bhoechie-modal .container {
         width: auto;

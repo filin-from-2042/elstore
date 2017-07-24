@@ -248,7 +248,7 @@
     }
 
     #myModal .modal-dialog{
-        width: 97%;
+        width: 95%;
     }
 
 
@@ -262,6 +262,19 @@
         position: absolute;
         right: 17px;
         top: 31%
+    }
+
+    /************************** POPUP CATALOG ********************/
+    .bhoechie-tab-content #category-parent {
+        top: 0;
+        font-size: 16px;
+    }
+    div.bhoechie-tab-menu div.list-group>a {
+        /*text-align: left;*/
+        padding: 10px 7px;
+    }
+    div.bhoechie-tab{
+        padding: 0 0 0 10px;
     }
 }
 

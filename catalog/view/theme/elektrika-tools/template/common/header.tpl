@@ -80,7 +80,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 bhoechie-tab-menu">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5 bhoechie-tab-menu">
                                 <div class="list-group">
 
                                     <?php foreach($categories as $k=>$category){
@@ -90,7 +90,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                                     ?>
                                 </div>
                             </div>
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 bhoechie-tab">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 bhoechie-tab">
                                 <!-- flight section -->
 
                                 <?php foreach($categories as $k=>$category){
@@ -109,13 +109,13 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                                         if (isset($child['children']) && !empty($child['children']))
                                         {
                                         echo '<div class="col-sm-6 subcategories" >';
+                                            echo '<ul>';
                                             foreach($child['children'] as $grchild)
                                             {
-                                            echo '<a href="' . $grchild['href'] . '" ><i class="fa fa-angle-right"></i>' .$grchild['name'] . '</a><br>';
-                                            echo '<div class="clearfix"></div> ';
-
+                                            echo '<li><a href="' . $grchild['href'] . '" ><i class="fa fa-angle-right"></i>' .$grchild['name'] . '</a></li>';
                                             }
-                                            echo '</div> ';
+                                            echo '</ul>';
+                                        echo '</div> ';
                                         echo '<div class="clearfix"></div> ';
                                         }
                                         else
