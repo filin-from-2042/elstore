@@ -298,7 +298,7 @@ header a.button-category i,
 #compare-total,
 .name a,
 .btn.btn-default:hover i,
-.info-blocks .general-block-link{
+.info-blocks .overlay{
     -webkit-transition:all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
@@ -1367,6 +1367,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     bottom: 0;
     left: 0;
     padding: 0 0 10px 20px;
+    z-index: 101;
 }
 
 .info-blocks .carousel-control.right{
@@ -1392,6 +1393,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     position: absolute;
     bottom: 0;
     width: 80%;
+    z-index: 101;
 }
 .info-blocks .side-item .more{
     bottom: 15px;
@@ -1436,23 +1438,28 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     opacity: 1;
 }
 .info-blocks .carousel-inner .item .general-block-link,
-.info-blocks .side-item .general-block-link{
+.info-blocks .side-item .general-block-link,
+.info-blocks .carousel-inner .item .overlay,
+.info-blocks .side-item .overlay{
     display: inline-block;
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 102;
     left:0;
+}
+.info-blocks .carousel-inner .item .overlay,
+.info-blocks .side-item .overlay{
+    z-index: 100;
 }
 .info-blocks .carousel-inner .item:hover .more,
 .info-blocks .side-item:hover .more{
     z-index: 101;
 }
-.info-blocks .carousel-inner .item .general-block-link:hover,
-.info-blocks .side-item .general-block-link:hover{
-    background: rgba(0,0,0,.2);
+.info-blocks .carousel-inner .item:hover .overlay,
+.info-blocks .side-item:hover .overlay{
+    background: rgba(0,0,0,.5);
 }
-
 
 @media (max-width: 1024px){
     .info-blocks .carousel-caption h2 {

@@ -19,6 +19,7 @@
 
                             <div class="item active">
                                 <a href="/index.php?route=product/product&path=441_635&product_id=22241" class="general-block-link"></a>
+                                <span class="overlay"></span>
                                 <img src="image/slide0607.jpg" class="img-responsive" alt="...">
                                 <div class="carousel-caption">
                                     <h2 class="hidden-xs" style="font-size: 30px;">Эффективное уличное освещение</h2>
@@ -36,6 +37,7 @@
 
                             <div class="item ">
                                 <a href="/index.php?route=information/information&information_id=8" class="general-block-link"></a>
+                                <span class="overlay"></span>
                                 <img src="image/slide111.jpg" class="img-responsive" alt="...">
                                 <div class="carousel-caption">
                                     <h2 class="hidden-xs">Красиво, практично,а главное - дешево!</h2>
@@ -53,6 +55,7 @@
 
                             <div class="item ">
                                 <a href="/index.php?route=product/manufacturer/info&manufacturer_id=42" class="general-block-link"></a>
+                                <span class="overlay"></span>
                                 <img src="image/ecola.jpg" alt="...">
                                 <div class="carousel-caption">
                                     <h2 class="hidden-xs">Настоящая экономия!<br></h2>
@@ -69,6 +72,7 @@
 
                             <div class="item ">
                                 <a href="/index.php?route=product/category&path=430_501" class="general-block-link"></a>
+                                <span class="overlay"></span>
                                 <img src="image/slide5.jpg" alt="...">
                                 <div class="carousel-caption">
                                     <h2 class="hidden-xs">Элегантность и практичность<br></h2>
@@ -101,6 +105,7 @@
             <div class="col-xs-12 col-sm-4 col-lg-4 side-item">
                 <div class="">
                     <a href="/index.php?route=product/product&product_id=15437" class="general-block-link"></a>
+                    <span class="overlay"></span>
                     <img class="img-responsive" src="image/slides1.jpg" alt="...">
                     <div class="side-item-caption">
                         <h2>Мотоблок Агат<br></h2>
