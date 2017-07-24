@@ -75,7 +75,7 @@
         max-width: 100%;
     }
     .info-blocks .side-item{
-        text-align: center;
+        /*text-align: center;*/
     }
     .info-blocks .side-item img{
         max-width: 370px;
@@ -255,6 +255,7 @@
 /***************** SPECIALS ******************/
     .panel.goods-block .panel-heading h3{
         position: relative;
+        padding-right: 100px;
     }
     .panel.goods-block .view-all{
         font-size: 12px;
