@@ -682,7 +682,8 @@ a:hover {
     color: #ccc;
 }
 
-.swipe-control:hover,.swipe-control:active,body.ind .swipe-control {
+.swipe-control:hover,
+.swipe-control:active {
     color: #fff;
 }
 .swipe ul {
@@ -765,12 +766,12 @@ a:hover {
 }
 
 
-.ind .swipe {
+.ind.swipe {
     display: block;
     left: 0;
 }
 
-.ind #page {
+.ind#page {
     left: 0;
     position: fixed;
     top: 0;
@@ -783,7 +784,7 @@ a:hover {
     height: 100%;
     width: 100%;
     position: fixed;
-    z-index: 88
+    z-index: 88;
 }
 
 /************************* TOP ROW **************************/

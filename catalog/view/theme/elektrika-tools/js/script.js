@@ -1,12 +1,12 @@
 jQuery(document).ready(function() {
 
     jQuery('.swipe-control').click(function() {
-        if (jQuery(this).parents('body').hasClass('ind')) {
-            jQuery(this).parents('body').removeClass('ind');
+        if (jQuery('.swipe, #page').hasClass('ind')) {
+            jQuery('.swipe, #page').removeClass('ind');
             return false
         }
         else {
-            jQuery(this).parents('body').addClass('ind');
+            jQuery('.swipe, #page').addClass('ind');
             return false
         }
     });
