@@ -602,6 +602,23 @@ a:hover {
         height: 63px;
     }
 }
+@media (max-width: 768px)
+{
+    .round-animated-btn.big .wrap,
+    .round-animated-btn.big .wrap:before{
+        width: 44px;
+        height: 44px;
+    }
+    .round-animated-btn.big .wrap:before{
+        font-size: 32px;
+        line-height: 43px;
+    }
+    .round-animated-btn.big .content{
+        width: 46px;
+        height: 46px;
+    }
+
+}
 /******************* NOTIFICATION********************/
 #notification {
     position: fixed;
