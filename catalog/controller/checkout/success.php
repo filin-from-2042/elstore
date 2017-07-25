@@ -25,7 +25,7 @@ class ControllerCheckoutSuccess extends Controller {
 
       	$this->data['breadcrumbs'][] = array(
         	'href'      => $this->url->link('common/home'),
-        	'text'      => $this->language->get('text_home'),
+        	'text'      => $this->language->get('icon_home'),
         	'separator' => false
       	); 
 		
