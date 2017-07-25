@@ -54,7 +54,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
                         <div class="col-sm-10">
-                            <input type="text" name="firstname" value="<?php echo $firstname; ?>"" placeholder="Имя" id="input-firstname" class="form-control">
+                            <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="Имя" id="input-firstname" class="form-control">
                             <?php if ($error_firstname) { ?>
                             <span class="alert alert-danger"><?php echo $error_firstname; ?></span>
                             <?php } ?>
