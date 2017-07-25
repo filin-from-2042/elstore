@@ -154,7 +154,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
         </ul>
         <ul class="foot">
             <li><a href="<?=$shipping?>"><i class="fa fa-truck"></i>Доставка</a></li>
-            <li><a href="<?php echo $return; ?>"><i class="fa fa-retweet" aria-hidden="true"></i><?php echo $text_return; ?></a></li>
+            <?php /* ?><li><a href="<?php echo $return; ?>"><i class="fa fa-retweet" aria-hidden="true"></i><?php echo $text_return; ?></a></li><?php */ ?>
             <li><a href="<?=$terms?>"><i class="fa fa-cogs" aria-hidden="true"></i>Условия соглашения</a></li>
             <li><a href="<?=security?>"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Политика безопасности</a></li>
         </ul>
@@ -191,7 +191,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                             <i class="fa fa-money"></i>
                             <p>Оплата<br>при получении</p>
                         </a>
-                        <a href="<?php echo $return; ?>" class="one-third green">
+                        <a href="<?=$terms?>#return" class="one-third green">
                             <i class="fa fa-refresh"></i>
                             <p>14 дней<br>на возврат</p>
                         </a>

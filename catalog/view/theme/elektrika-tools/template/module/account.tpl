@@ -15,7 +15,7 @@
       <li><a href="<?php echo $wishlist; ?>"><i class="fa fa-angle-right"></i><?php echo $text_wishlist; ?></a></li>
       <li><a href="<?php echo $order; ?>"><i class="fa fa-angle-right"></i><?php echo $text_order; ?></a></li>
       <?php /*?><li><a href="<?php echo $download; ?>"><i class="fa fa-angle-right"></i><?php echo $text_download; ?></a></li><?php*/?>
-      <li><a href="<?php echo $return; ?>"><i class="fa fa-angle-right"></i><?php echo $text_return; ?></a></li>
+        <?php /*?><li><a href="<?php echo $return; ?>"><i class="fa fa-angle-right"></i><?php echo $text_return; ?></a></li><?php*/?>
         <?php /* ?><li><a href="<?php echo $transaction; ?>"><i class="fa fa-angle-right"></i><?php echo $text_transaction; ?></a></li><?php*/?>
       <li><a href="<?php echo $newsletter; ?>"><i class="fa fa-angle-right"></i><?php echo $text_newsletter; ?></a></li>
       <?php if ($logged) { ?>

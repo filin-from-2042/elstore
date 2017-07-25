@@ -43,7 +43,7 @@
                     <?php if ($reward) { ?>
                     <li><a href="<?php echo $reward; ?>"><i class="fa fa-angle-right"></i><?php echo $text_reward; ?></a></li>
                     <?php } ?>
-                    <li><a href="<?php echo $return; ?>"><i class="fa fa-angle-right"></i><?php echo $text_return; ?></a></li>
+                    <?php /* ?><li><a href="<?php echo $return; ?>"><i class="fa fa-angle-right"></i><?php echo $text_return; ?></a></li><?php */ ?>
                     <?php /* ?><li><a href="<?php echo $transaction; ?>"><i class="fa fa-angle-right"></i><?php echo $text_transaction; ?></a></li><?php */ ?>
                 </ul>
             </div>
