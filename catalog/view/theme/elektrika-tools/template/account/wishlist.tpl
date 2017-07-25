@@ -70,15 +70,15 @@
                 </table>
             </div>
             <div class="buttons">
-                <div class="right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+                <div class="text-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
             </div>
             <?php } else { ?>
             <div class="content"><?php echo $text_empty; ?></div>
             <div class="buttons">
-                <div class="right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+                <div class="text-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
             </div>
             <?php } ?>
-
+            <?php echo $content_bottom; ?>
         </div>
         <?php if ($column_right){ ?>
         <aside class="col-sm-3">
