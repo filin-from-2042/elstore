@@ -63,7 +63,7 @@
                 <div class="content"><?php echo $text_empty; ?></div>
             <?php } ?>
                 <div class="buttons">
-                    <div class="right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+                    <div class="text-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
                 </div>
             <?php echo $content_bottom; ?>
         </div>
