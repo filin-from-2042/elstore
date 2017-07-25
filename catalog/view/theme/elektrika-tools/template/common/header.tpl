@@ -91,46 +91,37 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 bhoechie-tab">
-                                <!-- flight section -->
-
-                                <?php foreach($categories as $k=>$category){
-                                echo '<div class="bhoechie-tab-content ' . ($k?'':'active') . ' ">';
-                                    if (isset($category['children'])){
-                                    foreach( $category['children'] as $child){
-                                    echo '<div class="col-sm-12 col-md-12 col-lg-12">';
-
-                                        echo '<a href="' . $child['href'] . '" >';
-                                            echo '<h3 id="category-parent">' .$child['name'] .'</h3>';
-                                            echo '<div class="col-sm-6 hidden-xs">';
-                                                echo '<img class="img-responsive" src="'. $child['thumb'] .'" />';
-                                                echo '</div>';
-
-                                            echo '</a>';
-                                        if (isset($child['children']) && !empty($child['children']))
+                                <?php foreach($categories as $k=>$category)
+                                {
+                                    echo '<div class="bhoechie-tab-content ' . ($k?'':'active') . ' ">';
+                                    if (isset($category['children']))
+                                    {
+                                        foreach( $category['children'] as $child)
                                         {
-                                        echo '<div class="col-sm-6 subcategories" >';
-                                            echo '<ul>';
-                                            foreach($child['children'] as $grchild)
+                                        echo '<div class="col-sm-12 col-md-12 col-lg-12">';
+
+                                            echo '<a href="' . $child['href'] . '" >';
+                                                echo '<h3 id="category-parent">' .$child['name'] .'</h3>';
+                                                echo '<div class="col-sm-6 hidden-xs">';
+                                                    echo '<img class="img-responsive" src="'. $child['thumb'] .'" />';
+                                                    echo '</div>';
+
+                                                echo '</a>';
+                                            if (isset($child['children']) && !empty($child['children']))
                                             {
-                                            echo '<li><a href="' . $grchild['href'] . '" ><i class="fa fa-angle-right"></i>' .$grchild['name'] . '</a></li>';
-                                            }
-                                            echo '</ul>';
-                                        echo '</div> ';
-                                        echo '<div class="clearfix"></div> ';
-                                        }
-                                        else
-                                        {
-                                        echo '<div  id="catdesc" class="col-sm-6 hidden-xs" >';
-                                            echo '<p>';
-                                                if (isset($child['desc']))echo html_entity_decode ($child['desc'])    ;
-                                                echo '</p>';
+                                            echo '<div class="col-sm-6 subcategories" >';
+                                                echo '<ul>';
+                                                foreach($child['children'] as $grchild)
+                                                {
+                                                echo '<li><a href="' . $grchild['href'] . '" ><i class="fa fa-angle-right"></i>' .$grchild['name'] . '</a></li>';
+                                                }
+                                                echo '</ul>';
                                             echo '</div> ';
-                                        echo '<div class="clearfix"></div> ';
+                                            echo '<div class="clearfix"></div> ';
+                                            }
+                                            echo '</div>';
                                         }
-                                        echo '</div>';
                                     }
-                                    }
-
                                     echo '</div>';
                                 }
                                 ?>
