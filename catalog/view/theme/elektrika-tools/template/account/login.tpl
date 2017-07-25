@@ -69,7 +69,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
             <?php echo $content_bottom; ?><script type="text/javascript"><!--
                 $('#login-form input').keydown(function(e) {

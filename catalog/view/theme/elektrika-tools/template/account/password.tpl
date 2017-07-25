@@ -55,8 +55,7 @@
                     </div>
                 </div>
             </form>
-
-
+            <?php echo $content_bottom; ?>
         </div>
         <?php if ($column_right){ ?>
         <aside class="col-sm-3">

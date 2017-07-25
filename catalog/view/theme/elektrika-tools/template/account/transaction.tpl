@@ -58,7 +58,6 @@
             <div class="buttons">
                 <div class="text-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
             </div>
-
             <?php echo $content_bottom; ?>
         </div>
         <?php if ($column_right){ ?>
