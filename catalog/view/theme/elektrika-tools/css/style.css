@@ -1299,6 +1299,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .bhoechie-tab-content #category-parent{
     top:0;
+    margin-bottom: 0;
+    padding-bottom: 10px;
 }
 .modal-dialog {
     width:85%;
