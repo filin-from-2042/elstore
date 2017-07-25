@@ -367,8 +367,7 @@ header a.button-category i,
 }
 .btn-danger,.btn-danger:visited,
 .btn-primary,.btn-primary:visited,
-.btn-info,.btn-info:visited,
-.btn-default, .btn-default:visited {
+.btn-info,.btn-info:visited{
     color: #fff;
     text-shadow: none;
     background-color: #f97001;
