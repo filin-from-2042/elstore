@@ -430,6 +430,26 @@ a:hover {
     right: 2px;
     top: 8px;
 }
+/************************* ARTICLE PAGE  *********************/
+.information-page-content{
+    font-size: 16px;
+    line-height: 30px;
+}
+.information-page-content ul{
+    list-style: none;
+}
+.information-page-content ul li:before {
+    content: "\f105";
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    color: #f97001;
+    margin-right: 14px;
+    font-size: 19px;
+    line-height: 19px;
+    height: 19px;
+}
 
 /***************** ASIDE CONTENT *****************/
 .box.info .box-content ul li a,
