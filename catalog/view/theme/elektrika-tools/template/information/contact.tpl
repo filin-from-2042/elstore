@@ -1,6 +1,5 @@
 <?php echo $header; ?>
 <div class="container">
-
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -8,7 +7,6 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-
     <div class="row">
         <div class="col-sm-12">
             <ul class="breadcrumb">
@@ -34,11 +32,15 @@
                             <address><?php echo $address; ?></address>
                         </div>
                         <div class="col-sm-6">
-
                             <?php if ($telephone) { ?>
                             <strong><?php echo $text_telephone; ?></strong><br />
-                            <?php echo $telephone; ?><br />
-                            <br />
+                            <?php
+                                $phones = explode(';',$telephone);
+                                foreach($phones as $phone)
+                                {
+                                    echo $phone.'<br />';
+                                }
+                            ?>
                             <?php } ?>
                             <?php if ($fax) { ?>
                             <strong><?php echo $text_fax; ?></strong><br />
