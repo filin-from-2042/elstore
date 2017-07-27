@@ -913,6 +913,7 @@ a:hover {
 .breadcrumb>li {
     padding: 0 15px 0 25px;
     position: relative;
+    vertical-align: baseline;
 }
 .breadcrumb>li:first-child{
     padding-left: 0;
