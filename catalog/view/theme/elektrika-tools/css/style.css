@@ -3050,3 +3050,13 @@ td .price,.price b {
 #full_gallery  .bx-wrapper .bx-controls-direction a{
     z-index: 999;
 }
+
+/********************* CONTACTS **************************/
+.information-contact .panel-body .row{
+    margin-bottom: 10px;
+}
+.information-contact h2,
+.information-contact h3,
+.information-contact h4{
+    margin-bottom: 5px;
+}
