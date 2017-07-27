@@ -156,7 +156,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             <li><a href="<?=$shipping?>"><i class="fa fa-truck"></i>Доставка</a></li>
             <?php /* ?><li><a href="<?php echo $return; ?>"><i class="fa fa-retweet" aria-hidden="true"></i><?php echo $text_return; ?></a></li><?php */ ?>
             <li><a href="<?=$terms?>"><i class="fa fa-cogs" aria-hidden="true"></i>Условия соглашения</a></li>
-            <li><a href="<?=security?>"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Политика безопасности</a></li>
+            <li><a href="<?=$security?>"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Политика безопасности</a></li>
         </ul>
         <ul class="foot foot-1">
             <li><a href="<?php echo $contact; ?>"><i class="fa fa-globe" aria-hidden="true"></i><?php echo $text_contact; ?></a></li>
