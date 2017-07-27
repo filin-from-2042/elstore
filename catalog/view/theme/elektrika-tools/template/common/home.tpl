@@ -1,7 +1,6 @@
 <?php echo $header; ?>
 <div class="container">
     <div class="row">
-
         <div class="info-blocks clearfix">
             <div class="col-xs-12 col-sm-8 col-lg-8">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 site-carousel">
@@ -156,8 +155,8 @@
         <div id="content" class="<?=$class?>"><?php echo $content_top; ?><?php echo $content_bottom; ?></div>
         <?php echo $column_right; ?>
     </div>
-    <div id="map-container">
-        <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=K3c_whlQjG-CppDG1ELZonoKzteiz4Wl&width=100%&height=359&lang=ru_RU&sourceType=constructor"></script>
-    </div>
+</div>
+<div id="map-container">
+    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=K3c_whlQjG-CppDG1ELZonoKzteiz4Wl&width=100%&height=359&lang=ru_RU&sourceType=constructor"></script>
 </div>
 <?php echo $footer; ?>
