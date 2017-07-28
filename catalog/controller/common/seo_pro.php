@@ -160,6 +160,10 @@ class ControllerCommonSeoPro extends Controller {
 			switch ($key) {
 				case 'product_id':
 				case 'manufacturer_id':
+                $queries[] = 'product/manufacturer';
+                $queries[] = $key . '=' . $value;
+                unset($data[$key]);
+                    break;
 				case 'category_id':
 				case 'information_id':
 					$queries[] = $key . '=' . $value;
