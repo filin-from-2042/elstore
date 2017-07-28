@@ -53,7 +53,7 @@ class ControllerProductCategory extends Controller {
 
         $this->data['breadcrumbs'][] = array(
             'text'      => "Каталог",
-            'href'      => $this->url->link('product/category'),
+            'href'      => $this->url->link('product/category', 'path=0'),
             'separator' => false
         );
 

@@ -130,7 +130,7 @@ class ControllerCommonSeoPro extends Controller {
 					$category = explode('_', $data['path']);
 					$category = end($category);
 					$data['path'] = $this->getPathByCategory($category);
-					if (!$data['path']) return $link;
+					if (!$data['path'] && $data['path']!=0) return $link;
 				}
 				break;
 
@@ -250,8 +250,8 @@ class ControllerCommonSeoPro extends Controller {
 	}
 
 	private function getPathByCategory($category_id) {
-		$category_id = (int)$category_id;
-		if ($category_id < 1) return false;
+        $category_id = (int)$category_id;
+        if ($category_id < 1) return '0';
 
 		static $path = null;
 		if (!is_array($path)) {
@@ -262,7 +262,7 @@ class ControllerCommonSeoPro extends Controller {
 		if (!isset($path[$category_id])) {
 			$max_level = 10;
 
-			$sql = "SELECT CONCAT_WS('_'";
+			$sql = "SELECT CONCAT_WS('_',0";
 			for ($i = $max_level-1; $i >= 0; --$i) {
 				$sql .= ",t$i.category_id";
 			}
