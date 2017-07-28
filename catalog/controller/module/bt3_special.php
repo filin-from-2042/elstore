@@ -6,6 +6,8 @@ class ControllerModuleBt3Special extends Controller {
       	$this->data['heading_title'] = $this->language->get('heading_title');
 
 		$this->data['button_cart'] = $this->language->get('button_cart');
+
+        $this->data['viewAll'] = $this->url->link('product/special');
 		
 		$this->load->model('catalog/product');
 		
