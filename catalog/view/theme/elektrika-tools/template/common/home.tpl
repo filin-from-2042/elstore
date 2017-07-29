@@ -17,6 +17,26 @@
                         <div class="carousel-inner" role="listbox">
 
                             <div class="item active">
+                                <a href="/search/?search=%D0%BF%D0%BE%D0%B4%D1%81%D0%B2%D0%B5%D1%82%D0%BA%D0%B0" class="general-block-link"></a>
+                                <span class="overlay"></span>
+                                <img src="image/slide2907.jpg" class="img-responsive" alt="...">
+                                <div class="carousel-caption">
+                                    <h2 class="hidden-xs" style="font-size: 30px;">Стильный акцент</h2>
+                                    <p style="font-size: 20px;">Новинка! Интерьерные светильники для подсветки картин и зеркал</p>
+                                    <p><a href="/search/?search=%D0%BF%D0%BE%D0%B4%D1%81%D0%B2%D0%B5%D1%82%D0%BA%D0%B0">Подробнее</a></p>
+                                </div>
+
+                                <div class="more">
+                                    <a href="/search/?search=%D0%BF%D0%BE%D0%B4%D1%81%D0%B2%D0%B5%D1%82%D0%BA%D0%B0" class="round-animated-btn big">
+                                            <span class="wrap">
+                                                <span class="content"></span>
+                                            </span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="item ">
                                 <a href="/index.php?route=product/product&path=441_635&product_id=22241" class="general-block-link"></a>
                                 <span class="overlay"></span>
                                 <img src="image/slide0607.jpg" class="img-responsive" alt="...">
