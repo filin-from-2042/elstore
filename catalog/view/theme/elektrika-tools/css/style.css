@@ -298,7 +298,8 @@ header a.button-category i,
 #compare-total,
 .name a,
 .btn.btn-default:hover i,
-.info-blocks .overlay{
+.info-blocks .overlay,
+.product-filter .view-type-container a i{
     -webkit-transition:all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
@@ -2038,11 +2039,16 @@ footer .social a:hover i {
 .product-filter .view-type-container{
     padding-top: 5px;
 }
-.product-filter .view-type-container i {
+.product-filter .view-type-container i,
+.product-filter .view-type-container a i:hover {
     vertical-align: top;
     border: 0;
     background: none;
     font-size: 27px;
+    color: #f16c14;
+}
+.product-filter .view-type-container a i{
+    color: #777;
 }
 .product-filter .view-type-container a{
     cursor: pointer;
