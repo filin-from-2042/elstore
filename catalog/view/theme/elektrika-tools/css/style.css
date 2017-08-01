@@ -299,7 +299,8 @@ header a.button-category i,
 .name a,
 .btn.btn-default:hover i,
 .info-blocks .overlay,
-.product-filter .view-type-container a i{
+.product-filter .view-type-container a i,
+.btn.details i{
     -webkit-transition:all .5s ease-out;
     -moz-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
