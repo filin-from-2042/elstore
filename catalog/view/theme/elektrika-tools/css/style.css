@@ -530,6 +530,7 @@ a:hover {
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
+    position: relative;
 }
 .round-animated-btn .wrap:before{
     color: #333;
@@ -539,8 +540,8 @@ a:hover {
     line-height: 50px;
     width: 50px;
     height: 50px;
-    top: 0;
-    left: 0;
+    top: -2px;
+    left: -2px;
     position: absolute;
     text-align: center;
     z-index: 2;
@@ -549,10 +550,10 @@ a:hover {
 .round-animated-btn .content {
     position: absolute;
     background: #f97001;
-    width: 52px;
-    height: 52px;
-    top: -1px;
-    left: -1px;
+    width: 53px;
+    height: 53px;
+    top: -3px;
+    left: -3px;
     border-radius: 50%;
     opacity: 0;
     -webkit-transition: all 0.4s ease-in-out;
@@ -591,8 +592,8 @@ a:hover {
     line-height: 76px;
 }
 .round-animated-btn.big .content{
-    width: 78px;
-    height: 78px;
+    width: 79px;
+    height: 79px;
 }
 .round-animated-btn.small .wrap,
 .round-animated-btn.small .wrap:before{
@@ -604,8 +605,8 @@ a:hover {
     line-height: 43px;
 }
 .round-animated-btn.small .content{
-    width: 46px;
-    height: 46px;
+    width: 47px;
+    height: 47px;
 }
 @media (max-width: 991px) and (min-width: 768px)
 {
