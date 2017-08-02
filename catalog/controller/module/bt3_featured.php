@@ -51,6 +51,7 @@ class ControllerModuleBt3Featured extends Controller {
 					
 				$this->data['products'][] = array(
 					'product_id' => $product_info['product_id'],
+                    'special'     => (isset($result['product_special_id']) && $result['product_special_id'])? true : false,
 					'thumb'   	 => $image,
 					'name'    	 => $product_info['name'],
 					'quantity'   => $product_info['quantity'],

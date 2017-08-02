@@ -38,10 +38,12 @@ class ModelCatalogProduct extends Model {
                                     " (SELECT lcd.unit FROM " . DB_PREFIX . "length_class_description lcd WHERE p.length_class_id = lcd.length_class_id AND lcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS length_class,  ".
                                     " (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating,  ".
                                     " (SELECT COUNT(*) AS total FROM " . DB_PREFIX . "review r2 WHERE r2.product_id = p.product_id AND r2.status = '1' GROUP BY r2.product_id) AS reviews, ".
-                                    "  p.sort_order  ".
+                                    "  p.sort_order , ".
+                                    " ps.product_special_id" .
                                 " FROM " . DB_PREFIX . "product p  ".
                                 " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)  ".
                                 " LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)  ".
+                                " LEFT JOIN " . DB_PREFIX . "product_special ps ON (p.product_id = ps.product_id) ".
                                 " LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)  ".
                                 " WHERE p.product_id = '" . (int)$product_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
 		

@@ -313,6 +313,7 @@ class ControllerProductCategory extends Controller {
 								
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
+					'special'     => (isset($result['product_special_id']) && $result['product_special_id'])? true : false,
 					'thumb'       => $image,
 					'name'        => $result['name'],
                     'code'        => isset($result['model'])? ('код: ' . $result['model']):' ',
