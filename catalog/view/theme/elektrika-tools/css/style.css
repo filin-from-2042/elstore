@@ -868,15 +868,19 @@ a:hover {
     left: 12px;
     z-index: 10;
 }
-.sale, .new_pr {
+.sale, .new_pr, .stock {
     float: left;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 16px;
     font-weight: normal;
     position: relative;
     background: #75b70e;
     color: #fff;
     padding: 6px 10px 7px;
+    margin-right: 5px;
+}
+.stock{
+    background-color: #f3515c;
 }
 .new_pr {
     background: #54b5e8;

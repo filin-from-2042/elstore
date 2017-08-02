@@ -54,6 +54,7 @@ class ControllerModuleBt3Special extends Controller {
 				'product_id' => $result['product_id'],
 				'thumb'   	 => $image,
 				'name'    	 => $result['name'],
+                'quantity'    => $result['quantity'],
 				'price'   	 => $price,
 				'special' 	 => $special,
                 'code'        => isset($result['model'])? ('код: ' . $result['model']):'',

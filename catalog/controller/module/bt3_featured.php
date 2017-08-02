@@ -53,7 +53,7 @@ class ControllerModuleBt3Featured extends Controller {
 					'product_id' => $product_info['product_id'],
 					'thumb'   	 => $image,
 					'name'    	 => $product_info['name'],
-					'quantity'    	 => $product_info['quantity'],
+					'quantity'   => $product_info['quantity'],
 					'price'   	 => $price,
 					'special' 	 => $special,
                     'code'        => isset($product_info['model'])? ('код: ' . $product_info['model']):'',
