@@ -27,7 +27,7 @@ class ModelCatalogProduct extends Model {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}	
 				
-		$query = $this->db->query("SELECT DISTINCT *, pd.name AS name, p.measure AS measure, ".
+		$query = $this->db->query("SELECT DISTINCT p.*,pd.*,p2s.*,m.*, pd.name AS name, p.measure AS measure, ".
                                     " p.image, ".
                                     "  m.name AS manufacturer, ".
                                     " (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < '" . $this->NOW . "') AND (pd2.date_end = '0000-00-00' OR pd2.date_end > '" . $this->NOW . "')) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount,  ".
@@ -38,8 +38,9 @@ class ModelCatalogProduct extends Model {
                                     " (SELECT lcd.unit FROM " . DB_PREFIX . "length_class_description lcd WHERE p.length_class_id = lcd.length_class_id AND lcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS length_class,  ".
                                     " (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating,  ".
                                     " (SELECT COUNT(*) AS total FROM " . DB_PREFIX . "review r2 WHERE r2.product_id = p.product_id AND r2.status = '1' GROUP BY r2.product_id) AS reviews, ".
-                                    "  p.sort_order , ".
+                                    "  p.sort_order, ".
                                     " ps.product_special_id" .
+                                    //" (SELECT op.product_id AS total FROM " . DB_PREFIX . "order_product op LEFT JOIN `" . DB_PREFIX . "order` o ON (op.order_id = o.order_id) LEFT JOIN `" . DB_PREFIX . "product` p ON (op.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE o.order_status_id > '0' AND p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' GROUP BY op.product_id ORDER BY total DESC LIMIT 12)".
                                 " FROM " . DB_PREFIX . "product p  ".
                                 " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)  ".
                                 " LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)  ".
@@ -67,6 +68,7 @@ class ModelCatalogProduct extends Model {
 				'mpn'              => $query->row['mpn'],
 				'location'         => $query->row['location'],
 				'quantity'         => $query->row['quantity'],
+				'bestseller'       => $this->isBestseller($product_id),
 				'stock_status'     => $query->row['stock_status'],
 				'image'            => $query->row['image'],
 				'manufacturer_id'  => $query->row['manufacturer_id'],
@@ -393,6 +395,29 @@ class ModelCatalogProduct extends Model {
 					 	 		
 		return $product_data;
 	}
+
+    public function isBestseller($productID)
+    {
+        if ($this->customer->isLogged()) {
+            $customer_group_id = $this->customer->getCustomerGroupId();
+        } else {
+            $customer_group_id = $this->config->get('config_customer_group_id');
+        }
+        $limit = 12;
+        $product_data = $this->cache->get('product.bestseller-check.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$limit);
+
+        if (!$product_data) {
+            $product_data = array();
+
+            $query = $this->db->query("SELECT op.product_id, COUNT(*) AS total FROM " . DB_PREFIX . "order_product op LEFT JOIN `" . DB_PREFIX . "order` o ON (op.order_id = o.order_id) LEFT JOIN `" . DB_PREFIX . "product` p ON (op.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE o.order_status_id > '0' AND p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' GROUP BY op.product_id ORDER BY total DESC LIMIT " . (int)$limit);
+            foreach ($query->rows as $result) {
+                $product_data[$result['product_id']] = $result['product_id'];
+            }
+            $this->cache->set('product.bestseller-check.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$limit, $product_data);
+        }
+
+        return array_key_exists($productID,$product_data);
+    }
 
 	public function getBestSellerProducts($limit) {
 		if ($this->customer->isLogged()) {

@@ -51,7 +51,8 @@ class ControllerModuleBt3Featured extends Controller {
 					
 				$this->data['products'][] = array(
 					'product_id' => $product_info['product_id'],
-                    'special'     => (isset($result['product_special_id']) && $result['product_special_id'])? true : false,
+                    'special'     => (isset($product_info['product_special_id']) && $product_info['product_special_id'])? true : false,
+                    'bestseller'  => $product_info['bestseller'],
 					'thumb'   	 => $image,
 					'name'    	 => $product_info['name'],
 					'quantity'   => $product_info['quantity'],
@@ -60,7 +61,7 @@ class ControllerModuleBt3Featured extends Controller {
                     'code'        => isset($product_info['model'])? ('код: ' . $product_info['model']):'',
 					'rating'     => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
-                    'href'    	 => $this->url->link('product/product', array('product_id=' . $product_info['product_id'] ))
+                    'href'    	 => $this->url->link('product/product', array('product_id=' . $product_info['product_id']))
 				);
 			}
 		}

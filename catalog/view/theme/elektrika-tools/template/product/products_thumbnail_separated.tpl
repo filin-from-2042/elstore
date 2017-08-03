@@ -7,6 +7,7 @@
                 </span><?*/?>
                 <span class="stickers">
                     <?php if(isset($product['special']) && $product['special']==true){ ?><span class="sale">Акция</span><? } ?>
+                    <?php if(isset($product['bestseller']) && $product['bestseller']==true){ ?><span class="bestseller">Хит продаж</span><? } ?>
                     <?php if(isset($product['quantity']) && $product['quantity']<1){ ?><span class="stock">Нет в наличии</span><? } ?>
                 </span>
             <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['thumb']; ?>" title="<?php echo $product['thumb']; ?>" class="img-responsive" />
