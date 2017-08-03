@@ -57,6 +57,7 @@ class ControllerModuleBt3Featured extends Controller {
 					'quantity'   => $product_info['quantity'],
 					'price'   	 => $price,
 					'special' 	 => $special,
+                    'latest' 	 => $product_info['latest'],
                     'code'        => isset($product_info['model'])? ('код: ' . $product_info['model']):'',
 					'rating'     => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),

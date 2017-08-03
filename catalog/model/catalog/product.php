@@ -73,6 +73,7 @@ class ModelCatalogProduct extends Model {
 				'manufacturer'     => $query->row['manufacturer'],
 				'price'            => ($query->row['discount'] ? $query->row['discount'] : $query->row['price']),
 				'special'          => $query->row['special'],
+				'latest'           => $this->isLatest($product_id),
 				'reward'           => $query->row['reward'],
 				'points'           => $query->row['points'],
 				'tax_class_id'     => $query->row['tax_class_id'],
@@ -359,6 +360,29 @@ class ModelCatalogProduct extends Model {
 		
 		return $product_data;
 	}
+
+    public function isLatest($productID) {
+        if ($this->customer->isLogged()) {
+            $customer_group_id = $this->customer->getCustomerGroupId();
+        } else {
+            $customer_group_id = $this->config->get('config_customer_group_id');
+        }
+        $limit = 12;
+        $product_data = $this->cache->get('product.latest-check.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $customer_group_id . '.' . (int)$limit);
+
+        if (!$product_data) {
+            $query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
+
+            foreach ($query->rows as $result) {
+                $product_data[$result['product_id']] = $result['product_id'];
+            }
+
+            $this->cache->set('product.latest-check.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$limit, $product_data);
+        }
+
+        return array_key_exists($productID,$product_data);
+
+    }
 		
 	public function getLatestProducts($limit) {
 		if ($this->customer->isLogged()) {
