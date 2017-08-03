@@ -252,7 +252,6 @@ class ControllerProductSearch extends Controller {
 			
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
-                    'special'     => (isset($result['product_special_id']) && $result['product_special_id'])? true : false,
                     'bestseller'  => $result['bestseller'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
