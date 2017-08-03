@@ -2334,6 +2334,12 @@ footer .social a:hover i {
     font-size: 8px;
     width: 1.3em
 }
+
+.product_page .general_info .stickers{
+    position: static;
+    display: block;
+}
+
 .product_page .general_info {
     color: #888;
     font-size: 16px;

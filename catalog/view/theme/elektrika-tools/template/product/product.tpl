@@ -112,6 +112,13 @@
                     <div class="general_info product-info">
                         <h1><?php echo $heading_title; ?></h1>
                         <div class="rating-section product-rating-status">
+                            <? if($stickers){ ?>
+                            <span class="stickers clearfix">
+                                <?php if(isset($stickers['special']) && $stickers['special']){ ?><span class="sale">Акция</span><? } ?>
+                                <?php if(isset($stickers['latest']) && $stickers['latest']==true){ ?><span class="new_pr">Новинка</span><? } ?>
+                                <?php if(isset($stickers['bestseller']) && $stickers['bestseller']==true){ ?><span class="bestseller">Хит продаж</span><? } ?>
+                            </span>
+                            <? } ?>
                             <div class="rating">
                                 <?php for($i=1;$i<6;$i++){ ?>
                                     <?if($i<=$rating){ ?>
