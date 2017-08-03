@@ -12,6 +12,9 @@
 }
 @media (min-width: 768px) and (max-width: 991px) {
 
+    .stock{
+        float: left
+    }
     .btn.details {
         padding: 0;
         width: 51px;

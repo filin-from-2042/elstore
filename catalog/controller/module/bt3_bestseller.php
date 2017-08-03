@@ -39,7 +39,7 @@ class ControllerModuleBt3BestSeller extends Controller {
 			} else {
 				$rating = false;
 			}
-							
+
 			$this->data['products'][] = array(
 				'product_id' => $result['product_id'],
                 'special'     => (isset($result['product_special_id']) && $result['product_special_id'])? true : false,
