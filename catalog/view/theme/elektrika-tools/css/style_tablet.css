@@ -170,4 +170,8 @@
         padding: 0 105px;
     }
 
+    .product-thumb .price-new {
+        margin-left: -6px;
+    }
+
 }
