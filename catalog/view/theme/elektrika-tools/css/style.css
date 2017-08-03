@@ -2565,6 +2565,9 @@ footer .social a:hover i {
 .product-section {
     margin-bottom: 3em;
 }
+.product-section.product-desc{
+    font-size: 15px;
+}
 .related-products {
     padding: 0 79px;
 }
