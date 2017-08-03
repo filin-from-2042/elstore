@@ -84,6 +84,20 @@
                             <?php } ?>
                         </div>
                     </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-captcha"><?php echo $entry_captcha; ?></label>
+                        <div class="col-sm-10">
+                            <input type="text" name="captcha" id="input-captcha" class="form-control" value="<?php echo $captcha; ?>" placeholder="Код с изображения">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10 pull-right">
+                            <img src="index.php?route=information/contact/captcha" alt="">
+                            <?php if ($error_captcha) { ?>
+                            <span class="alert alert-danger"><?php echo $error_captcha; ?></span>
+                            <?php } ?>
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <legend><?php echo $text_your_password; ?></legend>
