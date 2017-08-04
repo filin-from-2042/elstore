@@ -371,8 +371,16 @@ class ModelCatalogProduct extends Model {
         $product_data = $this->cache->get('product.latest-check.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $customer_group_id . '.' . (int)$limit);
 
         if (!$product_data) {
-            $query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY p.date_added DESC LIMIT " . (int)$limit);
+            
+            $sql = "SELECT DISTINCT p.product_id ".
+                     "FROM " . DB_PREFIX . "product p ".
+                     "LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) ".
+                     "LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) ".
+                     "WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= '" . $this->NOW . "' AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ".
+                     "GROUP BY p.product_id ".
+                     "ORDER BY p.price = 0, p.quantity = 0, p.date_added DESC, LCASE(pd.name) DESC LIMIT 0," . (int)$limit;
 
+            $query = $this->db->query($sql);
             foreach ($query->rows as $result) {
                 $product_data[$result['product_id']] = $result['product_id'];
             }
