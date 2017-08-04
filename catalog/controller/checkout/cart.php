@@ -144,6 +144,11 @@ class ControllerCheckoutCart extends Controller {
 			$this->data['button_shipping'] = $this->language->get('button_shipping');			
       		$this->data['button_shopping'] = $this->language->get('button_shopping');
       		$this->data['button_checkout'] = $this->language->get('button_checkout');
+
+            if($this->config->get('config_template')=="elektrika-tools")
+            {
+                $this->document->addScript('catalog/view/theme/elektrika-tools/js/Pages/cart.js');
+            }
 			
 			if (isset($this->error['warning'])) {
 				$this->data['error_warning'] = $this->error['warning'];
@@ -741,5 +746,10 @@ class ControllerCheckoutCart extends Controller {
 		
 		$this->response->setOutput(json_encode($json));
 	}
+
+    public function clear()
+    {
+        $this->cart->clear();
+    }
 }
 ?>

@@ -113,16 +113,32 @@
                 </div>
             </div>
             <div class="buttons">
-                <div class="pull-right">
-                    <?php /*if ($logged){ ?>
-                    <button type="button" id="button-confirm" class="btn btn-primary" data-toggle="tooltip" title="В контактных данных в заказе будут указаны данные из профиля пользователя" data-loading-text="Отправить заказ...">Отправить заказ</button>
-                    <?php } else { ?>
-                    <a href="<?php echo $checkout_simple; ?>" data-toggle="tooltip" title="Перейти к оформлению заказа" class="btn"><?php echo $button_checkout; ?></a>
-                    <?php }*/?>
-                    <a href="<?php echo $checkout_simple; ?>" data-toggle="tooltip" title="Перейти к оформлению заказа" class="btn"><?php echo $button_checkout; ?></a>
+                <div class="pull-left">
                     <a href="<?php echo $continue; ?>" data-toggle="tooltip" title="Перейти в каталог магазина" class="btn btn-primary continue-btn"><?php echo $button_shopping; ?></a>
+                    <button type="button" data-toggle="modal"  title="Убрать все товары из корзины" class="btn" data-target="#clearCartModal">Очистить корзину</button>
+                </div>
+                <div class="pull-right">
+                    <a href="<?php echo $checkout_simple; ?>" data-toggle="tooltip" title="Перейти к оформлению заказа" class="btn btn-primary "><?php echo $button_checkout; ?></a>
                 </div>
             </div>
+            <div class="modal fade" id="clearCartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Очистка корзины</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-container">Вы уверены?</div>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-primary clear-action">Очистить</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <?php echo $content_bottom; ?>
         </div>
         <?php if ($column_right){ ?>
@@ -133,19 +149,3 @@
     </div>
 </div>
 <?php echo $footer; ?>
-<script>
-    jQuery(function($) {
-        /** Confirm */
-        $('#button-confirm').click(function() {
-            $.ajax({
-                async: false,
-                url: 'index.php?route=checkout/create_order',
-                type: 'get',
-                context: this,
-                success: function(responce) {
-                    if(parseInt(responce) > 0 ) location = 'index.php?route=checkout/success'
-                }
-            });
-        });
-    });
-</script>
