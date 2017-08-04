@@ -36,7 +36,7 @@ class ControllerCheckoutSuccess extends Controller {
       	);
 				
 		$this->data['breadcrumbs'][] = array(
-			'href'      => $this->url->link('checkout/checkout', '', 'SSL'),
+			'href'      => $this->url->link('checkout/checkout_simple', '', 'SSL'),
 			'text'      => $this->language->get('text_checkout'),
 			'separator' => $this->language->get('text_separator')
 		);	
