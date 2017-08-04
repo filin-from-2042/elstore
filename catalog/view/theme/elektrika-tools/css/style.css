@@ -2920,7 +2920,29 @@ input#input-voucher,input#input-coupon {
 .checkout-cart .table-responsive a:hover {
     color: #f97001;
 }
-
+.checkout-checkout_simple .cartTotal h2{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 0;
+    text-transform: initial;
+}
+.checkout-checkout_simple .total{
+    font-size: 16px;
+}
+.checkout-checkout_simple .total .value{
+    color: #f97001;
+    font-weight: bold;
+}
+.checkout-checkout_simple .alert{
+    margin-top: 10px;
+}
 td .name a {
     font-size: 13px;
 }

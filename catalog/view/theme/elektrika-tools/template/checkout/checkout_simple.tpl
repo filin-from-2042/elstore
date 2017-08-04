@@ -41,11 +41,41 @@
                                 <input type="text" name="email" value="<?=$email?>" class="form-control" id="input-payment-email" placeholder="E-mail"  />
                             </div>
                         </fildset>
-                        <div class="buttons">
-                            <div class="right">
-                                <input type="submit" class="btn btn-primary" value="Отправить заказ" id="button-create-order" />
+                    </div>
+                    <div class="col-sm-6">
+                        <? if($total) { ?>
+                        <div class="cartTotal">
+                            <h2>Итого</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td class="text-center">Товар</td>
+                                        <td class="text-left">Количество</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($products as $product) { ?>
+                                        <tr>
+                                            <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></td>
+                                            <td class="text-left"><?php echo $product['quantity']; ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="total pull-right">
+                                <span class="text">Сумма заказа: </span><span class="value" id="total_price_id"><?=$total['text']?></span>
                             </div>
                         </div>
+                        <? } ?>
+                    </div>
+                </div>
+                <div class="alert alert-info" role="alert">После отправки с Вами сразу же свяжется наш специалист по указанному телефонному номеру для уточнения деталей заказа</div>
+                <div class="buttons">
+                    <div class="right">
+                        <input type="submit" class="btn btn-primary" value="Отправить заказ" id="button-create-order" />
                     </div>
                 </div>
             </form>
