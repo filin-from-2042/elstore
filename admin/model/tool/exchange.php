@@ -70,11 +70,13 @@ class ModelToolExchange extends Model {
             //добавим категорию в 1с таблицы
             $this->db->query("UPDATE  " . DB_PREFIX . "1c_cat SET oc_cat_id='$category_id' WHERE 1c_kod_group='$kod_1c'");
         }
-
+        // Update whole thing only when parent is changed
+        //if ($kod_1c_rod!=$tmp['parent_id'])
         $this->updateParentCat();
     }
 
-    function updateParentCat() {
+    function updateParentCat($kod_1c_rod) {
+
 
         $query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "1c_cat");
         //выберем все
@@ -233,7 +235,8 @@ class ModelToolExchange extends Model {
     }
 
     //--------------------------------------------Продукт----------------------------------------------------------------------------------------------       
-    public function addProduct($action, $kod_1c, $description, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $image, $kod_1c_rod, $lang = '0',$is_deleted = false) {
+    public function addProduct($action, $kod_1c, $description, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $image, $kod_1c_rod, $lang = '0',$is_deleted = false, $adImage=false) {
+
 
         $data = array();
         $product = array();
@@ -376,6 +379,53 @@ class ModelToolExchange extends Model {
                 $sql = "UPDATE  " . DB_PREFIX . "product SET image='data/" .$tmp['model']. ".jpg' WHERE product_id='".$tmp['product_id']." '";
                 //file_put_contents('debug.txt',$sql , FILE_APPEND);
                 $this->db->query($sql);
+            }
+
+
+
+
+            // Additional image to product
+            // Do image magic
+            // We get 0 if 1c has no image, so:
+            if ($adImage) {
+                //decode
+                $image = base64_decode($adImage);
+                $imageSize = strlen($image);
+                // Get OC image and compare
+                $sql = "SELECT  * FROM " . DB_PREFIX . "product_image where product_id  = '" . $product_id . "'";
+                $tmp2=array();
+                $tmp2 = $this->db->query($sql);
+                $tmp2 = $tmp2->row;
+
+                if (isset($tmp2['image'])) {
+                    file_put_contents('debug.txt',"Jebana" , FILE_APPEND);
+                    $oldImgSize = filesize(DIR_IMAGE . $tmp2['image']);
+                    if ($imageSize == $oldImgSize) {
+                        //just do nothing. Hehehe
+                        //file_put_contents('debug.txt',"Hehehe" , FILE_APPEND);
+                    } else {
+                        // Delete old file
+                        unlink(DIR_IMAGE . $tmp2['image']);
+                        // Save image to directory
+                        $newFilename = DIR_IMAGE . 'data/' . $kod_1c . '-2.jpg';
+                        file_put_contents($newFilename, $image);
+                        // update rec
+                        $sql = "UPDATE  " . DB_PREFIX . "product_image SET image='data/" . $kod_1c . "-2.jpg' WHERE product_id='" . $product_id . " '";
+                        file_put_contents('debug.txt',$sql  , FILE_APPEND);
+                        //file_put_contents('debug.txt',$sql , FILE_APPEND);
+                        $this->db->query($sql);
+                    }
+
+                } else {
+                    file_put_contents('debug.txt',"Came here" , FILE_APPEND);
+                    // just save image from 1c
+                    $newFilename = DIR_IMAGE . 'data/' . $kod_1c . '-2.jpg';
+                    file_put_contents($newFilename, $image);
+                    // update rec
+                    $sql = "INSERT INTO  " . DB_PREFIX . "product_image (product_id, image) VALUES ('". $product_id ."', 'data/" . $kod_1c . "-2.jpg') ";
+                    file_put_contents('debug.txt',$sql , FILE_APPEND);
+                    $this->db->query($sql);
+                }
             }
 
 

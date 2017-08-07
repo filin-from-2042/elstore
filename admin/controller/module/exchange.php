@@ -192,7 +192,7 @@ class ControllerModuleExchange extends Controller {
                         ) ENGINE = MYISAM DEFAULT CHARSET=utf8");
     }
 
-    function xmlRpc($login, $password, $action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $is_deleted=false) {
+    function xmlRpc($login, $password, $action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $is_deleted=false, $adImage=false) {
 
 
         //------------
@@ -226,7 +226,7 @@ class ControllerModuleExchange extends Controller {
                 //file_put_contents ( "debug.txt" ,$kod_1c. ' ' . $name_1c . ' ' .$ostatok_1c . ' '  , FILE_APPEND );
                 //if (!$is_group_1c){
                     $this->load->model('tool/exchange');
-                    $this->model_tool_exchange->addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $lang,$is_deleted);
+                    $this->model_tool_exchange->addProduct($action, $kod_1c, $article_1c, $name_1c, $ostatok_1c, $edizm_1c, $cost_1c, $is_group_1c, $kod_own_1c, $lang,$is_deleted, $adImage);
                // }
                 break;
             case 'getProduct':
