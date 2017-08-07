@@ -185,7 +185,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                     <div class="row">
                         <a href="<?=$shipping?>" class="one-third blue">
                             <i class="fa fa-truck"></i>
-                            <p>Бесплатная доставка<br>на заказы от 500р</p>
+                            <p>Отправка<br>по всей России</p>
                         </a>
                         <a href="<?=$terms?>" class="one-third">
                             <i class="fa fa-money"></i>
@@ -194,6 +194,11 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                         <a href="<?=$terms?>#return" class="one-third green">
                             <i class="fa fa-refresh"></i>
                             <p>14 дней<br>на возврат</p>
+                        </a>
+
+                        <a class="pull-right">
+                            Скидка 5% при заказе с сайта.<br>
+                            Цены указаны без учета скидки.
                         </a>
                     </div>
                 </div>
