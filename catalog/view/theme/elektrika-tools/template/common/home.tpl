@@ -10,7 +10,7 @@
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+
                         </ol>
 
                         <!-- Wrapper for slides -->
@@ -37,57 +37,27 @@
                             </div>
 
                             <div class="item ">
-                                <a href="/index.php?route=product/product&path=441_635&product_id=22241" class="general-block-link"></a>
+                                <a href="/category/svetilniki-mr16-s-led-podsvetkoj/" class="general-block-link"></a>
                                 <span class="overlay"></span>
-                                <img src="image/slide0607.jpg" class="img-responsive" alt="...">
+                                <img src="image/slide3007.jpg" class="img-responsive" alt="...">
                                 <div class="carousel-caption">
-                                    <h2 class="hidden-xs" style="font-size: 30px;">Эффективное уличное освещение</h2>
-                                    <p style="font-size: 20px;">Новинка! Универсальный светодиодный прожектор с возможностью крепления на столб. Самый бюджетный вариант среди прожекторов данного класса.</p>
-                                    <p><a href="/index.php?route=product/product&path=441_635&product_id=22241">Подробнее</a></p>
+                                    <h2 class="hidden-xs" style="font-size: 30px;">Блестящее дополнение!</h2>
+                                    <p style="font-size: 20px;">Хит этого сезона - красивые светильники с дополнительной блестящей светодиодной подсветкой</p>
+                                    <p><a href="/category/svetilniki-mr16-s-led-podsvetkoj/">Подробнее</a></p>
                                 </div>
+
                                 <div class="more">
-                                    <a href="/index.php?route=product/product&path=441_635&product_id=22241" class="round-animated-btn big">
+                                    <a href="/category/svetilniki-mr16-s-led-podsvetkoj/" class="round-animated-btn big">
                                             <span class="wrap">
                                                 <span class="content"></span>
                                             </span>
                                     </a>
                                 </div>
+
                             </div>
 
-                            <div class="item ">
-                                <a href="/index.php?route=information/information&information_id=8" class="general-block-link"></a>
-                                <span class="overlay"></span>
-                                <img src="image/slide111.jpg" class="img-responsive" alt="...">
-                                <div class="carousel-caption">
-                                    <h2 class="hidden-xs">Красиво, практично,а главное - дешево!</h2>
-                                    <p>Открыт специализированный отдел с красивыми <a href="/index.php?route=product/category&path=441_893">люстрами, бра</a> по привлекательным ценам!</p>
-                                    <p><a href="/index.php?route=information/information&information_id=8">Подробнее</a></p>
-                                </div>
-                                <div class="more">
-                                    <a href="/index.php?route=information/information&information_id=8" class="round-animated-btn big">
-                                            <span class="wrap">
-                                                <span class="content"></span>
-                                            </span>
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div class="item ">
-                                <a href="/index.php?route=product/manufacturer/info&manufacturer_id=42" class="general-block-link"></a>
-                                <span class="overlay"></span>
-                                <img src="image/ecola.jpg" alt="...">
-                                <div class="carousel-caption">
-                                    <h2 class="hidden-xs">Настоящая экономия!<br></h2>
-                                    <p>Расширение ассортимента и снижение цен на продукцию фирмы <a href="/index.php?route=product/manufacturer/info&manufacturer_id=42">  Ecola </a></p>
-                                </div>
-                                <div class="more">
-                                    <a href="/index.php?route=product/manufacturer/info&manufacturer_id=42" class="round-animated-btn big">
-                                            <span class="wrap">
-                                                <span class="content"></span>
-                                            </span>
-                                    </a>
-                                </div>
-                            </div>
+
 
                             <div class="item ">
                                 <a href="/index.php?route=product/category&path=430_501" class="general-block-link"></a>
