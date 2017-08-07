@@ -837,6 +837,12 @@ a:hover {
     color: #262626;
     margin-right: 23px;
 }
+#discount{
+    position: absolute;
+    right: 0;
+    text-align: right;
+}
+.top-panel>.container{ position: relative}
 
 .top-buttons a:hover {
     color: #f97001;

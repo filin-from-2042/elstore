@@ -196,9 +196,9 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                             <p>14 дней<br>на возврат</p>
                         </a>
 
-                        <a class="pull-right">
-                            Скидка 5% при заказе с сайта.<br>
-                            Цены указаны без учета скидки.
+                        <a class="pull-right" id="discount">
+                            Скидка 5% при заказе с сайта<br>
+                            Цены указаны без учета скидки
                         </a>
                     </div>
                 </div>
