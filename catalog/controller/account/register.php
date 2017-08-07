@@ -104,6 +104,7 @@ class ControllerAccountRegister extends Controller {
 		$this->data['entry_newsletter'] = $this->language->get('entry_newsletter');
     	$this->data['entry_password'] = $this->language->get('entry_password');
     	$this->data['entry_confirm'] = $this->language->get('entry_confirm');
+        $this->data['entry_captcha'] = $this->language->get('entry_captcha');
 
 		$this->data['button_continue'] = $this->language->get('button_continue');
     
@@ -190,6 +191,12 @@ class ControllerAccountRegister extends Controller {
 		} else {
 			$this->data['error_zone'] = '';
 		}
+
+        if (isset($this->error['captcha'])) {
+            $this->data['error_captcha'] = $this->error['captcha'];
+        } else {
+            $this->data['error_captcha'] = '';
+        }
 		
     	$this->data['action'] = $this->url->link('account/register', '', 'SSL');
 		
@@ -359,6 +366,12 @@ class ControllerAccountRegister extends Controller {
 		} else {
 			$this->data['agree'] = false;
 		}
+
+        if (isset($this->request->post['captcha'])) {
+            $this->data['captcha'] = $this->request->post['captcha'];
+        } else {
+            $this->data['captcha'] = '';
+        }
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/register.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/account/register.tpl';
@@ -462,6 +475,10 @@ class ControllerAccountRegister extends Controller {
     	if ($this->request->post['confirm'] != $this->request->post['password']) {
       		$this->error['confirm'] = $this->language->get('error_confirm');
     	}
+
+        if (empty($this->session->data['captcha']) || ($this->session->data['captcha'] != $this->request->post['captcha'])) {
+            $this->error['captcha'] = $this->language->get('error_captcha');
+        }
 		
 		if ($this->config->get('config_account_id')) {
 			$this->load->model('catalog/information');

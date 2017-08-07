@@ -12,6 +12,9 @@
 }
 @media (min-width: 768px) and (max-width: 991px) {
 
+    .stock{
+        float: left
+    }
     .btn.details {
         padding: 0;
         width: 51px;
@@ -165,6 +168,10 @@
 
     .related-products {
         padding: 0 105px;
+    }
+
+    .product-thumb .price-new {
+        margin-left: -6px;
     }
 
 }

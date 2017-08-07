@@ -1,3 +1,5 @@
+Host : elektrika-nmk.ru
+
 User-agent: *
 Disallow: /*route=account/
 Disallow: /*route=affiliate/
@@ -7,6 +9,8 @@ Disallow: /index.php?route=product/product*&manufacturer_id=
 Disallow: /admin
 Disallow: /catalog
 Disallow: /download
+Disallow: /exchange
+Disallow: /search
 Disallow: /system
 Disallow: /*?sort=
 Disallow: /*&sort=
@@ -22,6 +26,7 @@ Disallow: /*?filter_description=
 Disallow: /*&filter_description=
 Disallow: /*?tracking=
 Disallow: /*&tracking=
+sitemap:http://elektrika-nmk.ru/sitemap.xml
 
 User-agent: Yandex
 Disallow: /*route=account/
@@ -32,6 +37,8 @@ Disallow: /index.php?route=product/product*&manufacturer_id=
 Disallow: /admin
 Disallow: /catalog
 Disallow: /download
+Disallow: /exchange
+Disallow: /search
 Disallow: /system
 Disallow: /*?sort=
 Disallow: /*&sort=
@@ -45,4 +52,5 @@ Disallow: /*?filter_sub_category=
 Disallow: /*&filter_sub_category=
 Disallow: /*?filter_description=
 Disallow: /*&filter_description=
-Clean-param: tracking
+#Clean-param: tracking
+sitemap:http://elektrika-nmk.ru/sitemap.xml

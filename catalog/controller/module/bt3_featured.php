@@ -51,15 +51,17 @@ class ControllerModuleBt3Featured extends Controller {
 					
 				$this->data['products'][] = array(
 					'product_id' => $product_info['product_id'],
+                    'bestseller'  => $product_info['bestseller'],
 					'thumb'   	 => $image,
 					'name'    	 => $product_info['name'],
-					'quantity'    	 => $product_info['quantity'],
+					'quantity'   => $product_info['quantity'],
 					'price'   	 => $price,
 					'special' 	 => $special,
+                    'latest' 	 => $product_info['latest'],
                     'code'        => isset($product_info['model'])? ('код: ' . $product_info['model']):'',
 					'rating'     => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
-                    'href'    	 => $this->url->link('product/product', array('product_id=' . $product_info['product_id'] ))
+                    'href'    	 => $this->url->link('product/product', array('product_id=' . $product_info['product_id']))
 				);
 			}
 		}

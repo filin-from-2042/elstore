@@ -14,7 +14,7 @@ class ControllerModuleBt3BestSeller extends Controller {
 		$this->data['products'] = array();
 
 		$results = $this->model_catalog_product->getBestSellerProducts($setting['limit']);
-		
+
 		foreach ($results as $result) {
 			if ($result['image']) {
 				$image = $this->model_tool_image->resize($result['image'], $setting['image_width'], $setting['image_height']);
@@ -39,14 +39,17 @@ class ControllerModuleBt3BestSeller extends Controller {
 			} else {
 				$rating = false;
 			}
-							
+
 			$this->data['products'][] = array(
 				'product_id' => $result['product_id'],
+                'bestseller'  => $result['bestseller'],
 				'thumb'   	 => $image,
 				'name'    	 => $result['name'],
+                'quantity'    => $result['quantity'],
 				'price'   	 => $price,
                 'code'        => isset($result['model'])? ('код: ' . $result['model']):' ',
 				'special' 	 => $special,
+                'latest' 	 => $result['latest'],
 				'rating'     => $rating,
 				'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
                 'href'    	 => $this->url->link('product/product', array('product_id=' . $result['product_id'] ))

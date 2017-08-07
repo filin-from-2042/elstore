@@ -60,6 +60,45 @@ class ControllerCheckoutCheckoutSimple extends Controller {
             $this->data['email'] = '';
         }
 
+
+        $this->load->model('tool/image');
+
+        $this->data['products'] = array();
+
+        $products = $this->cart->getProducts();
+
+        foreach ($products as $product) {
+            $this->data['products'][] = array(
+                'key'      => $product['key'],
+                'name'     => $product['name'],
+                'model'    => $product['model'],
+                'quantity' => $product['quantity'],
+                'href'     => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+            );
+        }
+
+        // Totals
+        $total_data = array();
+        $total = 0;
+        $taxes = $this->cart->getTaxes();
+        $this->load->model('setting/extension');
+        $sort_order = array();
+        $results = $this->model_setting_extension->getExtensions('total');
+        foreach ($results as $key => $value) {
+            $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
+        }
+        array_multisort($sort_order, SORT_ASC, $results);
+        foreach ($results as $result) {
+            if ($this->config->get($result['code'] . '_status')) {
+                $this->load->model('total/' . $result['code']);
+
+                $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+            }
+        }
+        $this->data['total'] = $total_data[1];
+
+
+
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout_simple.tpl')) {
             $this->template = $this->config->get('config_template') . '/template/checkout/checkout_simple.tpl';
         } else {
