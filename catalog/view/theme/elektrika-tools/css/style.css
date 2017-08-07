@@ -1154,6 +1154,12 @@ header #tm_menu ul {
 header #tm_menu ul li {
     position: relative;
 }
+.subcategory_small{
+    height: 270px;
+}
+#category-parent{
+    font-size: 20px;
+}
 header a.button-category {
     display: inline-block;
     padding: 17px 25px 17px 20px;

@@ -98,11 +98,15 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                                     {
                                         foreach( $category['children'] as $child)
                                         {
-                                        echo '<div class="col-sm-12 col-md-12 col-lg-12">';
+                                            if (isset($child['children'])  && !empty($child['children']))
+                                            echo '<div class="col-sm-12 col-md-12 col-lg-12 subcategory_big"><div class="clearfix"></div>';
+                                            else echo '<div class="col-sm-12 col-md-6 col-lg-6 subcategory_small">';
 
                                             echo '<a href="' . $child['href'] . '" >';
                                                 echo '<h3 id="category-parent">' .$child['name'] .'</h3>';
+                                                if (isset($child['children'])  && !empty($child['children']))
                                                 echo '<div class="col-sm-6 hidden-xs">';
+                                                else   echo '<div class="col-sm-12 hidden-xs">';
                                                     echo '<img class="img-responsive" src="'. $child['thumb'] .'" />';
                                                     echo '</div>';
 

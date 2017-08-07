@@ -190,13 +190,27 @@ class ControllerCommonHeader extends Controller {
 
                 $categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
 
-                foreach ($categories_3 as $category_3) {
+                foreach ($categories_3 as $j=>$category_3) {
                     $level_3_data[] = array(
                         'name' => $category_3['name'],
                         'thumb' => $this->model_tool_image->resize(($category_3['image']=='' ? 'no_image.jpg' : $category_3['image']), 150, 100),
                         'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'])
                     );
                 }
+
+//                if (empty($level_3_data[$j]))
+//                    $level_2_noChild[] = array(
+//                        'name'     => $category_2['name'],
+//                        'desc'     => $category_2['description'],
+//                        'children' => $level_3_data,
+//                        'thumb' => $this->model_tool_image->resize(($category_2['image']=='' ? 'no_image.jpg' : $category_2['image']), 300, 200),
+//                        'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])
+//                    );
+//                else
+
+
+                // Sort array for menu best view
+                // First we will show the ones with children
 
 
                 $level_2_data[] = array(
@@ -208,12 +222,37 @@ class ControllerCommonHeader extends Controller {
                 );
             }
 
+
+            //$result = array_merge($level_2_data,$level_2_noChild);
+
+            usort($level_2_data, function($a, $b){
+                if (empty ($a['children']) && empty($b['children']) )
+                    return ;
+                elseif (!empty($a['children']) && empty($b['children']) )
+                    return -1;
+                elseif (empty($a['children']) && !empty($b['children']) )
+                    return 1;
+                elseif (!empty($a['children']) && !empty($b['children']) )
+                    return ;
+
+                // works too, but i dont like the order
+                //return (int)(empty($a['children'])) - (int)(empty($b['children']));
+
+            });
+
+
+
+
+
             $this->data['categories'][] = array(
                 'name'     => $category_1['name'],
                 'children' => $level_2_data,
                 'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
             );
         }
+
+
+
 
 
 
