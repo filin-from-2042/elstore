@@ -208,11 +208,11 @@ class ControllerProductCategory extends Controller {
 					'filter_sub_category' => true
 				);
 
-				$product_total = $this->model_catalog_product->getTotalProducts($data);
+				//$product_total = $this->model_catalog_product->getTotalProducts($data);
 
 				$this->data['categories'][] = array(
                     'meta_description'  => $result['meta_description'] ,
-					'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+					'name'  => $result['name'],
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
 					'thumb' => $this->model_tool_image->resize(($result['image']=='' ? 'no_image.jpg' : $result['image']), $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'))
 				);
