@@ -157,6 +157,7 @@
     }
     .product-thumb .image a {
         position: relative;
+        height: 179px;
     }
     /******************** FOOTER *******************/
     footer{

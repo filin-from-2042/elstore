@@ -112,6 +112,10 @@
         min-width: 110px;
     }
 
+    .product-thumb .image a {
+        height: 145px;
+    }
+
 }
 @media (max-width: 1199px) and (min-width: 992px)
 {
@@ -172,6 +176,9 @@
 
     .product-thumb .price-new {
         margin-left: -6px;
+    }
+    .product-thumb .image a {
+        height: 140px;
     }
 
 }

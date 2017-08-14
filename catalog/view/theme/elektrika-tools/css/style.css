@@ -1684,6 +1684,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .product-thumb .image a {
     display: block;
+    height: 174px;
 }
 .product-thumb .image a:hover img {
     -moz-transform: scale(1.1,1.1);
