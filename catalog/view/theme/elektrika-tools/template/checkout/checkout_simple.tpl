@@ -40,6 +40,11 @@
                                 <label class="control-label" for="input-payment-email">E-mail<span class="required text-danger">*</span></label>
                                 <input type="text" name="email" value="<?=$email?>" class="form-control" id="input-payment-email" placeholder="E-mail"  />
                             </div>
+                            <div class="form-group">
+                                <label class="control-label" for="input-payment-email">Комментарий</label>
+                                <textarea name="comment" rows="8" class="form-control" id="input-payment-comment"></textarea>
+                                <div class="alert alert-info-sub" role="alert">Оставьте комментарий или наименование вашей организации и мы вышлем Вам счет</div>
+                            </div>
                         </fildset>
                     </div>
                     <div class="col-sm-6">
@@ -102,7 +107,7 @@
             $.ajax({
                 async: false,
                 url: 'index.php?route=checkout/checkout_simple/create_order',
-                data:'telephone='+$('#input-payment-telephone').val()+"&email="+$('#input-payment-email').val(),
+                data:'telephone='+$('#input-payment-telephone').val()+"&email="+$('#input-payment-email').val()+"&comment="+$('#input-payment-comment').val(),
                 type: 'post',
                 context: this,
                 beforeSend:function(){ $('.alert-container').remove()},

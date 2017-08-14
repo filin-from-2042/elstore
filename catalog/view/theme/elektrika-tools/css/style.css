@@ -41,6 +41,10 @@
     background-color:#fe9126;
     border-color:#e4752b;
 }
+.alert-info-sub{
+    background: #4EB6CE;
+    border: none;
+}
 .modal-header .close:hover {
     color:#f97001
 }
