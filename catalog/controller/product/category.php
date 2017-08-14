@@ -102,7 +102,7 @@ class ControllerProductCategory extends Controller {
 			$category_id = 0;
 		}
 
-
+        $this->data['current_category'] = $category_id;
 		$category_info = $this->model_catalog_category->getCategory($category_id);
 
 		if ($category_info) {
@@ -260,7 +260,7 @@ class ControllerProductCategory extends Controller {
 
             // Если попадается одна косячная папка с потолочными светильниками с кучей других глупых папок, выводим
             // эту категорию без них
-            $filtersub = false;
+            $filtersub = true;
             if ($category_id==785) $filtersub = true;
 
 

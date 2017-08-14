@@ -2007,18 +2007,30 @@ footer .social a:hover i {
 .refinement-title{
     margin-top: 30px;
 }
-.box-subcat {
+.category-list{
+    padding-left: 20px;
+}
+.category-info .image{
+    margin-bottom: 10px;
+}
+.box-subcat li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+.root.category-list{
+    padding-left: 0px;
+}
+.root .box-subcat {
     padding: 0;
     margin: 0;
 }
 
-.box-subcat li {
+.root .box-subcat li {
     list-style: none;
     text-align: center;
     margin-bottom: 30px;
     height:230px;
 }
-
 .box-subcat li:hover .name a {
     color: #f97001;
 }

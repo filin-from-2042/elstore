@@ -100,7 +100,7 @@
     }
 
     /******************** CATEGORY *********************/
-    .box-subcat li {
+    .root .box-subcat li {
         height:180px;
     }
     .related-products {
@@ -157,7 +157,7 @@
     }
 
     /******************** CATEGORY *********************/
-    .box-subcat li {
+    .root .box-subcat li {
         height:220px;
     }
 
