@@ -260,7 +260,7 @@ class ControllerProductSearch extends Controller {
 					'price'       => $price,
 					'special'     => $special,
                     'latest' 	 => $result['latest'],
-                    'code'        => isset($result['model'])? ('код: ' . $result['model']):' ',
+                    'code'        => isset($result['model']) ? $result['model'] : '',
 					'tax'         => $tax,
 					'rating'      => $result['rating'],
 					'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),

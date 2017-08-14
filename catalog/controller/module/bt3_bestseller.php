@@ -47,7 +47,7 @@ class ControllerModuleBt3BestSeller extends Controller {
 				'name'    	 => $result['name'],
                 'quantity'    => $result['quantity'],
 				'price'   	 => $price,
-                'code'        => isset($result['model'])? ('код: ' . $result['model']):' ',
+                'code'        => isset($result['model']) ? $result['model'] : '',
 				'special' 	 => $special,
                 'latest' 	 => $result['latest'],
 				'rating'     => $rating,
