@@ -26,20 +26,6 @@
     <?php } ?>
     <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
       <h2><?php echo $heading_title; ?></h2>
-      <?php if (isset($description) || isset($description)) { ?>
-        <div class="row">
-          <div>
-              <div class="category-info">
-                <?php if ($thumb) { ?>
-                <div class="image col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" class="img-thumbnail"/></div>
-                <?php } ?>
-                <?php if ($description) { ?>
-                    <div class="col-sm-10"><?php echo $description; ?></div>
-                <?php } ?>
-              </div>
-          </div>
-       </div>
-      <?php } ?>
 
       <?php if ($categories) { ?>
         <div class="row">
@@ -137,6 +123,18 @@
                 <div class="pagination-wrap-cat"><?php echo $pagination; ?></div></div>
         </div>
       <?php } ?>
+    <?php if (isset($description) || isset($description)) { ?>
+    <div class="row">
+        <div>
+            <div class="category-info">
+                <?php if ($description) { ?>
+                <div class="col-sm-12"><?php echo $description; ?></div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+
       <?php if (!$categories && !$products) { ?>
         <div class="content"><?php echo $text_empty; ?></div>
           <div class="buttons">
