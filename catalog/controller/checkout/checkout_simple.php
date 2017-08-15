@@ -119,7 +119,6 @@ class ControllerCheckoutCheckoutSimple extends Controller {
 
     public function create_order()
     {
-
         $total_data = array();
         $total = 0;
         $taxes = $this->cart->getTaxes();
@@ -196,7 +195,7 @@ class ControllerCheckoutCheckoutSimple extends Controller {
             $json['error']['email'] = $this->language->get('error_email');
         }else $data['email'] = $this->request->post['email'];
 
-        $data['comment'] = '';
+        $data['comment'] = $this->request->post['comment'];
 
         $data['affiliate_id'] = 0;
         $data['commission'] = 0;

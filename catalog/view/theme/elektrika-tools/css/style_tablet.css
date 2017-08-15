@@ -100,7 +100,7 @@
     }
 
     /******************** CATEGORY *********************/
-    .box-subcat li {
+    .root .box-subcat li {
         height:180px;
     }
     .related-products {
@@ -110,6 +110,10 @@
     /*********************** CART ********************/
     .checkout-cart  .cart-controls-wrap{
         min-width: 110px;
+    }
+
+    .product-thumb .image a {
+        height: 145px;
     }
 
 }
@@ -153,7 +157,7 @@
     }
 
     /******************** CATEGORY *********************/
-    .box-subcat li {
+    .root .box-subcat li {
         height:220px;
     }
 
@@ -172,6 +176,9 @@
 
     .product-thumb .price-new {
         margin-left: -6px;
+    }
+    .product-thumb .image a {
+        height: 140px;
     }
 
 }

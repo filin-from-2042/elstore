@@ -26,35 +26,43 @@
     <?php } ?>
     <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
       <h2><?php echo $heading_title; ?></h2>
-      <?php if (isset($description) || isset($description)) { ?>
-        <div class="row">
-          <div>
-              <div class="category-info">
-                <?php if ($thumb) { ?>
-                <div class="image col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" class="img-thumbnail"/></div>
-                <?php } ?>
-                <?php if ($description) { ?>
-                    <div class="col-sm-10"><?php echo $description; ?></div>
-                <?php } ?>
-              </div>
-          </div>
-       </div>
-      <?php } ?>
 
       <?php if ($categories) { ?>
-      <?php if(isset($text_refine) && $text_refine){ ?><h3 class="refinement-title"><?php echo $text_refine; ?></h3><? } ?>
-      <div class="row">
-          <div class="category-list">
-                <ul class="box-subcat">
-                  <?php foreach ($categories as $category) { ?>
-                    <li class="col-sm-3">
-                        <div class="image"><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>"></a></div>
-                        <div class="name subcatname"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
-                    </li>
-                  <?php } ?>
-                </ul>
-          </div>
-      </div>
+        <div class="row">
+              <?php if($current_category=='0'){ ?>
+                  <div class="category-list root">
+                      <ul class="box-subcat">
+                          <?php foreach ($categories as $category) { ?>
+                          <li class="col-sm-3">
+                              <div class="image"><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>"></a></div>
+                              <div class="name subcatname"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
+                          </li>
+                          <?php } ?>
+                      </ul>
+                  </div>
+              <? }else{ ?>
+                  <div class="category-list">
+                      <?php if (count($categories) <= 5) { ?>
+                              <?php foreach ($categories as $category) { ?>
+                                  <ul class="col-sm-3 box-subcat">
+                                          <li><div class="name subcatname"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div></li>
+                                  </ul>
+                              <?php } ?>
+                      <?php } else { ?>
+                          <?php for ($i = 0; $i < count($categories);) { ?>
+                          <ul class="col-sm-3 box-subcat">
+                              <?php $j = $i + ceil(count($categories) / 4); ?>
+                              <?php for (; $i < $j; $i++) { ?>
+                              <?php if (isset($categories[$i])) { ?>
+                              <li><div class="name subcatname"><a href="<?php echo $categories[$i]['href']; ?>"><?php echo $categories[$i]['name']; ?></a></div></li>
+                              <?php } ?>
+                              <?php } ?>
+                          </ul>
+                          <?php } ?>
+                      <?php } ?>
+                  </div>
+              <?php } ?>
+        </div>
       <?php } ?>
 
       <?php if (isset($products) && $products) { ?>
@@ -115,6 +123,18 @@
                 <div class="pagination-wrap-cat"><?php echo $pagination; ?></div></div>
         </div>
       <?php } ?>
+    <?php if (isset($description) || isset($description)) { ?>
+    <div class="row">
+        <div>
+            <div class="category-info">
+                <?php if ($description) { ?>
+                <div class="col-sm-12"><?php echo $description; ?></div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+
       <?php if (!$categories && !$products) { ?>
         <div class="content"><?php echo $text_empty; ?></div>
           <div class="buttons">

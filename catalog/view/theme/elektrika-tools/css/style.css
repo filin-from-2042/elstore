@@ -41,6 +41,10 @@
     background-color:#fe9126;
     border-color:#e4752b;
 }
+.alert-info-sub{
+    background: #4EB6CE;
+    border: none;
+}
 .modal-header .close:hover {
     color:#f97001
 }
@@ -868,12 +872,24 @@ a:hover {
 }
 
 /************************* PRODUCT STICKERS ********************/
-.stickers {
+.stickers,
+.product-code{
     position: absolute;
+    z-index: 10;
+}
+.stickers {
     top: 16px;
     left: 12px;
-    z-index: 10;
     width: 91%;
+}
+.product-code{
+    bottom: 12px;
+    right: 12px;
+    color: #fff;
+    background: #6B8CD3;
+    padding: 0px 4px;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 .sale, .new_pr, .stock, .stickers .bestseller {
     float: left;
@@ -1672,6 +1688,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 .product-thumb .image a {
     display: block;
+    height: 174px;
 }
 .product-thumb .image a:hover img {
     -moz-transform: scale(1.1,1.1);
@@ -1990,18 +2007,30 @@ footer .social a:hover i {
 .refinement-title{
     margin-top: 30px;
 }
-.box-subcat {
+.category-list{
+    padding-left: 20px;
+}
+.category-info .image{
+    margin-bottom: 10px;
+}
+.box-subcat li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+.root.category-list{
+    padding-left: 0px;
+}
+.root .box-subcat {
     padding: 0;
     margin: 0;
 }
 
-.box-subcat li {
+.root .box-subcat li {
     list-style: none;
     text-align: center;
     margin-bottom: 30px;
     height:230px;
 }
-
 .box-subcat li:hover .name a {
     color: #f97001;
 }
