@@ -2445,7 +2445,9 @@ footer .social a:hover i {
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
-
+.product_page .general_info .product-section .product-code{
+    display: inline-block;
+}
 .product_page .product-section a {
     color: #1c1c1c;
 }

@@ -140,7 +140,7 @@
                                 <?php if ($manufacturer) { ?>
                                 <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
                                 <?php } ?>
-                                <li><?php echo $text_model; ?> <span><?php echo $model; ?></span></li>
+                                <li><?php echo $text_model; ?> <span class="product-code"><?php echo $model; ?></span></li>
                                 <?php if ($reward) { ?>
                                 <li><?php echo $text_reward; ?> <span><?php echo $reward; ?></span></li>
                                 <?php } ?>
