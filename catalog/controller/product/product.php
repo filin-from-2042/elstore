@@ -327,7 +327,9 @@ class ControllerProductProduct extends Controller {
             $this->data['stickers']['latest'] = $product_info['latest'];
             $this->data['stickers']['special'] = $product_info['special'];
 
+            $this->data['stock_mark'] = true;
 			if ($product_info['quantity'] <= 0) {
+                $this->data['stock_mark'] = false;
                 $this->data['stock'] = $this->language->get('text_outstock');
 			} elseif ($this->config->get('config_stock_display')) {
 				$this->data['stock'] = $product_info['quantity'];

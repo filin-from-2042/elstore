@@ -144,8 +144,7 @@
                                 <?php if ($reward) { ?>
                                 <li><?php echo $text_reward; ?> <span><?php echo $reward; ?></span></li>
                                 <?php } ?>
-                                <li><?php echo $text_stock; ?> <span><?php echo $stock; ?></span></li>
-                            </ul>
+                                <li><?php echo $text_stock; ?><span class="<?php if($stock_mark) { ?>instock<? }else{ ?>stock<? } ?> stock-data"><?php echo $stock; ?></span></li>
                         </div>
                     </div><?
                     /***********OPTIONS***************/

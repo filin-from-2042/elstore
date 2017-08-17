@@ -910,6 +910,12 @@ a:hover {
     background-color: #f3515c;
     float: right;
 }
+.instock{
+    background-color: #F99A53;
+    color: white;
+    font-size: 12px;
+    padding: 0 4px;
+}
 .new_pr {
     background: #54b5e8;
 }
@@ -2445,8 +2451,13 @@ footer .social a:hover i {
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
-.product_page .general_info .product-section .product-code{
+.product_page .general_info .product-section .product-code,
+.product_page .general_info .product-section .stock-data{
     display: inline-block;
+}
+.product_page .general_info .product-section .stock-data{
+    float: none;
+    margin-left: 5px;
 }
 .product_page .product-section a {
     color: #1c1c1c;
