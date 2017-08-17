@@ -34,7 +34,8 @@
         font-size: 34px;
         line-height: 34px;
     }
-    header .register-top a {
+    header .register-top a,
+    header .contacts{
         font-size: 15px;
     }
     .info-blocks .side-item .more{

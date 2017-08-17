@@ -1005,10 +1005,26 @@ header #logo {
 header #logo img{
     width: 270px;
 }
+header .contacts,
 header .box-right {
     display: inline-block;
-    float: right;
     margin-top: 42px;
+}
+header .box-right {
+    float: right;
+    position: relative;
+}
+header .contacts{
+    color: #fff;
+    font-size: 18px;
+    line-height: 19px;
+    position: absolute;
+    margin-top: -30px;
+    right: 0;
+}
+header .contacts .phone{
+    /*display: block;*/
+    margin-right: 5px;
 }
 header .register-top {
     display: inline-block;
@@ -1035,12 +1051,19 @@ header .register-top a:hover {
     text-decoration: none;
     color:#333;
 }
-header .register-top a>i {
+header .register-top a>i,
+header .contacts i{
     display: inline-block;
     color: #333;
     font-size: 15px;
     line-height: 21px;
     height: 19px;
+}
+header .contacts i{
+    font-size: 18px;
+    margin-right: 5px;
+}
+header .register-top a>i{
     vertical-align: top;
     margin-right: 14px;
 }

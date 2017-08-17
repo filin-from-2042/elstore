@@ -219,7 +219,12 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                     <?php } ?>
                 </div>
                 <?php } ?>
+
                 <div class="box-right">
+                    <div class="contacts">
+                        <span class="phone"><i class="fa fa-mobile" aria-hidden="true"></i>8-953-954-20-16</span>
+                        <span class="phone"><i class="fa fa-phone" aria-hidden="true"></i>8-(48762) 6-37-64</span>
+                    </div>
                     <div class="box-cart">
                         <?=$cart?>
                     </div>

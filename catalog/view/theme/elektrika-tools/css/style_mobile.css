@@ -84,6 +84,18 @@
         display: inline-block;
         max-width: 100%;
     }
+    header .contacts {
+        position: static;
+        margin-top: 0;
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+    }
+    header .box-right{
+        float: none;
+        display: block;
+        margin-top: 0;
+    }
     .info-blocks .side-item{
         /*text-align: center;*/
     }
