@@ -110,14 +110,22 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-4  col-lg-4 side-item">
+            <div class="col-xs-12 col-sm-4 col-lg-4 side-item">
                 <div class="">
-
-                    <img  class="img-responsive" src="image/zakaz.jpg" alt="...">
-                    <div  class="side-item-caption">
-                        <h2>При заказе с сайта - скидка 5%!<br></h2>
+                    <a href="http://elektrika-nmk.ru/category/lampy/lampy-svetodiodnye/" class="general-block-link"></a>
+                    <span class="overlay"></span>
+                    <img class="img-responsive" src="image/slide1508.jpg" alt="...">
+                    <div class="side-item-caption">
+                        <h2>Светодиодизация страны!<br></h2>
+                        <p>Самые низкие цены на <a href="http://elektrika-nmk.ru/category/lampy/lampy-svetodiodnye/">светодиодные лампы</a> </p>
                     </div>
-
+                    <div class="more">
+                        <a href="http://elektrika-nmk.ru/category/lampy/lampy-svetodiodnye/" class="round-animated-btn small">
+                            <span class="wrap">
+                                <span class="content"></span>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
