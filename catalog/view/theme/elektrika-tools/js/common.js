@@ -122,5 +122,5 @@ function cancelSearch()
 {
     var $search = $('#search');
     $search.removeClass('focused').find('.tips-list').removeClass('filled').empty();
-    $search('#search').find('input').val('');
+    $search.find('input').val('');
 }
