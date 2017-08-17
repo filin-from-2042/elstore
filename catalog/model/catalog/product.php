@@ -202,7 +202,7 @@ class ModelCatalogProduct extends Model {
 			}
 			
 			if (!empty($data['filter_name'])) {
-				$sql .= " OR LCASE(p.model) = '" . $this->db->escape(utf8_strtolower($data['filter_name'])) . "'";
+				$sql .= " OR LCASE(p.model) like '%" . $this->db->escape(utf8_strtolower($data['filter_name'])) . "%'";
 			}
 			
 			if (!empty($data['filter_name'])) {
@@ -601,7 +601,7 @@ class ModelCatalogProduct extends Model {
 			$customer_group_id = $this->customer->getCustomerGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
-		}	
+		}
 
 		$sql = "SELECT COUNT(DISTINCT p.product_id) AS total"; 
 		
@@ -642,7 +642,7 @@ class ModelCatalogProduct extends Model {
 				$sql .= " AND pf.filter_id IN (" . implode(',', $implode) . ")";				
 			}
 		}
-		
+
 		if (!empty($data['filter_name']) || !empty($data['filter_tag'])) {
 			$sql .= " AND (";
 			
@@ -708,7 +708,7 @@ class ModelCatalogProduct extends Model {
 		}
 		
 		$query = $this->db->query($sql);
-		
+
 		return $query->row['total'];
 	}
 	

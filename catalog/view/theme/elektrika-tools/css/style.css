@@ -310,6 +310,7 @@ header a.button-category i,
     -o-transition: all .5s ease-out;
     transition: all .5s ease-out;
 }
+header #search input,
 .product-layout{
     -webkit-transition:all .2s ease-out;
     -moz-transition: all .2s ease-out;
@@ -872,19 +873,21 @@ a:hover {
 }
 
 /************************* PRODUCT STICKERS ********************/
-.stickers,
-.product-code{
+.product-thumb .stickers,
+.product-thumb .product-code{
     position: absolute;
     z-index: 10;
 }
-.stickers {
+.product-thumb .stickers {
     top: 16px;
     left: 12px;
     width: 91%;
 }
-.product-code{
+.product-thumb .product-code{
     bottom: 12px;
     right: 12px;
+}
+.product-code{
     color: #fff;
     background: #6B8CD3;
     padding: 0px 4px;
@@ -1231,7 +1234,7 @@ header #search input {
     line-height: 20px;
     height: 50px;
     padding: 15px 10px 15px 40px;
-    width: 144px;
+    width: 174px;
 }
 header #search button {
     float: left;
@@ -1251,6 +1254,53 @@ header #search button i {
     line-height: 50px;
     position: relative;
     vertical-align: top;
+}
+header #search .tips-list{
+    display: none;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    top: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+}
+header #search.focused .tips-list.filled{
+    display: block;
+}
+header #search .tip{
+    border-bottom: 1px solid #ccc;
+}
+header #search .tip .product-code{
+    display: inline-block;
+    margin-right: 5px;
+}
+header #search .tip:last-child{
+    border-bottom: none;
+}
+header #search .tips-list a,
+header #search .tips-list .header span{
+    display: block;
+    padding: 10px  15px;
+    font-size: 15px;
+    color: #333;
+}
+header #search .tips-list .active a,
+header #search .tips-list a:hover{
+    color: #fff;
+    background: #f97001;
+}
+header #search .tips-list .header span{
+    text-align: center;
+    color: #1c1c1c;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+header #search.focused input{
+    width: 320px;
+}
+header #search .tips-list .all a{
+    text-align: center;
 }
 header  #top-links ul {
     margin: 12px 0 9px 2px;

@@ -5,6 +5,12 @@ class ModelCatalogManufacturer extends Model {
 	
 		return $query->row;	
 	}
+	// производитель по вхождению текста в наименование
+    public function getManufacturerSearched($manufacturer_name) {
+        $query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "manufacturer m LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) WHERE m.name LIKE '%".$manufacturer_name."%' AND md.language_id = '" . (int)$this->config->get('config_language_id') . "' AND m2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+
+        return $query->rows;
+    }
 	
 	public function getManufacturers($data = array()) {
 		if ($data) {

@@ -109,10 +109,18 @@ function initTooltips(selector)
 // переключение внешнего вида корзины
 function toggleCart(event)
 {
+    var $cartContent = $('#cart .content');
     var $cart = $('#cart');
-    if ($cart.is(":visible")) {
+    if ($cartContent.is(":visible")) {
         $cart.removeClass('active');
     } else  {
         $cart.addClass('active');
     }
+}
+// очистка поиска в шапке
+function cancelSearch()
+{
+    var $search = $('#search');
+    $search.removeClass('focused').find('.tips-list').removeClass('filled').empty();
+    $search('#search').find('input').val('');
 }

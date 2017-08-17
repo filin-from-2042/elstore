@@ -309,5 +309,52 @@ class ControllerCommonHeader extends Controller {
 
         $this->render();
     }
+    // возвращает объект с найденными элементами(категории, товары, производители) по тексту
+    public function getSearchTips()
+    {
+        $response = array();
+        if (isset($this->request->post['search_text'])) {
+            $search_text = $this->request->post['search_text'];
+        } else {
+            $search_text = '';
+        }
+        $limit = 10;
+        $data = array(
+            'filter_name'         => $search_text,
+            'start'               =>0,
+            'limit'               => $limit
+        );
+
+        $this->load->model('catalog/product');
+        $results = $this->model_catalog_product->getProducts($data);
+        foreach ($results as $result) {
+            $response['products'][] = array(
+                'name' => $result['name'],
+                'code' => $result['model'],
+                'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+            );
+        }
+
+        $this->load->model('catalog/category');
+        $results = $this->model_catalog_category->getCategoriesSearched($search_text);
+        foreach ($results as $result) {
+            $response['categories'][] = array(
+                'name' => $result['name'],
+                'href' => $this->url->link('product/category', 'category_id=' . $result['category_id'])
+            );
+        }
+
+        $this->load->model('catalog/manufacturer');
+        $results = $this->model_catalog_manufacturer->getManufacturerSearched($search_text);
+        //var_dump($results);
+        foreach ($results as $result) {
+            $response['manufacturers'][] = array(
+                'name' => $result['name'],
+                'href' => $this->url->link('product/manufacturer', 'manufacturer_id=' . $result['manufacturer_id'])
+            );
+        }
+
+        $this->response->setOutput(json_encode($response));
+    }
 }
 ?>

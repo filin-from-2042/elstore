@@ -267,6 +267,25 @@ class ControllerProductSearch extends Controller {
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
 				);
 			}
+
+            $this->load->model('catalog/category');
+            $results = $this->model_catalog_category->getCategoriesSearched($search,$filter_category_id);
+            foreach ($results as $result) {
+                $this->data['searched_categories'][] = array(
+                    'name' => $result['name'],
+                    'href' => $this->url->link('product/category', 'category_id=' . $result['category_id'])
+                );
+            }
+
+            $this->load->model('catalog/manufacturer');
+            $results = $this->model_catalog_manufacturer->getManufacturerSearched($search);
+            foreach ($results as $result) {
+                $this->data['searched_manufacturers'][] = array(
+                    'name' => $result['name'],
+                    'href' => $this->url->link('product/manufacturer', 'manufacturer_id=' . $result['manufacturer_id'])
+                );
+            }
+
 					
 			$url = '';
 			

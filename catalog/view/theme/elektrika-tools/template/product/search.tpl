@@ -85,8 +85,34 @@
             <div class="search-btn-wrap">
                 <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-primary">
             </div>
+            <?php if (isset($searched_categories) && $searched_categories) { ?>
+                <h2>Категории, соответствующие критериям поиска</h2>
+                <div class="searched-categories">
+                    <div class="row">
+                            <div class="category-list">
+                                <?php if (count($searched_categories) <= 5) { ?>
+                                    <?php foreach ($searched_categories as $category) { ?>
+                                    <ul class="col-sm-3 box-subcat">
+                                        <li><div class="name subcatname"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div></li>
+                                    </ul>
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <?php for ($i = 0; $i < count($categories);) { ?>
+                                    <ul class="col-sm-3 box-subcat">
+                                        <?php $j = $i + ceil(count($categories) / 4); ?>
+                                        <?php for (; $i < $j; $i++) { ?>
+                                        <?php if (isset($categories[$i])) { ?>
+                                        <li><div class="name subcatname"><a href="<?php echo $categories[$i]['href']; ?>"><?php echo $categories[$i]['name']; ?></a></div></li>
+                                        <?php } ?>
+                                        <?php } ?>
+                                    </ul>
+                                    <?php } ?>
+                                <?php } ?>
+                            </div>
+                    </div>
+                </div>
+            <? } ?>
             <h2><?php echo $text_search; ?></h2>
-
             <?php if (isset($products) && $products) { ?>
                 <div class="product-filter clearfix">
                     <div class="row">
@@ -145,6 +171,33 @@
                     </div>
                     <div class="col-sm-6 text-right"></div>
                 </div>
+                <?php if(isset($searched_manufacturers) && $searched_manufacturers) { ?>
+                <h2>Производители, соответствующие критериям поиска</h2>
+                <div class="searched-manufacturers">
+                    <div class="row">
+                        <div class="category-list">
+                            <?php if (count($searched_manufacturers) <= 5) { ?>
+                                <?php foreach ($searched_manufacturers as $manufacturer) { ?>
+                                <ul class="col-sm-3 box-subcat">
+                                    <li><div class="name subcatname"><a href="<?php echo $manufacturer['href']; ?>"><?php echo $manufacturer['name']; ?></a></div></li>
+                                </ul>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <?php for ($i = 0; $i < count($searched_manufacturers);) { ?>
+                                <ul class="col-sm-3 box-subcat">
+                                    <?php $j = $i + ceil(count($searched_manufacturers) / 4); ?>
+                                    <?php for (; $i < $j; $i++) { ?>
+                                    <?php if (isset($searched_manufacturers[$i])) { ?>
+                                    <li><div class="name subcatname"><a href="<?php echo $searched_manufacturersas[$i]['href']; ?>"><?php echo $searched_manufacturers[$i]['name']; ?></a></div></li>
+                                    <?php } ?>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <? } ?>
                 <?php } else { ?>
                 <div class="content"><?php echo $text_empty; ?></div>
                 <?php }?>

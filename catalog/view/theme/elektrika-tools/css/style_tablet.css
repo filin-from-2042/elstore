@@ -116,6 +116,10 @@
         height: 145px;
     }
 
+    header #search.focused input{
+        width: 465px;
+    }
+
 }
 @media (max-width: 1199px) and (min-width: 992px)
 {
@@ -179,6 +183,10 @@
     }
     .product-thumb .image a {
         height: 140px;
+    }
+
+    header #search.focused input{
+        width: 174px;
     }
 
 }

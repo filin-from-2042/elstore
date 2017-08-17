@@ -278,9 +278,10 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                         </div>
                         <div id="search">
                             <i class="fa fa-search"></i>
-                            <input type="text" name="search" value="" placeholder="Поиск товара">
+                            <input type="text" name="search" value="" placeholder="Поиск по каталогу">
                             <button type="button" class="button-search"><i class="fa fa-angle-double-right"></i></button>
                             <div class="clear"></div>
+                            <div class="tips-list"></div>
                         </div>
                     </div>
                 </div>
