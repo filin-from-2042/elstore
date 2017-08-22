@@ -537,8 +537,22 @@ class ModelCheckoutOrder extends Model {
 				
 				foreach ($order_total_query->rows as $total) {
 					$text .= $total['title'] . ': ' . html_entity_decode($total['text'], ENT_NOQUOTES, 'UTF-8') . "\n";
-				}			
-				
+				}
+
+                $text .= "\n";
+
+                if ($order_info['email']) {
+                    $text .= "Email: ";
+                    $text .= $order_info['email'] . "\n";
+                }
+
+                $text .= "\n";
+
+                if ($order_info['telephone']) {
+                    $text .= "Телефон: ";
+                    $text .= $order_info['telephone'] . "\n";
+                }
+
 				$text .= "\n";
 				
 				if ($order_info['comment']) {
