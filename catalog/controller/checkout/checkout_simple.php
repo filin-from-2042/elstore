@@ -179,7 +179,7 @@ class ControllerCheckoutCheckoutSimple extends Controller {
         }else {
             $data['customer_id'] = 0;
             $data['customer_group_id'] = 1;
-            $data['firstname'] = '';
+            $data['firstname'] = $this->request->post['email'];
             $data['lastname'] = '';
 //            $data['email'] = '';
 //            $data['telephone'] = $this->session->data['guest']['telephone'];
