@@ -2087,7 +2087,7 @@ footer .social a:hover i {
     margin-top: 30px;
 }
 .category-list{
-    padding-left: 20px;
+    padding-left: 0px;
 }
 .category-info .image{
     margin-bottom: 10px;
@@ -2095,6 +2095,8 @@ footer .social a:hover i {
 .box-subcat li {
     list-style: none;
     margin-bottom: 10px;
+    padding: 10px;
+    background-color: #eee;
 }
 .root.category-list{
     padding-left: 0px;
