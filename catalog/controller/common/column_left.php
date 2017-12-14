@@ -104,7 +104,15 @@ class ControllerCommonColumnLeft extends Controller {
         $this->load->model('catalog/category');
 
         $this->load->model('catalog/product');
-        $this->data['categories'] = $this->model_catalog_category->getHierarhy();
+
+        $heirarhy_data = $this->cache->get('heirarhy.' . (int)$this->config->get('config_store_id') . '.' . (int)$this->config->get('config_language_id'));
+        if (!$heirarhy_data) {
+            $heirarhy_data = $this->model_catalog_category->getHierarhy();
+
+            $this->cache->set('heirarhy.' . (int)$this->config->get('config_store_id') . '.' . (int)$this->config->get('config_language_id'), $heirarhy_data);
+        }
+
+        $this->data['categories'] = $heirarhy_data;
         $this->children = array(
             'module/language',
             'module/currency',

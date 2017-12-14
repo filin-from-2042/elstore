@@ -61,6 +61,7 @@ class ModelCatalogCategory extends Model {
 		}
 		
 		$this->cache->delete('category');
+		$this->cache->delete('heirarhy');
 	}
 	
 	public function editCategory($category_id, $data) {
@@ -168,6 +169,7 @@ class ModelCatalogCategory extends Model {
 		}
 		
 		$this->cache->delete('category');
+        $this->cache->delete('heirarhy');
 	}
 	
 	public function deleteCategory($category_id) {
@@ -188,6 +190,7 @@ class ModelCatalogCategory extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'category_id=" . (int)$category_id . "'");
 		
 		$this->cache->delete('category');
+        $this->cache->delete('heirarhy');
 	} 
 	
 	// Function to repair any erroneous categories that are not in the category path table.
