@@ -104,12 +104,13 @@ class ControllerCommonColumnLeft extends Controller {
         $this->load->model('catalog/category');
 
         $this->load->model('catalog/product');
-
-        $heirarhy_data = $this->cache->get('heirarhy.' . (int)$this->config->get('config_store_id') . '.' . (int)$this->config->get('config_language_id'));
+// TODO: добавить очистку кэша после выгрузки
+        $hstoreId = (int)$this->config->get('config_store_id');
+        $hlanguageId = (int)$this->config->get('config_language_id');
+        $heirarhy_data = $this->cache->get('heirarhy.' . $hstoreId . '.' . $hlanguageId);
         if (!$heirarhy_data) {
             $heirarhy_data = $this->model_catalog_category->getHierarhy();
-
-            $this->cache->set('heirarhy.' . (int)$this->config->get('config_store_id') . '.' . (int)$this->config->get('config_language_id'), $heirarhy_data);
+            $this->cache->set('heirarhy.' . $hstoreId . '.' . $hlanguageId, $heirarhy_data);
         }
 
         $this->data['categories'] = $heirarhy_data;

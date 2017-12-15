@@ -62,6 +62,7 @@ class ModelCatalogCategory extends Model {
 		
 		$this->cache->delete('category');
 		$this->cache->delete('heirarhy');
+        $this->cache->delete('categories.'.(int)$data['parent_id']);
 	}
 	
 	public function editCategory($category_id, $data) {
@@ -170,6 +171,7 @@ class ModelCatalogCategory extends Model {
 		
 		$this->cache->delete('category');
         $this->cache->delete('heirarhy');
+        $this->cache->delete('categories.'.(int)$data['parent_id']);
 	}
 	
 	public function deleteCategory($category_id) {
@@ -191,6 +193,7 @@ class ModelCatalogCategory extends Model {
 		
 		$this->cache->delete('category');
         $this->cache->delete('heirarhy');
+        $this->cache->delete('categories.'.(int)$category_id);
 	} 
 	
 	// Function to repair any erroneous categories that are not in the category path table.
@@ -216,6 +219,8 @@ class ModelCatalogCategory extends Model {
 						
 			$this->repairCategories($category['category_id']);
 		}
+        $this->cache->delete('heirarhy');
+        $this->cache->delete('categories.'.(int)$parent_id);
 	}
 			
 	public function getCategory($category_id) {
