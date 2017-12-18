@@ -148,40 +148,13 @@ class ControllerCommonHeader extends Controller {
 
 
         $this->data['categories'] = array();
-        $this->data['categories21'] = array(); // вторая вкладка в меню
-        // Начнем со второй
-        $categories_21 = $this->model_catalog_category->getCategories(440);
-
-        foreach ($categories_21 as $category_21) {
-            $level_2_data = array();
-
-            $categories_22 = $this->model_catalog_category->getCategories($category_21['category_id']);
-
-            foreach ($categories_22 as $category_22) {
-
-                $level_2_data[] = array(
-                    'name'     => $category_22['name'],
-                    'href'     => $this->url->link('product/category', 'path=' . '440_'. $category_21['category_id'] . '_' . $category_22['category_id'])
-                );
-            }
-
-            $this->data['categories2'][] = array(
-                'name'     => $category_21['name'],
-                'children' => $level_2_data,
-                'href'     => $this->url->link('product/category', 'path=' . '440_'.$category_21['category_id'])
-            );
-        }
-
-
-
-
 
         $categories_1 = $this->model_catalog_category->getCategories(0);
 
+        $counter = 0;
+        $this->data['category_1_list'] = '';
         foreach ($categories_1 as $category_1) {
             $level_2_data = array();
-
-           // if ($category_1['name']=='Хозтовары'){Break;}
 
             $categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
 
@@ -198,20 +171,8 @@ class ControllerCommonHeader extends Controller {
                     );
                 }
 
-//                if (empty($level_3_data[$j]))
-//                    $level_2_noChild[] = array(
-//                        'name'     => $category_2['name'],
-//                        'desc'     => $category_2['description'],
-//                        'children' => $level_3_data,
-//                        'thumb' => $this->model_tool_image->resize(($category_2['image']=='' ? 'no_image.jpg' : $category_2['image']), 300, 200),
-//                        'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])
-//                    );
-//                else
-
-
                 // Sort array for menu best view
                 // First we will show the ones with children
-
 
                 $level_2_data[] = array(
                     'name'     => $category_2['name'],
@@ -221,10 +182,7 @@ class ControllerCommonHeader extends Controller {
                     'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])
                 );
             }
-
-
-            //$result = array_merge($level_2_data,$level_2_noChild);
-
+            // с 3им уровнем вначале
             usort($level_2_data, function($a, $b){
                 if (empty ($a['children']) && empty($b['children']) )
                     return ;
@@ -235,65 +193,17 @@ class ControllerCommonHeader extends Controller {
                 elseif (!empty($a['children']) && !empty($b['children']) )
                     return ;
 
-                // works too, but i dont like the order
-                //return (int)(empty($a['children'])) - (int)(empty($b['children']));
-
             });
-
-
-
-
 
             $this->data['categories'][] = array(
                 'name'     => $category_1['name'],
                 'children' => $level_2_data,
                 'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
             );
+            // html-вывод 1 уровня
+            $this->data['category_1_list'] .= '<a href="#" class="list-group-item '. ($counter?'':'active') . ' text-center">'.$category_1['name'].'</a>';
+            $counter++;
         }
-
-
-
-
-
-
-
-
-
-
-//        foreach ($categories as $category) {
-//            if ($category['top']) {
-//                // Level 2
-//                $children_data = array();
-//
-//                $children = $this->model_catalog_category->getCategories($category['category_id']);
-//
-//                foreach ($children as $child) {
-//                    //Будем вычислять кол-во товаров в категориях только если это кол-во надо показывать
-//                    if ($this->config->get('config_product_count')) {
-//                        $data = array(
-//                            'filter_category_id'  => $child['category_id'],
-//                            'filter_sub_category' => true
-//                        );
-//
-//                        $product_total = $this->model_catalog_product->getTotalProducts($data);
-//                    }
-//
-//                    $children_data[] = array(
-//                        'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
-//                        'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
-//                    );
-//                }
-//
-//                // Level 1
-//                $this->data['categories'][] = array(
-//                    'name'     => $category['name'],
-//                    'children' => $children_data,
-//                    'active'   => in_array($category['category_id'], $parts),
-//                    'column'   => $category['column'] ? $category['column'] : 1,
-//                    'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
-//                );
-//            }
-//        }
 
         $this->children = array(
             'module/language',

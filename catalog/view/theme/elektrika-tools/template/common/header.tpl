@@ -81,14 +81,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5 bhoechie-tab-menu">
-                                <div class="list-group">
-
-                                    <?php foreach($categories as $k=>$category){
-                                    echo '<a href="#" class="list-group-item  '. ($k?'':'active') . '  text-center">';
-                                        echo  $category['name'] . '</a>';
-                                    }
-                                    ?>
-                                </div>
+                                <div class="list-group"><?=$category_1_list?></div>
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7 bhoechie-tab">
                                 <?php foreach($categories as $k=>$category)
@@ -132,8 +125,6 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
                             </div>
                         </div>
                     </div>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
