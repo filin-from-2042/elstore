@@ -104,6 +104,7 @@ class ControllerCommonColumnLeft extends Controller {
         $this->load->model('catalog/category');
 
         $this->load->model('catalog/product');
+/*
 // TODO: добавить очистку кэша после выгрузки
         $hstoreId = (int)$this->config->get('config_store_id');
         $hlanguageId = (int)$this->config->get('config_language_id');
@@ -114,6 +115,7 @@ class ControllerCommonColumnLeft extends Controller {
         }
 
         $this->data['categories'] = $heirarhy_data;
+        */
         $this->children = array(
             'module/language',
             'module/currency',
@@ -125,7 +127,7 @@ class ControllerCommonColumnLeft extends Controller {
         } else {
             $this->template = 'default/template/common/column_left.tpl';
         }
-
+/*
         $this->load->model('catalog/category');
         $this->load->model('catalog/product');
 
@@ -163,8 +165,9 @@ class ControllerCommonColumnLeft extends Controller {
                 'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
             );
         }
-
+*/
         $this->render();
+
     }
 
 }
