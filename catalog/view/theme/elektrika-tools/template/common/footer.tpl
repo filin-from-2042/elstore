@@ -72,7 +72,7 @@
 </footer>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="catalog/view/theme/elektrika-tools/js/bootstrap.min.js"></script>
-<script src="catalog/view/theme/elektrika-tools/js/script.js"></script>
+<script src="catalog/view/theme/elektrika-tools/js/script-minified.js"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
     (function (d, w, c) {

@@ -50,11 +50,11 @@
 <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
 
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_tablet.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_mobile.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style-minified.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_tablet-minified.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elektrika-tools/css/style_mobile-minified.css" />
 
-<script src="catalog/view/theme/elektrika-tools/js/common.js"></script>
+<script src="catalog/view/theme/elektrika-tools/js/common-minified.js"></script>
 <?php foreach ($scripts as $script) { ?>
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
