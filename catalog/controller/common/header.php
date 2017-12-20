@@ -149,61 +149,74 @@ class ControllerCommonHeader extends Controller {
 
         $this->data['categories'] = array();
 
-        $categories_1 = $this->model_catalog_category->getCategories(0);
+        $hstoreId = (int)$this->config->get('config_store_id');
+        $hlanguageId = (int)$this->config->get('config_language_id');
+        $heirarhy_data = $this->cache->get('heirarhy.' . $hstoreId . '.' . $hlanguageId);
+        $heirarhy_1level_data = $this->cache->get('heirarhy1.' . $hstoreId . '.' . $hlanguageId);
+        if (!$heirarhy_data) {
 
-        $counter = 0;
-        $this->data['category_1_list'] = '';
-        foreach ($categories_1 as $category_1) {
-            $level_2_data = array();
+            $categories_1 = $this->model_catalog_category->getCategories(0);
 
-            $categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
+            $counter = 0;
+            $this->data['category_1_list'] = '';
+            $heirarhy_data = array();
+            $heirarhy_1level_data='';
+            foreach ($categories_1 as $category_1) {
+                $level_2_data = array();
 
-            foreach ($categories_2 as $category_2) {
-                $level_3_data = array();
+                $categories_2 = $this->model_catalog_category->getCategories($category_1['category_id']);
 
-                $categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
+                foreach ($categories_2 as $category_2) {
+                    $level_3_data = array();
 
-                foreach ($categories_3 as $j=>$category_3) {
-                    $level_3_data[] = array(
-                        'name' => $category_3['name'],
-                        'thumb' => $this->model_tool_image->resize(($category_3['image']=='' ? 'no_image.jpg' : $category_3['image']), 150, 100),
-                        'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'])
+                    $categories_3 = $this->model_catalog_category->getCategories($category_2['category_id']);
+
+                    foreach ($categories_3 as $j=>$category_3) {
+                        $level_3_data[] = array(
+                            'name' => $category_3['name'],
+                            'thumb' => $this->model_tool_image->resize(($category_3['image']=='' ? 'no_image.jpg' : $category_3['image']), 150, 100),
+                            'href' => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'] . '_' . $category_3['category_id'])
+                        );
+                    }
+
+                    // Sort array for menu best view
+                    // First we will show the ones with children
+
+                    $level_2_data[] = array(
+                        'name'     => $category_2['name'],
+                        'desc'     => $category_2['description'],
+                        'children' => $level_3_data,
+                        'thumb' => $this->model_tool_image->resize(($category_2['image']=='' ? 'no_image.jpg' : $category_2['image']), 300, 200),
+                        'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])
                     );
                 }
+                // с 3им уровнем вначале
+                usort($level_2_data, function($a, $b){
+                    if (empty ($a['children']) && empty($b['children']) )
+                        return ;
+                    elseif (!empty($a['children']) && empty($b['children']) )
+                        return -1;
+                    elseif (empty($a['children']) && !empty($b['children']) )
+                        return 1;
+                    elseif (!empty($a['children']) && !empty($b['children']) )
+                        return ;
 
-                // Sort array for menu best view
-                // First we will show the ones with children
+                });
 
-                $level_2_data[] = array(
-                    'name'     => $category_2['name'],
-                    'desc'     => $category_2['description'],
-                    'children' => $level_3_data,
-                    'thumb' => $this->model_tool_image->resize(($category_2['image']=='' ? 'no_image.jpg' : $category_2['image']), 300, 200),
-                    'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'] . '_' . $category_2['category_id'])
+                $heirarhy_data[] = array(
+                    'name'     => $category_1['name'],
+                    'children' => $level_2_data,
+                    'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
                 );
+                // html-вывод 1 уровня
+                $heirarhy_1level_data .= '<a href="#" class="list-group-item '. ($counter?'':'active') . ' text-center">'.$category_1['name'].'</a>';
+                $counter++;
             }
-            // с 3им уровнем вначале
-            usort($level_2_data, function($a, $b){
-                if (empty ($a['children']) && empty($b['children']) )
-                    return ;
-                elseif (!empty($a['children']) && empty($b['children']) )
-                    return -1;
-                elseif (empty($a['children']) && !empty($b['children']) )
-                    return 1;
-                elseif (!empty($a['children']) && !empty($b['children']) )
-                    return ;
-
-            });
-
-            $this->data['categories'][] = array(
-                'name'     => $category_1['name'],
-                'children' => $level_2_data,
-                'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
-            );
-            // html-вывод 1 уровня
-            $this->data['category_1_list'] .= '<a href="#" class="list-group-item '. ($counter?'':'active') . ' text-center">'.$category_1['name'].'</a>';
-            $counter++;
+            $this->cache->set('heirarhy.' . $hstoreId . '.' . $hlanguageId, $heirarhy_data);
+            $this->cache->set('heirarhy1.' . $hstoreId . '.' . $hlanguageId, $heirarhy_1level_data);
         }
+        $this->data['categories'] = $heirarhy_data;
+        $this->data['category_1_list'] = $heirarhy_1level_data;
 
         $this->children = array(
             'module/language',
