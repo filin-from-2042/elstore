@@ -25,7 +25,7 @@
         </div>
     <?php } ?>
     <div id="content" class="<?=$class?>"><?php echo $content_top; ?>
-      <h2><?php echo $heading_title; ?></h2>
+      <h1><?php echo $heading_title; ?></h1>
 
       <?php if ($categories) { ?>
         <div class="row">
