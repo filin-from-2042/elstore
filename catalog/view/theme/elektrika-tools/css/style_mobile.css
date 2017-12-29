@@ -227,6 +227,10 @@
         max-height: 268px;
         max-width: 268px;
     }
+    .led-220-scheme{
+        width: 100%;
+        max-width: 537px;
+    }
     /*********************** PRODUCT CARD **************/
     #default_gallery {
         display: none;
