@@ -2092,6 +2092,9 @@ footer .social a:hover i {
 .category-info .image{
     margin-bottom: 10px;
 }
+.category-info{
+    font-size: 16px;
+}
 .box-subcat li {
     list-style: none;
     margin-bottom: 10px;
