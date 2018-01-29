@@ -178,7 +178,7 @@
             $.ajax({
                 async: false,
                 url: 'index.php?route=checkout/checkout_simple/create_order',
-                data:'telephone='+$('#input-payment-telephone').val()+"&email="+$('#input-payment-email').val()+"&comment="+$('#input-payment-comment').val(),
+                data:'telephone='+$('#input-payment-telephone').val()+"&email="+$('#input-payment-email').val()+"&comment="+$('#input-payment-comment').val()+"&shipping="+$('.shipping-methods li.active a').attr('aria-controls'),
                 type: 'post',
                 context: this,
                 beforeSend:function(){ $('.alert-container').remove()},

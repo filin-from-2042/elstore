@@ -195,7 +195,14 @@ class ControllerCheckoutCheckoutSimple extends Controller {
             $json['error']['email'] = $this->language->get('error_email');
         }else $data['email'] = $this->request->post['email'];
 
-        $data['comment'] = $this->request->post['comment'];
+        $shippingMethod = '';
+        switch($data['shipping']){
+            case 'pickup': $shippingMethod="Самовывоз";break;
+            case 'dellin': $shippingMethod="Деловые линии";break;
+            case 'ruspost': $shippingMethod="Почта России";break;
+
+        }
+        $data['comment'] = $this->request->post['comment']."<br>Доставка:".$shippingMethod;
 
         $data['affiliate_id'] = 0;
         $data['commission'] = 0;
