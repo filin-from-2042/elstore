@@ -46,11 +46,9 @@
                                 <div class="alert alert-info-sub" role="alert">Оставьте комментарий или наименование вашей организации и мы вышлем Вам счет</div>
                             </div>
                         </fildset>
-                    </div>
-                    <div class="col-sm-6">
                         <? if($total) { ?>
                         <div class="cartTotal">
-                            <h2>Итого</h2>
+                            <legend>Итого</legend>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
@@ -61,20 +59,85 @@
                                     </thead>
                                     <tbody>
                                     <?php foreach ($products as $product) { ?>
-                                        <tr>
-                                            <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></td>
-                                            <td class="text-left"><?php echo $product['quantity']; ?></td>
-                                        </tr>
+                                    <tr>
+                                        <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></td>
+                                        <td class="text-left"><?php echo $product['quantity']; ?></td>
+                                    </tr>
                                     <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
-
                             <div class="total pull-right">
                                 <span class="text">Сумма заказа: </span><span class="value" id="total_price_id"><?=$total['text']?></span>
                             </div>
                         </div>
                         <? } ?>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="shipping-methods">
+                            <legend>Доставка</legend>
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-pills" role="tablist">
+                                <li role="presentation" class="active"><a href="#pickup" aria-controls="pickup" role="tab" data-toggle="tab" class="transition-slow"><img class="pickup-black" src="/catalog/view/theme/elektrika-tools/image/pickup-black.png"><img class="pickup-white" src="/catalog/view/theme/elektrika-tools/image/pickup-white.png"><span class="text-delivery">Самовывоз</span></a></li>
+                                <li role="presentation"><a href="#dellin" aria-controls="dellin" role="tab" data-toggle="tab" class="transition-slow"><img src="/catalog/view/theme/elektrika-tools/image/dellin-logo.svg"><span class="text-delivery">Деловые линии</span></a></li>
+                                <li role="presentation" class="rus-post"><a href="#ruspost" aria-controls="ruspost" role="tab" data-toggle="tab" class="transition-slow"><img src="/catalog/view/theme/elektrika-tools/image/ruspost-logo.png"><span class="text-delivery">Почта России</span></a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="pickup">
+                                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2aecac75b358a6d10ac59051e500a2345a3538f1563e36dd85f799fdc16535f9&amp;source=constructor" width="100%" height="390" frameborder="0"></iframe>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="dellin">
+                                    <iframe
+                                            src="https://widgets.dellin.ru/calculator/?group11=disabled&derival_point=7101700100000000000000000&derival_to_door=off&arrival_to_door=on&disabled_calculation=off&insurance=0&package=1"
+                                            width="332"
+                                            height="390"
+                                            scrolling="no"
+                                            frameborder="0">
+                                    </iframe>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="ruspost">
+                                    <div class="row">
+                                        <div class="form-group col-sm-9">
+                                            <label for="name-from">Город</label>
+                                            <input value="Новомосковск" disabled type="text" id="name-from" name="name-from" class="form-control">
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="from">Индекс<span class="required text-danger">*</span></label>
+                                            <input type="text" id="index-from" name="index-from" value="301650" disabled class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-9">
+                                            <label for="to_name">Город</label>
+                                            <div class="form-group to-group">
+                                                <input type="text" id="name-to" name="name-to" class="form-control">
+                                                <div class="tips-list"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="to_index">Индекс<span class="required text-danger">*</span></label>
+                                            <input type="text" id="index-to" name="index-to" class="form-control">
+                                        </div>
+                                    </div><?/*
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                            <label for="declared-value">Объявленная стоимость</label>
+                                            <input type="text" id="declared-value" name="declared-value" class="form-control">
+                                        </div>
+                                    </div>*/?>
+                                    <div class="well cost"></div>
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default" id="calc-pship">Рассчитать</button>
+                                        </div>
+                                    </div>
+                                    <div>*Стоимость доставки ориентировочная. Точную стоимость можно уточнить в отделении транспортной компании</div>
+                                    <div>Наш магазин использует технологию <a href="http://www.postcalc.ru">http://www.postcalc.ru</a></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="alert alert-info" role="alert">После отправки с Вами сразу же свяжется наш специалист по указанному телефонному номеру для уточнения деталей заказа</div>
@@ -95,6 +158,14 @@
 </div>
 <?php echo $footer; ?>
 <script>
+    function selectCityTooltip(name, postcode)
+    {
+        var tipsList = $('#ruspost .tips-list');
+        tipsList.removeClass('filled');
+        tipsList.empty();
+        $('#name-to').val(name);
+        $('#index-to').val(postcode);
+    }
     jQuery(function($) {
 
         function orderNotification (type, msg) {
@@ -120,5 +191,138 @@
                 }
             });
         });
+        $(document).mouseup(function (e) {
+            var $tipsContainer = $('#ruspost .tips-list');
+            $tipsContainer.is(e.target) || 0 !== $tipsContainer.has(e.target).length || $tipsContainer.removeClass('filled');
+        });
+        // поисковой запрос при вводе в строку поиска
+        jQuery('#ruspost input[name=\'name-to\']').on('input',function(e){
+            var stext = $(this).val();
+            var tipsContainer = $('#ruspost .tips-list');
+            tipsContainer.empty();
+            if(stext.length < 2) return;
+            $.ajax({
+                url: 'index.php?route=checkout/checkout_simple/getCities',
+                type: 'POST',
+                data: {city_search_name:stext},
+                success: function(data) {
+                    if(data)
+                    {
+                        data = JSON.parse(data);
+                        for(var city in data)
+                        {
+                            tipsContainer.append('<div class="tip" data-pindex="'+data[city].post_code+'"><div class="city-name">'+data[city].city_name+'</div><div class="region-name">'+data[city].region_name+'</div></div>');
+                        }
+                        tipsContainer.addClass('filled');
+                    }
+                }
+            });
+        });
+
+        // обработка нажатия стрелок вверх,вниз и ввод в поле поиска
+        $('#ruspost input[name=\'name-to\']').on('keydown', function(e) {
+            var tipsList = $('#ruspost .tips-list');
+            var active = tipsList.find('div.tip.active');
+            // up
+            if (e.keyCode == 38) {
+                var nextActive;
+                if(active.length > 0)
+                {
+                    active.removeClass('active');
+                    nextActive = active.prev('div.tip');
+                }else return;
+
+                if(nextActive.length > 0)
+                {
+                    nextActive.addClass('active');
+
+                    var currListScrollTop = tipsList.scrollTop();
+                    var listHeight = tipsList.height();
+                    var actElementOffset = nextActive.position().top;
+
+                    if( actElementOffset < 0 )
+                    {
+                        tipsList.scrollTop(currListScrollTop + actElementOffset);
+                    }
+                }
+            }
+            // down
+            if (e.keyCode == 40) {
+                var nextActive;
+                if(active.length > 0)
+                {
+                    if(active.is(tipsList.find('div.tip:last'))) return;
+                    active.removeClass('active');
+                    nextActive = active.next('div.tip')
+                }else{
+                    nextActive = tipsList.find('div.tip:first')
+                }
+                if(nextActive.length > 0)
+                {
+                    nextActive.addClass('active');
+                }else{
+                    nextActive.next().addClass('active');
+                }
+
+                var currListScrollTop = tipsList.scrollTop();
+                var listHeight = tipsList.height();
+                var actElementOffset = nextActive.position().top;
+
+                if( listHeight <= actElementOffset)
+                {
+                    var diff = actElementOffset -  listHeight
+                    tipsList.scrollTop(diff + currListScrollTop  + nextActive.height());
+                }
+            }
+            // enter
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                if(active.length>0){
+                    selectCityTooltip(active.find('.city-name').text(),active.attr('data-pindex'));
+                }
+            }
+        });
+        $('body').on('click','#ruspost .tips-list .tip',function(e){
+            var $active = $(this);
+            selectCityTooltip($active.find('.city-name').text(),$active.attr('data-pindex'));
+        });
+        $('#ruspost #calc-pship').on('click',function(e){
+            e.preventDefault();
+            var $calcBtn = $('#ruspost #calc-pship');
+            var declaredValue = Number.parseInt($('#ruspost #declared-value').val()) || 0;
+            var indexFrom = $('#ruspost #index-from').val();
+            var $indexTo = $('#ruspost #index-to');
+            var indexTo = $indexTo.val();
+            if(!indexTo || Number.parseInt(indexTo) < 101000){
+                $indexTo.closest('.form-group').addClass('has-error');
+                return;
+            }
+            $indexTo.closest('.form-group').removeClass('has-error');
+            $.ajax({
+                url: 'http://api.postcalc.ru',
+                type: 'POST',
+                dataType: 'jsonp',
+                data: {
+                    st:'elektrika-nmk.ru',
+                    ml:'iosif.dobrynin@yandex.ru',
+                    f:indexFrom,
+                    t:indexTo,
+                    w:500,
+                    v:declaredValue,
+                    o:'json'
+                },
+                beforeSend:function(){
+                    $calcBtn.prepend('<i class="fa fa-spinner fa-spin"></i>');
+                },
+                success: function(data) {
+                    try{
+                        $('#ruspost .cost').html('Стоимость <strong class="price-color">'+data.Отправления.ПростаяБандероль.Доставка+' Рублей</strong>, Срок <strong class="price-color">'+data.Отправления.ПростаяБандероль.СрокДоставки+' Дней</strong>').fadeIn();
+                    }finally{
+                        $calcBtn.find('.fa-spinner').remove();
+                    }
+                }
+            });
+        });
+
     });
 </script>

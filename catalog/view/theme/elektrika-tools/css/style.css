@@ -310,8 +310,20 @@ header a.button-category i,
     -o-transition: all .5s ease-out;
     transition: all .5s ease-out;
 }
+.transition-slow{
+    -webkit-transition:all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
 header #search input,
 .product-layout{
+    -webkit-transition:all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+.transition-fast{
     -webkit-transition:all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
@@ -1653,6 +1665,11 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     .info-blocks .carousel-caption h2 {
         padding: 0;
         font: 600 20px/30px ;
+    }
+}
+@media(max-width: 1200px){
+    .checkout-checkout_simple .shipping-methods .text-delivery{
+        display: none;
     }
 }
 
@@ -3106,6 +3123,122 @@ input#input-voucher,input#input-coupon {
 }
 .checkout-checkout_simple .alert{
     margin-top: 10px;
+}
+.checkout-checkout_simple #content{
+    min-height: 870px;
+}
+.checkout-checkout_simple .shipping-methods .nav,
+.checkout-checkout_simple .shipping-methods .tab-content{
+    /*display: inline-block;*/
+    vertical-align: top;
+}
+.checkout-checkout_simple .shipping-methods .nav{
+    /*width: 38%;*/
+
+}
+.checkout-checkout_simple .shipping-methods .tab-content{
+    /*width: 60%;*/
+}
+.checkout-checkout_simple .shipping-methods .nav li{
+    /*float: none;*/
+    width: 31%;
+}
+.checkout-checkout_simple .shipping-methods .nav li.rus-post{
+    width: 35%;
+}
+.checkout-checkout_simple .shipping-methods .nav a{
+    text-align: center;
+    padding: 10px 5px;
+}
+.checkout-checkout_simple .shipping-methods .tab-content{
+    min-height: 397px;
+    margin-top: 10px;
+}
+.checkout-checkout_simple .shipping-methods .fa-pickup{
+    font-size: 30px;
+    vertical-align: middle;
+}
+.checkout-checkout_simple .shipping-methods  .nav a img{
+    height: 42px;
+}
+.checkout-checkout_simple .shipping-methods .text-delivery{
+    font-size: 16px;
+    padding-left: 5px;
+}
+.checkout-checkout_simple .shipping-methods .tab-content .active {
+    text-align: center;
+}
+.checkout-checkout_simple .shipping-methods .nav-pills>li.active>a{
+    background-color: #333;
+    color: #fff;
+}
+.checkout-checkout_simple .shipping-methods .nav-pills>li>a{
+    border-radius: 0;
+    color: #1c1c1c;
+ }
+.checkout-checkout_simple .shipping-methods .pickup-white{
+    display: none;
+}
+.checkout-checkout_simple .shipping-methods .active .pickup-white{
+    display: inline;
+}
+.checkout-checkout_simple .shipping-methods .active .pickup-black{
+    display: none;
+}
+.checkout-checkout_simple #ruspost .tips-list{
+    display: none;
+    color: #1c1c1c;
+    position: absolute;
+    background: #fff;
+    width: 110%;
+    top: 100%;
+    /*max-height: 400px;*/
+    /*overflow-y: auto;*/
+    text-align: left;
+    z-index: 100;
+}
+.checkout-checkout_simple #ruspost .tips-list .tip:hover,
+.checkout-checkout_simple #ruspost .tips-list .tip:hover .region-name,
+.checkout-checkout_simple #ruspost .tips-list .active,
+.checkout-checkout_simple #ruspost .tips-list .active .city-name,
+.checkout-checkout_simple #ruspost .tips-list .active .region-name{
+    color: #fff;
+    background: #f97001;
+    cursor: pointer;
+}
+.checkout-checkout_simple #ruspost .tips-list .city-name{
+    font-size: 14px;
+    line-height: 14px;
+}
+.checkout-checkout_simple #ruspost .tips-list .region-name{
+    font-size: 12px;
+    color: #999999;
+    line-height: 12px;
+}
+.checkout-checkout_simple #ruspost .tip{
+    padding: 4px 10px;
+    text-align: left;
+}
+.checkout-checkout_simple #ruspost .to-group{
+    position: relative;
+}
+.checkout-checkout_simple #ruspost .cost{
+    display: none;
+    border-radius: 0;
+    font-size: 14px;
+    color:#1c1c1c;
+}
+.checkout-checkout_simple #ruspost .tips-list.filled{
+    display: block;
+}
+.checkout-checkout_simple #ruspost .form-inline{
+    margin-bottom: 15px;
+}
+.checkout-checkout_simple #ruspost #calc-pship .fa-spinner{
+    margin-right: 5px;
+}
+.checkout-checkout_simple .price-color{
+    color: #f97001;
 }
 td .name a {
     font-size: 13px;

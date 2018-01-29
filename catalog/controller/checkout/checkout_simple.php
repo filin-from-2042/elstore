@@ -311,5 +311,18 @@ class ControllerCheckoutCheckoutSimple extends Controller {
 
         $this->response->setOutput(json_encode($json));
     }
+    public function getCities()
+    {
+        $response = array();
+        if (isset($this->request->post['city_search_name'])) {
+            $city_search_name = $this->request->post['city_search_name'];
+        } else {
+            $city_search_name = '';
+        }
+
+        $this->load->model('shipping/cityrus');
+        $data = $this->model_shipping_cityrus->findCity($city_search_name);
+        $this->response->setOutput(json_encode($data));
+    }
 }
 ?>
