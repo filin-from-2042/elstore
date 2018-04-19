@@ -241,7 +241,9 @@
                                 <div class="col-sm-2">
                                     <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control">
                                 </div>
+                                <label class="control-label">(<?php echo $measure; ?>)</label>
                             </div>
+
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                             <button type="button" id="button-cart" data-loading-text="Загрузка..." class="btn btn-add"><i class="fa fa-shopping-cart"></i><span><?php echo $button_cart; ?></span></button>
                         </div>
