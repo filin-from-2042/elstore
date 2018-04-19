@@ -10,6 +10,7 @@
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
 
                         </ol>
 
@@ -17,6 +18,26 @@
                         <div class="carousel-inner" role="listbox">
 
                             <div class="item active">
+                                <a href="https://vk.com/elektrika71" class="general-block-link"></a>
+                                <span class="overlay"></span>
+                                <img src="image/slide1804.jpg" class="img-responsive" alt="...">
+                                <div class="carousel-caption">
+                                    <h2 class="hidden-xs" style="font-size: 30px;">Присоединяйся</h2>
+                                    <p style="font-size: 20px;">и будь в курсе последних новостей, акций, скидок. Ответы на интересующие вопросы и многое другое.</p>
+                                    <p><a href="https://vk.com/elektrika71">Подробнее</a></p>
+                                </div>
+
+                                <div class="more">
+                                    <a href="https://vk.com/elektrika71" class="round-animated-btn big">
+                                            <span class="wrap">
+                                                <span class="content"></span>
+                                            </span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="item">
                                 <a href="/search/?search=%D0%BF%D0%BE%D0%B4%D1%81%D0%B2%D0%B5%D1%82%D0%BA%D0%B0" class="general-block-link"></a>
                                 <span class="overlay"></span>
                                 <img src="image/slide2907.jpg" class="img-responsive" alt="...">
